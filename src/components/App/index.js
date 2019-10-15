@@ -8,6 +8,7 @@ import Navigation from 'src/components/Navigation';
 import Footer from 'src/components/Footer';
 import PageNotFound from 'src/components/PageNotFound';
 import Home from 'src/components/Home';
+import Contact from 'src/components/Contact';
 import Signin from 'src/components/Signin';
 
 // == Composant
