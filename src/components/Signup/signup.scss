@@ -1,0 +1,121 @@
+.signup {
+  width: 750px;
+  height: 500px;
+  border: 1px solid lightgray;
+  margin: auto;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: 4px 2px 20px 0px #bfb3b3;
+  border-radius: 5px;
+
+  &-right {
+    display: flex;
+    width: 50%;
+    background-image: url('https://images.pexels.com/photos/1926988/pexels-photo-1926988.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+    background-position: center;
+
+    &-link {
+      align-self: flex-end;
+      margin: 0 auto;
+      padding-bottom: 30px; 
+      color: #ffffff;
+      font-size: 1.3em;
+      font-weight: bold;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+
+  &-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1em;
+
+    &-field {
+      position: relative;
+
+      &-img {
+        position: absolute;
+        bottom: 7px;
+      }
+    }
+
+    &-title {
+      text-align: center;
+    }
+
+    &-input {
+      border: none;
+      border-bottom: 1px solid gray;
+      width: 100%;
+      padding-left: 30px;
+
+      &:focus {
+        transition: 0.5s;
+        border-bottom: 2px solid lightskyblue;
+      }
+    }
+
+    &-radio {
+      display: inline;
+      margin-right: 2em;
+    }
+
+    &-label {
+      padding-left: 10px; 
+      font-size: 0.8em;
+    }
+
+    &-button {
+      border-radius: 4px;
+      background: linear-gradient(to right, #67b26b, #4ca2cb) !important;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 20px;
+      padding: 10px;
+      width: 150px;
+      transition: all 0.4s;
+      cursor: pointer;
+      margin: 5px;
+      align-self: center;
+
+      &:hover {
+        color: #494949;
+        border-color: #494949;
+        }
+    }
+
+    &-forgot {
+      color: red;
+      text-decoration: underline;
+      text-align: center;
+      font-size: 0.7em;
+
+      &:hover {
+        color: darken($color: red, $amount: 30%)
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .signup {
+    width: 325px;
+
+    &-right {
+      display: none;
+    }
+
+    &-left {
+      width: 100%;
+    }
+  }
+}
