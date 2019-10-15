@@ -6,7 +6,7 @@ import React from 'react';
 
 // == Composant
 const CreateStory = () => (
-  <div>Rejoindre l'aventure</div>
+  <div>Bouya</div>
 );
 
 // == Export

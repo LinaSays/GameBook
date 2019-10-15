@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import './app.scss';
 import Navigation from 'src/components/Navigation';
 import Footer from 'src/components/Footer';
+import CreateStory from 'src/components/CreateStory';
 import PageNotFound from 'src/components/PageNotFound';
 import Home from 'src/components/Home';
 
@@ -16,6 +17,9 @@ const App = () => (
     <Switch>
       <Route exact path="/">
         <Home />
+      </Route>
+      <Route>
+        <CreateStory />
       </Route>
       <Route>
         <PageNotFound />
