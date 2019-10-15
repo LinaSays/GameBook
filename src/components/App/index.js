@@ -10,6 +10,7 @@ import PageNotFound from 'src/components/PageNotFound';
 import Home from 'src/components/Home';
 import Contact from 'src/components/Contact';
 import Signin from 'src/components/Signin';
+import Signup from 'src/components/Signup';
 
 // == Composant
 class App extends React.Component {
@@ -30,10 +31,10 @@ class App extends React.Component {
             <div>Voici notre concept</div>
           </Route>
           <Route path="/contact">
-            <div>Contactez-nous</div>
+            <Contact />
           </Route>
           <Route path="/signup">
-            <div>S'inscrire</div>
+            <Signup />
           </Route>
           <Route path="/signin">
             <Signin />

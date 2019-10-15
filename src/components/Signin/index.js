@@ -13,7 +13,7 @@ const Signin = () => (
     </div>
     <form className="signin-right">
       <h3 className="signin-right-title">Accéder à mon compte</h3>
-      <input type="text" placeholder="Email" className="signin-right-input" />
+      <input type="email" placeholder="Email" className="signin-right-input" />
       <input type="password" placeholder="Mot de passe" className="signin-right-input" />
       <div>
         <input type="checkbox" name="connection" id="connection" />
