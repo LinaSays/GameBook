@@ -16,7 +16,7 @@ const App = () => (
     <Navigation />
     <Switch>
       <Route exact path="/">
-        <Home />
+        {/* <Home /> */}
         <Contact />
       </Route>
       <Route>
