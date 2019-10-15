@@ -8,6 +8,7 @@ import Navigation from 'src/components/Navigation';
 import Footer from 'src/components/Footer';
 import PageNotFound from 'src/components/PageNotFound';
 import Home from 'src/components/Home';
+import Contact from 'src/components/Contact';
 
 // == Composant
 const App = () => (
@@ -16,6 +17,7 @@ const App = () => (
     <Switch>
       <Route exact path="/">
         <Home />
+        <Contact />
       </Route>
       <Route>
         <PageNotFound />

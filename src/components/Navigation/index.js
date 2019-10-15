@@ -22,7 +22,7 @@ const Navigation = () => (
       <Nav className="ml-auto">
         <Nav.Link href="#home">Accueil</Nav.Link>
         <Nav.Link href="#link">Concept</Nav.Link>
-        <Nav.Link href="#link">Contact</Nav.Link>
+        <Nav.Link href="/contact">Contact</Nav.Link>
         <Nav className="ml-5" />
         <Nav.Link href="#home">Inscription</Nav.Link>
         <Nav.Link href="#link">Connexion</Nav.Link>

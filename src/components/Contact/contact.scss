@@ -1,0 +1,54 @@
+.contact {
+  margin: 0 1em;
+}
+
+.contact-form {
+
+  &-title {
+    margin-top: 1em;
+  }
+
+  &-form {
+    width: 900px;
+  }
+
+  &-input {
+    margin-top: 2em;
+  }
+
+  &-input-textarea {
+
+    margin-top: 2em;
+  }
+
+  &-button {
+    float: right;
+  }
+}
+
+span {
+  margin-left: 1em;
+}
+
+
+@media screen and (max-width: 375px) {
+  .contact-form {
+
+    &-form {
+      width: 335px;
+      margin: auto;
+    }
+
+    &-button {
+      margin-right: 1em;
+    }
+  }
+
+  .info {
+    margin-top: 5em;
+  }
+  
+  
+
+  
+}
