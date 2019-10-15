@@ -10,6 +10,7 @@ import PageNotFound from 'src/components/PageNotFound';
 import Home from 'src/components/Home';
 import Contact from 'src/components/Contact';
 import Signin from 'src/components/Signin';
+import Forgotten from 'src/components/Signin/Forgotten';
 import Signup from 'src/components/Signup';
 
 // == Composant
@@ -38,6 +39,9 @@ class App extends React.Component {
           </Route>
           <Route path="/signin">
             <Signin />
+          </Route>
+          <Route path="/forgotten">
+            <Forgotten />
           </Route>
           <Route path="/profile">
             <div>Ma page</div>

@@ -10,10 +10,25 @@ const Signup = () => (
   <div className="signup">
     <form className="signup-left">
       <h3 className="signup-left-title">Commencer l'aventure</h3>
-      <input type="text" placeholder="Nom Prénom" className="signup-left-input" />
-      <input type="email" placeholder="Email" className="signup-left-input" />
-      <input type="password" placeholder="Mot de passe" className="signup-left-input" />
-      <input type="password" placeholder="Confirmer mot de passe" className="signup-left-input" />
+      <div className="signup-left-field">
+        <i className="fas fa-user signup-left-field-img" />
+        <input type="text" placeholder="Nom Prénom" className="signup-left-input" />
+      </div>
+
+      <div className="signup-left-field">
+        <i className="fas fa-envelope signup-left-field-img" />
+        <input type="email" placeholder="Email" className="signup-left-input" />
+      </div>
+
+      <div className="signup-left-field">
+        <i className="fas fa-unlock-alt signup-left-field-img" />
+        <input type="password" placeholder="Mot de passe" className="signup-left-input" />
+      </div>
+
+      <div className="signup-left-field">
+        <i className="fas fa-unlock-alt signup-left-field-img" />
+        <input type="password" placeholder="Confirmer mot de passe" className="signup-left-input" />
+      </div>
       <div>
         <div>Vous êtes ici pour :</div>
         <div className="signup-left-radio">

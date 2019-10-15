@@ -1,5 +1,5 @@
 .signup {
-  width: 650px;
+  width: 750px;
   height: 500px;
   border: 1px solid lightgray;
   margin: auto;
@@ -37,6 +37,15 @@
     justify-content: space-evenly;
     padding: 1em;
 
+    &-field {
+      position: relative;
+
+      &-img {
+        position: absolute;
+        bottom: 7px;
+      }
+    }
+
     &-title {
       text-align: center;
     }
@@ -44,6 +53,8 @@
     &-input {
       border: none;
       border-bottom: 1px solid gray;
+      width: 100%;
+      padding-left: 30px;
 
       &:focus {
         transition: 0.5s;

@@ -1,5 +1,5 @@
 .signin {
-  width: 650px;
+  width: 750px;
   height: 500px;
   border: 1px solid lightgray;
   margin: auto;
@@ -28,6 +28,12 @@
         color: #ffffff;
       }
     }
+
+    &-forgotten_image {
+      width: 50%;
+      background-image: url('https://images.pexels.com/photos/2859169/pexels-photo-2859169.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+      background-position: center;
+    }
   }
 
   &-right {
@@ -37,6 +43,15 @@
     justify-content: space-evenly;
     padding: 1em;
 
+    &-field {
+      position: relative;
+
+      &-img {
+        position: absolute;
+        bottom: 7px;
+      }
+    }
+
     &-title {
       text-align: center;
     }
@@ -44,6 +59,8 @@
     &-input {
       border: none;
       border-bottom: 1px solid gray;
+      width: 100%;
+      padding-left: 30px;
 
       &:focus {
         transition: 0.5s;
@@ -82,6 +99,18 @@
       &:hover {
         color: darken($color: red, $amount: 30%)
       }
+    }
+
+    &-change {
+      color: #fff;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: #ed3330;
+      padding: 20px;
+      border-radius: 5px;
+      display: inline-block;
+      border: none;
+      transition: all 0.4s ease 0s;
     }
   }
 }

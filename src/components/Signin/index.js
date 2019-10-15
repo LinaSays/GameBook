@@ -13,14 +13,23 @@ const Signin = () => (
     </div>
     <form className="signin-right">
       <h3 className="signin-right-title">Accéder à mon compte</h3>
-      <input type="email" placeholder="Email" className="signin-right-input" />
-      <input type="password" placeholder="Mot de passe" className="signin-right-input" />
+
+      <div className="signin-right-field">
+        <i className="fas fa-envelope signin-right-field-img" />
+        <input type="email" placeholder="Email" className="signin-right-input" />
+      </div>
+
+      <div className="signin-right-field">
+        <i className="fas fa-unlock-alt signin-right-field-img" />
+        <input type="password" placeholder="Mot de passe" className="signin-right-input" />
+      </div>
+
       <div>
         <input type="checkbox" name="connection" id="connection" />
         <label className="signin-right-label" for="connection">Remember me</label>
       </div>
       <input type="button" value="Se connecter" className="signin-right-button" />
-      <a href="" className="signin-right-forgot">Mot de passe oublié ?</a>
+      <Link to="/forgotten" className="signin-right-forgot">Mot de passe oublié ?</Link>
     </form>
   </div>
 );
