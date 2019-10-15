@@ -1,0 +1,13 @@
+.nav {
+  color: gray;
+  margin-right: 1em;
+
+  &:hover {
+    color: darken(gray, 20%);
+    text-decoration: none;
+  }
+
+  &-selected {
+    font-weight: 600;
+  }
+}

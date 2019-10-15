@@ -1,12 +1,14 @@
 // == Import : npm
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // == Import : local
-
+import './navigation.scss';
 
 // == Composant
-const Navigation = () => (
+const Navigation = ({ isConnected }) => (
   <Navbar bg="light" expand="lg">
     <Navbar.Brand href="/">
       <img
@@ -19,17 +21,33 @@ const Navigation = () => (
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="ml-auto">
-        <Nav.Link href="#home">Accueil</Nav.Link>
-        <Nav.Link href="#link">Concept</Nav.Link>
-        <Nav.Link href="#link">Contact</Nav.Link>
-        <Nav className="ml-5" />
-        <Nav.Link href="#home">Inscription</Nav.Link>
-        <Nav.Link href="#link">Connexion</Nav.Link>
-      </Nav>
+      {isConnected ? (
+        <Nav className="ml-auto">
+          <NavLink to="/profile" className="nav" activeClassName="nav-selected">Mon compte</NavLink>
+          <NavLink to="/categories" className="nav" activeClassName="nav-selected">Catégories</NavLink>
+          <NavLink to="/about" className="nav" activeClassName="nav-selected">A propos</NavLink>
+          <NavLink to="/contact" className="nav" activeClassName="nav-selected">Contact</NavLink>
+          <Nav className="ml-5" />
+          <NavLink to="/signout" className="nav" activeClassName="nav-selected">Déconnexion</NavLink>
+        </Nav>
+      )
+        : (
+          <Nav className="ml-auto">
+            <NavLink exact to="/" className="nav" activeClassName="nav-selected">Accueil</NavLink>
+            <NavLink to="/concept" className="nav" activeClassName="nav-selected">Concept</NavLink>
+            <NavLink to="/contact" className="nav" activeClassName="nav-selected">Contact</NavLink>
+            <Nav className="ml-5" />
+            <NavLink to="/signup" className="nav" activeClassName="nav-selected">Inscription</NavLink>
+            <NavLink to="/signin" className="nav" activeClassName="nav-selected">Connexion</NavLink>
+          </Nav>
+        )}
     </Navbar.Collapse>
   </Navbar>
 );
+
+Navigation.propTypes = {
+  isConnected: PropTypes.bool.isRequired,
+};
 
 // == Export
 export default Navigation;
