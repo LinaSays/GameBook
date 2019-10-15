@@ -1,0 +1,149 @@
+.footer {
+    //background-color: rgb(110, 221, 255);
+    padding-top: 50px;
+    //border: solid 1px black;
+
+    &-content {
+        //background-color: yellow;
+        margin-bottom: 50px;
+    }
+
+    &-text{
+        font-size: 14px;
+    }
+
+    &-titlelink{
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    &-link {
+        font-size: 16px;
+    }
+
+    &-copyright {
+        background-color: #F6F8F9;
+        padding: 20px;
+        border-top: 1px solid #e7eaee;
+
+        
+        &--text {
+            font-size: 14px;
+            margin:0;
+        }
+
+        &--link {
+            font-size: 14px;
+            margin-left: 10px;
+
+        }
+    }
+}
+
+.col {
+    //background-color: yellow;
+    margin: 0 3px;
+}
+
+
+
+
+
+@media screen and (min-width: 360px) {
+
+    .icon-group {
+        margin-bottom: 20px;
+    }
+    
+    .footer-copyright {
+
+        &--nav{
+            width: 100%;
+        }
+
+        &--link {
+            display: block;
+            text-align: center;
+            margin-bottom: 10px; 
+        }
+
+        &--text {
+            text-align: center;
+            margin: auto;
+        }
+
+    }
+
+    .form {
+        text-align: center;
+
+            &-input {
+            border: 1px solid #cacaca; 
+            height: 30px;
+            
+            }   
+    
+            &-button {
+            border: none;
+            color: white;
+            background-color: blueviolet;
+            font-size: 12px;
+            height: 30px;
+            margin-top: 0;
+            
+            }
+    
+        }
+    
+    }
+
+    @media screen and (min-width: 768px){
+        .form {
+            text-align: initial; 
+        
+                &-button {
+                    margin-top: 5px;
+                
+                }
+        
+            }
+        
+        }
+    
+  
+
+    @media screen and (min-width: 992px) {
+
+        .icon-group {
+            margin-bottom: 20px;
+        }
+    
+        .footer-copyright {
+    
+            &--group {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+    
+            &--nav{
+                width: initial;
+            }
+    
+    
+            &--link {
+                display: inline;
+                text-align: left;
+                margin-bottom: 0; 
+            }
+
+            &--text {
+                text-align: center;
+                margin: 0;
+            }
+    
+        }
+    }
+    
+
+    
