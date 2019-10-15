@@ -1,29 +1,28 @@
 // == Import : npm
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 // == Import : local
-
+import './signin.scss';
 
 // == Composant
 const Signin = () => (
-  <Form>
-    <Form.Group controlId="formBasicEmail">
-      <Form.Label>Email address</Form.Label>
-      <Form.Control type="email" placeholder="Enter email" />
-    </Form.Group>
-
-    <Form.Group controlId="formBasicPassword">
-      <Form.Label>Password</Form.Label>
-      <Form.Control type="password" placeholder="Password" />
-    </Form.Group>
-    <Form.Group controlId="formBasicCheckbox">
-      <Form.Check type="checkbox" label="Check me out" />
-    </Form.Group>
-    <Button variant="success" type="submit">
-      Se connecter
-    </Button>
-  </Form>
+  <div className="signin">
+    <div className="signin-left">
+      <Link to="/signup" className="signin-left-link">Créer un compte</Link>
+    </div>
+    <form className="signin-right">
+      <h3 className="signin-right-title">Accéder à mon compte</h3>
+      <input type="text" placeholder="Email" className="signin-right-input" />
+      <input type="password" placeholder="Mot de passe" className="signin-right-input" />
+      <div>
+        <input type="checkbox" name="connection" id="connection" />
+        <label className="signin-right-label" for="connection">Remember me</label>
+      </div>
+      <input type="button" value="Se connecter" className="signin-right-button" />
+      <a href="" className="signin-right-forgot">Mot de passe oublié ?</a>
+    </form>
+  </div>
 );
 
 
