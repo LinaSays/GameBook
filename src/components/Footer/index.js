@@ -1,6 +1,7 @@
 // == Import : npm
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 // == Import : local
 import './footer.scss';
@@ -26,6 +27,11 @@ const Footer = ({ isConnected }) => (
   </footer>
 
 );
+
+// == Validation props
+Footer.propTypes = {
+  isConnected: PropTypes.bool.isRequired,
+};
 
 // == Export
 export default Footer;
