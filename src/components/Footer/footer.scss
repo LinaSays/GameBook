@@ -42,10 +42,7 @@
     }
 }
 
-.col {
-    margin: 0 3px;
 
-}
 
 
 @media screen and (min-width: 320px) {
@@ -53,6 +50,12 @@
     .icon-group {
         margin-bottom: 20px;
 
+    }
+
+    .col {
+        //margin: 0 3px;
+        padding: 20px;
+    
     }
 
     .footer-text {
@@ -108,7 +111,12 @@
 }
 
 @media screen and (min-width: 768px) {
-
+    .col {
+        //margin: 0 3px;
+        padding: 0 20px;
+    
+    }
+    
     .footer-text {
         text-align: left;
 

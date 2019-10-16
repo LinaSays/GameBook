@@ -1,6 +1,8 @@
 // == Import : npm
 import React from 'react';
 import { Col } from 'react-bootstrap';
+import { Icon } from 'semantic-ui-react';
+import datas from 'src/data/category';
 
 // == Import : local
 
@@ -8,13 +10,19 @@ import { Col } from 'react-bootstrap';
 // == Composant
 const FooterNavLIst = () => (
   <Col>
-    <h5 className="footer-titlelink">Catégories</h5>
+    <h5 className="footer-titlelink">Retrouvez-nous</h5>
+    {/* <ul>
+      {
+        datas.map((data) => {
+          return <li key={data}><a className="footer-link" href="http://">{data}</a></li>
+        })
+      }
+    </ul> */}
     <ul>
-      <li><a className="footer-link" href="http://">Polar</a></li>
-      <li><a className="footer-link" href="http://">Enfants</a></li>
-      <li><a className="footer-link" href="http://">Heroïc Fantasy</a></li>
-      <li><a className="footer-link" href="http://">Science Fiction</a></li>
-      <li><a className="footer-link" href="http://">Horreur</a></li>
+      <li><a className="footer-link" href="http://"><Icon name="facebook f" />Facebook</a></li>
+      <li><a className="footer-link" href="http://"><Icon name="twitter" />Instagram</a></li>
+      <li><a className="footer-link" href="http://"><Icon name="instagram" />Twitter</a></li>
+      <li><a className="footer-link" href="http://"><Icon name="snapchat" />Snapchat</a></li>
     </ul>
   </Col>
 );

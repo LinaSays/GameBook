@@ -6,6 +6,7 @@ import { Container, Row } from 'react-bootstrap';
 import './footer.scss';
 import Presentation from './Presentation';
 import FooterNavList from './FooterNavList';
+import Pages from './Pages';
 import NewsLetter from './NewsLetter';
 import Copyright from './Copyright';
 
@@ -16,7 +17,7 @@ const Footer = () => (
     <Container className="footer-content">
       <Row>
         <Presentation />
-        <FooterNavList />
+        <Pages />
         <FooterNavList />
         <NewsLetter />
       </Row>
