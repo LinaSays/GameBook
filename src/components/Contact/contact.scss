@@ -34,22 +34,62 @@
 }
 
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 800px) {
+  .contact {
+    margin: 0 1em;
+
+    &-form {
+      width: 150%;
+
+      &-title {
+        font-size: 2em;
+      }
+
+      &-form {
+        width: 100%;
+      }
+    }
+
+    &-info {
+      padding-top: 5em;
+      padding-left: 3em;
+      margin: 0;
+      align-self: flex-start;
+    }
+  }
+}
+
+
+@media screen and (max-width: 550px) {
   .contact {
     margin: 0 1em;
     display: block;
 
     &-form {
-      width: 335px;
+      width: 100%;
     }
 
     &-info {
       padding-top: 5em;
+      padding-left: 0;
       margin: 0;
     }
   }
+}
 
-  .image {
-    display: none;
+@media screen and (max-width: 320px) {
+  .contact {
+    margin: 0 1em;
+    display: block;
+
+    &-form {
+      width: 100%;
+    }
+
+    &-info {
+      padding-top: 5em;
+      padding-left: 0;
+      margin: 0;
+    }
   }
 }

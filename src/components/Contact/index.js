@@ -18,12 +18,12 @@ import './contact.scss';
 const Contact = () => (
   <fragment>
     <div className="image">
-      <img src="http://www.estiv-ales.fr/wp-content/uploads/2016/06/banniere-contact.jpg" alt="banniere contact" />
+      <img src="http://www.estiv-ales.fr/wp-content/uploads/2016/06/banniere-contact.jpg" width="100%" alt="banniere contact" />
     </div>
     <div className="contact">
       <div className="contact-form">
         <h1 className="contact-form-title">Nous contacter</h1>
-        <p className="contact-form-desc">Envoyez un message</p>
+        <p className="contact-form-desc">Envoyer un message</p>
         {/* Formulaire pour nous contacter */}
         <Form className="contact-form-form">
           <Form.Group controlId="formBasicPassword">
