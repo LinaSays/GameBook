@@ -117,10 +117,14 @@
 
 @media screen and (max-width: 770px) {
   .signin {
-    width: 325px;
+    width: 375px;
 
     &-left {
       display: none;
+
+      &-forgotten_image {
+        display: none;
+      }
     }
 
     &-right {

@@ -58,7 +58,7 @@ class App extends React.Component {
             <PageNotFound />
           </Route>
         </Switch>
-        <Footer />
+        <Footer isConnected={isConnected} />
       </div>
     );
   }
