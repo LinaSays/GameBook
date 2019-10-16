@@ -1,0 +1,57 @@
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.upload {
+  justify-content: space-around;
+}
+
+label {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+.btn-toolbar {
+  margin-top: 2rem;
+  justify-content: flex-end;
+}
+
+.trash-icon {
+  float: left;
+  margin-top: 1.8rem;
+}
+
+@media all and (max-width:736px) {
+  .custom-button-class {
+    width: 100%;
+    display:block;
+    margin-bottom: 2rem;
+
+    &-delete {
+    width: 100%;
+    display:block;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    }
+  }
+
+  .trash-icon {
+    display:none;
+  }
+}  
+
+@media all and (min-width:737px) {
+  .custom-button-class {
+    margin-left: 2rem;
+    width: 10rem;
+
+    &-delete {
+      display:none;
+    }
+  }  
+}
