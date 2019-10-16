@@ -21,15 +21,37 @@ label {
   justify-content: flex-end;
 }
 
-@media all and (max-width:480px) {
-  .custom-mobile { width: 100%; display:block; margin-bottom: 2rem; }
+.trash-icon {
+  float: left;
+  margin-top: 1.8rem;
+}
+
+@media all and (max-width:736px) {
+  .custom-button-class {
+    width: 100%;
+    display:block;
+    margin-bottom: 2rem;
+
+    &-delete {
+    width: 100%;
+    display:block;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    }
+  }
+
+  .trash-icon {
+    display:none;
+  }
 }  
 
-.custom-button-width {
-	width:150px;
-}
-.custom-input-width {
-	width:150px;
-    margin-right:3px;
-}
+@media all and (min-width:737px) {
+  .custom-button-class {
+    margin-left: 2rem;
+    width: 10rem;
 
+    &-delete {
+      display:none;
+    }
+  }  
+}

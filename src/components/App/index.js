@@ -6,34 +6,15 @@ import { Route, Switch } from 'react-router-dom';
 import './app.scss';
 import Navigation from 'src/components/Navigation';
 import Footer from 'src/components/Footer';
-import CreateStory from 'src/components/CreateStory';
 import PageNotFound from 'src/components/PageNotFound';
 import Home from 'src/components/Home';
 import Contact from 'src/components/Contact';
 import Signin from 'src/components/Signin';
 import Forgotten from 'src/components/Signin/Forgotten';
 import Signup from 'src/components/Signup';
+import Categories from 'src/components/Categories';
 
 // == Composant
-<<<<<<< HEAD
-const App = () => (
-  <div id="app">
-    <Navigation />
-    <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route>
-        <CreateStory />
-      </Route>
-      <Route>
-        <PageNotFound />
-      </Route>
-    </Switch>
-    <Footer />
-  </div>
-);
-=======
 class App extends React.Component {
   state = {
     isConnected: false,
@@ -46,7 +27,8 @@ class App extends React.Component {
         <Navigation isConnected={isConnected} />
         <Switch>
           <Route exact path="/">
-            <Home />
+            { /* <Home /> */ }
+            <Categories />
           </Route>
           <Route path="/concept">
             <div>Voici notre concept</div>
@@ -76,12 +58,11 @@ class App extends React.Component {
             <PageNotFound />
           </Route>
         </Switch>
-        <Footer />
+        <Footer isConnected={isConnected} />
       </div>
     );
   }
 }
->>>>>>> master
 
 // == Export
 export default App;

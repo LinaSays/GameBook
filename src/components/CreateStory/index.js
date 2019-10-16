@@ -10,6 +10,8 @@ import {
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import BootstrapSwitchButton from 'bootstrap-switch-button-react';
 import { FiUpload } from 'react-icons/fi';
+import { IoMdTrash } from 'react-icons/io';
+
 
 // == Import : local
 import './createstory.scss';
@@ -49,15 +51,18 @@ const CreateStory = () => (
             />
           </Form.Group>
         </Form.Row>
+        <Button className="trash-icon" variant="danger">
+          <IoMdTrash />
+        </Button>
         <ButtonToolbar>
-          <Button className="custom-mobile" variant="outline-danger" size="sm">
-            Supprimer
-          </Button>
-          <Button className="custom-mobile" variant="secondary" size="sm">
+          <Button className="custom-button-class" variant="secondary" size="sm">
             Modifier
           </Button>
-          <Button className="custom-mobile" variant="info" size="sm">
+          <Button className="custom-button-class" variant="info" size="sm">
             Sauvegarder
+          </Button>
+          <Button className="custom-button-class-delete" variant="outline-danger" size="sm">
+            Supprimer
           </Button>
         </ButtonToolbar>
       </Form>
