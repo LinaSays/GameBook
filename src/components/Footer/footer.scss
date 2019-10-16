@@ -1,24 +1,25 @@
 .footer {
-    //background-color: rgb(110, 221, 255);
     padding-top: 50px;
-    //border: solid 1px black;
 
     &-content {
-        //background-color: yellow;
         margin-bottom: 50px;
+
     }
 
     &-text{
         font-size: 14px;
+
     }
 
     &-titlelink{
         font-size: 18px;
         font-weight: bold;
+
     }
 
     &-link {
         font-size: 16px;
+
     }
 
     &-copyright {
@@ -30,6 +31,7 @@
         &--text {
             font-size: 14px;
             margin:0;
+
         }
 
         &--link {
@@ -41,109 +43,127 @@
 }
 
 .col {
-    //background-color: yellow;
     margin: 0 3px;
+
 }
 
 
-
-
-
-@media screen and (min-width: 360px) {
+@media screen and (min-width: 320px) {
 
     .icon-group {
         margin-bottom: 20px;
+
+    }
+
+    .footer-text {
+        text-align: justify;
+
     }
     
     .footer-copyright {
 
         &--nav{
             width: 100%;
+
         }
 
         &--link {
             display: block;
             text-align: center;
             margin-bottom: 10px; 
+
         }
 
         &--text {
             text-align: center;
-            margin: auto;
+            margin: 20px auto 0;
+
         }
 
     }
 
     .form {
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        
 
-            &-input {
+        &-input {
             border: 1px solid #cacaca; 
             height: 30px;
-            
-            }   
-    
-            &-button {
+            font-size: 16px;
+        
+        }   
+
+        &-button {
             border: none;
             color: white;
             background-color: blueviolet;
-            font-size: 12px;
+            font-size: 14px;
             height: 30px;
-            margin-top: 0;
-            
-            }
-    
+        
         }
     
     }
+    
+}
 
-    @media screen and (min-width: 768px){
-        .form {
-            text-align: initial; 
+@media screen and (min-width: 768px) {
+
+    .footer-text {
+        text-align: left;
+
+    }
+
+    .form {
+        display: block; 
         
-                &-button {
-                    margin-top: 5px;
+        &-button {
+            margin-top: 5px;
                 
-                }
-        
-            }
-        
         }
+        
+    }
+        
+}
     
   
 
-    @media screen and (min-width: 992px) {
+@media screen and (min-width: 992px) {
 
-        .icon-group {
-            margin-bottom: 20px;
-        }
-    
-        .footer-copyright {
-    
-            &--group {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-    
-            &--nav{
-                width: initial;
-            }
-    
-    
-            &--link {
-                display: inline;
-                text-align: left;
-                margin-bottom: 0; 
-            }
+    .icon-group {
+        margin-bottom: 20px;
 
-            &--text {
-                text-align: center;
-                margin: 0;
-            }
-    
-        }
     }
+
+    .footer-copyright {
+
+        &--group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        &--nav{
+            width: initial;
+
+        }
+
+        &--link {
+            display: inline;
+            text-align: left;
+            
+        }
+
+        &--text {
+            text-align: center;
+            margin: 0;
+
+        }
+
+    }
+
+}
     
 
     
