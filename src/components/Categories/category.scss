@@ -1,10 +1,35 @@
-.card-image-category {
-  height: 350px;
-  border-radius: 3%;
-  box-shadow: 4px 2px 20px 0px #bfb3b3;
-  margin-top: 2em;
+.card {
 
+  &-image-category {
+    max-height: 350px;
+    border-radius: 3%;
+    box-shadow: 4px 2px 20px 0px #bfb3b3;
+    // margin-top: 2em;
+  }
+
+
+  &-text-front {
+    position: absolute;
+    margin-top: 200px;
+    color: #fff;
+    margin-left: 20px;
+
+    &-author {
+      font-size: 0.7em;
+      color: #eee;
+      font-style: italic;
+    }
+    
+  }
+
+  &-text-back {
+    position: absolute;
+    font-size: 0.9em;
+    margin-top: 100px;
+    color: #fff;
+    margin-left: 20px;
+  }
 }
 
-.icon-arrow {
-}
+
+
