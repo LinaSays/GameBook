@@ -12,9 +12,9 @@ import BootstrapSwitchButton from 'bootstrap-switch-button-react';
 import { FiUpload } from 'react-icons/fi';
 import { IoMdTrash } from 'react-icons/io';
 
-
 // == Import : local
 import './createstory.scss';
+import categories from 'src/data/category';
 
 // == Composant
 const CreateStory = () => (
@@ -27,14 +27,12 @@ const CreateStory = () => (
         <Form.Group controlId="ControlTextareaDescription">
           <Form.Control as="textarea" rows="10" placeholder="Ecrivez une description de votre histoire..." />
         </Form.Group>
-        <Form.Group controlId="Form.ControlCatSelect">
+        <Form.Group controlId="formControlCatSelect">
           <Form.Control as="select">
             <option>Choisissez la catégorie de votre histoire...</option>
-            <option>Fantastique</option>
-            <option>Science-fiction</option>
-            <option>Contes</option>
-            <option>Bit-lit</option>
-            <option>Contemporain</option>
+            {
+              categories.map((category) => <option>{category}</option>)
+            }
           </Form.Control>
         </Form.Group>
         <Form.Row className="upload">
