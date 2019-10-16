@@ -1,6 +1,7 @@
 // == Import : npm
 import React from 'react';
 import { Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 // == Import : local
 
@@ -10,15 +11,15 @@ const Pages = () => (
   <Col>
     <h5 className="footer-titlelink">Pages</h5>
     <ul>
-      <li><a className="footer-link" href="http://">Accueil</a></li>
-      <li><a className="footer-link" href="http://">Le concept</a></li>
-      <li><a className="footer-link" href="http://">Contact</a></li>
+      <Link to="/" className="footer-link">Accueil</Link>
+      <Link to="/concept" className="footer-link">Le concept</Link>
+      <Link to="/contact" className="footer-link">Contact</Link>
     </ul>
     {/* <ul>
-      <li><a className="footer-link" href="http://">Mon compte</a></li>
-      <li><a className="footer-link" href="http://">A propos</a></li>
-      <li><a className="footer-link" href="http://">FAQ</a></li>
-      <li><a className="footer-link" href="http://">Contact</a></li>
+      <Link to="/moncompte" className="footer-link">Accueil</Link>
+      <Link to="/concept" className="footer-link">Le concept</Link>
+      <Link to="/faq" className="footer-link">Contact</Link>
+      <Link to="/contact" className="footer-link">Contact</Link>
     </ul> */}
   </Col>
 );
