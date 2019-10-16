@@ -12,7 +12,6 @@ import Contact from 'src/components/Contact';
 import Signin from 'src/components/Signin';
 import Forgotten from 'src/components/Signin/Forgotten';
 import Signup from 'src/components/Signup';
-import Categories from 'src/components/Categories';
 
 // == Composant
 class App extends React.Component {
@@ -27,8 +26,7 @@ class App extends React.Component {
         <Navigation isConnected={isConnected} />
         <Switch>
           <Route exact path="/">
-            { /* <Home /> */ }
-            <Categories />
+            <Home />
           </Route>
           <Route path="/concept">
             <div>Voici notre concept</div>
