@@ -13,6 +13,7 @@ import Signin from 'src/components/Signin';
 import Forgotten from 'src/components/Signin/Forgotten';
 import Signup from 'src/components/Signup';
 import Categories from 'src/components/Categories';
+import CreateStory from 'src/components/CreateStory';
 
 // == Composant
 class App extends React.Component {
@@ -32,6 +33,9 @@ class App extends React.Component {
           </Route>
           <Route path="/concept">
             <div>Voici notre concept</div>
+          </Route>
+          <Route>
+            <CreateStory />
           </Route>
           <Route path="/contact">
             <Contact />
