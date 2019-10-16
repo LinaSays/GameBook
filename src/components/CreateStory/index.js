@@ -31,7 +31,7 @@ const CreateStory = () => (
           <Form.Control as="select">
             <option>Choisissez la catégorie de votre histoire...</option>
             {
-              categories.map((category) => <option>{category}</option>)
+              categories.map((category) => <option key={category}>{category}</option>)
             }
           </Form.Control>
         </Form.Group>

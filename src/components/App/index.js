@@ -34,9 +34,6 @@ class App extends React.Component {
           <Route path="/concept">
             <div>Voici notre concept</div>
           </Route>
-          <Route>
-            <CreateStory />
-          </Route>
           <Route path="/contact">
             <Contact />
           </Route>
