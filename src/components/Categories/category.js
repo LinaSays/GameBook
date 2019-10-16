@@ -19,10 +19,7 @@ const Category = () => (
       flipOnHover={false} // default false
       flipOnClick // default false
       flipDirection="horizontal" // horizontal or vertical
-      style={{ marginTop: '1em' }}
-      // ref={(r) => this.flippy = r} // to use toggle method like this.flippy.toggle()
-      // if you pass isFlipped prop component will be controlled component.
-      // and other props, which will go to div }
+      style={{ marginTop: '1em', borderRadius: '3px' }}
     >
       <FrontSide style={{ padding: '0' }}>
         <div className="card">
@@ -31,7 +28,7 @@ const Category = () => (
             alt=""
             className="card-image-category"
           />
-          <h2 className="card-text-front">Categorie - <span className="card-text-front-author">auteur</span></h2>
+          <h2 className="card-text-front">Titre de l'histoire - <span className="card-text-front-author">auteur</span></h2>
         </div>
       </FrontSide>
       <BackSide style={{ padding: '0' }}>

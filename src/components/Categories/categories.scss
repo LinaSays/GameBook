@@ -1,9 +1,6 @@
-
-
 .image {
   height: 450px;
 }
-
 
 .cards-group {
   // display: flex;
@@ -13,6 +10,11 @@
   margin-right: 1.5em;
 }
 
+.categories-title {
+  font-size: 2em;
+  text-align: center;
+  margin: 2rem 0;
+}
 
 @media screen and (max-width: 750px) {
   .image {

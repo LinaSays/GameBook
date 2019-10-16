@@ -1,4 +1,5 @@
 .card {
+  border-radius: 3%;
 
   &-image-category {
     max-height: 350px;
@@ -30,9 +31,18 @@
 
   &-link {
     position: absolute;
-    margin-top: 280px;
+    margin-top: 15rem;
     color: #fff;
-    margin-left: 400px;
+    margin-left: 25rem;
+
+    &:hover {
+      background-color: #ffffff;
+      color: #000;
+      border-radius: 0.4rem;
+      padding: 0.2rem 0.5rem;
+      transition: .8s;
+      opacity: 0.6;
+    }
   }
 
   &-text-back {
@@ -43,6 +53,7 @@
     margin-left: 20px;
   }
 }
+
 
 
 @media screen and (max-width: 800px) {

@@ -21,13 +21,12 @@ const Categories = () => (
       className="image"
       width="100%"
     />
+    <h1 className="categories-title">Categorie</h1>
     <div className="cards-group">
       <Row>
         <Col><Category /></Col>
         <Col><Category /></Col>
         <Col><Category /></Col>
-      </Row>
-      <Row>
         <Col><Category /></Col>
         <Col><Category /></Col>
         <Col><Category /></Col>
