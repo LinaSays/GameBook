@@ -54,6 +54,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
+    "bootstrap-switch-button-react": "^1.1.0",
     "classnames": "^2.2.6",
     "express": "^4.17.1",
     "flowpoints": "^1.0.15",
