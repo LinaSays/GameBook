@@ -12,13 +12,13 @@ import Copyright from './Copyright';
 
 
 // == Composant
-const Footer = () => (
+const Footer = ({ isConnected }) => (
   <footer className="footer">
     <Container className="footer-content">
       <Row>
-        <Presentation />
-        <Pages />
-        <FooterNavList />
+        <Presentation isConnected={isConnected} />
+        <Pages isConnected={isConnected} />
+        <FooterNavList isConnected={isConnected} />
         <NewsLetter />
       </Row>
     </Container>
