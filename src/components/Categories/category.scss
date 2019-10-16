@@ -19,17 +19,34 @@
       color: #eee;
       font-style: italic;
     }
-    
+  }
+
+  &-title {
+    position: absolute;
+    margin-top: 10px;
+    color: #fff;
+    margin-left: 20px;
+  }
+
+  &-link {
+    position: absolute;
+    margin-top: 280px;
+    color: #fff;
+    margin-left: 400px;
   }
 
   &-text-back {
     position: absolute;
     font-size: 0.9em;
-    margin-top: 100px;
+    margin-top: 60px;
     color: #fff;
     margin-left: 20px;
   }
 }
 
 
-
+@media screen and (max-width: 800px) {
+  .container-flippy{
+    margin-top: 2em;
+  }
+}
