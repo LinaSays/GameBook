@@ -5,40 +5,94 @@ import {
   Button,
   Container,
   ButtonToolbar,
+  Row,
+  Col,
 }
   from 'react-bootstrap';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import BootstrapSwitchButton from 'bootstrap-switch-button-react';
-import { FiUpload } from 'react-icons/fi';
+import Pagination from 'react-bootstrap/Pagination';
+import { FiUpload, FiPenTool, FiGitMerge } from 'react-icons/fi';
 import { IoMdTrash } from 'react-icons/io';
 
 // == Import : local
 import './createchapter.scss';
 
 // == Composant
+let active = 2;
+let items = [];
+for (let number = 1; number <= 5; number++) {
+  items.push(
+    <Pagination.Item key={number} active={number === active}>
+      {number}
+    </Pagination.Item>,
+  );
+}
+
+
 const CreateChapter = () => (
   <Jumbotron fluid>
     <Container>
-      <h1>Bout</h1>
+      <Row className="views-icon">
+
+          <Button variant="dark">
+            <FiPenTool />
+          </Button>
+
+
+          <Button variant="dark">
+            <FiGitMerge />
+          </Button>
+
+      </Row>
+      <Pagination>{items}</Pagination>
       <Form>
-        <Form.Group controlId="formSummaryChapter">
-          <Form.Control type="texte" placeholder="Résumez la situation de ce chapitre" />
+        <Form.Group controlId="formTitleStory">
+          <Form.Control type="texte" placeholder="Résumé la situation de ce chapitre..." />
         </Form.Group>
-        <Form.Group controlId="ControlTextareaSummary">
-          <Form.Control as="textarea" rows="10" placeholder="Ecrivez le corps du texte de ce chapitre" />
+        <Form.Group controlId="ControlTextareaDescription">
+          <Form.Control as="textarea" rows="10" placeholder="Ecrivez le texte de ce chapitre..." />
         </Form.Group>
         <Form.Row className="upload">
           <Form.Group>
-            <Button variant="dark"><FiUpload /> Uploadez l'image de couverture de l'histoire</Button>
+            <Button variant="dark"><FiUpload /> Uploadez l'image de fond pour ce chapitre </Button>
           </Form.Group>
           <Form.Group>
-            <Form.Label classame="publication">Statut</Form.Label>
-            <BootstrapSwitchButton
-              onlabel='Publié'
-              offlabel='Ber'
-              checked={false}
-              width={150}
-            />
+            <Button variant="secondary">Choisir une couleur de fond</Button>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row>
+          <Form.Group controlId="formControlChoiceNumberSelect">
+            <Form.Control as="select">
+              <option>Nombre de choix pour ce chapitre...</option>
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </Form.Control>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row>
+          <Form.Group as={Col} controlId="formTextChoice">
+            <Form.Control placeholder="Ecrivez le texte de ce choix..." />
+          </Form.Group>
+
+          <Form.Group controlId="formControlChoiceNumberSelect">
+            <Form.Control as="select">
+              <option>Rattaché au chapitre...</option>
+              <option>0</option>
+            </Form.Control>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row>
+          <Form.Group as={Col} controlId="formTextChoice">
+            <Form.Control placeholder="Ecrivez le texte de ce choix..." />
+          </Form.Group>
+          <Form.Group controlId="formControlChoiceNumberSelect">
+            <Form.Control as="select">
+              <option>Rattaché au chapitre...</option>
+              <option>0</option>
+            </Form.Control>
           </Form.Group>
         </Form.Row>
         <Button className="trash-icon" variant="danger">
