@@ -1,0 +1,20 @@
+
+
+.image {
+  height: 450px;
+}
+
+
+.cards-group {
+  // display: flex;
+  // justify-content: space-evenly;
+  // width: 100vw;
+  margin-left: 2.5em;
+}
+
+
+@media screen and (max-width: 750px) {
+  .image {
+    height: 200px;
+  }
+}
