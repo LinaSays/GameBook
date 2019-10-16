@@ -1,10 +1,10 @@
 .card {
-  border-radius: 3%;
+  border: 0;
 
   &-image-category {
     max-height: 350px;
-    border-radius: 3%;
-    box-shadow: 4px 2px 20px 0px #bfb3b3;
+    // border-radius: 3%;
+    box-shadow: 4px 2px 20px 0px #9e9494;
     // margin-top: 2em;
   }
 
@@ -31,9 +31,9 @@
 
   &-link {
     position: absolute;
-    margin-top: 15rem;
+    bottom: 1rem;
+    right: 1rem;
     color: #fff;
-    margin-left: 25rem;
 
     &:hover {
       background-color: #ffffff;
