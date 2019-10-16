@@ -19,20 +19,13 @@ import './createchapter.scss';
 const CreateChapter = () => (
   <Jumbotron fluid>
     <Container>
+      <h1>Bout</h1>
       <Form>
-        <Form.Group controlId="formTitleStory">
-          <Form.Control type="texte" placeholder="Titre de votre histoire" />
+        <Form.Group controlId="formSummaryChapter">
+          <Form.Control type="texte" placeholder="Résumez la situation de ce chapitre" />
         </Form.Group>
-        <Form.Group controlId="ControlTextareaDescription">
-          <Form.Control as="textarea" rows="10" placeholder="Ecrivez une description de votre histoire..." />
-        </Form.Group>
-        <Form.Group controlId="formControlCatSelect">
-          <Form.Control as="select">
-            <option>Choisissez la catégorie de votre histoire...</option>
-            {
-              categories.map((category) => <option>{category}</option>)
-            }
-          </Form.Control>
+        <Form.Group controlId="ControlTextareaSummary">
+          <Form.Control as="textarea" rows="10" placeholder="Ecrivez le corps du texte de ce chapitre" />
         </Form.Group>
         <Form.Row className="upload">
           <Form.Group>
@@ -42,7 +35,7 @@ const CreateChapter = () => (
             <Form.Label classame="publication">Statut</Form.Label>
             <BootstrapSwitchButton
               onlabel='Publié'
-              offlabel='Brouillon'
+              offlabel='Ber'
               checked={false}
               width={150}
             />
