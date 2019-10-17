@@ -12,6 +12,10 @@ import Contact from 'src/components/Contact';
 import Signin from 'src/components/Signin';
 import Forgotten from 'src/components/Signin/Forgotten';
 import Signup from 'src/components/Signup';
+import Categories from 'src/components/Categories';
+import CreateStory from 'src/components/CreateStory';
+import Profile from 'src/components/Profile';
+
 // == Composant
 class App extends React.Component {
   state = {
@@ -43,10 +47,16 @@ class App extends React.Component {
             <Forgotten />
           </Route>
           <Route path="/profile">
-            <div>Ma page</div>
+            <Profile />
           </Route>
           <Route path="/categories">
-            <div>Les catégories</div>
+            <div>Home connecté</div>
+          </Route>
+          <Route path="/categories/:id">
+            <Categories />
+          </Route>
+          <Route path="/createstory">
+            <CreateStory />
           </Route>
           <Route path="/about">
             <div>A propos</div>

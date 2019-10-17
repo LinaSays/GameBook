@@ -14,7 +14,7 @@ const Pages = ({ isConnected }) => (
     {
         isConnected ? (
           <ul>
-            <Link to="/moncompte" className="footer-link">Accueil</Link>
+            <Link to="/profile" className="footer-link">Accueil</Link>
             <Link to="/concept" className="footer-link">Le concept</Link>
             <Link to="/faq" className="footer-link">FAQ</Link>
             <Link to="/contact" className="footer-link">Contact</Link>
