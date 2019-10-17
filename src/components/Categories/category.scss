@@ -56,9 +56,9 @@
 }
 .mobile {
   display: none;
-
-
 }
+
+
 
 .toggle {
   position: absolute;
@@ -85,6 +85,12 @@
   .mobile-card-text-front {
     margin-top: 0.7rem;
     text-transform: uppercase;
+  }
+
+  .mobile-card-link {
+    display: block;
+    text-align: right;
+    margin-top: 3rem;
   }
 
   .button-focus:focus {
