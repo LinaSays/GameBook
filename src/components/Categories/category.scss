@@ -3,20 +3,21 @@
 
   &-image-category {
     max-height: 350px;
-    // border-radius: 3%;
     box-shadow: 4px 2px 20px 0px #9e9494;
-    // margin-top: 2em;
   }
 
 
   &-text-front {
     position: absolute;
-    margin-top: 200px;
+    top: 2rem;
     color: #fff;
     margin-left: 20px;
 
     &-author {
-      font-size: 0.7em;
+      position: absolute;
+      bottom: 1rem;
+      left: 1.2rem;
+      font-size: 1em;
       color: #eee;
       font-style: italic;
     }
@@ -24,9 +25,9 @@
 
   &-title {
     position: absolute;
-    margin-top: 10px;
+    top: 1rem;
     color: #fff;
-    margin-left: 20px;
+    left: 1rem;
   }
 
   &-link {
