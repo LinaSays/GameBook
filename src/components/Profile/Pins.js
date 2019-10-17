@@ -6,10 +6,15 @@ import { Badge } from 'react-bootstrap';
 
 // == Composant
 const Pins = () => (
-  <div>
-    <Badge variant="primary">1 livre écrit</Badge><br />
-    <Badge variant="success">10 livres écrit</Badge><br />
-    <Badge variant="danger">5 livres lus</Badge><br />
+  <div className="pins">
+    <div className="pins-info">
+      <img src="https://image.flaticon.com/icons/svg/138/138716.svg" alt="badge1" />
+      <Badge variant="primary">1 livre écrit</Badge><br />
+    </div>
+    <div className="pins-info">
+      <img src="https://image.flaticon.com/icons/svg/138/138714.svg" alt="badge1" />
+      <Badge variant="danger">5 livres lus</Badge><br />
+    </div>
   </div>
 );
 

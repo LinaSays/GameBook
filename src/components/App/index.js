@@ -49,6 +49,9 @@ class App extends React.Component {
           <Route path="/profile">
             <Profile />
           </Route>
+          <Route path="/categories">
+            <div>Home connecté</div>
+          </Route>
           <Route path="/categories/:id">
             <Categories />
           </Route>

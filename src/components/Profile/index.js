@@ -10,6 +10,7 @@ import Change from './Change';
 import Wrote from './Wrote';
 import Read from './Read';
 import Pins from './Pins';
+import Mobile from './Mobile';
 import './profile.scss';
 
 // == Composant
@@ -86,13 +87,16 @@ const Profile = () => {
           <Row>
             <Col><Info /></Col>
           </Row>
-          <Row>
+          <Row className="nav-desktop">
             <Col xs={6} md={4}>
               <Menu />
             </Col>
             <Col>
               Bienvenue
             </Col>
+          </Row>
+          <Row className="nav-mobile">
+            <Col><Mobile /></Col>
           </Row>
         </Container>
       );

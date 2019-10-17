@@ -9,23 +9,23 @@ const Wrote = () => (
   <CardDeck>
     <Card>
       <Card.Img variant="top" src="https://images-na.ssl-images-amazon.com/images/I/51RkD7cTmmL._SX210_.jpg" />
-      <Card.Body>
+      <Card.Body className="menu-wrote">
         <Button variant="warning" size="sm">Modifier</Button>
-        <Button variant="danger" size="sm">Supprimer</Button>
+        <Button variant="danger" size="sm" className="menu-wrote-delete">Supprimer</Button>
       </Card.Body>
     </Card>
     <Card>
       <Card.Img variant="top" src="https://images-na.ssl-images-amazon.com/images/I/51RkD7cTmmL._SX210_.jpg" />
-      <Card.Body>
+      <Card.Body className="menu-wrote">
         <Button variant="warning" size="sm">Modifier</Button>
-        <Button variant="danger" size="sm">Supprimer</Button>
+        <Button variant="danger" size="sm" className="menu-wrote-delete">Supprimer</Button>
       </Card.Body>
     </Card>
     <Card>
       <Card.Img variant="top" src="https://images-na.ssl-images-amazon.com/images/I/51RkD7cTmmL._SX210_.jpg" />
-      <Card.Body>
+      <Card.Body className="menu-wrote">
         <Button variant="warning" size="sm">Modifier</Button>
-        <Button variant="danger" size="sm">Supprimer</Button>
+        <Button variant="danger" size="sm" className="menu-wrote-delete">Supprimer</Button>
       </Card.Body>
     </Card>
   </CardDeck>
