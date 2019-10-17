@@ -9,7 +9,7 @@ import './navigation.scss';
 
 // == Composant
 const Navigation = ({ isConnected }) => (
-  <Navbar bg="light" expand="lg">
+  <Navbar bg="transparent" expand="lg">
     <Navbar.Brand href="/">
       <img
         src="https://ctl.s6img.com/society6/img/5_toqraxaqp6VSlGLQawOADlSGc/w_700/comforters/swatch/~artwork,fw_6005,fh_6001,fx_369,fy_646,iw_5571,ih_4730/s6-original-art-uploads/society6/uploads/misc/bd29582e24d74a26be4aa2e8a1e39008/~~/marmot987068-comforters.jpg"

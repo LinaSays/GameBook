@@ -1,0 +1,70 @@
+.home {
+    background: linear-gradient(-134deg, #C86DD7 0%, #3023AE 100%);
+}
+
+
+@media screen and (min-width:320px){
+
+    .home {
+        background: linear-gradient(-134deg, #C86DD7 0%, #3023AE 100%);
+    }
+
+    .intro {
+        padding: 0 20px 30px;
+
+        &-title {
+            color: white;
+            font-size: 2em;
+            text-align: center;
+
+        }
+
+        &-text {
+            color: white;
+            font-size: .95em;
+            text-align: center;
+            word-spacing: -1px;
+        }
+
+        &-button {
+            color: white;
+            display: block;
+            background-color: transparent;
+            border: 1px white solid;
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin: auto;
+
+        }
+    }
+    
+    .card {
+
+            width: 87%;
+            background-color: black;
+            margin: 50px auto;
+            border-radius: 10px;  
+            padding: 15px;
+            box-shadow: rgb(82, 82, 82) 5px 5px 30px;
+            cursor: pointer;
+            transition: .4s;  
+
+
+            &:hover {
+                transform: scale(1.03)
+            }
+    
+        &-title {
+            color: white;
+            font-size: 1.5em;
+        }
+    
+        &-image {
+            width: 100%;
+           
+            border-radius: 10px; 
+            opacity: .8; 
+        }
+    }
+
+}

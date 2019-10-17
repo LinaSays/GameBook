@@ -1,13 +1,21 @@
 .nav {
-  color: gray;
+  //color: gray;
+  color: white;
   margin-right: 1em;
+  font-size: 16px;
+  transition: .4s;
 
   &:hover {
-    color: darken(gray, 20%);
+    //color: darken(gray, 20%);
     text-decoration: none;
+    color: black;
   }
 
   &-selected {
     font-weight: 600;
+    
   }
 }
+
+
+

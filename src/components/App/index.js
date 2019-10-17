@@ -23,7 +23,7 @@ class App extends React.Component {
     const { isConnected } = this.state;
     return (
       <div id="app">
-        <Navigation isConnected={isConnected} />
+        {/* <Navigation isConnected={isConnected} /> */}
         <Switch>
           <Route exact path="/">
             <Home />
