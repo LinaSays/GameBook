@@ -35,7 +35,8 @@ const Category = () => {
                 alt=""
                 className="card-image-category"
               />
-              <h2 className="card-text-front">Titre de l'histoire - <span className="card-text-front-author">auteur</span></h2>
+              <h2 className="card-text-front">Titre de l'histoire</h2>
+              <h3 className="card-text-front-author">auteur</h3>
             </div>
           </FrontSide>
           <BackSide style={{ padding: '0' }}>
@@ -45,7 +46,7 @@ const Category = () => {
                 alt=""
                 className="card-image-category"
               />
-              <h2 className="card-title">Synopsis</h2>
+              <h2 className="card-title">description</h2>
               <p className="card-text-back">
               Ayant marre de garder vos chèvres, de mouler vos fromages et de passer vos soirées à la taverne du village à écouter les mêmes vieilles histoires tourner en boucle, vous décidez qu’il est temps pour vous de bousculer votre quotidien !
               </p>
@@ -76,6 +77,7 @@ const Category = () => {
             <h2 className="mobile-card-title">description</h2>
           Ayant marre de garder vos chèvres, de mouler vos fromages et de passer vos soirées à la taverne du village à écouter les mêmes vieilles histoires tourner en boucle, vous décidez qu’il est temps pour vous de bousculer votre quotidien ! <br />
             <span className="mobile-card-text-front-author">auteur</span>
+            <a href="#" className="mobile-card-link">C'est parti <FaChevronRight /></a>
           </div>
         </Collapse>
       </div>
