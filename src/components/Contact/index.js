@@ -16,7 +16,7 @@ import './contact.scss';
  * Component
  */
 const Contact = () => (
-  <fragment>
+  <>
     <div className="image">
       <img src="http://www.estiv-ales.fr/wp-content/uploads/2016/06/banniere-contact.jpg" width="100%" alt="banniere contact" />
     </div>
@@ -65,7 +65,7 @@ const Contact = () => (
         </p>
       </div>
     </div>
-  </fragment>
+  </>
 );
 
 

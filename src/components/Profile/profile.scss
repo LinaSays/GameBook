@@ -1,0 +1,60 @@
+.menu {
+  line-height: 2em;
+
+  &-link {
+    color: black;
+
+    &-btn {
+      display: block;
+    }
+
+    &:hover {
+      color: black;
+      text-decoration: none;
+    }
+  }
+
+  &-wrote {
+    display: flex;
+    flex-direction: column;
+
+    &-delete {
+      margin-top: 1em;
+    }
+  }
+}
+
+.info {
+  display: flex;
+
+  &-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  &-text {
+    margin-left: 2em;
+  }
+}
+
+.pins {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  &-info {
+    width: 80px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav-mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .nav-desktop {
+    display: none;
+  }
+}
