@@ -23,13 +23,13 @@ const Categories = () => (
     />
     <h1 className="categories-title">Categorie</h1>
     <div className="cards-group">
-      <Row>
-        <Col><Category /></Col>
-        <Col><Category /></Col>
-        <Col><Category /></Col>
-        <Col><Category /></Col>
-        <Col><Category /></Col>
-        <Col><Category /></Col>
+      <Row className="test1">
+        <Col className="test2"><Category /></Col>
+        <Col className="test2"><Category /></Col>
+        <Col className="test2"><Category /></Col>
+        <Col className="test2"><Category /></Col>
+        <Col className="test2"><Category /></Col>
+        <Col className="test2"><Category /></Col>
       </Row>
     </div>
   </div>
