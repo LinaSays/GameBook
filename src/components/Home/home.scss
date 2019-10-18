@@ -5,16 +5,43 @@
     
 }
 
-// .wave {
-//     width: 100%;
-//     height: 300px;
-//     background: url('./Wave.svg') no-repeat center;
-//     background-size: cover;
-//     position: absolute;
-//     bottom:-80px;
-//     z-index: 0;
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    background-color: green;
+    margin: 30px auto;
+    border-radius: 30px;  
+    box-shadow: rgb(82, 82, 82) 5px 5px 30px;
+    cursor: pointer;
+    transition: .4s;
+    padding: 0;
+    overflow: hidden;
+
+    &:hover {
+        transform: scale(1.03)
+    }
+
+    &-text-content {
+    position: absolute;
+    color: white;
     
-// }
+
+    }
+
+    &-img {
+
+        height: 100%;
+        object-fit: cover;
+        
+        
+    }
+
+}
 
 @media screen and (min-width:320px){
 
@@ -90,35 +117,12 @@
             
         }
     }
-    
+
     .card {
-
-            width: 87%;
-            background-color: black;
-            margin: 50px auto;
-            border-radius: 10px;  
-            padding: 15px;
-            box-shadow: rgb(82, 82, 82) 5px 5px 30px;
-            cursor: pointer;
-            transition: .4s;  
-
-
-            &:hover {
-                transform: scale(1.03)
-            }
-    
-        &-title {
-            color: white;
-            font-size: 1.5em;
-        }
-    
-        &-image {
-            width: 100%;
-            border-radius: 10px; 
-            opacity: .8; 
-            
-        }
+        height: 50vh;
     }
+
+  
 
 }
 
@@ -138,7 +142,7 @@
     .intro {
 
         &-left{
-            padding: 50px;
+            padding: 0 40px;
         }
 
         &-title {
@@ -161,10 +165,14 @@
         }
 
         &-img--image {
-            width: 70%;
+            width: 80%;
             
         }
 
+    }
+
+    .card {
+        height: 70vh;
     }
 
 
@@ -179,22 +187,21 @@
         background-size: cover;
         position: absolute;
         bottom:-130px;
-
         z-index: 0;
-     
 
-        
     }
     .home {
         height: 100vh;
+       
     }
     .intro {
 
         &-content {
             flex-wrap: nowrap;
             //background-color: green;
-            margin-top: 80px;
-            padding: 0 50px;
+            margin-top: 40px;
+            padding: 20px 20px 0;
+            //background-color: green;
         }
 
         &-left{
@@ -231,7 +238,7 @@
         }
 
         &-img--image {
-            width: 120%;
+            width: 130%;
             
         }
 
