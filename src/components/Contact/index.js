@@ -43,8 +43,7 @@ const Contact = () => (
       {/* Information sur comment nous contacter */}
       <div className="contact-info">
         <h1 className="contact-info-title">Information</h1>
-        <hr />
-        <p className="contact-info-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit non quidem temporibus quae tenetur laudantium maiores laborum nostrum id, iure, repellendus quo, expedita accusamus ipsa.</p>
+        <p className="contact-info-text-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit non quidem temporibus quae tenetur laudantium maiores laborum nostrum id, iure, repellendus quo, expedita accusamus ipsa.</p>
         <p className="contact-info-text">
           <FaMapMarkerAlt />
           <span className="contact-info-text-span">

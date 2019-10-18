@@ -8,6 +8,8 @@ import React, { useState } from 'react';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import { FaChevronRight, FaPlayCircle } from 'react-icons/fa';
 import { GiReturnArrow, GiPlainArrow } from 'react-icons/gi';
+import { IoMdArrowDropdownCircle } from 'react-icons/io';
+
 import { Button, Collapse } from 'react-bootstrap';
 
 /*
@@ -67,7 +69,7 @@ const Category = () => {
           variant=""
           style={{ padding: '0', backgroundColor: 'none', border: 'none' }}
         >
-          <div className="mobile-icon-return"><GiPlainArrow /></div>
+          <div className="mobile-icon-return"><IoMdArrowDropdownCircle /></div>
           <img
             src="https://jeromeobiols.com/wordpress/wp-content/uploads/voie-lactee-montagne.jpg"
             alt=""
@@ -80,7 +82,7 @@ const Category = () => {
             <h2 className="mobile-card-title">description</h2>
           Ayant marre de garder vos chèvres, de mouler vos fromages et de passer vos soirées à la taverne du village à écouter les mêmes vieilles histoires tourner en boucle, vous décidez qu’il est temps pour vous de bousculer votre quotidien ! <br />
             <span className="mobile-card-text-front-author">auteur</span>
-            <a href="#" className="mobile-card-link">C'est parti <FaChevronRight /></a>
+            <a href="#" className="mobile-card-link">Commencer <FaPlayCircle /></a>
           </div>
         </Collapse>
       </div>
