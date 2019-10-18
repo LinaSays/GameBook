@@ -6,7 +6,8 @@ import React, { useState } from 'react';
 //   UncontrolledCollapse, Button, CardBody, Card,
 // } from 'reactstrap';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
-import { FaChevronRight, FaChevronDown } from 'react-icons/fa';
+import { FaChevronRight } from 'react-icons/fa';
+import { GiReturnArrow, GiPlainArrow } from 'react-icons/gi';
 import { Button, Collapse } from 'react-bootstrap';
 
 /*
@@ -37,6 +38,7 @@ const Category = () => {
               />
               <h2 className="card-text-front">Titre de l'histoire</h2>
               <h3 className="card-text-front-author">auteur</h3>
+              <div className="card-icon-return"><GiReturnArrow /></div>
             </div>
           </FrontSide>
           <BackSide style={{ padding: '0' }}>
@@ -65,6 +67,7 @@ const Category = () => {
           variant=""
           style={{ padding: '0', backgroundColor: 'none', border: 'none' }}
         >
+          <div className="mobile-icon-return"><GiPlainArrow /></div>
           <img
             src="https://jeromeobiols.com/wordpress/wp-content/uploads/voie-lactee-montagne.jpg"
             alt=""
@@ -83,26 +86,9 @@ const Category = () => {
       </div>
     </div>
   );
-}
+};
 
 /*
  * Export
  */
 export default Category;
-
-// <div className="transition">
-// <Button
-//   onClick={() => setOpen(!open)}
-//   aria-controls="example-collapse-text"
-//   aria-expanded={open}
-// >
-//   click
-// </Button>
-// <Collapse in={open}>
-//   <div id="example-collapse-text">
-//     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-//     terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-//     labore wes anderson cred nesciunt sapiente ea proident.
-//   </div>
-// </Collapse>
-// </div>
