@@ -6,6 +6,15 @@
     box-shadow: 4px 2px 20px 0px #9e9494;
   }
 
+  
+  &-icon-return {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.2em;
+    color: #fff;
+  }
+
 
   &-text-front {
     position: absolute;
@@ -74,6 +83,14 @@
 
   .flippy {
     display: none;
+  }
+
+  .mobile-icon-return {
+    position: absolute;
+    bottom: 3.6rem;
+    left: 1rem;
+    font-size: 1.2em;
+    color: #fff;
   }
 
   .mobile-card-title {
