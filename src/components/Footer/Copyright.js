@@ -1,6 +1,7 @@
 // == Import : npm
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 // == Import : local
 
@@ -15,7 +16,7 @@ const Copyright = () => (
           <a className="footer-copyright--link" href="">Politique de confidentialité</a>
           <a className="footer-copyright--link" href="">Haut de page</a>
         </nav>
-        <p className="footer-copyright--text">&copy; 2019 LeNomDuSite - designed by Team Cypok</p>
+        <p className="footer-copyright--text">&copy; 2019 LeNomDuSite - designed by <Link to="/team">Team Cypok</Link></p>
       </Row>
     </Container>
   </Container>
