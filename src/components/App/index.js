@@ -34,9 +34,6 @@ class App extends React.Component {
           <Route path="/concept">
             <div>Voici notre concept</div>
           </Route>
-          <Route>
-            <CreateStory />
-          </Route>
           <Route path="/contact">
             <Contact />
           </Route>
@@ -51,6 +48,9 @@ class App extends React.Component {
           </Route>
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/categories">
+            <div>Home connecté</div>
           </Route>
           <Route path="/categories/:id">
             <Categories />

@@ -1,5 +1,10 @@
+.image {
+  display: flex;
+  background-size: contain;
+}
+
 .contact {
-  margin: 20rem 2rem 2rem 2rem;
+  margin: 2rem 2rem 2rem 2rem;
   display: flex;
 
   &-form {
@@ -36,7 +41,7 @@
 
 @media screen and (max-width: 800px) {
   .contact {
-    margin: 0 1em;
+    margin: 2rem 2rem 2rem 2rem;
 
     &-form {
       width: 150%;
@@ -62,7 +67,7 @@
 
 @media screen and (max-width: 550px) {
   .contact {
-    margin: 0 1em;
+    margin: 2rem 2rem 2rem 2rem;
     display: block;
 
     &-form {
@@ -79,7 +84,7 @@
 
 @media screen and (max-width: 320px) {
   .contact {
-    margin: 0 1em;
+    margin: 2rem 2rem 2rem 2rem;
     display: block;
 
     &-form {

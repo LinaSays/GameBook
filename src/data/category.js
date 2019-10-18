@@ -1,6 +1,7 @@
 export default [
   'Heroïc Fantasy',
-  'Horreur',
+  'Contes pour enfants',
   'Polar',
   'Science Fiction',
+  'Horreur',
 ];
