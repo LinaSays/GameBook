@@ -19,6 +19,7 @@ body {
   border-radius: 0.2rem;
   padding: 4rem;
   margin-top: 4rem;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
 }
 
 .title {
@@ -114,27 +115,56 @@ label {
   margin-left: 2rem;
 }
 
-@media all and (max-width:375px) {
+@media all and (max-width:629px) {
   .jumbotron {
     padding: 4rem 0.5rem;
   }
-  .custom-button {
-    display: block;
-    width: 100%;
-    margin-top: 2rem;
 
-    &-delete {
-      width: 100%;
-      display:block;
-      margin-top: 4rem;
-      margin-bottom: 2rem;
-    }
+  .container-fluid {
+    padding: 1.2rem;
   }
+
+  .publication {
+    margin-right: 0.5rem;
+    font-weight: 700;
+  }
+
+  .button-bar {
+    display: flex;
+    justify-content: space-between;
+  }  
+  
+  .custom-button {
+    width: 9rem;
+    margin-top: 2rem;
+    margin-left: 0;
+  }
+
   .trash-icon {
     display:none;
 
     &-mobile {
-    float: right;
+    display:block;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    }
+  }
+}
+
+@media all and (max-width:349px) {
+  .button-bar {
+    display:block;
+  }  
+  
+  .custom-button {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .trash-icon {
+    display:none;
+
+    &-mobile {
     display:block;
     margin-top: 4rem;
     margin-bottom: 2rem;

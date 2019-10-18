@@ -1,11 +1,13 @@
 // == Import : npm
 import React from 'react';
 import {
-  Jumbotron, Container, Button, Form, FormGroup, Label, Input, FormFeedback, FormText, CustomInput, Breadcrumb, BreadcrumbItem,
+  Jumbotron, Container, Button, Form, FormGroup, Label,
+  Input, FormFeedback, FormText, CustomInput, Breadcrumb, BreadcrumbItem,
 }
   from 'reactstrap';
 import BootstrapSwitchButton from 'bootstrap-switch-button-react';
-import { IoMdTrash } from 'react-icons/io';
+import { FiTrash, FiEdit3 } from 'react-icons/fi';
+import PropTypes from 'prop-types';
 
 // == Import : local
 import './createstory.scss';
@@ -41,7 +43,7 @@ const CreateStory = () => (
           <FormText>Voyez ceci comme le texte trouvé au dos d'un livre.</FormText>
         </FormGroup>
         <FormGroup>
-          <Label for="categorieSelect">Choisissez le genre de votre histoire..</Label>
+          <Label for="categorieSelect">Choisissez le genre de votre histoire...</Label>
           <Input type="select" name="select" id="categorieSelect">
             {
               categories.map((category) => <option key={category}>{category}</option>)
@@ -50,9 +52,11 @@ const CreateStory = () => (
         </FormGroup>
         <FormGroup>
           <Label for="customCover">Sélectionnez une image de couverture</Label>
-          <CustomInput type="file" name="customFile" id="customCover" label="formats .jpg ou .png" />
+          <CustomInput type="file" name="customFile" id="customCover" label="format .jpg ou .png" />
           <FormFeedback valid>Couverture d'image sélectionné !</FormFeedback>
-          <FormFeedback invalid>Cette image ne répond pas aux formats ou poids autorisés.</FormFeedback>
+          <FormFeedback invalid>
+          Cette image ne répond pas aux formats ou poids autorisés.
+          </FormFeedback>
           <FormText>C'est comme la jaquette de votre livre.</FormText>
         </FormGroup>
         <FormGroup>
@@ -65,19 +69,19 @@ const CreateStory = () => (
           />
         </FormGroup>
         <FormGroup>
-          <Button className="trash-icon" color="danger">
-            <IoMdTrash />
+          <Button className="trash-icon" title="Supprimer l'histoire" color="danger">
+            <FiTrash />
           </Button>
           <div className="button-bar">
-            <Button className="custom-button" color="secondary">
-              Modifier
+            <Button className="custom-button" title="Sauvegarder les changements" color="dark">
+              Mettre à jour
             </Button>
-            <Button className="custom-button" color="dark">
-              Sauvegarder
+            <Button className="custom-button" title="Commencer l'écriture" color="danger">
+              <FiEdit3 /> Commencer
             </Button>
           </div>
-          <Button className="trash-icon-mobile" color="danger">
-            <IoMdTrash />
+          <Button className="trash-icon-mobile" title="Supprimer l'histoire" color="danger">
+            <FiTrash />
           </Button>
         </FormGroup>
       </Form>
@@ -87,3 +91,50 @@ const CreateStory = () => (
 
 // == Export
 export default CreateStory;
+
+Jumbotron.propTypes = {
+  fluid: PropTypes.bool,
+};
+
+Input.propTypes = {
+  type: PropTypes.string,
+  valid: PropTypes.bool,
+  invalid: PropTypes.bool,
+  className: PropTypes.string,
+};
+
+CustomInput.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  type: PropTypes.string.isRequired, // radio, checkbox, select, range, switch, file.
+  label: PropTypes.string, // used for checkbox and radios
+  valid: PropTypes.bool,
+  invalid: PropTypes.bool,
+};
+
+FormFeedback.propTypes = {
+  valid: PropTypes.bool,
+};
+
+Button.propTypes = {
+  active: PropTypes.bool,
+  'aria-label': PropTypes.string,
+  block: PropTypes.bool,
+  color: PropTypes.string, // default: 'secondary'
+  disabled: PropTypes.bool,
+  outline: PropTypes.bool,
+};
+
+Container.propTypes = {
+  fluid: PropTypes.bool,
+};
+
+Breadcrumb.propTypes = {
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  listTag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  'aria-label': PropTypes.string,
+};
+
+BreadcrumbItem.propTypes = {
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  active: PropTypes.bool,
+};
