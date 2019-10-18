@@ -6,8 +6,6 @@ import React from 'react';
 import './home.scss';
 import Intro from './Intro';
 import Card from './Card';
-import Wave from './Wave';
-
 
 
 // == Composant
@@ -15,7 +13,7 @@ const Home = () => (
   <main>
     <div className="home">
       <Intro />
-      <Wave />
+      <div className="wave" />
     </div>
     <div className="content">
       <Card />
