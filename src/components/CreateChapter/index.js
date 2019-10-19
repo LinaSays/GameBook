@@ -6,7 +6,15 @@ import {
 }
   from 'reactstrap';
 import { CirclePicker } from 'react-color';
-import { FiTrash, FiEdit3, FiCornerDownRight, FiGitCommit } from 'react-icons/fi';
+import {
+  FiTrash,
+  FiEdit3,
+  FiCornerDownRight,
+  FiGitCommit,
+  FiEdit,
+  FiShare2,
+}
+  from 'react-icons/fi';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -30,6 +38,16 @@ const CreateChapter = () => (
       <Form>
         <FormGroup>
           <h4>Maintenant il va falloir rédiger une chapitre et les choix qui en découlent.</h4>
+        </FormGroup>
+        <FormGroup>
+          <div className="top-button-bar">
+            <Button className="top-custom-button" title="Formulaire de rédaction" color="secondary">
+              <FiEdit className="top-custom-icon" /> Vue rédaction
+            </Button>
+            <Button className="top-custom-button" title="Vue des connecteurs" color="primary">
+              <FiShare2 className="top-custom-icon"/> Vue architecture
+            </Button>
+          </div>
         </FormGroup>
         <h6>Préparez le texte de votre chapitre</h6>
         <FormGroup>
@@ -57,7 +75,7 @@ const CreateChapter = () => (
         <FormGroup className="numberChoices">
           <Label for="numberChoicesSelect">Nombre de choix de décisions</Label>
           <Input type="select" name="select" id="numberChoicesSelect">
-            <option>0 choix</option>
+            <option>Aucun choix</option>
             <option>1 choix</option>
             <option>2 choix</option>
             <option>3 choix</option>
@@ -90,8 +108,8 @@ const CreateChapter = () => (
           </FormGroup>
           <FormGroup className="choices-fork">
             <FiCornerDownRight className="choices-fork-icon" />
-            <Label for="destination1" className="choices-fork-icon-label">Chapitre de destination</Label>
-            <Input type="select" name="select" id="destination1">
+            <Label for="destination2" className="choices-fork-icon-label">Chapitre de destination</Label>
+            <Input type="select" name="select" id="destination2">
               <option>Choisir un chapitre d'arrivée</option>
               <option>Retour à la taverne</option>
               <option>Direction la forêt</option>
