@@ -53,7 +53,7 @@ const CreateStory = () => (
         <FormGroup>
           <Label for="customCover">Sélectionnez une image de couverture</Label>
           <CustomInput type="file" name="customFile" id="customCover" label="format .jpg ou .png" />
-          <FormFeedback valid>Couverture d'image sélectionné !</FormFeedback>
+          <FormFeedback valid>Couverture d'image sélectionnée !</FormFeedback>
           <FormFeedback invalid>
           Cette image ne répond pas aux formats ou poids autorisés.
           </FormFeedback>
