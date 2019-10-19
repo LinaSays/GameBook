@@ -73,8 +73,44 @@ to   { opacity: 1; }
   margin-top: 2rem;
 }
 
+h6 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 4rem;
+  font-weight: bold;
+  color: darkgray;
+}
+
+.numberChoices {
+  width: 25%;
+}
+
 .choices {
-  margin: 0.5rem 0;
+  margin: 0.5rem 0rem;
+
+  &-label {
+    background: #343a40;
+    width: 10rem;
+    border-radius: 0.2rem;
+    color: white;
+    padding: 0.2rem;
+    font-weight: 600;
+  }
+
+  &-icon {
+    color: yellow;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+  }
+
+  &-fork {
+    margin: 0 0 0 2rem;
+  
+    &-icon {
+      color: red;
+      font-size: 1.5rem;
+    }
+  }
 }
 
 label {
@@ -97,6 +133,14 @@ label {
 
 .publication {
   margin-right: 2rem;
+}
+
+.color-picker {
+  margin-bottom: 2rem;
+}
+
+.legendColor {
+  margin-top: 0.5rem;
 }
 
 .trash-icon {
@@ -165,6 +209,14 @@ label {
     margin-bottom: 1rem;
   }
 
+  .custom-file-label {
+    font-size: 1rem;
+  }
+
+  .breadcrumb {
+    font-size: 0.9rem;
+  }
+
   .trash-icon {
     display:none;
 
@@ -175,71 +227,3 @@ label {
     }
   }
 }
-
-// .views-icon {
-//   margin-bottom: 2rem;
-//   justify-content: center;
-// }
-
-// .pagination {
-//   margin-right:auto;
-//   margin-left:auto;
-// }
-
-// .form-group {
-//   margin-bottom: 2rem;
-// }
-
-// .form-row {
-//   margin-right: 0px;
-//   margin-left: 0px;
-// }
-
-// .upload {
-//   justify-content: space-around;
-// }
-
-// label {
-//   margin-right: 1rem;
-//   font-size: 1.2rem;
-// }
-
-// .btn-toolbar {
-//   margin-top: 2rem;
-//   justify-content: flex-end;
-// }
-
-// .trash-icon {
-//   float: left;
-//   margin-top: 1.8rem;
-// }
-
-// @media all and (max-width:736px) {
-//   .custom-button-class {
-//     width: 100%;
-//     display:block;
-//     margin-bottom: 2rem;
-
-//     &-delete {
-//     width: 100%;
-//     display:block;
-//     margin-top: 2rem;
-//     margin-bottom: 2rem;
-//     }
-//   }
-
-//   .trash-icon {
-//     display:none;
-//   }
-// }  
-
-// @media all and (min-width:737px) {
-//   .custom-button-class {
-//     margin-left: 2rem;
-//     width: 10rem;
-
-//     &-delete {
-//       display:none;
-//     }
-//   }  
-// }
