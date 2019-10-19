@@ -1,9 +1,16 @@
 .nav {
   //color: gray;
-  color: white;
+  color: black;
   margin-right: 1em;
   font-size: 16px;
   transition: .4s;
+
+  &-disco {
+    color: white;
+    margin-right: 1em;
+    font-size: 16px;
+    transition: .4s;
+  }
 
   &:hover {
     //color: darken(gray, 20%);
@@ -15,6 +22,7 @@
     font-weight: 600;
     
   }
+
 }
 
 

@@ -1,8 +1,10 @@
 // == Import : npm
 import React from 'react';
 import { Col } from 'react-bootstrap';
-import { Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import {
+  FaFacebookF, FaTwitter, FaInstagram, FaSnapchatGhost,
+} from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
 
@@ -17,10 +19,10 @@ const Presentation = ({ isConnected }) => (
 
     { isConnected && (
       <div className="icon-group">
-        <Link to="/facebook"><Icon name="facebook f" /></Link>
-        <Link to="/instagram"><Icon name="twitter" /></Link>
-        <Link to="/twitter"><Icon name="instagram" /></Link>
-        <Link to="/snapchat"><Icon name="snapchat" /></Link>
+        <Link to="/facebook"><FaFacebookF color="black" /> </Link>
+        <Link to="/instagram"><FaInstagram color="black" /> </Link>
+        <Link to="/twitter"><FaTwitter color="black" /> </Link>
+        <Link to="/snapchat"><FaSnapchatGhost color="black" /> </Link>
       </div>
     )}
   </Col>

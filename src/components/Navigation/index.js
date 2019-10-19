@@ -9,7 +9,7 @@ import './navigation.scss';
 
 // == Composant
 const Navigation = ({ isConnected }) => (
-  <Navbar bg="transparent" expand="lg">
+  <Navbar bg="transparent" expand="lg" className="navtest">
     <Navbar.Brand href="/">
       <img
         src="https://ctl.s6img.com/society6/img/5_toqraxaqp6VSlGLQawOADlSGc/w_700/comforters/swatch/~artwork,fw_6005,fh_6001,fx_369,fy_646,iw_5571,ih_4730/s6-original-art-uploads/society6/uploads/misc/bd29582e24d74a26be4aa2e8a1e39008/~~/marmot987068-comforters.jpg"
@@ -33,12 +33,12 @@ const Navigation = ({ isConnected }) => (
       )
         : (
           <Nav className="ml-auto">
-            <NavLink exact to="/" className="nav" activeClassName="nav-selected">Accueil</NavLink>
-            <NavLink to="/concept" className="nav" activeClassName="nav-selected">Concept</NavLink>
-            <NavLink to="/contact" className="nav" activeClassName="nav-selected">Contact</NavLink>
+            <NavLink exact to="/" className="nav-disco" activeClassName="nav-selected">Accueil</NavLink>
+            <NavLink to="/concept" className="nav-disco" activeClassName="nav-selected">Concept</NavLink>
+            <NavLink to="/contact" className="nav-disco" activeClassName="nav-selected">Contact</NavLink>
             <Nav className="ml-5" />
-            <NavLink to="/signup" className="nav" activeClassName="nav-selected">Inscription</NavLink>
-            <NavLink to="/signin" className="nav" activeClassName="nav-selected">Connexion</NavLink>
+            <NavLink to="/signup" className="nav-disco" activeClassName="nav-selected">Inscription</NavLink>
+            <NavLink to="/signin" className="nav-disco" activeClassName="nav-selected">Connexion</NavLink>
           </Nav>
         )}
     </Navbar.Collapse>
