@@ -33,11 +33,11 @@ const Signup = () => (
         <div>Vous êtes ici pour :</div>
         <div className="signup-left-radio">
           <input type="radio" id="read" name="choice" value="read" />
-          <label for="read">Lire</label>
+          <label htmlFor="read">Lire</label>
         </div>
         <div className="signup-left-radio">
           <input type="radio" id="write" name="choice" value="write" />
-          <label for="write">Ecrire</label>
+          <label htmlFor="write">Ecrire</label>
         </div>
       </div>
       <div>
