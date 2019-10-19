@@ -150,6 +150,7 @@ label {
     display:block;
     margin-top: 4rem;
     margin-bottom: 2rem;
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2)
     }
   }
 }
@@ -165,6 +166,10 @@ label {
     box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2)
   }
 
+  .custom-file-label {
+    font-size: 1rem;
+  }
+
   .trash-icon {
     display:none;
 
@@ -172,6 +177,7 @@ label {
     display:block;
     margin-top: 4rem;
     margin-bottom: 2rem;
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2)
     }
   }
 }
