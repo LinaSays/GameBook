@@ -73,6 +73,11 @@ to   { opacity: 1; }
   margin-top: 2rem;
 }
 
+.pagination {
+  justify-content: center;
+  margin-top: 4rem;
+}
+
 h6 {
   text-align: center;
   text-transform: uppercase;
@@ -92,6 +97,7 @@ h6 {
 .top-custom-button {
   margin-top: 2rem;
   font-size: 1.5rem;
+  box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2)
 }
 
 .top-custom-icon {
@@ -206,6 +212,7 @@ label {
   .top-custom-button {
     margin-top: 2rem;
     font-size: 1.2rem;
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2);
   }
   
   .top-custom-icon {
@@ -235,6 +242,7 @@ label {
     width: 9rem;
     margin-top: 2rem;
     margin-left: 0;
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1);
   }
 
   .trash-icon {
@@ -244,6 +252,7 @@ label {
     display:block;
     margin-top: 4rem;
     margin-bottom: 2rem;
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1);
     }
   }
 }
@@ -265,6 +274,7 @@ label {
   .top-custom-button {
     margin-top: 2rem;
     font-size: 1.2rem;
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2);
   }
   
   .top-custom-icon {
@@ -279,6 +289,7 @@ label {
   .custom-button {
     width: 100%;
     margin-bottom: 1rem;
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1);
   }
 
   .custom-file-label {
@@ -304,6 +315,7 @@ label {
     display:block;
     margin-top: 4rem;
     margin-bottom: 2rem;
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1);
     }
   }
 }
