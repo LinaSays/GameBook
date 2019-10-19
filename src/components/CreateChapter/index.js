@@ -5,7 +5,6 @@ import {
   Input, FormFeedback, FormText, CustomInput, Breadcrumb, BreadcrumbItem,
 }
   from 'reactstrap';
-import BootstrapSwitchButton from 'bootstrap-switch-button-react';
 import { FiTrash, FiEdit3 } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 
@@ -16,8 +15,8 @@ import './createchapter.scss';
 // == Composant
 const CreateChapter = () => (
   <Jumbotron fluid>
-    <h1 className="title">L'aventure démarre enfin...</h1>
-    <p className="lead">révélez votre talent d'écrivain et prenez en main le destin de vos lecteurs</p>
+    <h1 className="title">Les chapitres s'enchaînent...</h1>
+    <p className="lead">armez-vous de patience et d'organisation pour arriver à bout de votre création</p>
     <Container fluid>
       <div>
         <Breadcrumb tag="nav" listTag="div">
@@ -29,9 +28,33 @@ const CreateChapter = () => (
       </div>
       <Form>
         <FormGroup>
-          <h4>Prenez ici, le temps de configurer de votre histoire</h4>
+          <h4>Maintenant il va falloir rédiger une chapitre et les choix qui en découlent.</h4>
         </FormGroup>
-        
+        <FormGroup>
+          <Label for="customImage">Sélectionnez une image de fond</Label>
+          <CustomInput type="file" name="customFile" id="customImage" label="format .jpg ou .png" />
+          <FormFeedback valid>Image de fond sélectionnée !</FormFeedback>
+          <FormFeedback invalid>
+          Cette image ne répond pas aux formats ou poids autorisés.
+          </FormFeedback>
+          <FormText>Une image de fond pour illustrer votre page/chapitre.</FormText>
+        </FormGroup>
+        <FormGroup>
+          <Button className="trash-icon" title="Supprimer l'histoire" color="danger">
+            <FiTrash />
+          </Button>
+          <div className="button-bar">
+            <Button className="custom-button" title="Sauvegarder les changements" color="dark">
+              Sauvegarder
+            </Button>
+            <Button className="custom-button" title="Commencer l'écriture" color="danger">
+              <FiEdit3 /> Nouveau chapitre
+            </Button>
+          </div>
+          <Button className="trash-icon-mobile" title="Supprimer l'histoire" color="danger">
+            <FiTrash />
+          </Button>
+        </FormGroup>
       </Form>
     </Container>
   </Jumbotron>
