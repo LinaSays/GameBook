@@ -129,6 +129,18 @@
 
     .card {
         height: 50vh;
+
+        &-title {
+            font-size: 1.5em;
+        }
+
+        &-text-content {
+            position: absolute;
+            color: white;
+            bottom: 30px;
+            left: 20px;
+            
+            }
     }
 
   
@@ -182,7 +194,17 @@
 
     .card {
         height: 70vh;
+
+        &-text-content {
+            position: absolute;
+            color: white;
+            bottom: 100px;
+            left: 80px;
+            
+            }
     }
+
+
 
 
 }
