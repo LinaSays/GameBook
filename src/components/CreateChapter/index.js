@@ -5,7 +5,7 @@ import {
   Input, FormFeedback, FormText, CustomInput, Breadcrumb, BreadcrumbItem,
 }
   from 'reactstrap';
-import { FiTrash, FiEdit3 } from 'react-icons/fi';
+import { FiTrash, FiEdit3, FiCornerDownRight } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -39,6 +39,23 @@ const CreateChapter = () => (
           </FormFeedback>
           <FormText>Une image de fond pour illustrer votre page/chapitre.</FormText>
         </FormGroup>
+        <FormGroup className="choices">
+          <Label for="Choice1">Choix 1</Label>
+          <Input type="text" name="choice" id="Choice1" placeholder="Écrivez le texte pour ce choix..." />
+          <FormText>Offrez à votre lecteur une décision à prendre</FormText>
+        </FormGroup>
+        <FormGroup className="choices">
+          <FiCornerDownRight />
+          <Input type="select" name="select" id="exampleSelect" />
+        </FormGroup>
+        <FormGroup className="choices">
+          <Label for="Choice2">Choix 2</Label>
+          <Input type="text" name="choice" id="Choice2" placeholder="Écrivez le texte pour ce choix..." />
+          <FormText>Offrez à votre lecteur une décision à prendre</FormText>
+        </FormGroup>
+        <FormGroup className="choices">
+          <FiCornerDownRight />
+        </FormGroup>
         <FormGroup>
           <Button className="trash-icon" title="Supprimer l'histoire" color="danger">
             <FiTrash />
@@ -47,7 +64,7 @@ const CreateChapter = () => (
             <Button className="custom-button" title="Sauvegarder les changements" color="dark">
               Sauvegarder
             </Button>
-            <Button className="custom-button" title="Commencer l'écriture" color="danger">
+            <Button className="custom-button" title="Écrire la suite" color="danger">
               <FiEdit3 /> Nouveau chapitre
             </Button>
           </div>
