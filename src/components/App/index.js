@@ -15,6 +15,7 @@ import Signup from 'src/components/Signup';
 import Categories from 'src/components/Categories';
 import CreateStory from 'src/components/CreateStory';
 import Profile from 'src/components/Profile';
+import Team from 'src/components/Team';
 
 // == Composant
 class App extends React.Component {
@@ -49,7 +50,7 @@ class App extends React.Component {
           <Route path="/profile">
             <Profile />
           </Route>
-          <Route path="/categories">
+          <Route exact path="/categories">
             <div>Home connecté</div>
           </Route>
           <Route path="/categories/:id">
@@ -60,6 +61,9 @@ class App extends React.Component {
           </Route>
           <Route path="/about">
             <div>A propos</div>
+          </Route>
+          <Route path="/team">
+            <Team />
           </Route>
           <Route>
             <PageNotFound />
