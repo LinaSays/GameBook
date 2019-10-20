@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 // == Import : local
 import './app.scss';
-import Navigation from 'src/components/Navigation';
+// import Navigation from 'src/components/Navigation';
 import Footer from 'src/components/Footer';
 import PageNotFound from 'src/components/PageNotFound';
 import Home from 'src/components/Home';
@@ -20,17 +20,17 @@ import Team from 'src/components/Team';
 // == Composant
 class App extends React.Component {
   state = {
-    isConnected: false,
+    isConnected: true,
   }
 
   render() {
     const { isConnected } = this.state;
     return (
       <div id="app">
-        <Navigation isConnected={isConnected} />
+        {/* <Navigation isConnected={isConnected} /> */}
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home isConnected={isConnected} />
           </Route>
           <Route path="/concept">
             <div>Voici notre concept</div>
