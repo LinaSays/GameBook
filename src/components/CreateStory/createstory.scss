@@ -14,7 +14,7 @@ body {
 
 .container-fluid {
   color: #212529;
-  background-color: #e9ecef;
+  background-color: rgba(233,236,239, .9);
   text-align: left;
   border-radius: 0.2rem;
   padding: 4rem;
@@ -67,6 +67,7 @@ to   { opacity: 1; }
 .breadcrumb {
   padding: 0;
   font-size: 1rem;
+  background-color: transparent;
 }
 
 .form-group {
@@ -113,6 +114,7 @@ label {
   width: 12rem;
   margin-top: 2rem;
   margin-left: 2rem;
+  box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2)
 }
 
 @media all and (max-width:629px) {
@@ -138,6 +140,7 @@ label {
     width: 9rem;
     margin-top: 2rem;
     margin-left: 0;
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2)
   }
 
   .trash-icon {
@@ -147,6 +150,7 @@ label {
     display:block;
     margin-top: 4rem;
     margin-bottom: 2rem;
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2)
     }
   }
 }
@@ -159,6 +163,11 @@ label {
   .custom-button {
     width: 100%;
     margin-bottom: 1rem;
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2)
+  }
+
+  .custom-file-label {
+    font-size: 1rem;
   }
 
   .trash-icon {
@@ -168,6 +177,7 @@ label {
     display:block;
     margin-top: 4rem;
     margin-bottom: 2rem;
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2)
     }
   }
 }
