@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 // == Import : local
 import './home.scss';
-import Navigation from 'src/components/Navigation';
 import Intro from './Intro';
 import Card from './Card';
 
@@ -18,7 +17,6 @@ const Home = ({ isConnected }) => (
     {
       isConnected ? (
         <div className="content">
-          <Navigation isConnected={isConnected} />
           <Card />
           <Card />
           <Card />

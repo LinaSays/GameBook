@@ -10,7 +10,7 @@
     flex-direction: column;
 }
 
-.card {
+.card-story {
     position: relative;
     width: 100%;
     background-color: black; 
@@ -46,7 +46,8 @@
     &-img {
 
         height: 100%;
-        //object-fit: cover;
+        object-fit: cover;
+        width: 100%;
         opacity: .6;
         
         
@@ -59,7 +60,7 @@
     .home {
         background: linear-gradient(-134deg, #C86DD7 0%, #3023AE 100%);
         position: relative;
-        height: 95vh;
+        height: 80vh;
         
     }
 
@@ -127,7 +128,7 @@
         }
     }
 
-    .card {
+    .card-story {
         height: 50vh;
 
         &-title {
@@ -192,7 +193,7 @@
 
     }
 
-    .card {
+    .card-story {
         height: 70vh;
 
         &-text-content {
@@ -230,7 +231,7 @@
         &-content {
             flex-wrap: nowrap;
             //background-color: green;
-            margin-top: 40px;
+            //margin-top: 40px;
             padding: 20px 20px 0;
             //background-color: green;
         }
@@ -276,7 +277,7 @@
     }
 
 
-    .card-text-content {
+    .card-story-text-content {
         position: absolute;
         color: white;
         bottom: 150px;
