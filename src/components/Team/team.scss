@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
 
 .body {
-  background-image: url('../../../public/images/wave.svg');
+  background-image: url('../../../public/images/wave (1).svg');
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -19,6 +19,7 @@
   margin: 3em auto 0;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 5em;
   
   &-info {
     width: 200px;

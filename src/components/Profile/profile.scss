@@ -24,16 +24,20 @@
   }
 }
 
+.jumbotron-info {
+  background: linear-gradient(45deg, rgba(59,33,255,1) 0%, rgba(124,54,255,1) 50%, rgba(225,28,255,1) 100%); /* w3c */
+}
+
 .info {
   display: flex;
 
   &-image {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
   }
 
   &-text {
-    margin-left: 2em;
+    margin: auto;
   }
 }
 

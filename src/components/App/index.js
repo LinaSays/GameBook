@@ -53,6 +53,7 @@ class App extends React.Component {
           </Route>
           <Route path="/categories">
             <Home isConnected={isConnected} />
+          </Route>
           <Route path="/categories/:id">
             <Categories />
           </Route>

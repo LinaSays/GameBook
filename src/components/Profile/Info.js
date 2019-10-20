@@ -1,6 +1,5 @@
 // == Import : npm
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Jumbotron, Container, Image, Badge } from 'react-bootstrap';
 
 // == Import : local
@@ -8,7 +7,7 @@ import user from 'src/data/user';
 
 // == Composant
 const Info = () => (
-  <Jumbotron>
+  <Jumbotron className="jumbotron-info">
     <Container className="info">
       <Image src={user.avatar} roundedCircle className="info-image" />
       <div className="info-text">
