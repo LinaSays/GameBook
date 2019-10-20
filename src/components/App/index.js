@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 // == Import : local
 import './app.scss';
-import Navigation from 'src/components/Navigation';
+// import Navigation from 'src/components/Navigation';
 import Footer from 'src/components/Footer';
 import PageNotFound from 'src/components/PageNotFound';
 import Home from 'src/components/Home';
@@ -16,21 +16,22 @@ import Categories from 'src/components/Categories';
 import CreateStory from 'src/components/CreateStory';
 import CreateChapter from 'src/components/CreateChapter';
 import Profile from 'src/components/Profile';
+import Team from 'src/components/Team';
 
 // == Composant
 class App extends React.Component {
   state = {
-    isConnected: false,
+    isConnected: true,
   }
 
   render() {
     const { isConnected } = this.state;
     return (
       <div id="app">
-        <Navigation isConnected={isConnected} />
+        {/* <Navigation isConnected={isConnected} /> */}
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home isConnected={isConnected} />
           </Route>
           <Route path="/concept">
             <div>Voici notre concept</div>
@@ -50,6 +51,9 @@ class App extends React.Component {
           <Route path="/profile">
             <Profile />
           </Route>
+          <Route exact path="/categories">
+            <div>Home connecté</div>
+          </Route>
           <Route path="/categories/:id">
             <Categories />
           </Route>
@@ -61,6 +65,9 @@ class App extends React.Component {
           </Route>
           <Route path="/about">
             <div>A propos</div>
+          </Route>
+          <Route path="/team">
+            <Team />
           </Route>
           <Route>
             <PageNotFound />

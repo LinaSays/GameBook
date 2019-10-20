@@ -1,9 +1,11 @@
 // == Import : npm
 import React from 'react';
 import { Col } from 'react-bootstrap';
-import { Icon } from 'semantic-ui-react';
 import datas from 'src/data/category';
 import { Link } from 'react-router-dom';
+import {
+  FaFacebookF, FaTwitter, FaInstagram, FaSnapchatGhost,
+} from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -28,10 +30,10 @@ const FooterNavList = ({ isConnected }) => (
          <>
            <h5 className="footer-titlelink">Retrouvez-nous</h5>
            <ul>
-             <Link to="/facebook" className="footer-link"><Icon name="facebook f" />Facebook</Link>
-             <Link to="/instagram" className="footer-link"><Icon name="twitter" />Twitter</Link>
-             <Link to="/twitter" className="footer-link"><Icon name="instagram" />Instagram</Link>
-             <Link to="/snapchat" className="footer-link"><Icon name="snapchat" />Snapchat</Link>
+             <Link to="/facebook" className="footer-link"><FaFacebookF /> Facebook</Link>
+             <Link to="/instagram" className="footer-link"><FaTwitter /> Twitter</Link>
+             <Link to="/twitter" className="footer-link"><FaInstagram /> Instagram</Link>
+             <Link to="/snapchat" className="footer-link"><FaSnapchatGhost /> Snapchat</Link>
            </ul>
          </>
        )

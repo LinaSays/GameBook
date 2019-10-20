@@ -26,7 +26,7 @@ const Signin = () => (
 
       <div>
         <input type="checkbox" name="connection" id="connection" />
-        <label className="signin-right-label" for="connection">Remember me</label>
+        <label className="signin-right-label" htmlFor="connection">Remember me</label>
       </div>
       <input type="button" value="Se connecter" className="signin-right-button" />
       <Link to="/forgotten" className="signin-right-forgot">Mot de passe oublié ?</Link>

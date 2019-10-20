@@ -1,0 +1,289 @@
+.home {
+    background: linear-gradient(-134deg, #C86DD7 0%, #3023AE 100%);
+    position: relative;
+    //width: 70%;
+    
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    background-color: black; 
+    margin: 30px auto;
+    border-radius: 30px;  
+    box-shadow: rgb(82, 82, 82) 5px 5px 30px;
+    cursor: pointer;
+    transition: .4s;
+    padding: 0;
+    overflow: hidden;
+    
+
+   
+    &-title {
+        font-family: sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: .4s;
+
+        &:hover {
+            transform: scale(1.03)
+        }
+    
+    }
+
+    &-link {
+        color: white;
+        font-size: .9em;
+
+    }
+
+
+    &-img {
+
+        height: 100%;
+        //object-fit: cover;
+        opacity: .6;
+        
+        
+    }
+
+}
+
+@media screen and (min-width:320px){
+
+    .home {
+        background: linear-gradient(-134deg, #C86DD7 0%, #3023AE 100%);
+        position: relative;
+        height: 95vh;
+        
+    }
+
+    .wave {
+        width: 100%;
+        height: 200px;
+        background: url('./Wave.svg') no-repeat center;
+        background-size: cover;
+        position: absolute;
+        bottom:-80px;
+        z-index: 0;
+     
+    }
+    
+   
+    .intro {
+        padding: 0 20px 30px;
+        
+
+        &-content {
+            display: flex;
+            position: relative;
+            flex-wrap: wrap-reverse;
+            z-index: 1;
+        }
+    
+
+        &-title {
+            color: white;
+            font-size: 1.5em;
+            text-align: center;
+            font-weight: bold;
+
+        }
+
+        &-text {
+            color: white;
+            font-size: .8em;
+            text-align: center;
+            word-spacing: -1px;
+        }
+
+        &-button {
+            color: white;
+            display: block;
+            background-color: transparent;
+            border: 1px white solid;
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin: auto;
+            font-size: .9em;
+            transition: .3s;
+
+            &:hover {
+                background-color: #fc5c42;
+                border: 1px #fc5c42 solid;
+            }
+
+
+        }
+
+        &-img--image {
+            width: 100%;
+            
+        }
+    }
+
+    .card {
+        height: 50vh;
+
+        &-title {
+            font-size: 1.5em;
+        }
+
+        &-text-content {
+            position: absolute;
+            color: white;
+            bottom: 30px;
+            left: 20px;
+            
+            }
+    }
+
+  
+
+}
+
+@media screen and (min-width: 768px) {
+
+    .home {
+        background: linear-gradient(-134deg, #C86DD7 0%, #3023AE 100%);
+        position: relative;
+        height: 800px;
+        
+    }
+
+    .wave {
+        height: 250px;
+        
+    }
+    .intro {
+
+        &-left{
+            padding: 0 40px;
+        }
+
+        &-title {
+            color: white;
+            font-size: 2em;
+            text-align: left;
+
+        }
+
+        &-text {
+            color: white;
+            font-size: .95em;
+            text-align: left;
+            word-spacing: -1px;
+        }
+
+        &-img {
+            margin: auto;
+            text-align: center;
+        }
+
+        &-img--image {
+            width: 80%;
+            
+        }
+
+    }
+
+    .card {
+        height: 70vh;
+
+        &-text-content {
+            position: absolute;
+            color: white;
+            bottom: 100px;
+            left: 80px;
+            
+            }
+    }
+
+
+
+
+}
+
+
+@media screen and (min-width: 992px) {
+    .wave {
+        width: 100%;
+        height: 500px;
+        background: url('./Wave.svg') no-repeat center;
+        background-size: cover;
+        position: absolute;
+        bottom:-130px;
+        z-index: 0;
+
+    }
+    .home {
+        height: 100vh;
+       
+    }
+    .intro {
+
+        &-content {
+            flex-wrap: nowrap;
+            //background-color: green;
+            margin-top: 40px;
+            padding: 20px 20px 0;
+            //background-color: green;
+        }
+
+        &-left{
+            padding: 0;
+            width: 50%;
+        }
+
+        &-title {
+            color: white;
+            font-size: 2em;
+            text-align: left;
+
+        }
+
+        &-text {
+            color: white;
+            font-size: .9em;
+            text-align: left;
+            word-spacing: -1px;
+
+        }
+
+        &-button {
+            margin: inherit;
+            font-size: .9em;
+        }
+
+        &-img {
+            margin: auto;
+            text-align: center;
+            //background-color: red;
+            width: 50%;
+            
+        }
+
+        &-img--image {
+            width: 130%;
+            
+        }
+
+    }
+
+
+    .card-text-content {
+        position: absolute;
+        color: white;
+        bottom: 150px;
+        left: 80px;
+        
+    
+        }
+    
+
+}

@@ -1,23 +1,32 @@
-.image {
-  height: 450px;
-}
 
-.cards-group {
-  // display: flex;
-  // justify-content: space-evenly;
-  // width: 100vw;
-  margin-left: 1.5em;
-  margin-right: 1.5em;
-}
+  .image {
+    height: 450px;
+  }
+  
+  .cards-group {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
+  
+  .categories-title {
+    font-size: 2em;
+    text-align: center;
+    margin: 2rem 0;
+  }
 
-.categories-title {
-  font-size: 2em;
-  text-align: center;
-  margin: 2rem 0;
-}
+
 
 @media screen and (max-width: 750px) {
   .image {
     height: 200px;
+  }
+
+  .test1 {
+    display: block;
+  
+  }
+
+  .test2 {
+    padding: 0;
   }
 }
