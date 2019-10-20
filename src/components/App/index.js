@@ -47,7 +47,7 @@ class App extends React.Component {
             <div>Ma page</div>
           </Route>
           <Route path="/categories">
-            <div>Les catégories</div>
+            <Home isConnected={isConnected} />
           </Route>
           <Route path="/about">
             <div>A propos</div>
