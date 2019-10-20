@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import './home.scss';
 import Intro from './Intro';
 import Card from './Card';
+import CardCategory from './CardCategory';
 
 
 
@@ -17,9 +18,9 @@ const Home = ({ isConnected }) => (
     {
       isConnected ? (
         <div className="content">
-          <Card />
-          <Card />
-          <Card />
+          <CardCategory />
+          <CardCategory />
+          <CardCategory />
         </div>
       ) : (
         <>
