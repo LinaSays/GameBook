@@ -1,9 +1,14 @@
+.image {
+  display: flex;
+  background-size: contain;
+}
+
 .contact {
-  margin: 0 2em;
+  margin: 2rem;
   display: flex;
 
   &-form {
-    width: 80%;
+    width: 100%;
 
     &-title {
       margin-top: 1em;
@@ -23,9 +28,15 @@
   }
 
   &-info {
-    align-self: center;
-    // 
+    align-self: start;
     margin-left: 1.5em;
+    width: 100%;
+
+    &-text-1 {
+      margin-top: 4.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e1e1e1;
+    }
 
     &-text-span {
       margin-left: 1em;
@@ -34,12 +45,12 @@
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   .contact {
-    margin: 0 1em;
+    margin: 2rem;
 
     &-form {
-      width: 150%;
+      width: 100%;
 
       &-title {
         font-size: 2em;
@@ -50,11 +61,16 @@
       }
     }
 
-    &-info {
-      padding-top: 5em;
-      padding-left: 3em;
+    &-info-text {
+      padding-top: 1rem;
       margin: 0;
       align-self: flex-start;
+
+      &-1 {
+        padding-top: 1rem;
+        margin-top: 3.5rem;
+        border-top: 1px solid #e1e1e1;
+      }
     }
   }
 }
@@ -62,24 +78,31 @@
 
 @media screen and (max-width: 550px) {
   .contact {
-    margin: 0 1em;
-    display: block;
+    margin: 2rem;
+    flex-direction: column-reverse;
 
     &-form {
       width: 100%;
+
+      &-title {
+        padding-top: 4rem;
+      }
     }
 
     &-info {
-      padding-top: 5em;
       padding-left: 0;
       margin: 0;
+
+      &-text-1 {
+        margin: 2rem 0;
+      }
     }
   }
 }
 
 @media screen and (max-width: 320px) {
   .contact {
-    margin: 0 1em;
+    margin: 2rem;
     display: block;
 
     &-form {

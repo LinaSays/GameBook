@@ -1,0 +1,140 @@
+.card {
+  border: 0;
+
+  &-image-category {
+    max-height: 350px;
+    box-shadow: 4px 2px 20px 0px #9e9494;
+  }
+
+  
+  &-icon-return {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1em;
+    color: #fff;
+  }
+
+
+  &-text-front {
+    position: absolute;
+    top: 2rem;
+    color: #fff;
+    margin-left: 20px;
+
+    &-author {
+      position: absolute;
+      bottom: 1rem;
+      left: 1.2rem;
+      font-size: 1em;
+      color: #eee;
+      font-style: italic;
+    }
+  }
+
+  &-title {
+    position: absolute;
+    top: 1rem;
+    color: #fff;
+    left: 1rem;
+  }
+
+  &-link {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.8rem;
+    font-size: 1.4em;
+    color: #fff;
+
+    &:hover {
+      background-color: #ffffff;
+      color: #000;
+      border-radius: 0.4rem;
+      padding: 0.2rem 0.5rem;
+      transition: .8s;
+      opacity: 0.6;
+    }
+  }
+
+  &-text-back {
+    position: absolute;
+    font-size: 0.9em;
+    margin-top: 60px;
+    color: #fff;
+    margin-left: 20px;
+  }
+}
+.mobile {
+  display: none;
+}
+
+
+
+.toggle {
+  position: absolute;
+  color: red;
+  bottom: 0;
+  left: 45%;
+}
+
+@media screen and (max-width: 751px) {
+  .container-flippy{
+    margin-top: 2em;
+  }
+
+  .flippy {
+    display: none;
+  }
+
+  .mobile-icon-return {
+    position: absolute;
+    bottom: 2.1rem;
+    left: 47%;
+    font-size: 3.3em;
+    color: #fff;
+  }
+
+  .mobile-card-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+  }
+
+  .mobile-card-text-front {
+    margin-top: 0.7rem;
+    text-transform: uppercase;
+  }
+
+  .mobile-card-link {
+    display: block;
+    text-align: right;
+    margin-top: 3rem;
+    font-size: 1.4em;
+    margin-right: 0.4rem;
+  }
+
+  .button-focus:focus {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0)
+  }
+
+  .mobile-card-text-front-author {
+    float: right;
+    margin-right: 0.3rem;
+    font-style: italic;
+  }
+
+  .mobile-card-text {
+    padding: 1rem 0 0 0.5rem;
+    font-size: 1.2em;
+    margin-bottom: 5rem;
+  }
+
+  .mobile {
+    display: block;
+    flex-direction: column;
+
+    &-card-image-category {
+      width: 100%;
+    }
+  }
+}
