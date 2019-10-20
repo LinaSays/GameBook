@@ -4,13 +4,11 @@ import React from 'react';
 
 // == Import : local
 import './home.scss';
-import Navigation from 'src/components/Navigation';
 
 
 // == Composant
 const Intro = () => (
   <div className="intro container">
-    <Navigation />
     <div className="intro-content">
       <div className="intro-left">
         <h1 className="intro-title">L'aventure dont vous êtes le héros!</h1>
