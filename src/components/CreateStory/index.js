@@ -15,7 +15,7 @@ import categories from 'src/data/category';
 
 // == Composant
 const CreateStory = () => (
-  <Jumbotron fluid>
+  <Jumbotron fluid className="create-story">
     <h1 className="title">L'aventure démarre enfin...</h1>
     <p className="lead">révélez votre talent d'écrivain et prenez en main le destin de vos lecteurs</p>
     <Container fluid>
@@ -32,7 +32,7 @@ const CreateStory = () => (
         </FormGroup>
         <FormGroup>
           <Label for="storyTitle">Titre</Label>
-          <Input type="text" name="title" id="storyTitle" placeholder="Titre de votre histoire..." />
+          <Input type="text" name="title" id="storyTitle" autocomplete="off" placeholder="Titre de votre histoire..." required />
           <FormFeedback valid>Ce titre est disponible !</FormFeedback>
           <FormFeedback invalid>Ce titre n'est malheureusement pas disponible.</FormFeedback>
           <FormText>Votre titre doit donner envie de lire vos écrits.</FormText>
