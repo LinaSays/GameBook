@@ -17,18 +17,19 @@ import CreateStory from 'src/components/CreateStory';
 import CreateChapter from 'src/components/CreateChapter';
 import Profile from 'src/components/Profile';
 import Team from 'src/components/Team';
+import StartStory from 'src/components/StartStory';
 
 // == Composant
 class App extends React.Component {
   state = {
-    isConnected: false,
+    isConnected: true,
   }
 
   render() {
     const { isConnected } = this.state;
     return (
       <div id="app">
-        <Navigation isConnected={isConnected} />
+        {/* <Navigation isConnected={isConnected} /> */}
         <Switch>
           <Route exact path="/">
             <Home isConnected={isConnected} />
@@ -63,6 +64,9 @@ class App extends React.Component {
           <Route path="/createchapter">
             <CreateChapter />
           </Route>
+          <Route path="/startstory">
+            <StartStory />
+          </Route>
           <Route path="/about">
             <div>A propos</div>
           </Route>
@@ -73,7 +77,7 @@ class App extends React.Component {
             <PageNotFound />
           </Route>
         </Switch>
-        <Footer isConnected={isConnected} />
+        {/* <Footer isConnected={isConnected} /> */}
       </div>
     );
   }
