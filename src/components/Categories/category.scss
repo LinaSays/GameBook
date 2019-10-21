@@ -41,9 +41,10 @@
 
   &-link {
     position: absolute;
+    font-style: italic;
     bottom: 1rem;
     right: 1.8rem;
-    font-size: 1.4em;
+    font-size: 1em;
     color: #fff;
 
     &:hover {
@@ -70,6 +71,7 @@
 
 
 
+
 .toggle {
   position: absolute;
   color: red;
@@ -79,20 +81,32 @@
 
 @media screen and (max-width: 751px) {
   .container-flippy{
-    margin-top: 2em;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
   }
+
 
   .flippy {
     display: none;
   }
 
   .mobile-icon-return {
-    position: absolute;
-    bottom: 2.1rem;
-    left: 47%;
+    // position: absolute;
+    // bottom: 2.1rem;
+    // left: calc((100% / 2) - 26.4px );
     font-size: 3.3em;
     color: #fff;
+    transition: all .3s linear;
+    
   }
+
+  .mobile-icon-return:hover {
+    // animation: rotation .3s ease-in;
+    transform: rotate(-180deg);
+    margin-top: 1rem;
+  }
+
 
   .mobile-card-title {
     margin-bottom: 0.5rem;
@@ -107,9 +121,10 @@
 
   .mobile-card-link {
     display: block;
+    font-style: italic;
     text-align: right;
     margin-top: 3rem;
-    font-size: 1.4em;
+    font-size: 1.2em;
     margin-right: 0.4rem;
   }
 
@@ -130,11 +145,13 @@
   }
 
   .mobile {
-    display: block;
+    display: flex;
     flex-direction: column;
 
     &-card-image-category {
       width: 100%;
+      margin-bottom: -65px;
     }
   }
 }
+
