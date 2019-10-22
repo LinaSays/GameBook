@@ -12,13 +12,13 @@ body {
   background-size: cover;
 }
 
-.container-fluid {
+.container-box {
   color: #212529;
   background-color: rgba(233,236,239, .9);
   text-align: left;
   border-radius: 0.2rem;
-  padding: 4rem;
-  margin-top: 4rem;
+  padding: 2rem 4rem;
+  margin-top: 2rem;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
 }
 
@@ -60,6 +60,10 @@ from { opacity: 0; }
 to   { opacity: 1; }
 }
 
+h4 {
+  margin-bottom: 2rem;
+}
+
 .lead {
   font-style: italic;
 }
@@ -80,6 +84,11 @@ label {
   font-weight: 400;
 }
 
+.nav-tabs {
+  border-bottom: 3px solid #fff;
+  justify-content: center;
+}
+
 .text-muted {
   margin-left: 0.2rem;
 }
@@ -94,6 +103,23 @@ label {
 
 .publication {
   margin-right: 2rem;
+}
+
+.card-title {
+  position: relative;
+  top: 1rem;
+  color: #232323;
+  margin-bottom: 2rem;
+  left: 0;
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.card-body {
+  margin-top: 2rem;
 }
 
 .trash-icon {
@@ -124,6 +150,12 @@ label {
 
   .container-fluid {
     padding: 1.2rem;
+  }
+
+  .publication-button {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
   }
 
   .publication {
@@ -168,6 +200,12 @@ label {
 
   .custom-file-label {
     font-size: 1rem;
+  }
+
+  .publication-button {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
   }
 
   .trash-icon {

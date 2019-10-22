@@ -14,10 +14,11 @@ import {
   FiTrash,
   FiEdit3,
   FiClipboard,
-  FiCompass,
+  FiBookOpen,
   FiSend,
   FiCornerDownRight,
   FiGitCommit,
+  FiHome,
 }
   from 'react-icons/fi';
 import PropTypes from 'prop-types';
@@ -38,7 +39,7 @@ const CreateStory = () => {
     <Jumbotron fluid className="writer-background">
       <h1 className="title">L'aventure démarre enfin...</h1>
       <p className="lead">révélez votre talent d'écrivain et prenez en main le destin de vos lecteurs</p>
-      <Container fluid>
+      <Container fluid className="container-box">
         <div>
           <Breadcrumb tag="nav" listTag="div">
             <BreadcrumbItem tag="a" href="#">Accueil</BreadcrumbItem>
@@ -69,7 +70,7 @@ const CreateStory = () => {
                     toggle('2');
                   }}
                 >
-                  <FiCompass /> Les chapitres
+                  <FiBookOpen /> Les chapitres
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -115,15 +116,6 @@ const CreateStory = () => {
                   Cette image ne répond pas aux formats ou poids autorisés.
                   </FormFeedback>
                   <FormText>C'est comme la jaquette de votre livre.</FormText>
-                </FormGroup>
-                <FormGroup>
-                  <Label className="publication">Statut de l'histoire</Label>
-                  <BootstrapSwitchButton
-                    onlabel="Publié"
-                    offlabel="Brouillon"
-                    checked={false}
-                    width={150}
-                  />
                 </FormGroup>
                 <FormGroup>
                   <Button className="trash-icon" title="Supprimer l'histoire" color="danger">
@@ -275,23 +267,34 @@ const CreateStory = () => {
                 </Form>
               </TabPane>
               <TabPane tabId="3">
+                <FormGroup>
+                  <h4>La fin se rapproche petit à petit...</h4>
+                </FormGroup>
                 <Row>
                   <Col sm="6">
                     <Card body>
-                      <CardTitle>Special Title Treatment</CardTitle>
+                      <CardTitle>Statut de publication</CardTitle>
                       <CardText>
-                        With supporting text below as a natural lead-in to additional content.
+                        Ici vous allez choisir si votre histoire est publiée et accessible aux lecteurs ou si vous préférez la garder en mode "brouillon" pour travailler encore dessus.
                       </CardText>
-                      <Button>Go somewhere</Button>
+                      <FormGroup className="publication-button">
+                        <Label className="publication">Statut de l'histoire</Label>
+                        <BootstrapSwitchButton
+                          onlabel="Publié"
+                          offlabel="Brouillon"
+                          checked={false}
+                          width={150}
+                        />
+                      </FormGroup>
                     </Card>
                   </Col>
                   <Col sm="6">
                     <Card body>
-                      <CardTitle>Special Title Treatment</CardTitle>
+                      <CardTitle>Temps de prendre une pause ou de boucler le livre !</CardTitle>
                       <CardText>
-                        With supporting text below as a natural lead-in to additional content.
+                        Bravo ! Vous avez bien travaillez aujourd'hui. Cliquez joyeusement sur le bouton ci-dessous pour quitter l'écran de rédaction d'histoire.
                       </CardText>
-                      <Button>Go somewhere</Button>
+                      <Button color="success"><FiHome /> J'ai fini !</Button>
                     </Card>
                   </Col>
                 </Row>
