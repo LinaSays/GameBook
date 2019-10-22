@@ -1,12 +1,25 @@
 // == Import : npm
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Jumbotron, Container, Button, Form, FormGroup, Label,
   Input, FormFeedback, FormText, CustomInput, Breadcrumb, BreadcrumbItem,
+  TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, CardText, Row, Col,
+  Pagination, PaginationItem, PaginationLink,
 }
   from 'reactstrap';
+import classnames from 'classnames';
+import { CirclePicker } from 'react-color';
 import BootstrapSwitchButton from 'bootstrap-switch-button-react';
-import { FiTrash, FiEdit3 } from 'react-icons/fi';
+import {
+  FiTrash,
+  FiEdit3,
+  FiClipboard,
+  FiCompass,
+  FiSend,
+  FiCornerDownRight,
+  FiGitCommit,
+}
+  from 'react-icons/fi';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -14,80 +27,282 @@ import './createstory.scss';
 import categories from 'src/data/category';
 
 // == Composant
-const CreateStory = () => (
-  <Jumbotron fluid className="create-story">
-    <h1 className="title">L'aventure démarre enfin...</h1>
-    <p className="lead">révélez votre talent d'écrivain et prenez en main le destin de vos lecteurs</p>
-    <Container fluid>
-      <div>
-        <Breadcrumb tag="nav" listTag="div">
-          <BreadcrumbItem tag="a" href="#">Accueil</BreadcrumbItem>
-          <BreadcrumbItem tag="a" href="#">Mon profil</BreadcrumbItem>
-          <BreadcrumbItem active tag="span">Créer une histoire</BreadcrumbItem>
-        </Breadcrumb>
-      </div>
-      <Form>
-        <FormGroup>
-          <h4>Prenez ici, le temps de configurer de votre histoire</h4>
-        </FormGroup>
-        <FormGroup>
-          <Label for="storyTitle">Titre</Label>
-          <Input type="text" name="title" id="storyTitle" autocomplete="off" placeholder="Titre de votre histoire..." required />
-          <FormFeedback valid>Ce titre est disponible !</FormFeedback>
-          <FormFeedback invalid>Ce titre n'est malheureusement pas disponible.</FormFeedback>
-          <FormText>Votre titre doit donner envie de lire vos écrits.</FormText>
-        </FormGroup>
-        <FormGroup>
-          <Label for="summaryText">Résumé</Label>
-          <Input type="textarea" rows="4" name="summary" id="summaryText" placeholder="Ecrivez une description succincte de votre histoire..." />
-          <FormText>Voyez ceci comme le texte trouvé au dos d'un livre.</FormText>
-        </FormGroup>
-        <FormGroup>
-          <Label for="categorieSelect">Choisissez le genre de votre histoire...</Label>
-          <Input type="select" name="select" id="categorieSelect">
-            {
-              categories.map((category) => <option key={category}>{category}</option>)
-            }
-          </Input>
-        </FormGroup>
-        <FormGroup>
-          <Label for="customCover">Sélectionnez une image de couverture</Label>
-          <CustomInput type="file" name="customFile" id="customCover" label="format .jpg ou .png" />
-          <FormFeedback valid>Couverture d'image sélectionnée !</FormFeedback>
-          <FormFeedback invalid>
-          Cette image ne répond pas aux formats ou poids autorisés.
-          </FormFeedback>
-          <FormText>C'est comme la jaquette de votre livre.</FormText>
-        </FormGroup>
-        <FormGroup>
-          <Label className="publication">Statut de l'histoire</Label>
-          <BootstrapSwitchButton
-            onlabel="Publié"
-            offlabel="Brouillon"
-            checked={false}
-            width={150}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Button className="trash-icon" title="Supprimer l'histoire" color="danger">
-            <FiTrash />
-          </Button>
-          <div className="button-bar">
-            <Button className="custom-button" title="Sauvegarder les changements" color="dark">
-              Mettre à jour
-            </Button>
-            <Button className="custom-button" title="Commencer l'écriture" color="danger">
-              <FiEdit3 /> Commencer
-            </Button>
+const CreateStory = () => {
+  const [activeTab, setActiveTab] = useState('1');
+
+  const toggle = (tab) => {
+    if (activeTab !== tab) setActiveTab(tab);
+  };
+
+  return (
+    <Jumbotron fluid className="writer-background">
+      <h1 className="title">L'aventure démarre enfin...</h1>
+      <p className="lead">révélez votre talent d'écrivain et prenez en main le destin de vos lecteurs</p>
+      <Container fluid>
+        <div>
+          <Breadcrumb tag="nav" listTag="div">
+            <BreadcrumbItem tag="a" href="#">Accueil</BreadcrumbItem>
+            <BreadcrumbItem tag="a" href="#">Mon profil</BreadcrumbItem>
+            <BreadcrumbItem active tag="span">Créer une histoire</BreadcrumbItem>
+          </Breadcrumb>
+        </div>
+        <Form>
+          <FormGroup>
+            <h4>Prenez ici, le temps de configurer de votre histoire</h4>
+          </FormGroup>
+          <div>
+            <Nav tabs>
+              <NavItem>
+                <NavLink
+                  className={classnames({ active: activeTab === '1' })}
+                  onClick={() => {
+                    toggle('1');
+                  }}
+                >
+                  <FiClipboard /> Le début
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  className={classnames({ active: activeTab === '2' })}
+                  onClick={() => {
+                    toggle('2');
+                  }}
+                >
+                  <FiCompass /> Les chapitres
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  className={classnames({ active: activeTab === '3' })}
+                  onClick={() => {
+                    toggle('3');
+                  }}
+                >
+                  <FiSend /> Publication
+                </NavLink>
+              </NavItem>
+            </Nav>
+            <TabContent activeTab={activeTab}>
+              <TabPane tabId="1">
+                <FormGroup>
+                  <Label for="storyTitle">Titre</Label>
+                  <Input type="text" name="title" id="storyTitle" autocomplete="off" placeholder="Titre de votre histoire..." required />
+                  <FormFeedback valid>Ce titre est disponible !</FormFeedback>
+                  <FormFeedback invalid>
+                    Ce titre n'est malheureusement pas disponible.
+                  </FormFeedback>
+                  <FormText>Votre titre doit donner envie de lire vos écrits.</FormText>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="summaryText">Résumé</Label>
+                  <Input type="textarea" rows="4" name="summary" id="summaryText" placeholder="Ecrivez une description succincte de votre histoire..." />
+                  <FormText>Voyez ceci comme le texte trouvé au dos d'un livre.</FormText>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="categorieSelect">Choisissez le genre de votre histoire...</Label>
+                  <Input type="select" name="select" id="categorieSelect">
+                    {
+                      categories.map((category) => <option key={category}>{category}</option>)
+                    }
+                  </Input>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="customCover">Sélectionnez une image de couverture</Label>
+                  <CustomInput type="file" name="customFile" id="customCover" label="format .jpg ou .png" />
+                  <FormFeedback valid>Couverture d'image sélectionnée !</FormFeedback>
+                  <FormFeedback invalid>
+                  Cette image ne répond pas aux formats ou poids autorisés.
+                  </FormFeedback>
+                  <FormText>C'est comme la jaquette de votre livre.</FormText>
+                </FormGroup>
+                <FormGroup>
+                  <Label className="publication">Statut de l'histoire</Label>
+                  <BootstrapSwitchButton
+                    onlabel="Publié"
+                    offlabel="Brouillon"
+                    checked={false}
+                    width={150}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Button className="trash-icon" title="Supprimer l'histoire" color="danger">
+                    <FiTrash />
+                  </Button>
+                  <div className="button-bar">
+                    <Button className="custom-button" title="Sauvegarder les changements" color="dark">
+                      Mettre à jour
+                    </Button>
+                    <Button className="custom-button" title="Commencer l'écriture" color="danger">
+                      <FiEdit3 /> Commencer
+                    </Button>
+                  </div>
+                  <Button className="trash-icon-mobile" title="Supprimer l'histoire" color="danger">
+                    <FiTrash />
+                  </Button>
+                </FormGroup>
+              </TabPane>
+              <TabPane tabId="2">
+                <Form>
+                  <FormGroup>
+                    <h4>Maintenant il va falloir rédiger une chapitre et les choix qui en découlent.</h4>
+                  </FormGroup>
+                  <FormGroup>
+                    <Pagination aria-label="Chapter navigation" id="chapterPagination">
+                      <PaginationItem>
+                        <PaginationLink first href="#" />
+                      </PaginationItem>
+                      <PaginationItem>
+                        <PaginationLink previous href="#" />
+                      </PaginationItem>
+                      <PaginationItem>
+                        <PaginationLink href="#">
+                          1
+                        </PaginationLink>
+                      </PaginationItem>
+                      <PaginationItem>
+                        <PaginationLink href="#">
+                          2
+                        </PaginationLink>
+                      </PaginationItem>
+                      <PaginationItem>
+                        <PaginationLink href="#">
+                          3
+                        </PaginationLink>
+                      </PaginationItem>
+                      <PaginationItem>
+                        <PaginationLink href="#">
+                          4
+                        </PaginationLink>
+                      </PaginationItem>
+                      <PaginationItem>
+                        <PaginationLink next href="#" />
+                      </PaginationItem>
+                      <PaginationItem>
+                        <PaginationLink last href="#" />
+                      </PaginationItem>
+                    </Pagination>
+                  </FormGroup>
+                  <h6>Préparez le texte de votre chapitre</h6>
+                  <FormGroup>
+                    <Label for="chapterSummary">Résumé de chapitre</Label>
+                    <Input type="text" name="recap" id="chapterSummary" placeholder="Résumez rapidement ce chapitre" />
+                    <FormFeedback valid>Résumé validé !</FormFeedback>
+                    <FormFeedback invalid>Votre résumé est vide ou incomplet</FormFeedback>
+                    <FormText>Vous aide à identifier rapidement la trame de ce chapitre</FormText>
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="chapterText">Texte du chapitre</Label>
+                    <Input type="textarea" rows="12" name="text" id="chapterText" />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="customImage">Sélectionnez une image de fond</Label>
+                    <CustomInput type="file" name="customFile" id="customImage" label="format .jpg ou .png" />
+                    <FormFeedback valid>Image de fond sélectionnée !</FormFeedback>
+                    <FormFeedback invalid>
+                    Cette image ne répond pas aux formats ou poids autorisés.
+                    </FormFeedback>
+                    <FormText>Une image de fond pour illustrer votre page/chapitre.</FormText>
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="colorPicker">Choisissez une couleur de fond</Label>
+                    <CirclePicker width="100%" className="color-picker" id="colorPicker" />
+                    <FormText className="legendColor">Peut compléter votre image de fond et la remplacer pour la version mobile</FormText>
+                  </FormGroup>
+                  <h6>Préparez les choix disponibles pour le lecteur</h6>
+                  <FormGroup className="numberChoices">
+                    <Label for="numberChoicesSelect">Nombre de choix de décisions</Label>
+                    <Input type="select" name="select" id="numberChoicesSelect">
+                      <option>Aucun choix</option>
+                      <option>1 choix</option>
+                      <option>2 choix</option>
+                      <option>3 choix</option>
+                      <option>4 choix</option>
+                    </Input>
+                    <FormText>Nombre de choix proposés au lecteur</FormText>
+                  </FormGroup>
+                  <hr />
+                  <FormGroup>
+                    <FormGroup className="choices">
+                      <Label for="choice1" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 1</Label>
+                      <Input type="text" name="choice" id="choice1" placeholder="Écrivez le texte pour ce choix..." />
+                      <FormText>Offrez à votre lecteur une décision à prendre</FormText>
+                    </FormGroup>
+                    <FormGroup className="choices-fork">
+                      <FiCornerDownRight className="choices-fork-icon" />
+                      <Label for="destination1" className="choices-fork-icon-label">Chapitre de destination</Label>
+                      <Input type="select" name="select" id="destination1">
+                        <option>Choisir un chapitre d'arrivée</option>
+                        <option>Retour à la taverne</option>
+                        <option>Direction la forêt</option>
+                      </Input>
+                      <FormText>Cette décision amène au chapitre sélectionné</FormText>
+                    </FormGroup>
+                    <hr />
+                    <FormGroup className="choices">
+                      <Label for="choice2" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 2</Label>
+                      <Input type="text" name="choice" id="choice2" placeholder="Écrivez le texte pour ce choix..." />
+                      <FormText>Offrez à votre lecteur une décision à prendre</FormText>
+                    </FormGroup>
+                    <FormGroup className="choices-fork">
+                      <FiCornerDownRight className="choices-fork-icon" />
+                      <Label for="destination2" className="choices-fork-icon-label">Chapitre de destination</Label>
+                      <Input type="select" name="select" id="destination2">
+                        <option>Choisir un chapitre d'arrivée</option>
+                        <option>Retour à la taverne</option>
+                        <option>Direction la forêt</option>
+                      </Input>
+                      <FormText>Cette décision amène au chapitre sélectionné</FormText>
+                    </FormGroup>
+                    <hr />
+                  </FormGroup>
+                  <FormGroup>
+                    <Button className="trash-icon" title="Supprimer l'histoire" color="danger">
+                      <FiTrash />
+                    </Button>
+                    <div className="button-bar">
+                      <Button className="custom-button" title="Sauvegarder les changements" color="dark">
+                        Sauvegarder
+                      </Button>
+                      <Button className="custom-button" title="Écrire la suite" color="danger">
+                        <FiEdit3 /> Nouveau chapitre
+                      </Button>
+                    </div>
+                    <Button className="trash-icon-mobile" title="Supprimer l'histoire" color="danger">
+                      <FiTrash />
+                    </Button>
+                  </FormGroup>
+                </Form>
+              </TabPane>
+              <TabPane tabId="3">
+                <Row>
+                  <Col sm="6">
+                    <Card body>
+                      <CardTitle>Special Title Treatment</CardTitle>
+                      <CardText>
+                        With supporting text below as a natural lead-in to additional content.
+                      </CardText>
+                      <Button>Go somewhere</Button>
+                    </Card>
+                  </Col>
+                  <Col sm="6">
+                    <Card body>
+                      <CardTitle>Special Title Treatment</CardTitle>
+                      <CardText>
+                        With supporting text below as a natural lead-in to additional content.
+                      </CardText>
+                      <Button>Go somewhere</Button>
+                    </Card>
+                  </Col>
+                </Row>
+              </TabPane>
+            </TabContent>
           </div>
-          <Button className="trash-icon-mobile" title="Supprimer l'histoire" color="danger">
-            <FiTrash />
-          </Button>
-        </FormGroup>
-      </Form>
-    </Container>
-  </Jumbotron>
-);
+        </Form>
+      </Container>
+    </Jumbotron>
+  );
+}
 
 // == Export
 export default CreateStory;
