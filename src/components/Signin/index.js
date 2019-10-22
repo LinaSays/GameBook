@@ -16,12 +16,12 @@ const Signin = () => (
 
       <div className="signin-right-field">
         <i className="fas fa-envelope signin-right-field-img" />
-        <input type="email" placeholder="Email" className="signin-right-input" />
+        <input type="email" placeholder="Email" className="signin-right-input" name="email" />
       </div>
 
       <div className="signin-right-field">
         <i className="fas fa-unlock-alt signin-right-field-img" />
-        <input type="password" placeholder="Mot de passe" className="signin-right-input" />
+        <input type="password" placeholder="Mot de passe" className="signin-right-input" name="password" />
       </div>
 
       <div>

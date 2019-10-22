@@ -110,7 +110,7 @@ const CreateChapter = () => {
           </FormGroup>
           <FormGroup>
             <Label for="colorPicker">Choisissez une couleur de fond</Label>
-            <CirclePicker width="100%" className="color-picker" id="colorPicker" />
+            <CirclePicker width="100%" className="color-picker" id="colorPicker" name="colorPicker" />
             <FormText className="legendColor">Peut compléter votre image de fond et la remplacer pour la version mobile</FormText>
           </FormGroup>
           <h6>Préparez les choix disponibles pour le lecteur</h6>

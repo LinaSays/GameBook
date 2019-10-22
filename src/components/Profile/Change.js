@@ -9,20 +9,20 @@ const Change = () => (
   <Form>
     <Form.Group controlId="formBasicEmail">
       <Form.Label>Nom Prénom</Form.Label>
-      <Form.Control type="text" placeholder="Nom Prénom" />
+      <Form.Control type="text" placeholder="Nom Prénom" name="user_name" />
     </Form.Group>
     <Form.Group controlId="formBasicEmail">
       <Form.Label>Email address</Form.Label>
-      <Form.Control type="email" placeholder="Enter email" />
+      <Form.Control type="email" placeholder="Enter email" name="email" />
     </Form.Group>
 
     <Form.Group controlId="formBasicPassword">
       <Form.Label>Password</Form.Label>
-      <Form.Control type="password" placeholder="Password" />
+      <Form.Control type="password" placeholder="Password" name="password" />
     </Form.Group>
     <Form.Group controlId="formBasicPassword">
       <Form.Label>Avatar</Form.Label>
-      <Form.Control type="file" placeholder="Avatar" />
+      <Form.Control type="file" placeholder="Avatar" name="avatar" />
     </Form.Group>
     <Button variant="primary" type="submit">
       Modifier
