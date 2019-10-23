@@ -22,6 +22,7 @@ import {
   FiHome,
   FiDelete,
   FiPlus,
+  FiSave,
 }
   from 'react-icons/fi';
 import PropTypes from 'prop-types';
@@ -205,6 +206,7 @@ const CreateStory = () => {
                       <FormGroup>
                         <FormGroup className="choices">
                           <Label for="choice1" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 1</Label>
+                          <Button className="save-choice" title="Sauver le choix" color="success"><FiSave /></Button>
                           <Button className="delete-choice" title="Supprimer le choix" color="danger">
                             <FiDelete />
                           </Button>
@@ -224,6 +226,7 @@ const CreateStory = () => {
                         <hr />
                         <FormGroup className="choices">
                           <Label for="choice2" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 2</Label>
+                          <Button className="save-choice" title="Sauver le choix" color="success"><FiSave /></Button>
                           <Button className="delete-choice" title="Supprimer le choix" color="danger">
                             <FiDelete />
                           </Button>
