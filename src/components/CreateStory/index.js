@@ -5,6 +5,7 @@ import {
   Input, FormFeedback, FormText, CustomInput, Breadcrumb, BreadcrumbItem,
   TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, CardText, Row, Col,
   Pagination, PaginationItem, PaginationLink,
+  ListGroup, ListGroupItem,
 }
   from 'reactstrap';
 import classnames from 'classnames';
@@ -19,6 +20,8 @@ import {
   FiCornerDownRight,
   FiGitCommit,
   FiHome,
+  FiDelete,
+  FiPlus,
 }
   from 'react-icons/fi';
 import PropTypes from 'prop-types';
@@ -173,7 +176,7 @@ const CreateStory = () => {
                     </Pagination>
                   </FormGroup>
                   <FormGroup>
-                    <h5>Maintenant il va falloir rédiger une chapitre et les choix qui en découlent.</h5>
+                    <h5>Maintenant il va falloir rédiger un chapitre et les choix qui en découlent.</h5>
                   </FormGroup>
                   <FormGroup>
                     <Label for="chapterSummary">Résumé de chapitre</Label>
@@ -182,10 +185,65 @@ const CreateStory = () => {
                     <FormFeedback invalid>Votre résumé est vide ou incomplet</FormFeedback>
                     <FormText>Vous aide à identifier rapidement la trame de ce chapitre</FormText>
                   </FormGroup>
-                  <FormGroup>
-                    <Label for="chapterText">Texte du chapitre</Label>
-                    <Input type="textarea" rows="12" name="text" id="chapterText" />
-                  </FormGroup>
+                  <div className="columns">
+                    <div className="writer-column">
+                      <FormGroup>
+                        <Label for="chapterText">Texte du chapitre</Label>
+                        <Input type="textarea" rows="26" name="text" id="chapterText" />
+                      </FormGroup>
+                    </div>
+                    <div className="choices-column">
+                      {/* <h6>Préparez les choix disponibles pour le lecteur</h6> */}
+                      <FormGroup className="numberChoices">
+                        <Label for="numberChoicesSelect">Nombre de choix de décisions (0 à 3)</Label>
+                        <ListGroup>
+                          <ListGroupItem active className="add-choice" tag="a" color="success" href="#" action><FiPlus /> Ajouter un choix</ListGroupItem>
+                        </ListGroup>
+                        <FormText>Nombre de choix proposés au lecteur</FormText>
+                      </FormGroup>
+                      <hr className="separation" />
+                      <FormGroup>
+                        <FormGroup className="choices">
+                          <Label for="choice1" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 1</Label>
+                          <Button className="delete-choice" title="Supprimer le choix" color="danger">
+                            <FiDelete />
+                          </Button>
+                          <Input type="text" name="choice" id="choice1" placeholder="Écrivez le texte pour ce choix..." />
+                          <FormText>Offrez à votre lecteur une décision à prendre</FormText>
+                        </FormGroup>
+                        <FormGroup className="choices-fork">
+                          <FiCornerDownRight className="choices-fork-icon" />
+                          <Label for="destination1" className="choices-fork-icon-label">Chapitre de destination</Label>
+                          <Input type="select" name="select" id="destination1">
+                            <option>Choisir un chapitre d'arrivée</option>
+                            <option>Retour à la taverne</option>
+                            <option>Direction la forêt</option>
+                          </Input>
+                          <FormText>Cette décision amène au chapitre sélectionné</FormText>
+                        </FormGroup>
+                        <hr />
+                        <FormGroup className="choices">
+                          <Label for="choice2" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 2</Label>
+                          <Button className="delete-choice" title="Supprimer le choix" color="danger">
+                            <FiDelete />
+                          </Button>
+                          <Input type="text" name="choice" id="choice2" placeholder="Écrivez le texte pour ce choix..." />
+                          <FormText>Offrez à votre lecteur une décision à prendre</FormText>
+                        </FormGroup>
+                        <FormGroup className="choices-fork">
+                          <FiCornerDownRight className="choices-fork-icon" />
+                          <Label for="destination2" className="choices-fork-icon-label">Chapitre de destination</Label>
+                          <Input type="select" name="select" id="destination2">
+                            <option>Choisir un chapitre d'arrivée</option>
+                            <option>Retour à la taverne</option>
+                            <option>Direction la forêt</option>
+                          </Input>
+                          <FormText>Cette décision amène au chapitre sélectionné</FormText>
+                        </FormGroup>
+                        <hr />
+                      </FormGroup>
+                    </div>
+                  </div>
                   <FormGroup>
                     <Label for="customImage">Sélectionnez une image de fond</Label>
                     <CustomInput type="file" name="customFile" id="customImage" label="format .jpg ou .png" />
@@ -199,53 +257,6 @@ const CreateStory = () => {
                     <Label for="colorPicker">Choisissez une couleur de fond</Label>
                     <CirclePicker width="100%" className="color-picker" id="colorPicker" />
                     <FormText className="legendColor">Peut compléter votre image de fond et la remplacer pour la version mobile</FormText>
-                  </FormGroup>
-                  <h6>Préparez les choix disponibles pour le lecteur</h6>
-                  <FormGroup className="numberChoices">
-                    <Label for="numberChoicesSelect">Nombre de choix de décisions</Label>
-                    <Input type="select" name="select" id="numberChoicesSelect">
-                      <option>Aucun choix</option>
-                      <option>1 choix</option>
-                      <option>2 choix</option>
-                      <option>3 choix</option>
-                      <option>4 choix</option>
-                    </Input>
-                    <FormText>Nombre de choix proposés au lecteur</FormText>
-                  </FormGroup>
-                  <hr />
-                  <FormGroup>
-                    <FormGroup className="choices">
-                      <Label for="choice1" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 1</Label>
-                      <Input type="text" name="choice" id="choice1" placeholder="Écrivez le texte pour ce choix..." />
-                      <FormText>Offrez à votre lecteur une décision à prendre</FormText>
-                    </FormGroup>
-                    <FormGroup className="choices-fork">
-                      <FiCornerDownRight className="choices-fork-icon" />
-                      <Label for="destination1" className="choices-fork-icon-label">Chapitre de destination</Label>
-                      <Input type="select" name="select" id="destination1">
-                        <option>Choisir un chapitre d'arrivée</option>
-                        <option>Retour à la taverne</option>
-                        <option>Direction la forêt</option>
-                      </Input>
-                      <FormText>Cette décision amène au chapitre sélectionné</FormText>
-                    </FormGroup>
-                    <hr />
-                    <FormGroup className="choices">
-                      <Label for="choice2" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 2</Label>
-                      <Input type="text" name="choice" id="choice2" placeholder="Écrivez le texte pour ce choix..." />
-                      <FormText>Offrez à votre lecteur une décision à prendre</FormText>
-                    </FormGroup>
-                    <FormGroup className="choices-fork">
-                      <FiCornerDownRight className="choices-fork-icon" />
-                      <Label for="destination2" className="choices-fork-icon-label">Chapitre de destination</Label>
-                      <Input type="select" name="select" id="destination2">
-                        <option>Choisir un chapitre d'arrivée</option>
-                        <option>Retour à la taverne</option>
-                        <option>Direction la forêt</option>
-                      </Input>
-                      <FormText>Cette décision amène au chapitre sélectionné</FormText>
-                    </FormGroup>
-                    <hr />
                   </FormGroup>
                   <FormGroup>
                     <Button className="trash-icon" title="Supprimer l'histoire" color="danger">
@@ -304,7 +315,7 @@ const CreateStory = () => {
       </Container>
     </Jumbotron>
   );
-}
+};
 
 // == Export
 export default CreateStory;

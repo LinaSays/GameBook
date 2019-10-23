@@ -20,6 +20,7 @@ body {
   padding: 2rem 4rem;
   margin-top: 2rem;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .2);
+  min-height: 90vh;
 }
 
 .title {
@@ -114,8 +115,17 @@ label {
   margin-top: 1rem;
 }
 
-.numberChoices {
-  width: 25%;
+.columns {
+  display: flex;
+}
+
+.writer-column {
+  width: 49%;
+  margin-right: 2rem;
+}
+
+.choices-column {
+  width: 50%;
 }
 
 .choices {
@@ -128,6 +138,7 @@ label {
     color: white;
     padding: 0.2rem;
     font-weight: 600;
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .1);
   }
 
   &-icon {
@@ -144,6 +155,24 @@ label {
       font-size: 1.5rem;
     }
   }
+}
+
+.separation {
+  border: 1px dashed #232323;
+}
+
+.add-choice {
+  font-size: 1.2rem;
+  line-height: 1.1rem;
+  text-align: center;
+  background: green;
+  box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1);
+}
+
+.delete-choice {
+  line-height: 1.2rem;
+  float: right;
+  box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .1);
 }
 
 .color-picker {
@@ -217,6 +246,19 @@ p {
     font-weight: 700;
   }
 
+  .columns {
+    display: flex;
+    flex-flow: column;
+  }
+  
+  .writer-column {
+    width: 100%;
+  }
+  
+  .choices-column {
+    width: 100%;
+  }
+
   .numberChoices {
     width: 100%;
   }
@@ -260,6 +302,19 @@ p {
 
   .choices-fork {
     margin: 0;
+  }
+
+  .columns {
+    display: flex;
+    flex-flow: column;
+  }
+  
+  .writer-column {
+    width: 100%;
+  }
+  
+  .choices-column {
+    width: 100%;
   }
 
   .numberChoices {
