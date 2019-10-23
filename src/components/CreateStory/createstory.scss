@@ -60,12 +60,16 @@ from { opacity: 0; }
 to   { opacity: 1; }
 }
 
-h4 {
-  margin-bottom: 2rem;
-}
-
 .lead {
   font-style: italic;
+}
+
+h6 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 4rem;
+  font-weight: bold;
+  color: darkgray;
 }
 
 .breadcrumb {
@@ -105,6 +109,51 @@ label {
   margin-right: 2rem;
 }
 
+.pagination {
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.numberChoices {
+  width: 25%;
+}
+
+.choices {
+  margin: 0.5rem 0rem;
+
+  &-label {
+    background: #343a40;
+    width: 10rem;
+    border-radius: 0.2rem;
+    color: white;
+    padding: 0.2rem;
+    font-weight: 600;
+  }
+
+  &-icon {
+    color: yellow;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+  }
+
+  &-fork {
+    margin: 0 0 0 2rem;
+  
+    &-icon {
+      color: red;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.color-picker {
+  margin-bottom: 2rem;
+}
+
+.legendColor {
+  margin-top: 0.5rem;
+}
+
 .card-title {
   position: relative;
   top: 1rem;
@@ -125,6 +174,7 @@ p {
 .trash-icon {
   margin-top: 2rem;
   float: left;
+  box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1);
 
   &-mobile {
     display: none;
@@ -140,10 +190,14 @@ p {
   width: 12rem;
   margin-top: 2rem;
   margin-left: 2rem;
-  box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2)
+  box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1)
 }
 
 @media all and (max-width:629px) {
+  h4 {
+    font-size: 1.2rem;
+  }
+  
   .jumbotron {
     padding: 4rem 0.5rem;
   }
@@ -163,6 +217,14 @@ p {
     font-weight: 700;
   }
 
+  .numberChoices {
+    width: 100%;
+  }
+
+  .choices-fork {
+    margin: 0;
+  }
+
   .button-bar {
     display: flex;
     justify-content: space-between;
@@ -172,7 +234,7 @@ p {
     width: 9rem;
     margin-top: 2rem;
     margin-left: 0;
-    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2)
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1)
   }
 
   .trash-icon {
@@ -182,12 +244,28 @@ p {
     display:block;
     margin-top: 4rem;
     margin-bottom: 2rem;
-    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2)
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1)
     }
   }
 }
 
 @media all and (max-width:349px) {
+  h4 {
+    font-size: 1.2rem;
+  }
+  
+  .breadcrumb {
+    font-size: 0.9rem;
+  }
+
+  .choices-fork {
+    margin: 0;
+  }
+
+  .numberChoices {
+    width: 100%;
+  }
+
   .button-bar {
     display:block;
   }  
@@ -195,7 +273,7 @@ p {
   .custom-button {
     width: 100%;
     margin-bottom: 1rem;
-    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2)
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1)
   }
 
   .custom-file-label {
@@ -215,7 +293,7 @@ p {
     display:block;
     margin-top: 4rem;
     margin-bottom: 2rem;
-    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .2)
+    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1)
     }
   }
 }

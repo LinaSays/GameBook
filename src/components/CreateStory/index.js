@@ -48,9 +48,6 @@ const CreateStory = () => {
           </Breadcrumb>
         </div>
         <Form>
-          <FormGroup>
-            <h4>Prenez ici, le temps de configurer de votre histoire</h4>
-          </FormGroup>
           <div>
             <Nav tabs>
               <NavItem>
@@ -86,6 +83,9 @@ const CreateStory = () => {
             </Nav>
             <TabContent activeTab={activeTab}>
               <TabPane tabId="1">
+                <FormGroup>
+                  <h5>Prenez ici, le temps de préparer la couverture de votre histoire</h5>
+                </FormGroup>
                 <FormGroup>
                   <Label for="storyTitle">Titre</Label>
                   <Input type="text" name="title" id="storyTitle" autocomplete="off" placeholder="Titre de votre histoire..." required />
@@ -137,9 +137,6 @@ const CreateStory = () => {
               <TabPane tabId="2">
                 <Form>
                   <FormGroup>
-                    <h4>Maintenant il va falloir rédiger une chapitre et les choix qui en découlent.</h4>
-                  </FormGroup>
-                  <FormGroup>
                     <Pagination aria-label="Chapter navigation" id="chapterPagination">
                       <PaginationItem>
                         <PaginationLink first href="#" />
@@ -175,7 +172,9 @@ const CreateStory = () => {
                       </PaginationItem>
                     </Pagination>
                   </FormGroup>
-                  <h6>Préparez le texte de votre chapitre</h6>
+                  <FormGroup>
+                    <h5>Maintenant il va falloir rédiger une chapitre et les choix qui en découlent.</h5>
+                  </FormGroup>
                   <FormGroup>
                     <Label for="chapterSummary">Résumé de chapitre</Label>
                     <Input type="text" name="recap" id="chapterSummary" placeholder="Résumez rapidement ce chapitre" />
