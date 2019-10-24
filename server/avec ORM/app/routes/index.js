@@ -1,11 +1,11 @@
-// const category = require('../contollers/categoryController');
-// const profile = require('../contollers/profileController');
-// const story = require('../contollers/storyController');
-// const chapter = require('../contollers/chapterController');
-// const choice = require('../contollers/choiceController');
+const category = require('../controllers/categoryController');
+// const profile = require('../controllers/profileController');
+// const story = require('../controllers/storyController');
+// const chapter = require('../controllers/chapterController');
+// const choice = require('../controllers/choiceController');
 
 module.exports = (app) => {
-  // app.get('/', category.getDemoStories); // display 3 demo stories
+  app.get('/', category.getDemoStories); // display 3 demo stories
   // app.get('/categories', category.getAllCategories); // show all categories
   // app.get('/categories/:id', category.getCategory); // show stories of one category
   // app.post('/profile', profile.connect); // sign in

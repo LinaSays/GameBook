@@ -14,7 +14,12 @@ app.use((req, res, next) => {
   next();
 });
 
-require('./connection');
+const { sequelize } = require('./connection');
+
+sequelize.sync({ force: true })
+  .then(() => {
+    console.log('New data!');
+  });
 
 // Start on :3000
 app.listen(3000);
