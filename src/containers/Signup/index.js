@@ -3,32 +3,23 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import Signup from 'src/components/Signup';
+import { changeInput } from 'src/store/reducer/connexion';
 
 // Action Creators
 
-/* === State (données) ===
- * - mapStateToProps retroune un objet de props pour le composant de présentation
- * - mapStateToProps met à dispo 2 params
- *  - state : le state du store (getState)
- *  - ownProps : les props passées au container
- * Pas de data à transmettre ? const mapStateToProps = null;
- */
-const mapStateToProps = (state, ownProps) => ({
-  email
-  password
-  
+
+const mapStateToProps = (state) => ({
+  user_name: state.connexion.user_name,
+  email: state.connexion.email,
+  password: state.connexion.password,
+  confirm: state.connexion.confirm,
 });
 
-/* === Actions ===
- * - mapDispatchToProps retroune un objet de props pour le composant de présentation
- * - mapDispatchToProps met à dispo 2 params
- *  - dispatch : la fonction du store pour dispatcher une action
- *  - ownProps : les props passées au container
- * Pas de disptach à transmettre ? const mapDispatchToProps = {};
- */
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  doSomething: () => {
-    dispatch(('Coucou'));
+/* === Actions === */
+const mapDispatchToProps = (dispatch) => ({
+  changeValue: (name, value) => {
+    const action = changeInput(name, value);
+    dispatch(action);
   },
 });
 
