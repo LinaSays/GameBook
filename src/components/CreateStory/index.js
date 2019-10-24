@@ -32,11 +32,18 @@ import './createstory.scss';
 import categories from 'src/data/category';
 
 // == Composant
-const CreateStory = () => {
+const CreateStory = ({ changeValue, titleValue }) => {
+  console.log(titleValue);
   const [activeTab, setActiveTab] = useState('1');
 
   const toggle = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
+  };
+
+  const handleChange = (event) => {
+    const { value } = event.target;
+    changeValue(value);
+    console.log('test', changeValue(value))
   };
 
   return (
@@ -92,9 +99,9 @@ const CreateStory = () => {
                 </FormGroup>
                 <FormGroup>
                   <Label for="storyTitle">Titre</Label>
-                  <Input type="text" name="title" id="storyTitle" autocomplete="off" placeholder="Titre de votre histoire..." required />
-                  <FormFeedback valid>Ce titre est disponible !</FormFeedback>
-                  <FormFeedback invalid>
+                  <Input type="text" innerRef name="title" value={changeValue} onChange={handleChange} id="storyTitle" placeholder="Titre de votre histoire..." required />
+                  <FormFeedback>Ce titre est disponible !</FormFeedback>
+                  <FormFeedback>
                     Ce titre n'est malheureusement pas disponible.
                   </FormFeedback>
                   <FormText>Votre titre doit donner envie de lire vos écrits.</FormText>
@@ -323,15 +330,29 @@ const CreateStory = () => {
 // == Export
 export default CreateStory;
 
+CreateStory.propTypes = {
+  changeValue: PropTypes.func.isRequired,
+}
+
 Jumbotron.propTypes = {
   fluid: PropTypes.bool,
 };
 
 Input.propTypes = {
+  children: PropTypes.node,
+  // type can be things like text, password, (typical input types) as well as select and textarea, providing children as you normally would to those.
   type: PropTypes.string,
-  valid: PropTypes.bool,
-  invalid: PropTypes.bool,
+  size: PropTypes.string,
+  bsSize: PropTypes.string,
+  valid: PropTypes.bool, // applied the is-valid class when true, does nothing when false
+  invalid: PropTypes.bool, // applied the is-invalid class when true, does nothing when false
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  // ref will only get you a reference to the Input component, use innerRef to get a reference to the DOM input (for things like focus management).
+  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  plaintext: PropTypes.bool,
+  addon: PropTypes.bool,
   className: PropTypes.string,
+  cssModule: PropTypes.object,
 };
 
 CustomInput.propTypes = {

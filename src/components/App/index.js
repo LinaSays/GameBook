@@ -13,7 +13,7 @@ import Signin from 'src/components/Signin';
 import Forgotten from 'src/components/Signin/Forgotten';
 import Signup from 'src/components/Signup';
 import Categories from 'src/components/Categories';
-import CreateStory from 'src/components/CreateStory';
+import CreateStory from 'src/containers/CreateStory';
 import Profile from 'src/components/Profile';
 import Team from 'src/components/Team';
 

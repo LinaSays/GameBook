@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 // on importe chacun des sous-reducers
 import profile from './profile';
+import createStory from './createStory';
 
 // combineReducers nous retourne le reducer parent généré
 // on doit fournir en paramètre un objet
@@ -10,6 +11,7 @@ import profile from './profile';
 const reducer = combineReducers({
   // user: user
   profile,
+  createStory,
 });
 
 export default reducer;
