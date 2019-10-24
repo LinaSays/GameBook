@@ -22,7 +22,7 @@ import StartStory from 'src/components/StartStory';
 // == Composant
 class App extends React.Component {
   state = {
-    isConnected: true,
+    isConnected: false,
   }
 
   render() {

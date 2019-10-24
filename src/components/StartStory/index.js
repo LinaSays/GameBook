@@ -4,6 +4,7 @@ import Image from 'react-bootstrap/Image';
 import {
   MdExitToApp, MdHome, MdBookmark, MdPerson,
 } from 'react-icons/md';
+import { FaUser } from 'react-icons/fa';
 import Button from 'react-bootstrap/Button';
 
 // == Import : local
@@ -21,8 +22,8 @@ const StartStory = () => (
         />
         <div className="story-account-info">
           <p className="story-account-name">Nom / Pseudo</p>
-          <a className="text-white" href="">Mon profil</a>
           <div className="story-account-nav">
+            <Button className="d-flex justify-content-center align-items-center" variant="light mt-1"><FaUser className="mr-2" /> Mon profil</Button>
             <Button className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdBookmark className="mr-1" /> Sauvegarder</Button>
             <Button className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdExitToApp className="mr-1" /> Sortir</Button>
             <Button className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdHome className="mr-1" /> Retour à l'accueil</Button>
@@ -46,6 +47,12 @@ const StartStory = () => (
           <Button className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdBookmark className="mr-1" /> Sauvegarder</Button>
           <Button className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdExitToApp className="mr-1" /> Sortir</Button>
           <Button className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdHome className="mr-1" /> Retour à l'accueil</Button>
+        </div>
+        <div className="story-account-nav-footer">
+          <Button className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdPerson /></Button>
+          <Button className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdBookmark /></Button>
+          <Button className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdExitToApp /></Button>
+          <Button className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdHome /></Button>
         </div>
       </div>
     </div>
