@@ -13,6 +13,7 @@ import './startstory.scss';
 // == Composant
 const StartStory = () => (
   <div className="container-story">
+    <img src="https://wallpaperset.com/w/full/0/5/1/442146.jpg" alt="" className="bg-image"/>
     <div className="story">
       <div className="story-account">
         <Image

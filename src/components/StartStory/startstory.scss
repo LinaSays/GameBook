@@ -4,11 +4,24 @@
 
 @media screen and (min-width: 320px) {
     .container-story {
-        background: url('https://wallpaperset.com/w/full/0/5/1/442146.jpg') center no-repeat;
-        background-size: cover;
+        //background: url('https://wallpaperset.com/w/full/0/5/1/442146.jpg') center no-repeat;
+        //background-size: cover;
+        background-color: black;
         //padding: .8rem;
         min-height: 100vh;
         position:absolute;
+        z-index: 2;
+    }
+
+    .bg-image {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        opacity: .5;
+        object-fit: cover;
+        top: 0;
+        left: 0;
     }
 
     .story {
@@ -143,7 +156,7 @@
             &-nav {
                 display: flex;
                 flex-direction: column;
-                padding: 1rem;
+                padding: 1rem 3rem;
             }
 
             &-nav-footer {
