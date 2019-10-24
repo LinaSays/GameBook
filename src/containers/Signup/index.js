@@ -14,7 +14,9 @@ import Signup from 'src/components/Signup';
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
 const mapStateToProps = (state, ownProps) => ({
-  message: state.message,
+  email
+  password
+  
 });
 
 /* === Actions ===

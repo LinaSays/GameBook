@@ -1,11 +1,16 @@
 // - initialState
 const initialState = {
-  titleInput: '',
-  Input: '',
+  title: '',
+  summary: '',
+  recap: '',
+  text: '',
+  choice: '',
+  choice2: '',
 };
 
 // - Actions Types
 const CHANGE_INPUT = 'CHANGE_INPUT';
+
 // export const CONNECT_USER = 'CONNECT_USER';
 
 // - Reducer
@@ -14,18 +19,20 @@ const reducer = (state = initialState, action = {}) => {
     case CHANGE_INPUT:
       return {
         ...state,
-        titleInput: action.value,
+        [action.name]: action.value,
       };
-    default:
+      default:
       return state;
   }
 };
 
 // - Actions Creators
-export const changeInput = (value) => ({
+export const changeInput = (name, value) => ({
   type: CHANGE_INPUT,
+  name,
   value,
 });
+
 
 // export const connectUser = () => ({
 //   type: CONNECT_USER,

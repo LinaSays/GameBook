@@ -9,13 +9,18 @@ import { changeInput } from 'src/store/reducer/createStory';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
-  titleValue: state.createStory.titleInput,
+  title: state.createStory.title,
+  summary: state.createStory.summary,
+  recap: state.createStory.recap,
+  text: state.createStory.text,
+  choice: state.createStory.choice,
+  choice2: state.createStory.choice2,
 });
 
 /* === Actions === */
 const mapDispatchToProps = (dispatch) => ({
-  changeValue: (value) => {
-    const action = changeInput(value);
+  changeValue: (name, value) => {
+    const action = changeInput(name, value);
     dispatch(action);
   },
 });
