@@ -43,7 +43,7 @@ const CreateStory = ({ changeValue, titleValue }) => {
   const handleChange = (event) => {
     const { value } = event.target;
     changeValue(value);
-    console.log('test', changeValue(value))
+    console.log('test', changeValue(value));
   };
 
   return (
@@ -99,7 +99,7 @@ const CreateStory = ({ changeValue, titleValue }) => {
                 </FormGroup>
                 <FormGroup>
                   <Label for="storyTitle">Titre</Label>
-                  <Input type="text" innerRef name="title" value={changeValue} onChange={handleChange} id="storyTitle" placeholder="Titre de votre histoire..." required />
+                  <Input type="text"  name="title" value={changeValue} onChange={handleChange} id="storyTitle" placeholder="Titre de votre histoire..." required />
                   <FormFeedback>Ce titre est disponible !</FormFeedback>
                   <FormFeedback>
                     Ce titre n'est malheureusement pas disponible.
