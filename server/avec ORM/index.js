@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 
 const { sequelize } = require('./connection');
 
-sequelize.sync({ force: true })
+sequelize.sync()
   .then(() => {
     console.log('New data!');
   });
