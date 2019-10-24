@@ -2,13 +2,12 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import Signin from 'src/components/Signin';
-import { changeInput } from 'src/store/reducer/signin';
+import Forgotten from 'src/components/Signin/Forgotten';
+import { changeInput } from 'src/store/reducer/forgotten';
 
 // Action Creators
 const mapStateToProps = (state, ownProps) => ({
-  email: state.signin.email,
-  password: state.signin.password,
+  changeEmail: state.forgotten.changeEmail,
 });
 
 /* === Actions === */
@@ -20,10 +19,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 // Container
-const SigninContainer = connect(
+const ForgottenContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Signin);
+)(Forgotten);
 
 // == Export
-export default SigninContainer;
+export default ForgottenContainer;

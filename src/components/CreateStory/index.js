@@ -32,12 +32,19 @@ import './createstory.scss';
 import categories from 'src/data/category';
 
 // == Composant
-const CreateStory = () => {
+const CreateStory = ({ changeValue, title, summary, recap, text, choice, choice2 }) => {
   const [activeTab, setActiveTab] = useState('1');
 
   const toggle = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
   };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    changeValue(name, value);
+  };
+
+ 
 
   return (
     <Jumbotron fluid className="writer-background">
@@ -92,7 +99,7 @@ const CreateStory = () => {
                 </FormGroup>
                 <FormGroup>
                   <Label for="storyTitle">Titre</Label>
-                  <Input type="text" name="title" id="storyTitle" autocomplete="off" placeholder="Titre de votre histoire..." required />
+                  <Input type="text" name="title" value={title} onChange={handleChange} id="storyTitle" placeholder="Titre de votre histoire..." required />
                   <FormFeedback valid>Ce titre est disponible !</FormFeedback>
                   <FormFeedback invalid>
                     Ce titre n'est malheureusement pas disponible.
@@ -101,7 +108,7 @@ const CreateStory = () => {
                 </FormGroup>
                 <FormGroup>
                   <Label for="summaryText">Résumé</Label>
-                  <Input type="textarea" rows="4" name="summary" id="summaryText" placeholder="Ecrivez une description succincte de votre histoire..." />
+                  <Input type="textarea" rows="4" name="summary" value={summary} onChange={handleChange} id="summaryText" placeholder="Ecrivez une description succincte de votre histoire..." />
                   <FormText>Voyez ceci comme le texte trouvé au dos d'un livre.</FormText>
                 </FormGroup>
                 <FormGroup>
@@ -181,7 +188,7 @@ const CreateStory = () => {
                   </FormGroup>
                   <FormGroup>
                     <Label for="chapterSummary">Résumé de chapitre</Label>
-                    <Input type="text" name="recap" id="chapterSummary" placeholder="Résumez rapidement ce chapitre" />
+                    <Input type="text" name="recap" value={recap} onChange={handleChange} id="chapterSummary" placeholder="Résumez rapidement ce chapitre" />
                     <FormFeedback valid>Résumé validé !</FormFeedback>
                     <FormFeedback invalid>Votre résumé est vide ou incomplet</FormFeedback>
                     <FormText>Vous aide à identifier rapidement la trame de ce chapitre</FormText>
@@ -190,7 +197,7 @@ const CreateStory = () => {
                     <div className="writer-column">
                       <FormGroup>
                         <Label for="chapterText">Texte du chapitre</Label>
-                        <Input type="textarea" rows="26" name="text" id="chapterText" />
+                        <Input type="textarea" value={text} onChange={handleChange} rows="26" name="text" id="chapterText" />
                       </FormGroup>
                     </div>
                     <div className="choices-column">
@@ -210,7 +217,7 @@ const CreateStory = () => {
                           <Button className="delete-choice" title="Supprimer le choix" color="danger">
                             <FiDelete />
                           </Button>
-                          <Input type="text" name="choice" id="choice1" placeholder="Écrivez le texte pour ce choix..." />
+                          <Input type="text" value={choice} onChange={handleChange} name="choice" id="choice1" placeholder="Écrivez le texte pour ce choix..." />
                           <FormText>Offrez à votre lecteur une décision à prendre</FormText>
                         </FormGroup>
                         <FormGroup className="choices-fork">
@@ -230,7 +237,7 @@ const CreateStory = () => {
                           <Button className="delete-choice" title="Supprimer le choix" color="danger">
                             <FiDelete />
                           </Button>
-                          <Input type="text" name="choice" id="choice2" placeholder="Écrivez le texte pour ce choix..." />
+                          <Input type="text" value={choice2} onChange={handleChange} name="choice2" id="choice2" placeholder="Écrivez le texte pour ce choix..." />
                           <FormText>Offrez à votre lecteur une décision à prendre</FormText>
                         </FormGroup>
                         <FormGroup className="choices-fork">
@@ -323,15 +330,31 @@ const CreateStory = () => {
 // == Export
 export default CreateStory;
 
+CreateStory.propTypes = {
+  changeValue: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+};
+
 Jumbotron.propTypes = {
   fluid: PropTypes.bool,
 };
 
 Input.propTypes = {
+  children: PropTypes.node,
+  // type can be things like text, password, (typical input types) as well as select and textarea, providing children as you normally would to those.
   type: PropTypes.string,
-  valid: PropTypes.bool,
-  invalid: PropTypes.bool,
+  size: PropTypes.string,
+  bsSize: PropTypes.string,
+  valid: PropTypes.bool, // applied the is-valid class when true, does nothing when false
+  invalid: PropTypes.bool, // applied the is-invalid class when true, does nothing when false
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  // ref will only get you a reference to the Input component, use innerRef to get a reference to the DOM input (for things like focus management).
+  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  plaintext: PropTypes.bool,
+  addon: PropTypes.bool,
   className: PropTypes.string,
+  cssModule: PropTypes.object,
 };
 
 CustomInput.propTypes = {
@@ -368,4 +391,29 @@ Breadcrumb.propTypes = {
 BreadcrumbItem.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   active: PropTypes.bool,
+};
+
+FormGroup.propTypes = {
+  children: PropTypes.node,
+  // Applied the row class when true, does nothing when false
+  row: PropTypes.bool,
+  // Applied the form-check class when true, form-group when false
+  check: PropTypes.bool,
+  inline: PropTypes.bool,
+  // Applied the disabled class when the check and disabled props are true, does nothing when false
+  disabled: PropTypes.bool,
+  // Pass in a Component to override default element
+  tag: PropTypes.string, // default: 'div'
+  className: PropTypes.string,
+  cssModule: PropTypes.object,
+};
+
+Form.propTypes = {
+  children: PropTypes.node,
+  inline: PropTypes.bool,
+  // Pass in a Component to override default element
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]), // default: 'form'
+  innerRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  cssModule: PropTypes.object,
 };

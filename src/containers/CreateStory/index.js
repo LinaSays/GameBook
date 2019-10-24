@@ -2,39 +2,34 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import CreateStory from 'src/components/CreateStory';
+import createStory from 'src/components/CreateStory';
 
 // Action Creators
+import { changeInput } from 'src/store/reducer/createStory';
 
-/* === State (données) ===
- * - mapStateToProps retroune un objet de props pour le composant de présentation
- * - mapStateToProps met à dispo 2 params
- *  - state : le state du store (getState)
- *  - ownProps : les props passées au container
- * Pas de data à transmettre ? const mapStateToProps = null;
- */
-const mapStateToProps = (state, ownProps) => ({
-  message: state.message,
+/* === State (données) === */
+const mapStateToProps = (state) => ({
+  title: state.createStory.title,
+  summary: state.createStory.summary,
+  recap: state.createStory.recap,
+  text: state.createStory.text,
+  choice: state.createStory.choice,
+  choice2: state.createStory.choice2,
 });
 
-/* === Actions ===
- * - mapDispatchToProps retroune un objet de props pour le composant de présentation
- * - mapDispatchToProps met à dispo 2 params
- *  - dispatch : la fonction du store pour dispatcher une action
- *  - ownProps : les props passées au container
- * Pas de disptach à transmettre ? const mapDispatchToProps = {};
- */
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  doSomething: () => {
-    dispatch(('Coucou'));
+/* === Actions === */
+const mapDispatchToProps = (dispatch) => ({
+  changeValue: (name, value) => {
+    const action = changeInput(name, value);
+    dispatch(action);
   },
 });
 
 // Container
-const CreateStoryContainer = connect(
+const createStoryContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(CreateStory);
+)(createStory);
 
 // == Export
-export default CreateStoryContainer;
+export default createStoryContainer;

@@ -27,12 +27,12 @@ const Contact = () => (
         {/* Formulaire pour nous contacter */}
         <Form className="contact-form-form">
           <Form.Group controlId="formBasicPassword">
-            <Form.Control type="text" placeholder="Nom *" className="contact-form-input" />
-            <Form.Control type="text" placeholder="Prénom *" className="contact-form-input" />
-            <Form.Control type="email" placeholder="Adresse mail *" className="contact-form-input" />
+            <Form.Control type="text" placeholder="Nom *" className="contact-form-input" required />
+            <Form.Control type="text" placeholder="Prénom *" className="contact-form-input" required />
+            <Form.Control type="email" placeholder="Adresse mail *" className="contact-form-input" required />
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
-            <Form.Control as="textarea" placeholder="Message *" rows="8" className="contact-form-input-textarea" />
+            <Form.Control as="textarea" placeholder="Message *" rows="8" className="contact-form-input-textarea" required />
           </Form.Group>
           <Button variant="primary" type="submit" className="contact-form-button">
             Submit
