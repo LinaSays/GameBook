@@ -20,7 +20,7 @@ import Team from 'src/components/Team';
 // == Composant
 class App extends React.Component {
   state = {
-    isConnected: false,
+    isConnected: true,
   }
 
   render() {

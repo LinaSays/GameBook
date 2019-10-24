@@ -5,15 +5,20 @@ import { connect } from 'react-redux';
 import Home from 'src/components/Home';
 
 // Action Creators
-import { getStories } from 'src/store/reducer/home';
+import { getStories, getCategory } from 'src/store/reducer/home';
 
 const mapStateToProps = (state) => ({
   story: state.home.story,
+  category: state.home.category,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   getStories: () => {
     const action = getStories();
+    dispatch(action);
+  },
+  getCategory: () => {
+    const action = getCategory();
     dispatch(action);
   },
 });

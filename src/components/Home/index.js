@@ -13,21 +13,22 @@ import CardCategory from './CardCategory';
 // == Composant
 class Home extends React.Component {
   componentDidMount() {
-    const { getStories } = this.props;
+    const { getStories, getCategory } = this.props;
     getStories();
+    getCategory();
   }
 
   render() {
-    const { isConnected, story } = this.props;
+    const { isConnected, story, category } = this.props;
     return (
       <main>
 
         {
           isConnected ? (
             <div className="content">
-              <CardCategory />
-              <CardCategory />
-              <CardCategory />
+              {category.map((item) => (
+                <CardCategory key={item.id} {...item} />
+              ))}
             </div>
           ) : (
             <>
@@ -53,6 +54,8 @@ Home.propTypes = {
   isConnected: PropTypes.bool.isRequired,
   getStories: PropTypes.func.isRequired,
   story: PropTypes.array.isRequired,
+  getCategory: PropTypes.func.isRequired,
+  category: PropTypes.array.isRequired,
 };
 
 // == Export
