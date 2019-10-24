@@ -6,6 +6,7 @@ const sequelize = new Sequelize('aventure', 'aventure', 'aventure_cypok', {
   define: {
     underscored: true,
     freezeTableName: true,
+    timestamps: false,
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   },

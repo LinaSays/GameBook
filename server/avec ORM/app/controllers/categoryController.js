@@ -2,7 +2,7 @@ const { sequelize, Role } = require('../../connection');
 
 module.exports = {
   getDemoStories: (req, res) => {
-    Role.sequelize.findAll({
+    Role.findAll({
       attributes: ['id', 'name'],
     });
   },

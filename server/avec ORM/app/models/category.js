@@ -13,7 +13,6 @@ const Category = sequelize.define('category', {
     allowNull: true,
   },
   description: Sequelize.TEXT('tiny'),
-  timestamps: false,
 });
 
 

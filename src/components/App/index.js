@@ -7,7 +7,7 @@ import './app.scss';
 import Navigation from 'src/components/Navigation';
 import Footer from 'src/components/Footer';
 import PageNotFound from 'src/components/PageNotFound';
-import Home from 'src/components/Home';
+import Home from 'src/containers/Home';
 import Contact from 'src/components/Contact';
 import Signin from 'src/containers/Signin';
 import Forgotten from 'src/containers/Forgotten';

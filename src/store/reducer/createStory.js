@@ -21,7 +21,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
-      default:
+    default:
       return state;
   }
 };

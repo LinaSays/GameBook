@@ -8,7 +8,6 @@ const Role = sequelize.define('role', {
     autoIncrement: true,
   },
   name: Sequelize.STRING(255),
-  timestamps: false,
 });
 
 module.exports = {

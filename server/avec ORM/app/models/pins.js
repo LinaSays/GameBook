@@ -9,7 +9,6 @@ const Pins = sequelize.define('pins', {
   },
   name: Sequelize.STRING(255),
   image: Sequelize.STRING(128),
-  timestamps: false,
 });
 
 

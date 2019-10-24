@@ -10,39 +10,49 @@ import Card from './Card';
 import CardCategory from './CardCategory';
 
 
-
 // == Composant
-const Home = ({ isConnected }) => (
-  <main>
+class Home extends React.Component {
+  componentDidMount() {
+    const { getStories } = this.props;
+    getStories();
+  }
 
-    {
-      isConnected ? (
-        <div className="content">
-          <CardCategory />
-          <CardCategory />
-          <CardCategory />
-        </div>
-      ) : (
-        <>
-          <div className="home">
-            <Intro isConnected={isConnected} />
-            <div className="wave" />
-          </div>
-          <div className="content">
-            <Card />
-            <Card />
-            <Card />
-          </div>
-        </>
-      )
-    }
+  render() {
+    const { isConnected, story } = this.props;
+    return (
+      <main>
 
+        {
+          isConnected ? (
+            <div className="content">
+              <CardCategory />
+              <CardCategory />
+              <CardCategory />
+            </div>
+          ) : (
+            <>
+              <div className="home">
+                <Intro isConnected={isConnected} />
+                <div className="wave" />
+              </div>
+              <div className="content">
+                {story.map((item) => (
+                  <Card key={item.id} {...item} />
+                ))}
+              </div>
+            </>
+          )
+        }
+      </main>
+    );
+  }
+}
 
-  </main>
-);
 // == Validation props
 Home.propTypes = {
   isConnected: PropTypes.bool.isRequired,
+  getStories: PropTypes.func.isRequired,
+  story: PropTypes.array.isRequired,
 };
 
 // == Export
