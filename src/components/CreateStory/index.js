@@ -32,19 +32,34 @@ import './createstory.scss';
 import categories from 'src/data/category';
 
 // == Composant
-const CreateStory = () => {
+const CreateStory = ({
+  changeValue,
+  title,
+  summary,
+  recap,
+  text,
+  choice,
+  choice2,
+}) => {
   const [activeTab, setActiveTab] = useState('1');
 
   const toggle = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
   };
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    changeValue(name, value);
+  };
+
   return (
     <Jumbotron fluid className="writer-background">
+      {/* Titre de la page Create Story */}
       <h1 className="title">L'aventure démarre enfin...</h1>
       <p className="lead">révélez votre talent d'écrivain et prenez en main le destin de vos lecteurs</p>
       <Container fluid className="container-box">
         <div>
+          {/* Breadcrumb de la page Create Story */}
           <Breadcrumb tag="nav" listTag="div">
             <BreadcrumbItem tag="a" href="#">Accueil</BreadcrumbItem>
             <BreadcrumbItem tag="a" href="#">Mon profil</BreadcrumbItem>
@@ -53,6 +68,7 @@ const CreateStory = () => {
         </div>
         <Form>
           <div>
+            {/* Titre des Tabs */}
             <Nav tabs>
               <NavItem>
                 <NavLink
@@ -61,7 +77,7 @@ const CreateStory = () => {
                     toggle('1');
                   }}
                 >
-                  <FiClipboard /> Le début
+                  <FiClipboard /> La couverture
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -86,13 +102,15 @@ const CreateStory = () => {
               </NavItem>
             </Nav>
             <TabContent activeTab={activeTab}>
+              {/* Contenu du Tabs 1 - le début */}
               <TabPane tabId="1">
                 <FormGroup>
                   <h5>Prenez ici, le temps de préparer la couverture de votre histoire</h5>
                 </FormGroup>
                 <FormGroup>
+                  {/* Titre de l'histoire */}
                   <Label for="storyTitle">Titre</Label>
-                  <Input type="text" name="title" id="storyTitle" autocomplete="off" placeholder="Titre de votre histoire..." required />
+                  <Input type="text" name="title" value={title} onChange={handleChange} id="storyTitle" placeholder="Titre de votre histoire..." required />
                   <FormFeedback valid>Ce titre est disponible !</FormFeedback>
                   <FormFeedback invalid>
                     Ce titre n'est malheureusement pas disponible.
@@ -100,11 +118,13 @@ const CreateStory = () => {
                   <FormText>Votre titre doit donner envie de lire vos écrits.</FormText>
                 </FormGroup>
                 <FormGroup>
+                  {/* Synopsis de l'histoire */}
                   <Label for="summaryText">Résumé</Label>
-                  <Input type="textarea" rows="4" name="summary" id="summaryText" placeholder="Ecrivez une description succincte de votre histoire..." />
+                  <Input type="textarea" rows="4" name="summary" value={summary} onChange={handleChange} id="summaryText" placeholder="Ecrivez une description succincte de votre histoire..." />
                   <FormText>Voyez ceci comme le texte trouvé au dos d'un livre.</FormText>
                 </FormGroup>
                 <FormGroup>
+                  {/* Choix de la catégorie */}
                   <Label for="categorieSelect">Choisissez le genre de votre histoire...</Label>
                   <Input type="select" name="select" id="categorieSelect">
                     {
@@ -113,6 +133,7 @@ const CreateStory = () => {
                   </Input>
                 </FormGroup>
                 <FormGroup>
+                  {/* Choix de la couverture */}
                   <Label for="customCover">Sélectionnez une image de couverture</Label>
                   <CustomInput type="file" name="customFile" id="customCover" label="format .jpg ou .png" />
                   <FormFeedback valid>Couverture d'image sélectionnée !</FormFeedback>
@@ -122,6 +143,7 @@ const CreateStory = () => {
                   <FormText>C'est comme la jaquette de votre livre.</FormText>
                 </FormGroup>
                 <FormGroup>
+                  {/* Boutons supprimer, mettre à jour et commencer */}
                   <Button className="trash-icon" title="Supprimer l'histoire" color="danger">
                     <FiTrash />
                   </Button>
@@ -139,8 +161,10 @@ const CreateStory = () => {
                 </FormGroup>
               </TabPane>
               <TabPane tabId="2">
+                {/* Contenu du Tabs 2 - les chapitres */}
                 <Form>
                   <FormGroup>
+                    {/* Pagination des chapitres */}
                     <Pagination aria-label="Chapter navigation" id="chapterPagination">
                       <PaginationItem>
                         <PaginationLink first href="#" />
@@ -177,11 +201,14 @@ const CreateStory = () => {
                     </Pagination>
                   </FormGroup>
                   <FormGroup>
-                    <h5>Maintenant il va falloir rédiger un chapitre et les choix qui en découlent.</h5>
+                    <h5>Maintenant il va falloir rédiger un chapitre
+                      et les choix qui en découlent.
+                    </h5>
                   </FormGroup>
                   <FormGroup>
+                    {/* Résumé du chapitre */}
                     <Label for="chapterSummary">Résumé de chapitre</Label>
-                    <Input type="text" name="recap" id="chapterSummary" placeholder="Résumez rapidement ce chapitre" />
+                    <Input type="text" name="recap" value={recap} onChange={handleChange} id="chapterSummary" placeholder="Résumez rapidement ce chapitre" />
                     <FormFeedback valid>Résumé validé !</FormFeedback>
                     <FormFeedback invalid>Votre résumé est vide ou incomplet</FormFeedback>
                     <FormText>Vous aide à identifier rapidement la trame de ce chapitre</FormText>
@@ -189,12 +216,13 @@ const CreateStory = () => {
                   <div className="columns">
                     <div className="writer-column">
                       <FormGroup>
+                        {/* Texte du chapitre */}
                         <Label for="chapterText">Texte du chapitre</Label>
-                        <Input type="textarea" rows="26" name="text" id="chapterText" />
+                        <Input type="textarea" value={text} onChange={handleChange} rows="26" name="text" id="chapterText" />
                       </FormGroup>
                     </div>
                     <div className="choices-column">
-                      {/* <h6>Préparez les choix disponibles pour le lecteur</h6> */}
+                      {/* Préparez les choix disponibles pour le lecteur */}
                       <FormGroup className="numberChoices">
                         <Label for="numberChoicesSelect">Nombre de choix de décisions (0 à 3)</Label>
                         <ListGroup>
@@ -205,12 +233,13 @@ const CreateStory = () => {
                       <hr className="separation" />
                       <FormGroup>
                         <FormGroup className="choices">
+                          {/* Choix 1 */}
                           <Label for="choice1" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 1</Label>
                           <Button className="save-choice" title="Sauver le choix" color="success"><FiSave /></Button>
                           <Button className="delete-choice" title="Supprimer le choix" color="danger">
                             <FiDelete />
                           </Button>
-                          <Input type="text" name="choice" id="choice1" placeholder="Écrivez le texte pour ce choix..." />
+                          <Input type="text" value={choice} onChange={handleChange} name="choice" id="choice1" placeholder="Écrivez le texte pour ce choix..." />
                           <FormText>Offrez à votre lecteur une décision à prendre</FormText>
                         </FormGroup>
                         <FormGroup className="choices-fork">
@@ -225,12 +254,13 @@ const CreateStory = () => {
                         </FormGroup>
                         <hr />
                         <FormGroup className="choices">
+                          {/* Choix 2 */}
                           <Label for="choice2" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 2</Label>
                           <Button className="save-choice" title="Sauver le choix" color="success"><FiSave /></Button>
                           <Button className="delete-choice" title="Supprimer le choix" color="danger">
                             <FiDelete />
                           </Button>
-                          <Input type="text" name="choice" id="choice2" placeholder="Écrivez le texte pour ce choix..." />
+                          <Input type="text" value={choice2} onChange={handleChange} name="choice2" id="choice2" placeholder="Écrivez le texte pour ce choix..." />
                           <FormText>Offrez à votre lecteur une décision à prendre</FormText>
                         </FormGroup>
                         <FormGroup className="choices-fork">
@@ -248,6 +278,7 @@ const CreateStory = () => {
                     </div>
                   </div>
                   <FormGroup>
+                    {/* Image de fond */}
                     <Label for="customImage">Sélectionnez une image de fond</Label>
                     <CustomInput type="file" name="customFile" id="customImage" label="format .jpg ou .png" />
                     <FormFeedback valid>Image de fond sélectionnée !</FormFeedback>
@@ -257,11 +288,13 @@ const CreateStory = () => {
                     <FormText>Une image de fond pour illustrer votre page/chapitre.</FormText>
                   </FormGroup>
                   <FormGroup>
+                    {/* Couleur de fond */}
                     <Label for="colorPicker">Choisissez une couleur de fond</Label>
                     <CirclePicker width="100%" className="color-picker" id="colorPicker" />
                     <FormText className="legendColor">Peut compléter votre image de fond et la remplacer pour la version mobile</FormText>
                   </FormGroup>
                   <FormGroup>
+                    {/* Boutons supprimer sauvegarder et nouveau chapitre */}
                     <Button className="trash-icon" title="Supprimer l'histoire" color="danger">
                       <FiTrash />
                     </Button>
@@ -279,6 +312,7 @@ const CreateStory = () => {
                   </FormGroup>
                 </Form>
               </TabPane>
+              {/* Contenu du Tabs 3 - la publication */}
               <TabPane tabId="3">
                 <FormGroup>
                   <h4>La fin se rapproche petit à petit...</h4>
@@ -286,9 +320,12 @@ const CreateStory = () => {
                 <Row>
                   <Col sm="6">
                     <Card body>
+                      {/* Statut de publication - Switch bouton */}
                       <CardTitle>Statut de publication</CardTitle>
                       <CardText>
-                        Ici vous allez choisir si votre histoire est publiée et accessible aux lecteurs ou si vous préférez la garder en mode "brouillon" pour travailler encore dessus.
+                        Ici vous allez choisir si votre histoire est publiée et
+                        accessible aux lecteurs ou si vous préférez la garder
+                        en mode "brouillon" pour travailler encore dessus.
                       </CardText>
                       <FormGroup className="publication-button">
                         <Label className="publication">Statut de l'histoire</Label>
@@ -302,10 +339,13 @@ const CreateStory = () => {
                     </Card>
                   </Col>
                   <Col sm="6">
+                    {/* Boite - J'ai fini avec bouton */}
                     <Card body>
                       <CardTitle>Temps de prendre une pause ou de boucler le livre !</CardTitle>
                       <CardText>
-                        Bravo ! Vous avez bien travaillez aujourd'hui. Cliquez joyeusement sur le bouton ci-dessous pour quitter l'écran de rédaction d'histoire.
+                        Bravo ! Vous avez bien travaillez aujourd'hui.
+                        Cliquez joyeusement sur le bouton ci-dessous
+                        pour quitter l'écran de rédaction d'histoire.
                       </CardText>
                       <Button color="success"><FiHome /> J'ai fini !</Button>
                     </Card>
@@ -323,15 +363,33 @@ const CreateStory = () => {
 // == Export
 export default CreateStory;
 
+CreateStory.propTypes = {
+  changeValue: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+  recap: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  choice: PropTypes.string.isRequired,
+  choice2: PropTypes.string.isRequired,
+};
+
 Jumbotron.propTypes = {
   fluid: PropTypes.bool,
 };
 
 Input.propTypes = {
+  children: PropTypes.node,
   type: PropTypes.string,
-  valid: PropTypes.bool,
-  invalid: PropTypes.bool,
+  size: PropTypes.string,
+  bsSize: PropTypes.string,
+  valid: PropTypes.bool, // applied the is-valid class when true, does nothing when false
+  invalid: PropTypes.bool, // applied the is-invalid class when true, does nothing when false
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  plaintext: PropTypes.bool,
+  addon: PropTypes.bool,
   className: PropTypes.string,
+  cssModule: PropTypes.object,
 };
 
 CustomInput.propTypes = {
@@ -368,4 +426,24 @@ Breadcrumb.propTypes = {
 BreadcrumbItem.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   active: PropTypes.bool,
+};
+
+FormGroup.propTypes = {
+  children: PropTypes.node,
+  row: PropTypes.bool,
+  check: PropTypes.bool,
+  inline: PropTypes.bool,
+  disabled: PropTypes.bool,
+  tag: PropTypes.string, // default: 'div'
+  className: PropTypes.string,
+  cssModule: PropTypes.object,
+};
+
+Form.propTypes = {
+  children: PropTypes.node,
+  inline: PropTypes.bool,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]), // default: 'form'
+  innerRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  cssModule: PropTypes.object,
 };
