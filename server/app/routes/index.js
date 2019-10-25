@@ -7,7 +7,7 @@ const choice = require('../model/choiceModel');
 module.exports = (app) => {
   app.get('/', category.getDemoStories); // display 3 demo stories
   app.get('/categories', category.getAllCategories); // show all categories
-  app.get('/categories/:id', category.getCategory); // show stories of one category
+  app.get('/categories/:id', category.getCategory); // A VOIR LE NOM show stories of one category
   app.post('/profile', profile.connect); // sign in
   app.post('/profile/add', profile.create); // sign up
   app.get('/profile/:id', profile.getProfile); // my profile

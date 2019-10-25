@@ -7,7 +7,7 @@ import { Form, Button } from 'react-bootstrap';
 // == Composant
 const Change = () => (
   <Form>
-    <Form.Group controlId="formBasicEmail">
+    <Form.Group controlId="formBasicName">
       <Form.Label>Nom Prénom</Form.Label>
       <Form.Control type="text" placeholder="Nom Prénom" name="user_name" />
     </Form.Group>
@@ -20,7 +20,7 @@ const Change = () => (
       <Form.Label>Password</Form.Label>
       <Form.Control type="password" placeholder="Password" name="password" />
     </Form.Group>
-    <Form.Group controlId="formBasicPassword">
+    <Form.Group controlId="formBasicAvatar">
       <Form.Label>Avatar</Form.Label>
       <Form.Control type="file" placeholder="Avatar" name="avatar" />
     </Form.Group>

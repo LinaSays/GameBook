@@ -14,13 +14,13 @@ import Forgotten from 'src/containers/Forgotten';
 import Signup from 'src/containers/Signup';
 import Categories from 'src/components/Categories';
 import CreateStory from 'src/containers/CreateStory';
-import Profile from 'src/components/Profile';
+import Profile from 'src/containers/Profile';
 import Team from 'src/components/Team';
 
 // == Composant
 class App extends React.Component {
   state = {
-    isConnected: true,
+    isConnected: false,
   }
 
   render() {

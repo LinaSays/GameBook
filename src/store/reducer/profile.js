@@ -1,29 +1,33 @@
 // == Initial State
 const initialState = {
-  message: 'Hello',
+  profile: [],
 };
 
 // == Types
-const DO_SOMETHING = 'DO_SOMETHING';
+export const GET_PROFILE = 'GET_PROFILE';
+export const SHOW_PROFILE = 'SHOW_PROFILE';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case DO_SOMETHING:
+    case SHOW_PROFILE:
       return {
         ...state,
-        message: action.message,
+        profile: action.profile,
       };
-
     default:
       return state;
   }
 };
 
 // == Action Creators
-export const doSomething = message => ({
-  type: DO_SOMETHING,
-  message,
+export const showProfile = (profile) => ({
+  type: SHOW_PROFILE,
+  profile,
+});
+
+export const getProfile = () => ({
+  type: GET_PROFILE,
 });
 
 

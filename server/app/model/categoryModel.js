@@ -22,7 +22,7 @@ module.exports = {
   },
 
   getCategory: (req, res) => {
-    const query = `SELECT * FROM category WHERE id=${req.params.id}`;
+    const query = `SELECT S.*, C.* FROM story S LEFT JOIN story_has_category H ON S.id = H.story_id LEFT JOIN category C ON H.category_id = C.id WHERE C.id=${req.body.id}`;
 
     // execute query
     db.query(query, (err, result) => {
