@@ -7,14 +7,14 @@ import './app.scss';
 import Navigation from 'src/components/Navigation';
 import Footer from 'src/components/Footer';
 import PageNotFound from 'src/components/PageNotFound';
-import Home from 'src/components/Home';
+import Home from 'src/containers/Home';
 import Contact from 'src/components/Contact';
-import Signin from 'src/components/Signin';
-import Forgotten from 'src/components/Signin/Forgotten';
-import Signup from 'src/components/Signup';
+import Signin from 'src/containers/Signin';
+import Forgotten from 'src/containers/Forgotten';
+import Signup from 'src/containers/Signup';
 import Categories from 'src/components/Categories';
-import CreateStory from 'src/components/CreateStory';
-import Profile from 'src/components/Profile';
+import CreateStory from 'src/containers/CreateStory';
+import Profile from 'src/containers/Profile';
 import Team from 'src/components/Team';
 
 // == Composant
@@ -50,7 +50,7 @@ class App extends React.Component {
           <Route path="/profile">
             <Profile />
           </Route>
-          <Route path="/categories">
+          <Route exact path="/categories">
             <Home isConnected={isConnected} />
           </Route>
           <Route path="/categories/:id">
