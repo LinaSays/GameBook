@@ -13,7 +13,6 @@ const Info = ({ name, avatar, role }) => (
       <div className="info-text">
         <h2>Bonjour {name}</h2>
         <Badge variant="info">{role}</Badge>
-        <div>Heroïc Fantasy</div>
       </div>
     </Container>
   </Jumbotron>

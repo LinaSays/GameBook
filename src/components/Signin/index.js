@@ -7,17 +7,21 @@ import PropTypes from 'prop-types';
 import './signin.scss';
 
 // == Composant
-const Signin = ({ changeValue, email, password }) => {
+const Signin = ({ changeValue, email, password, submitUser }) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    submitUser();
+  };
   const handleChange = (event) => {
     const { name, value } = event.target;
     changeValue(name, value);
   };
-  return(
+  return (
     <div className="signin">
       <div className="signin-left">
         <Link to="/signup" className="signin-left-link">Créer un compte</Link>
       </div>
-      <form className="signin-right">
+      <form className="signin-right" onSubmit={handleSubmit}>
         <h3 className="signin-right-title">Accéder à mon compte</h3>
 
         <div className="signin-right-field">
@@ -34,17 +38,18 @@ const Signin = ({ changeValue, email, password }) => {
           <input type="checkbox" name="connection" id="connection" />
           <label className="signin-right-label" htmlFor="connection">Remember me</label>
         </div>
-        <input type="button" value="Se connecter" className="signin-right-button" />
+        <button type="submit" className="signin-right-button">Se connecter</button>
         <Link to="/forgotten" className="signin-right-forgot">Mot de passe oublié ?</Link>
       </form>
     </div>
   );
-}
+};
 
 Signin.propTypes = {
   changeValue: PropTypes.func.isRequired,
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
+  submitUser: PropTypes.func.isRequired,
 };
 
 

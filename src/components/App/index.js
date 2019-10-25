@@ -1,6 +1,7 @@
+/* eslint-disable react/prefer-stateless-function */
 // == Import : npm
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 // == Import : local
 import './app.scss';
@@ -18,13 +19,10 @@ import Profile from 'src/containers/Profile';
 import Team from 'src/components/Team';
 
 // == Composant
-class App extends React.Component {
-  state = {
-    isConnected: false,
-  }
 
+class App extends React.Component {
   render() {
-    const { isConnected } = this.state;
+    const { isConnected } = this.props;
     return (
       <div id="app">
         <Navigation isConnected={isConnected} />
@@ -42,7 +40,7 @@ class App extends React.Component {
             <Signup />
           </Route>
           <Route path="/signin">
-            <Signin />
+            {isConnected ? <Redirect to="/" /> : <Signin />}
           </Route>
           <Route path="/forgotten">
             <Forgotten />

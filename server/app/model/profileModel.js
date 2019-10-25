@@ -23,13 +23,15 @@ module.exports = {
 
   connect: (req, res) => {
     const { email, password } = req.body;
-
+    console.log(email, password);
+    console.log(req.session);
     const query = `SELECT user.id, user.password FROM user WHERE user.email='${email}'`;
     // execute query
     db.query(query, (err, result) => {
       if (err) throw err;
       if (result.length > 0) {
         if (password === result[0].password) {
+          req.session.email = req.body.email;
           res.redirect(`/profile/${result[0].id}`);
         }
         else {

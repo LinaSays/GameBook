@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // == Import : local
-import App from 'src/components/App';
+import App from 'src/containers/App';
 import store from 'src/store';
 
 // == Render
