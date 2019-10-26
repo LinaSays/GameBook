@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { GET_STORIES, showStories, GET_CATEGORIES, showCategory } from 'src/store/reducer/home';
+import { GET_HOME, showHome } from 'src/store/reducer/signin';
 
 const homeMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -29,6 +30,27 @@ const homeMiddleware = (store) => (next) => (action) => {
         })
         .finally(() => {
 
+        });
+      break;
+    }
+    case GET_HOME: {
+      const state = store.getState();
+      const { isConnected } = state.signin;
+      axios.defaults.withCredentials = true;
+      axios.get('http://localhost:3000/checkToken')
+        .then(res => {
+          if (res.status === 200) {
+            const save = showHome(res.data);
+            store.dispatch(save);
+          }
+          else {
+            const error = new Error(res.error);
+            throw error;
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          return isConnected;
         });
       break;
     }

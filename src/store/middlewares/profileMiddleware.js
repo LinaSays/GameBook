@@ -6,8 +6,8 @@ import { CONNECT_USER, saveUser } from 'src/store/reducer/signin';
 const profileMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_PROFILE: {
-      const state = store.getState();
-      axios.get(`http://localhost:3000/profile/${id}`)
+      axios.defaults.withCredentials = true;
+      axios.get('http://localhost:3000/profile')
         .then((response) => {
           const save = showProfile(response.data);
           store.dispatch(save);
@@ -28,7 +28,6 @@ const profileMiddleware = (store) => (next) => (action) => {
         password,
       })
         .then((response) => {
-          console.log(response);
           const actionSaveUser = saveUser(response.data);
           store.dispatch(actionSaveUser);
         })

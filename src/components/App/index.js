@@ -2,6 +2,7 @@
 // == Import : npm
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 // == Import : local
 import './app.scss';
@@ -21,6 +22,11 @@ import Team from 'src/components/Team';
 // == Composant
 
 class App extends React.Component {
+  componentDidMount() {
+    const { getHome } = this.props;
+    getHome();
+  }
+
   render() {
     const { isConnected } = this.props;
     return (

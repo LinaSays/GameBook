@@ -3,6 +3,7 @@ const profile = require('../model/profileModel');
 const story = require('../model/storyModel');
 const chapter = require('../model/chapterModel');
 const choice = require('../model/choiceModel');
+const withAuth = require('../../middleware');
 
 module.exports = (app) => {
   app.get('/', category.getDemoStories); // display 3 demo stories
@@ -10,7 +11,7 @@ module.exports = (app) => {
   app.get('/categories/:id', category.getCategory); // A VOIR LE NOM show stories of one category
   app.post('/profile', profile.connect); // sign in
   app.post('/profile/add', profile.create); // sign up
-  app.get('/profile/:id', profile.getProfile); // my profile
+  app.get('/profile', profile.getProfile); // my profile
   app.post('/profile/edit/:id', profile.editProfile); // edit my profile
   app.get('/pins', profile.getPins); // show the pins
   app.get('/story', story.getAllStories); // show all stories
@@ -26,4 +27,8 @@ module.exports = (app) => {
   // app.post('/choice/delete/:id', choice.editChoice); // delete choice
   // app.post('/choice/edit/:id', choice.editChoice); // edit choice
   // app.post('/bookmark', todo); // save read situation
+
+  app.get('/checkToken', withAuth, (req, res) => {
+    res.sendStatus(200);
+  });
 };

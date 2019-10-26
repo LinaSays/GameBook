@@ -7,6 +7,7 @@ import Home from 'src/components/Home';
 // Action Creators
 import { getStories, getCategory } from 'src/store/reducer/home';
 
+
 const mapStateToProps = (state) => ({
   story: state.home.story,
   category: state.home.category,

@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken');
+
 const db = require('../../connection');
 
 module.exports = {
@@ -23,16 +25,24 @@ module.exports = {
 
   connect: (req, res) => {
     const { email, password } = req.body;
-    console.log(email, password);
-    console.log(req.session);
+    // console.log(email, password);
+    // console.log(req.session);
     const query = `SELECT user.id, user.password FROM user WHERE user.email='${email}'`;
     // execute query
     db.query(query, (err, result) => {
       if (err) throw err;
       if (result.length > 0) {
         if (password === result[0].password) {
-          req.session.email = req.body.email;
-          res.redirect(`/profile/${result[0].id}`);
+          const tokenSettings = {
+            expiresIn: '1h',
+          };
+          const token = jwt.sign({ user: result[0].id }, 'cypok', tokenSettings);
+          // console.log(token);
+          const cookieSettings = {
+            httpOnly: true,
+            secure: false,
+          };
+          res.cookie('token', token, cookieSettings).redirect('/profile');
         }
         else {
           res.send('Mauvais mot de passe');
@@ -45,12 +55,20 @@ module.exports = {
   },
 
   getProfile: (req, res) => {
-    const query = `SELECT user.id, user.name, user.avatar, role.name as role FROM user JOIN role ON user.role_id = role.id WHERE user.id=${req.params.id}`;
-
-    // execute query
-    db.query(query, (err, result) => {
-      if (err) throw err;
-      res.send(result);
+    const { token } = req.cookies;
+    jwt.verify(token, 'cypok', (err, decoded) => {
+      if (err) {
+        res.status(401).send('Unauthorized: Invalid token');
+      }
+      else {
+        const user_id = decoded.user;
+        const query = `SELECT user.id, user.name, user.avatar, role.name as role FROM user JOIN role ON user.role_id = role.id WHERE user.id=${user_id}`;
+        // execute query
+        db.query(query, (err2, result) => {
+          if (err2) throw err2;
+          res.send(result);
+        });
+      }
     });
   },
 
