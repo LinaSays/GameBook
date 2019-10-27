@@ -38,7 +38,7 @@ class Home extends React.Component {
               </div>
               <div className="content">
                 {story.map((item) => (
-                  <Card key={item.id} {...item} />
+                  <Card key={item.title} {...item} />
                 ))}
               </div>
             </>

@@ -10,8 +10,8 @@ module.exports = (app) => {
   app.get('/categories', category.getAllCategories); // show all categories
   app.get('/categories/:id', category.getCategory); // A VOIR LE NOM show stories of one category
   app.post('/profile', profile.connect); // sign in
-  app.post('/profile/add', profile.create); // sign up
   app.get('/profile', profile.getProfile); // my profile
+  app.post('/profile/add', profile.create); // sign up
   app.post('/profile/edit/:id', profile.editProfile); // edit my profile
   app.get('/pins', profile.getPins); // show the pins
   app.get('/story', story.getAllStories); // show all stories

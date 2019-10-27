@@ -1,11 +1,14 @@
 // == Initial State
 const initialState = {
   profile: [],
+  pins: [],
 };
 
 // == Types
 export const GET_PROFILE = 'GET_PROFILE';
-export const SHOW_PROFILE = 'SHOW_PROFILE';
+const SHOW_PROFILE = 'SHOW_PROFILE';
+export const GET_PINS = 'GET_PINS';
+const SHOW_PINS = 'SHOW_PINS';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -14,6 +17,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         profile: action.profile,
+      };
+    case SHOW_PINS:
+      return {
+        ...state,
+        pins: action.pins,
       };
     default:
       return state;
@@ -30,6 +38,14 @@ export const getProfile = () => ({
   type: GET_PROFILE,
 });
 
+export const showPins = (pins) => ({
+  type: SHOW_PINS,
+  pins,
+});
+
+export const getPins = () => ({
+  type: GET_PINS,
+});
 
 // == Selectors
 

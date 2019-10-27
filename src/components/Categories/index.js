@@ -13,27 +13,36 @@ import './categories.scss';
 /*
  * Components
  */
-const Categories = () => (
-  <div className="categories">
-    <img
-      src="https://adwebdesign.fr/wp-content/grand-media/image/banniere01.2.gif"
-      alt="Bannière"
-      className="image"
-      width="100%"
-    />
-    <h1 className="categories-title">Categorie</h1>
-    <div className="cards-group">
-      <Row className="test1">
-        <Col className="test2"><Category /></Col>
-        <Col className="test2"><Category /></Col>
-        <Col className="test2"><Category /></Col>
-        <Col className="test2"><Category /></Col>
-        <Col className="test2"><Category /></Col>
-        <Col className="test2"><Category /></Col>
-      </Row>
-    </div>
-  </div>
-);
+class Categories extends React.Component {
+  componentDidMount() {
+    const { getCategoryStories } = this.props;
+    getCategoryStories();
+  }
+
+  render() {
+    const { storylist } = this.props;
+    return (
+      <div className="categories">
+        <img
+          src="https://adwebdesign.fr/wp-content/grand-media/image/banniere01.2.gif"
+          alt="Bannière"
+          className="image"
+          width="100%"
+        />
+        <h1 className="categories-title">Catégorie</h1>
+        <div className="cards-group">
+          <Row className="test1">
+            {storylist.map((list) => (
+              <Col className="test2" key={list.description}><Category {...list} /></Col>
+            ))}
+          </Row>
+        </div>
+      </div>
+    );
+  }
+
+}
+
 
 /*
  * Export

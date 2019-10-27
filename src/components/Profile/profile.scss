@@ -42,12 +42,13 @@
 }
 
 .pins {
-  display: flex;
+  display: inline-flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
 
   &-info {
     width: 80px;
+    margin-right: 4em;
   }
 }
 

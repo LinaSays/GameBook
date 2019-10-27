@@ -2,13 +2,16 @@
 const initialState = {
   story: [],
   category: [],
+  storylist: [],
 };
 
 // - Actions Types
 export const GET_STORIES = 'GET_STORIES';
-export const SHOW_STORIES = 'SHOW_STORIES';
+const SHOW_STORIES = 'SHOW_STORIES';
 export const GET_CATEGORIES = 'GET_CATEGORIES';
-export const SHOW_CATEGORIES = 'SHOW_CATEGORIES';
+const SHOW_CATEGORIES = 'SHOW_CATEGORIES';
+export const GET_CATEGORY_STORIES = 'GET_CATEGORY_STORIES';
+const SHOW_CATEGORY_STORIES = 'SHOW_CATEGORY_STORIES';
 
 // - Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -23,7 +26,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         category: action.category,
       };
-
+    case SHOW_CATEGORY_STORIES:
+      return {
+        ...state,
+        storylist: action.storylist,
+      };
     default:
       return state;
   }
@@ -48,5 +55,13 @@ export const getCategory = () => ({
   type: GET_CATEGORIES,
 });
 
+export const showCategoryStories = (storylist) => ({
+  type: SHOW_CATEGORY_STORIES,
+  storylist,
+});
+
+export const getCategoryStories = () => ({
+  type: GET_CATEGORY_STORIES,
+});
 
 export default reducer;

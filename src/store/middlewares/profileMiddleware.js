@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_PROFILE, showProfile } from 'src/store/reducer/profile';
+import { GET_PROFILE, showProfile, GET_PINS, showPins } from 'src/store/reducer/profile';
 import { CONNECT_USER, saveUser } from 'src/store/reducer/signin';
 
 const profileMiddleware = (store) => (next) => (action) => {
@@ -36,6 +36,20 @@ const profileMiddleware = (store) => (next) => (action) => {
         })
         .finally(() => {
 
+        });
+      break;
+    }
+    case GET_PINS: {
+      axios.defaults.withCredentials = true;
+      axios.get('http://localhost:3000/pins')
+        .then((response) => {
+          const save = showPins(response.data);
+          store.dispatch(save);
+        })
+        .catch((error) => {
+          console.error(error);
+        })
+        .finally(() => {
         });
       break;
     }

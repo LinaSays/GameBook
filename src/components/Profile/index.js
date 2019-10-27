@@ -5,24 +5,25 @@ import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 // == Import : local
+import Pins from 'src/containers/Profile/Pins';
 import Info from './Info';
 import Menu from './Menu';
 import Change from './Change';
 import Wrote from './Wrote';
 import Read from './Read';
-import Pins from './Pins';
 import Mobile from './Mobile';
 import './profile.scss';
 
 // == Composant
 class Profile extends React.Component {
   componentDidMount() {
-    const { getProfile } = this.props;
+    const { getProfile, getPins } = this.props;
     getProfile();
+    getPins();
   }
 
   render() {
-    const { profile, location } = this.props;
+    const { profile, location, pins } = this.props;
     // const { path, url } = this.props.match;
     switch (location.pathname) {
       case '/profile/modify': {
@@ -100,7 +101,9 @@ class Profile extends React.Component {
                 <Menu />
               </Col>
               <Col>
-                <Pins />
+                {pins.map((item) => (
+                  <Pins key={item.badge} {...item} />
+                ))}
               </Col>
             </Row>
           </Container>

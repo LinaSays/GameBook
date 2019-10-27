@@ -84,11 +84,20 @@ module.exports = {
   },
 
   getPins: (req, res) => {
-    const query = 'SELECT user.id, user.name, pins.name AS badge, pins.image FROM user JOIN user_has_pins ON user_has_pins.user_id = user.id JOIN pins ON user_has_pins.pins_id = pins.id';
-    // execute query
-    db.query(query, (err, result) => {
-      if (err) throw err;
-      res.send(result);
+    const { token } = req.cookies;
+    jwt.verify(token, 'cypok', (err, decoded) => {
+      if (err) {
+        res.status(401).send('Unauthorized: Invalid token');
+      }
+      else {
+        const user_id = decoded.user;
+        const query = `SELECT user.id, user.name, pins.name AS badge, pins.image FROM user JOIN user_has_pins ON user_has_pins.user_id = user.id JOIN pins ON user_has_pins.pins_id = pins.id WHERE user.id=${user_id}`;
+        // execute query
+        db.query(query, (err1, result) => {
+          if (err1) throw err1;
+          res.send(result);
+        });
+      }
     });
   },
 };

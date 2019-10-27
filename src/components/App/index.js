@@ -2,7 +2,6 @@
 // == Import : npm
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import axios from 'axios';
 
 // == Import : local
 import './app.scss';
@@ -14,7 +13,7 @@ import Contact from 'src/components/Contact';
 import Signin from 'src/containers/Signin';
 import Forgotten from 'src/containers/Forgotten';
 import Signup from 'src/containers/Signup';
-import Categories from 'src/components/Categories';
+import Categories from 'src/containers/Categories';
 import CreateStory from 'src/containers/CreateStory';
 import Profile from 'src/containers/Profile';
 import Team from 'src/components/Team';

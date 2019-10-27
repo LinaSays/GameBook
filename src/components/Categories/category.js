@@ -20,7 +20,7 @@ import './category.scss';
 /*
  * Components
  */
-const Category = () => {
+const Category = ({ title, image, author, description }) => {
   const [open, setOpen] = useState(false);
   return (
     <div className="container-flippy">
@@ -34,12 +34,12 @@ const Category = () => {
           <FrontSide style={{ padding: '0' }}>
             <div className="card">
               <img
-                src="https://jeromeobiols.com/wordpress/wp-content/uploads/voie-lactee-montagne.jpg"
+                src={image}
                 alt=""
                 className="card-image-category"
               />
-              <h2 className="card-text-front">Titre de l'histoire</h2>
-              <h3 className="card-text-front-author">auteur</h3>
+              <h2 className="card-text-front">{title}</h2>
+              <h3 className="card-text-front-author">{author}</h3>
               <div className="card-icon-return">Synopsis <GiReturnArrow /></div>
             </div>
           </FrontSide>
@@ -51,9 +51,7 @@ const Category = () => {
                 className="card-image-category"
               />
               <h2 className="card-title">description</h2>
-              <p className="card-text-back">
-              Ayant marre de garder vos chèvres, de mouler vos fromages et de passer vos soirées à la taverne du village à écouter les mêmes vieilles histoires tourner en boucle, vous décidez qu’il est temps pour vous de bousculer votre quotidien !
-              </p>
+              <p className="card-text-back">{description}</p>
               <a href="#" className="card-link"> Lecture <FaPlayCircle /></a>
             </div>
           </BackSide>

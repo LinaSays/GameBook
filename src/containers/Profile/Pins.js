@@ -2,22 +2,17 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import Profile from 'src/components/Profile';
+import Pins from 'src/components/Profile/Pins';
 
 // Action Creators
-import { getProfile, getPins } from 'src/store/reducer/profile';
+import { getPins } from 'src/store/reducer/profile';
 
 
 const mapStateToProps = (state) => ({
-  profile: state.profile.profile,
   pins: state.profile.pins,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getProfile: () => {
-    const action = getProfile();
-    dispatch(action);
-  },
   getPins: () => {
     const action = getPins();
     dispatch(action);
@@ -25,10 +20,10 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 // Container
-const ProfileContainer = connect(
+const PinsContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Profile);
+)(Pins);
 
 // == Export
-export default ProfileContainer;
+export default PinsContainer;

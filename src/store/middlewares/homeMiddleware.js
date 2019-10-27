@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_STORIES, showStories, GET_CATEGORIES, showCategory } from 'src/store/reducer/home';
+import { GET_STORIES, showStories, GET_CATEGORIES, showCategory, GET_CATEGORY_STORIES, showCategoryStories } from 'src/store/reducer/home';
 import { GET_HOME, showHome } from 'src/store/reducer/signin';
 
 const homeMiddleware = (store) => (next) => (action) => {
@@ -23,6 +23,21 @@ const homeMiddleware = (store) => (next) => (action) => {
       axios.get('http://localhost:3000/categories')
         .then((response) => {
           const save = showCategory(response.data);
+          store.dispatch(save);
+        })
+        .catch((error) => {
+          console.error(error);
+        })
+        .finally(() => {
+
+        });
+      break;
+    }
+    case GET_CATEGORY_STORIES: {
+      axios.defaults.withCredentials = true;
+      axios.get(`http://localhost:3000${window.location.pathname}`)
+        .then((response) => {
+          const save = showCategoryStories(response.data);
           store.dispatch(save);
         })
         .catch((error) => {
