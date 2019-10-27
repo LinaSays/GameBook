@@ -2,6 +2,7 @@
 // == Import : npm
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // == Import : local
 import './app.scss';
@@ -50,6 +51,9 @@ class App extends React.Component {
           <Route path="/forgotten">
             <Forgotten />
           </Route>
+          <Route path="/signout">
+            <Redirect to="/" />
+          </Route>
           <Route path="/profile">
             <Profile />
           </Route>
@@ -77,6 +81,11 @@ class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  isConnected: PropTypes.bool.isRequired,
+  getHome: PropTypes.func.isRequired,
+};
 
 // == Export
 export default App;

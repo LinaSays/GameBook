@@ -14,18 +14,21 @@ module.exports = (app) => {
   app.post('/profile/add', profile.create); // sign up
   app.post('/profile/edit/:id', profile.editProfile); // edit my profile
   app.get('/pins', profile.getPins); // show the pins
+  app.get('/readstories', profile.getReadStories); // show read stories
+  app.get('/wrotestories', profile.getWroteStories); // show wrote srories
   app.get('/story', story.getAllStories); // show all stories
   app.post('/story/add', story.createStory); // add story
   app.get('/story/:id', story.getStory); // start story
   app.post('/story/delete', story.deleteStory); // delete story
   app.post('/story/edit/:id', story.editStory); // edit story
-  app.get('/chapter/:id', chapter.getChapter); // show situation ???
+  app.get('/chapter/:id', chapter.getChapter); // show next situation
+  app.get('/chapter/:id/choices', chapter.getChapterChoices); // show  choices of one situation
   app.post('/story/:id/chapter/add', chapter.createChapter); // add situation
   app.post('/story/:id/chapter/delete', chapter.deleteChapter); // delete situation
   app.post('/story/:id/chapter/edit/:id', chapter.editChapter); // edit situation
-  // app.post('/choice/add', choice.editChoice); // add choice
-  // app.post('/choice/delete/:id', choice.editChoice); // delete choice
-  // app.post('/choice/edit/:id', choice.editChoice); // edit choice
+  app.post('/choice/add', choice.createChoice); // add choice
+  app.post('/choice/delete/:id', choice.deleteChoice); // delete choice
+  app.post('/choice/edit/:id', choice.editChoice); // edit choice
   // app.post('/bookmark', todo); // save read situation
 
   app.get('/checkToken', withAuth, (req, res) => {

@@ -11,6 +11,16 @@ module.exports = {
     });
   },
 
+  getChapterChoices: (req, res) => {
+    const query = `SELECT * FROM choice WHERE id_situation_parent=${req.params.id}`;
+
+    // execute query
+    db.query(query, (err, result) => {
+      if (err) throw err;
+      res.send(result);
+    });
+  },
+
   createChapter: (req, res) => {
     const { text, recap, colorPicker } = req.body;
     const story_id = req.params.id;

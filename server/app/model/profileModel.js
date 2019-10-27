@@ -100,4 +100,40 @@ module.exports = {
       }
     });
   },
+
+  getReadStories: (req, res) => {
+    const { token } = req.cookies;
+    jwt.verify(token, 'cypok', (err, decoded) => {
+      if (err) {
+        res.status(401).send('Unauthorized: Invalid token');
+      }
+      else {
+        const user_id = decoded.user;
+        const query = `SELECT S.* FROM user U LEFT JOIN user_read_story R ON R.user_id = U.id LEFT JOIN story S ON R.story_id = S.id WHERE U.id=${user_id}`;
+        // execute query
+        db.query(query, (err1, result) => {
+          if (err1) throw err1;
+          res.send(result);
+        });
+      }
+    });
+  },
+
+  getWroteStories: (req, res) => {
+    const { token } = req.cookies;
+    jwt.verify(token, 'cypok', (err, decoded) => {
+      if (err) {
+        res.status(401).send('Unauthorized: Invalid token');
+      }
+      else {
+        const user_id = decoded.user;
+        const query = `SELECT story.id, story.title, story.image FROM story JOIN user ON story.author_id = user.id WHERE user.id=${user_id}`;
+        // execute query
+        db.query(query, (err1, result) => {
+          if (err1) throw err1;
+          res.send(result);
+        });
+      }
+    });
+  },
 };

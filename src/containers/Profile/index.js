@@ -5,12 +5,14 @@ import { connect } from 'react-redux';
 import Profile from 'src/components/Profile';
 
 // Action Creators
-import { getProfile, getPins } from 'src/store/reducer/profile';
+import { getProfile, getPins, getReadStories, getWroteStories } from 'src/store/reducer/profile';
 
 
 const mapStateToProps = (state) => ({
   profile: state.profile.profile,
   pins: state.profile.pins,
+  read: state.profile.read,
+  wrote: state.profile.wrote,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -20,6 +22,14 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getPins: () => {
     const action = getPins();
+    dispatch(action);
+  },
+  getReadStories: () => {
+    const action = getReadStories();
+    dispatch(action);
+  },
+  getWroteStories: () => {
+    const action = getWroteStories();
     dispatch(action);
   },
 });

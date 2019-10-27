@@ -1,6 +1,15 @@
 import axios from 'axios';
 
-import { GET_PROFILE, showProfile, GET_PINS, showPins } from 'src/store/reducer/profile';
+import {
+  GET_PROFILE,
+  showProfile,
+  GET_PINS,
+  showPins,
+  GET_READ_STORIES,
+  showReadStories,
+  GET_WROTE_STORIES,
+  showWroteStories,
+} from 'src/store/reducer/profile';
 import { CONNECT_USER, saveUser } from 'src/store/reducer/signin';
 
 const profileMiddleware = (store) => (next) => (action) => {
@@ -44,6 +53,34 @@ const profileMiddleware = (store) => (next) => (action) => {
       axios.get('http://localhost:3000/pins')
         .then((response) => {
           const save = showPins(response.data);
+          store.dispatch(save);
+        })
+        .catch((error) => {
+          console.error(error);
+        })
+        .finally(() => {
+        });
+      break;
+    }
+    case GET_READ_STORIES: {
+      axios.defaults.withCredentials = true;
+      axios.get('http://localhost:3000/readstories')
+        .then((response) => {
+          const save = showReadStories(response.data);
+          store.dispatch(save);
+        })
+        .catch((error) => {
+          console.error(error);
+        })
+        .finally(() => {
+        });
+      break;
+    }
+    case GET_WROTE_STORIES: {
+      axios.defaults.withCredentials = true;
+      axios.get('http://localhost:3000/wrotestories')
+        .then((response) => {
+          const save = showWroteStories(response.data);
           store.dispatch(save);
         })
         .catch((error) => {
