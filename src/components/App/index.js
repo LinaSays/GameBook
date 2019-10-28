@@ -18,6 +18,7 @@ import Categories from 'src/containers/Categories';
 import CreateStory from 'src/containers/CreateStory';
 import Profile from 'src/containers/Profile';
 import Team from 'src/components/Team';
+import StartStory from 'src/components/StartStory';
 
 // == Composant
 
@@ -31,7 +32,7 @@ class App extends React.Component {
     const { isConnected } = this.props;
     return (
       <div id="app">
-        <Navigation isConnected={isConnected} />
+        {/* <Navigation isConnected={isConnected} /> */}
         <Switch>
           <Route exact path="/">
             <Home isConnected={isConnected} />
@@ -71,6 +72,9 @@ class App extends React.Component {
           </Route>
           <Route path="/team">
             <Team />
+          </Route>
+          <Route path="/startstory">
+            <StartStory />
           </Route>
           <Route>
             <PageNotFound />
