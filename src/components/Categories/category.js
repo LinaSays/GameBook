@@ -72,18 +72,18 @@ const Category = ({ title, image, author, description }) => {
             
           >
             <img
-              src="https://jeromeobiols.com/wordpress/wp-content/uploads/voie-lactee-montagne.jpg"
+              src={image}
               alt=""
               className="mobile-card-image-category"
             />
             <div className="mobile-icon-return"><IoMdArrowDropdownCircle /></div>
-            <h2 className="mobile-card-text-front">Titre de l'histoire</h2>
+            <h2 className="mobile-card-text-front">{title}</h2>
           </Button>
           <Collapse in={open}>
             <div id="example-collapse-text" className="mobile-card-text">
               <h2 className="mobile-card-title">description</h2>
-            Ayant marre de garder vos chèvres, de mouler vos fromages et de passer vos soirées à la taverne du village à écouter les mêmes vieilles histoires tourner en boucle, vous décidez qu’il est temps pour vous de bousculer votre quotidien ! <br />
-              <span className="mobile-card-text-front-author">auteur</span>
+              {description} <br />
+              <span className="mobile-card-text-front-author">{author}</span>
               <a href="#" className="mobile-card-link">Lecture <FaPlayCircle /></a>
             </div>
           </Collapse>
