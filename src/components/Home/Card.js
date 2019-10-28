@@ -18,9 +18,21 @@ const Card = ({
   id, title, description, image,
 }) => {
   useEffect(() => {
-    console.log('good');
-  });
+    const card = document.getElementById(`card-${id}`);
+    const controller = new ScrollMagic.Controller();
+    const tween = TweenMax.to(card, 1, { scale: 1.09, repeat: 1, yoyo: true });
 
+    new ScrollMagic.Scene({
+
+      triggerElement: `#card-${id}`,
+      duration: '400px',
+      // offset: '100px',
+    })
+
+      .setTween(tween)
+
+      .addTo(controller);
+  });
   return (
     <div id={`card-${id}`} className="card-story container">
       <img className="card-story-img" src={image} alt="" />
