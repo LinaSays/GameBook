@@ -30,6 +30,7 @@ const Category = ({ title, image, author, description }) => {
           flipOnClick // default false
           flipDirection="horizontal" // horizontal or vertical
           style={{ marginTop: '1em' }}
+          
         >
           <FrontSide style={{ padding: '0' }}>
             <div className="card">
@@ -37,6 +38,7 @@ const Category = ({ title, image, author, description }) => {
                 src={image}
                 alt=""
                 className="card-image-category"
+                style={{ backgroundColor: '#000' }}
               />
               <h2 className="card-text-front">{title}</h2>
               <h3 className="card-text-front-author">{author}</h3>
@@ -46,11 +48,11 @@ const Category = ({ title, image, author, description }) => {
           <BackSide style={{ padding: '0' }}>
             <div className="card">
               <img
-                src="https://jeromeobiols.com/wordpress/wp-content/uploads/voie-lactee-montagne.jpg"
+                src={image}
                 alt=""
                 className="card-image-category"
               />
-              <h2 className="card-title">description</h2>
+              <h2 className="card-title-flippy">Description</h2>
               <p className="card-text-back">{description}</p>
               <a href="#" className="card-link"> Lecture <FaPlayCircle /></a>
             </div>

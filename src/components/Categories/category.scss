@@ -1,9 +1,12 @@
 .card {
   border: 0;
 
+
   &-image-category {
+    position: relative;
     max-height: 350px;
     box-shadow: 4px 2px 20px 0px #9e9494;
+    
   }
 
   
@@ -32,7 +35,7 @@
     }
   }
 
-  &-title {
+  &-title-flippy {
     position: absolute;
     top: 1rem;
     color: #fff;
@@ -53,7 +56,7 @@
       border-radius: 0.4rem;
       padding: 0.2rem 0.5rem;
       transition: .8s;
-      opacity: 0.6;
+      opacity: 0.8;
     }
   }
 
@@ -68,9 +71,6 @@
 .mobile {
   display: none;
 }
-
-
-
 
 .toggle {
   position: absolute;
