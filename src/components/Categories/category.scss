@@ -92,9 +92,6 @@
   }
 
   .mobile-icon-return {
-    // position: absolute;
-    // bottom: 2.1rem;
-    // left: calc((100% / 2) - 26.4px );
     font-size: 3.3em;
     color: #fff;
     transition: all .3s linear;
@@ -102,7 +99,6 @@
   }
 
   .mobile-icon-return:hover {
-    // animation: rotation .3s ease-in;
     transform: rotate(-180deg);
     margin-top: 1rem;
   }
@@ -135,6 +131,7 @@
   .mobile-card-text-front-author {
     float: right;
     margin-right: 0.3rem;
+    margin-top: 0.5rem;
     font-style: italic;
   }
 
