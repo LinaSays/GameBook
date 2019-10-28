@@ -4,7 +4,7 @@ const db = require('../../connection');
 
 module.exports = {
   create: (req, res) => {
-    const { user_name, email, password, choice } = req.body;
+    const { user_name, email, password } = req.body;
 
     const query = `SELECT user.id FROM user WHERE user.email='${email}'`;
     // execute query
@@ -14,10 +14,19 @@ module.exports = {
         res.send('Utilisateur existe');
       }
       else {
-        const query1 = `INSERT INTO user (name, email, password, role_id) VALUES ('${user_name}', '${email}', '${password}', ${choice})`;
-        db.query(query1, (err, result) => {
-          if (err) throw err;
-          res.redirect(`/profile/${result.insertId}`);
+        const query1 = `INSERT INTO user (name, email, password) VALUES ('${user_name}', '${email}', '${password}')`;
+        db.query(query1, (err2, result2) => {
+          if (err2) throw err;
+          const tokenSettings = {
+            expiresIn: '1h',
+          };
+          const token = jwt.sign({ user: result2.insertId }, 'cypok', tokenSettings);
+          // console.log(token);
+          const cookieSettings = {
+            httpOnly: true,
+            secure: false,
+          };
+          res.cookie('token', token, cookieSettings).redirect('/profile');
         });
       }
     });
