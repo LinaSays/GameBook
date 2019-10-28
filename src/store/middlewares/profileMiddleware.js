@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 import {
   GET_PROFILE,
@@ -10,7 +11,7 @@ import {
   GET_WROTE_STORIES,
   showWroteStories,
 } from 'src/store/reducer/profile';
-import { CONNECT_USER, saveUser, CREATE_USER, saveNewUser, error } from 'src/store/reducer/signin';
+import { CONNECT_USER, saveUser, CREATE_USER, saveNewUser } from 'src/store/reducer/signin';
 
 const profileMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -25,6 +26,7 @@ const profileMiddleware = (store) => (next) => (action) => {
           .then((response) => {
             const save = saveNewUser(response.data);
             store.dispatch(save);
+            toast.success(`Bienvenue ${user_name}`);
           })
           .catch((error) => {
             console.error(error);
@@ -33,7 +35,7 @@ const profileMiddleware = (store) => (next) => (action) => {
           });
       }
       else {
-        console.error('Votre mot de passe ne correspond pas');
+        toast.error('Votre mot de passe ne correspond pas');
       }
       break;
     }

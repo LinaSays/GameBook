@@ -5,64 +5,78 @@ import {
   MdExitToApp, MdHome, MdBookmark, MdPerson,
 } from 'react-icons/md';
 import { FaUser } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import PropTypes from 'prop-types';
 
 // == Import : local
 import './startstory.scss';
 
 // == Composant
-const StartStory = () => (
-  <div className="container-story">
-    <img src="https://wallpaperset.com/w/full/0/5/1/442146.jpg" alt="" className="bg-image"/>
-    <div className="story">
-      <div className="story-account">
-        <Image
-          src="https://st2.depositphotos.com/1007566/11569/v/950/depositphotos_115690782-stock-illustration-young-and-elegant-woman-avatar.jpg"
-          className="story-account-img"
-          roundedCircle
-        />
-        <div className="story-account-info">
-          <p className="story-account-name">Nom / Pseudo</p>
-          <div className="story-account-nav">
-            <Button className="d-flex justify-content-center align-items-center" variant="light mt-1"><FaUser className="mr-2" /> Mon profil</Button>
-            <Button className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdBookmark className="mr-1" /> Sauvegarder</Button>
-            <Button className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdExitToApp className="mr-1" /> Sortir</Button>
-            <Button className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdHome className="mr-1" /> Retour à l'accueil</Button>
+class StartStory extends React.Component {
+  componentDidMount() {
+    const { getStartStories } = this.props;
+    getStartStories();
+  }
+
+  render() {
+    const { id, text, color, image } = this.props;
+    // style= {{ background: color }};
+    return (
+      <div className="container-story">
+        <Image src={image} alt="" className="bg-image" />
+        <div className="story">
+          <div className="story-account">
+            <Image
+              src="https://st2.depositphotos.com/1007566/11569/v/950/depositphotos_115690782-stock-illustration-young-and-elegant-woman-avatar.jpg"
+              className="story-account-img"
+              roundedCircle
+            />
+            <div className="story-account-info">
+              <p className="story-account-name">Nom / Pseudo</p>
+              <div className="story-account-nav">
+                <NavLink to="/profile" className="d-flex justify-content-center align-items-center" variant="light mt-1"><FaUser className="mr-2" /> Mon profil</NavLink>
+                <NavLink to="" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdBookmark className="mr-1" /> Sauvegarder</NavLink>
+                <NavLink to="/" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdHome className="mr-1" /> Retour à l'accueil</NavLink>
+              </div>
+            </div>
+          </div>
+          <div className="story-page">
+            <div className="story-text">
+              {text}
+              {/* {startStory.map((story) => (
+                <p key={story.text}>{story.text}</p>
+              ))} */}
+            </div>
+            <div className="story-choice">
+              <button type="submit" className="story-choice-link" variant="secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit</button>
+              <button type="submit" className="story-choice-link" variant="secondary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis, aliquam?</button>
+              <button type="submit" className="story-choice-link" variant="secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam quod repudiandae quia delectus ad saepe.</button>
+            </div>
+            <div className="story-account-nav-mobile mt-4">
+              <NavLink to="/profile" className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdPerson className="mr-1" />Mon profil</NavLink>
+              <NavLink to="" className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdBookmark className="mr-1" /> Sauvegarder</NavLink>
+              <NavLink to="/" className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdHome className="mr-1" /> Retour à l'accueil</NavLink>
+            </div>
+            <div className="story-account-nav-footer">
+              <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdPerson /></NavLink>
+              <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdBookmark /></NavLink>
+              <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdHome /></NavLink>
+            </div>
           </div>
         </div>
       </div>
-      <div className="story-page">
-        <div className="story-text">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum facilis libero voluptas tempora tempore? Animi rerum illum quia optio mollitia sit reprehenderit. Vero doloribus placeat odit corporis rerum tempora? Quas earum labore voluptatum corrupti nemo ullam soluta dolorem? Recusandae odio autem sit delectus nobis eius assumenda aut dolorum sequi repellat?</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti doloribus maiores incidunt veniam vitae, inventore, soluta obcaecati fugit, expedita at repudiandae quisquam! Perspiciatis pariatur ipsa veniam quis sed, ut facilis dolor laborum. Sed quibusdam, animi cumque debitis laudantium consequuntur deleniti.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia minima odio quod porro maiores maxime asperiores neque distinctio? Quam dolore rem nihil aliquam dolorem sapiente minus incidunt corrupti explicabo architecto error ipsum pariatur, ratione labore, eveniet laboriosam! Expedita ullam dolore excepturi, dolorum eius architecto placeat ex voluptatum? Ea, illum voluptatem?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique eum eius adipisci quam, dolore animi amet ipsa totam hic quidem libero nulla iure harum est voluptates officia ipsum sunt quia, eveniet magnam! In, placeat similique laudantium id, iusto quam veritatis tempore consequuntur, dolore eligendi itaque eius exercitationem molestiae fugit eaque fugiat voluptate! Minima iure adipisci id saepe assumenda ad quo reprehenderit sed nostrum et inventore laborum aliquid magni sapiente ipsum hic, ab natus similique? Laborum alias eveniet consequatur repellendus inventore.</p>
-        </div>
-        <div className="story-choice">
-          <div className="story-choice-link">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
-          <div className="story-choice-link">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis, aliquam?</div>
-          <div className="story-choice-link">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam quod repudiandae quia delectus ad saepe.</div>
-        </div>
-        <div className="story-account-nav-mobile mt-4">
-          <Button className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdPerson className="mr-1" />Mon profil</Button>
-          <Button className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdBookmark className="mr-1" /> Sauvegarder</Button>
-          <Button className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdExitToApp className="mr-1" /> Sortir</Button>
-          <Button className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdHome className="mr-1" /> Retour à l'accueil</Button>
-        </div>
-        <div className="story-account-nav-footer">
-          <Button className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdPerson /></Button>
-          <Button className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdBookmark /></Button>
-          <Button className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdExitToApp /></Button>
-          <Button className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdHome /></Button>
-        </div>
-      </div>
-    </div>
+    );
+  }
+}
 
-
-  </div>
-
-);
-
+StartStory.propTypes = {
+  id: PropTypes.number.isRequired,
+  getStartStories: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
 
 // == Export
 export default StartStory;

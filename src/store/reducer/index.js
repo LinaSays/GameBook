@@ -6,6 +6,7 @@ import createStory from './createStory';
 import signin from './signin';
 import forgotten from './forgotten';
 import home from './home';
+import startStory from './startStory';
 
 // combineReducers nous retourne le reducer parent généré
 // on doit fournir en paramètre un objet
@@ -18,6 +19,7 @@ const reducer = combineReducers({
   signin,
   forgotten,
   home,
+  startStory,
 });
 
 export default reducer;

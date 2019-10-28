@@ -37,22 +37,22 @@ const Signup = ({
         <h3 className="signup-left-title">Commencer l'aventure</h3>
         <div className="signup-left-field">
           <i className="fas fa-user signup-left-field-img" />
-          <input type="text" placeholder="Nom Prénom" value={user_name} onChange={handleChange} className="signup-left-input" name="user_name" />
+          <input type="text" placeholder="Nom Prénom" value={user_name} onChange={handleChange} className="signup-left-input" name="user_name" required/>
         </div>
 
         <div className="signup-left-field">
           <i className="fas fa-envelope signup-left-field-img" />
-          <input type="email" placeholder="Email" value={email} onChange={handleChange} className="signup-left-input" name="email" />
+          <input type="email" placeholder="Email" value={email} onChange={handleChange} className="signup-left-input" name="email" required/>
         </div>
 
         <div className="signup-left-field">
           <i className="fas fa-unlock-alt signup-left-field-img" />
-          <input type="password" placeholder="Mot de passe" value={password} onChange={handleChange} className="signup-left-input" name="password" />
+          <input type="password" placeholder="Mot de passe" value={password} onChange={handleChange} className="signup-left-input" name="password" required/>
         </div>
 
         <div className="signup-left-field">
           <i className="fas fa-unlock-alt signup-left-field-img" />
-          <input type="password" placeholder="Confirmer mot de passe" value={confirm} onChange={handleChange} className="signup-left-input" name="confirm" />
+          <input type="password" placeholder="Confirmer mot de passe" value={confirm} onChange={handleChange} className="signup-left-input" name="confirm" required/>
         </div>
         {/* <div>
           <div>Vous êtes ici pour :</div>

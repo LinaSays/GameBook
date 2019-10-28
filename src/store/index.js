@@ -6,6 +6,7 @@ import reducer from 'src/store/reducer';
 import logMiddleware from './middlewares/logMiddleware';
 import homeMiddleware from './middlewares/homeMiddleware';
 import profileMiddleware from './middlewares/profileMiddleware';
+import storyMiddleware from './middlewares/storyMiddleware';
 
 // == Store
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -15,6 +16,7 @@ const enhancers = composeEnhancers(
     logMiddleware,
     homeMiddleware,
     profileMiddleware,
+    storyMiddleware,
     // secondMiddleware,
   ),
 );

@@ -2,6 +2,7 @@
 // == Import : npm
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -18,7 +19,9 @@ import Categories from 'src/containers/Categories';
 import CreateStory from 'src/containers/CreateStory';
 import Profile from 'src/containers/Profile';
 import Team from 'src/components/Team';
-import StartStory from 'src/components/StartStory';
+import StartStory from 'src/containers/StartStory';
+
+toast.configure();
 
 // == Composant
 
@@ -32,7 +35,8 @@ class App extends React.Component {
     const { isConnected } = this.props;
     return (
       <div id="app">
-        {/* <Navigation isConnected={isConnected} /> */}
+        <ToastContainer autoClose={5000} />
+        <Navigation isConnected={isConnected} />
         <Switch>
           <Route exact path="/">
             <Home isConnected={isConnected} />
@@ -73,7 +77,7 @@ class App extends React.Component {
           <Route path="/team">
             <Team />
           </Route>
-          <Route path="/startstory">
+          <Route path="/story/:id">
             <StartStory />
           </Route>
           <Route>

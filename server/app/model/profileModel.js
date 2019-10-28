@@ -23,7 +23,7 @@ module.exports = {
           const token = jwt.sign({ user: result2.insertId }, 'cypok', tokenSettings);
           // console.log(token);
           const cookieSettings = {
-            httpOnly: true,
+            httpOnly: false,
             secure: false,
           };
           res.cookie('token', token, cookieSettings).redirect('/profile');
@@ -48,7 +48,7 @@ module.exports = {
           const token = jwt.sign({ user: result[0].id }, 'cypok', tokenSettings);
           // console.log(token);
           const cookieSettings = {
-            httpOnly: true,
+            httpOnly: false,
             secure: false,
           };
           res.cookie('token', token, cookieSettings).redirect('/profile');
