@@ -27,7 +27,7 @@ const Card = ({
       <div className="card-story-text-content">
         <h2 className="card-story-title">{title}</h2>
         <p className="card-story-descrip">{description}</p>
-        <Link to={`story/${id}`} className="card-story-link">Commencer l'histoire ></Link>
+        <Link to={`story/${id}`} className={`card-story-link link-${id}`}>Commencer l'histoire ></Link>
       </div>
     </div>
   );
