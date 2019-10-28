@@ -33,5 +33,5 @@ module.exports = (app) => {
 
   app.get('/checkToken', withAuth, (req, res) => {
     res.sendStatus(200);
-  });
+  }); // check if user has a cookie or not
 };

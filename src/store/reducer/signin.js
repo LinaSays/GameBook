@@ -1,7 +1,9 @@
 // - initialState
 const initialState = {
+  user_name: '',
   email: '',
   password: '',
+  confirm: '',
   isConnected: false,
   user: [],
 };
@@ -12,6 +14,8 @@ export const CONNECT_USER = 'CONNECT_USER';
 const SAVE_USER = 'SAVE_USER';
 export const GET_HOME = 'GET_HOME';
 export const SHOW_HOME = 'SHOW_HOME';
+export const CREATE_USER = 'CREATE_USER';
+const SAVE_NEW_USER = 'SAVE_NEW_USER';
 
 // - Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -31,6 +35,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isConnected: true,
+      };
+    case SAVE_NEW_USER:
+      return {
+        ...state,
+        isConnected: true,
+        // newUser: action.newUser,
       };
     default:
       return state;
@@ -59,6 +69,14 @@ export const showHome = (home) => ({
 
 export const getHome = () => ({
   type: GET_HOME,
+});
+
+export const createUser = () => ({
+  type: CREATE_USER,
+});
+export const saveNewUser = (newUser) => ({
+  type: SAVE_NEW_USER,
+  newUser,
 });
 // - Selectors
 

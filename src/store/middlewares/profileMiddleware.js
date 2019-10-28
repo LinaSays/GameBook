@@ -10,10 +10,33 @@ import {
   GET_WROTE_STORIES,
   showWroteStories,
 } from 'src/store/reducer/profile';
-import { CONNECT_USER, saveUser } from 'src/store/reducer/signin';
+import { CONNECT_USER, saveUser, CREATE_USER, saveNewUser, error } from 'src/store/reducer/signin';
 
 const profileMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
+    case CREATE_USER: {
+      const state = store.getState();
+      const { user_name, email, password, confirm } = state.signin;
+      if (password === confirm) {
+        axios.defaults.withCredentials = true;
+        axios.post('http://localhost:3000/profile/add', {
+          user_name, email, password,
+        })
+          .then((response) => {
+            const save = saveNewUser(response.data);
+            store.dispatch(save);
+          })
+          .catch((error) => {
+            console.error(error);
+          })
+          .finally(() => {
+          });
+      }
+      else {
+        console.error('Votre mot de passe ne correspond pas');
+      }
+      break;
+    }
     case GET_PROFILE: {
       axios.defaults.withCredentials = true;
       axios.get('http://localhost:3000/profile')

@@ -3,7 +3,6 @@ import { combineReducers } from 'redux';
 // on importe chacun des sous-reducers
 import profile from './profile';
 import createStory from './createStory';
-import connexion from './connexion';
 import signin from './signin';
 import forgotten from './forgotten';
 import home from './home';
@@ -16,7 +15,6 @@ const reducer = combineReducers({
   // user: user
   profile,
   createStory,
-  connexion,
   signin,
   forgotten,
   home,

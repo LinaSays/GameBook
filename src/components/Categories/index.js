@@ -33,7 +33,11 @@ class Categories extends React.Component {
         <div className="cards-group">
           <Row className="test1">
             {storylist.map((list) => (
-              <Col className="test2" key={list.description}><Category {...list} /></Col>
+              <>
+                <Col className="test2" key={list.description}><Category {...list} /></Col>
+                <Col className="test2" key={list.description}><Category {...list} /></Col>
+                <Col className="test2" key={list.description}><Category {...list} /></Col>
+              </>
             ))}
           </Row>
         </div>

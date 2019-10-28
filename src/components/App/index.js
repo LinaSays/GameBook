@@ -43,7 +43,7 @@ class App extends React.Component {
             <Contact />
           </Route>
           <Route path="/signup">
-            <Signup />
+            {isConnected ? <Redirect to="/" /> : <Signup />}
           </Route>
           <Route path="/signin">
             {isConnected ? <Redirect to="/" /> : <Signin />}
