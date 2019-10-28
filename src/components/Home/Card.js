@@ -17,9 +17,9 @@ ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 const Card = ({
   id, title, description, image,
 }) => {
-  useEffect(()=>{
+  useEffect(() => {
     console.log('good');
-  })
+  });
 
   return (
     <div id={`card-${id}`} className="card-story container">
@@ -27,7 +27,7 @@ const Card = ({
       <div className="card-story-text-content">
         <h2 className="card-story-title">{title}</h2>
         <p className="card-story-descrip">{description}</p>
-        <a href="" className={`card-story-link link-${id}`}>Commencer l'histoire ></a>
+        <Link to={`story/${id}`} className="card-story-link">Commencer l'histoire ></Link>
       </div>
     </div>
   );
@@ -36,6 +36,7 @@ const Card = ({
 Card.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
 };
 
