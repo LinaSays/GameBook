@@ -1,5 +1,5 @@
 // == Import : npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as ScrollMagic from 'scrollmagic';
@@ -17,7 +17,10 @@ ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 const Card = ({
   id, title, description, image,
 }) => {
-  console.log('coucou');
+  useEffect(()=>{
+    console.log('good');
+  })
+
   return (
     <div id={`card-${id}`} className="card-story container">
       <img className="card-story-img" src={image} alt="" />
