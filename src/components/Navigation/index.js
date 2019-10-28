@@ -1,7 +1,7 @@
 // == Import : npm
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -50,4 +50,4 @@ Navigation.propTypes = {
 };
 
 // == Export
-export default Navigation;
+export default withRouter(Navigation);

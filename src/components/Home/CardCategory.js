@@ -1,19 +1,27 @@
 // == Import : npm
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // == Import : local
 import './home.scss';
 
 // == Composant
-const CardCategory = () => (
-  <div className="card-story container">
-    <img className="card-story-img" src="https://wallpaperplay.com/walls/full/a/5/3/102151.jpg" alt="" />
+const CardCategory = ({ id, name, image, description }) => (
+  <div className="card-story container" category_id={id}>
+    <img className="card-story-img" src={image} alt="" />
     <div className="card-story-text-content">
-      <h2 className="card-story-title">Catégorie</h2>
-      <a href="" className="card-story-link">Commencer l'histoire ></a>
+      <h2 className="card-story-title">{name}</h2>
+      <Link to={`categories/${id}`} className="card-story-link">Commencer l'histoire ></Link>
     </div>
   </div>
 );
 
+CardCategory.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
 // == Export
 export default CardCategory;

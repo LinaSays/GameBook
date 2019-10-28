@@ -18,7 +18,7 @@ const Team = () => (
           <li>Product Owner</li>
           <li>Référent Technique Node.JS</li>
         </ul>
-        <a href="https://www.linkedin.com/in/christian-bourgeois-94a9115" className="team-info-link"><FaLinkedin /> in/christian-bourgeois-94a9115</a>
+        <a href="https://www.linkedin.com/in/christianbourgeoisdev" className="team-info-link"><FaLinkedin /> in/christianbourgeoisdev</a>
       </div>
 
       <div className="team-info">

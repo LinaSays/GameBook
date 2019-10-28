@@ -1,32 +1,31 @@
 // == Import : npm
 import React from 'react';
 import { CardDeck, Card } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 // == Import : local
 
 // == Composant
-const Read = () => (
+const Read = ({ title, image }) => (
   <CardDeck>
     <Card>
-      <Card.Img variant="top" src="https://images-na.ssl-images-amazon.com/images/I/51RkD7cTmmL._SX210_.jpg" />
+      <Card.Img variant="top" src={image} />
       <Card.Footer>
-        <small className="text-muted">Lu le 16/10/2019</small>
-      </Card.Footer>
-    </Card>
-    <Card>
-      <Card.Img variant="top" src="https://images-na.ssl-images-amazon.com/images/I/51RkD7cTmmL._SX210_.jpg" />
-      <Card.Footer>
-        <small className="text-muted">Lu le 16/10/2019</small>
-      </Card.Footer>
-    </Card>
-    <Card>
-      <Card.Img variant="top" src="https://images-na.ssl-images-amazon.com/images/I/51RkD7cTmmL._SX210_.jpg" />
-      <Card.Footer>
-        <small className="text-muted">Lu le 16/10/2019</small>
+        <small className="text-muted">{title}</small>
       </Card.Footer>
     </Card>
   </CardDeck>
 );
+
+Read.propTypes = {
+  title: PropTypes.string,
+  image: PropTypes.string,
+};
+
+Read.defaultProps = {
+  title: '',
+  image: '',
+};
 
 // == Export
 export default Read;

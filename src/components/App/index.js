@@ -1,35 +1,38 @@
+/* eslint-disable react/prefer-stateless-function */
 // == Import : npm
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // == Import : local
 import './app.scss';
 import Navigation from 'src/components/Navigation';
 import Footer from 'src/components/Footer';
 import PageNotFound from 'src/components/PageNotFound';
-import Home from 'src/components/Home';
+import Home from 'src/containers/Home';
 import Contact from 'src/components/Contact';
-import Signin from 'src/components/Signin';
-import Forgotten from 'src/components/Signin/Forgotten';
-import Signup from 'src/components/Signup';
-import Categories from 'src/components/Categories';
-import CreateStory from 'src/components/CreateStory';
-import CreateChapter from 'src/components/CreateChapter';
-import Profile from 'src/components/Profile';
+import Signin from 'src/containers/Signin';
+import Forgotten from 'src/containers/Forgotten';
+import Signup from 'src/containers/Signup';
+import Categories from 'src/containers/Categories';
+import CreateStory from 'src/containers/CreateStory';
+import Profile from 'src/containers/Profile';
 import Team from 'src/components/Team';
 import StartStory from 'src/components/StartStory';
 
 // == Composant
+
 class App extends React.Component {
-  state = {
-    isConnected: false,
+  componentDidMount() {
+    const { getHome } = this.props;
+    getHome();
   }
 
   render() {
-    const { isConnected } = this.state;
+    const { isConnected } = this.props;
     return (
       <div id="app">
-        {/* <Navigation isConnected={isConnected} /> */}
+        <Navigation isConnected={isConnected} />
         <Switch>
           <Route exact path="/">
             <Home isConnected={isConnected} />
@@ -44,15 +47,18 @@ class App extends React.Component {
             <Signup />
           </Route>
           <Route path="/signin">
-            <Signin />
+            {isConnected ? <Redirect to="/" /> : <Signin />}
           </Route>
           <Route path="/forgotten">
             <Forgotten />
           </Route>
+          <Route path="/signout">
+            <Redirect to="/" />
+          </Route>
           <Route path="/profile">
             <Profile />
           </Route>
-          <Route path="/categories">
+          <Route exact path="/categories">
             <Home isConnected={isConnected} />
           </Route>
           <Route path="/categories/:id">
@@ -61,27 +67,29 @@ class App extends React.Component {
           <Route path="/createstory">
             <CreateStory />
           </Route>
-          <Route path="/createchapter">
-            <CreateChapter />
-          </Route>
-          <Route path="/startstory">
-            <StartStory />
-          </Route>
           <Route path="/about">
             <div>A propos</div>
           </Route>
           <Route path="/team">
             <Team />
           </Route>
+          <Route path="/startstory">
+            <StartStory />
+          </Route>
           <Route>
             <PageNotFound />
           </Route>
         </Switch>
-        {/* <Footer isConnected={isConnected} /> */}
+        <Footer isConnected={isConnected} />
       </div>
     );
   }
 }
+
+App.propTypes = {
+  isConnected: PropTypes.bool.isRequired,
+  getHome: PropTypes.func.isRequired,
+};
 
 // == Export
 export default App;
