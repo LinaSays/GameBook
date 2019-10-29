@@ -120,7 +120,6 @@ const Chapitres = ({
           <FiTrash />
         </Button>
       </FormGroup>
-      
     </>
   );
 };

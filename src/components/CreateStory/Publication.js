@@ -55,6 +55,5 @@ const Publication = () => (
   </>
 );
 
-
 // == Export
 export default Publication;

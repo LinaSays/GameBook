@@ -1,15 +1,11 @@
 // == Import : npm
 import React from 'react';
 import {
-  Button, FormGroup, Label,
-  Input, FormText, CustomInput,
+  Button, FormGroup, Label, Input, FormText,
   ListGroup, ListGroupItem,
 }
   from 'reactstrap';
-import { CirclePicker } from 'react-color';
 import {
-  FiTrash,
-  FiEdit3,
   FiCornerDownRight,
   FiGitCommit,
   FiDelete,
@@ -85,7 +81,6 @@ const Choix = ({ changeValue, choice, choice2 }) => {
           <hr />
         </FormGroup>
       </div>
-      
     </>
   );
 };

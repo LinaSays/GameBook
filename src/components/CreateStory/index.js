@@ -18,7 +18,6 @@ import PropTypes from 'prop-types';
 // == Import : local
 import Couverture from './Couverture';
 import Chapitres from './Chapitres';
-import Choix from './Choix';
 import Publication from './Publication';
 import './createstory.scss';
 
