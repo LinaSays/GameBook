@@ -1,39 +1,41 @@
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+
 
 .body {
-  background-image: url('../../../public/images/wave (1).svg');
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: 100%;
 
   &-title {
     text-align: center;
-    font-family: 'Indie Flower', cursive;
     font-size: 3em;
-    padding-top: 1em;
+    padding-top: 1rem;
+    margin-bottom: 5rem;
+    background-color: blueviolet;
   }
 }
 
 .team {
   width: 900px;
-  margin: 3em auto 0;
+  margin: 3rem auto 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding-bottom: 5em;
   
   &-info {
-    width: 200px;
+    width: 300px;
+    border: 1px solid #eee;
+    padding: 2rem;
     display: flex;
+    margin-right: 2rem;
     flex-direction: column;
     justify-content: space-evenly;
-
-    &-title {
-      font-family: 'Indie Flower', cursive;
-    }
+    box-shadow: 4px 2px 20px 0px #9e9494;
 
     &-description {
       font-size: 0.8em;
       list-style: circle;
+    }
+
+    &-title {
+      margin: 2rem 0;
+      text-align: center;
     }
 
     &-link {
@@ -42,8 +44,10 @@
   }
 
   &-image {
-    width: 150px;
-    height: 150px;
+    width: 190px;
+    height: 190px;
+    margin-top: -6rem;
+    box-shadow: 4px 2px 20px 0px #9e9494;
   }
 }
 
@@ -54,9 +58,15 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 
+  &-info {
+    margin-top: 6rem;
+  }
+
   &-image {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
+    // padding-top: -3rem;
+    margin: -5rem auto 0;
   }
 }
 }
@@ -66,8 +76,12 @@
     width: 300px;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+
+    &-info {
+      // margin: 2rem auto;
+    }
   
     &-image {
       width: 100px;
