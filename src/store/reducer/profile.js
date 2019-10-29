@@ -4,9 +4,14 @@ const initialState = {
   pins: [],
   read: [],
   wrote: [],
+  user_name: '',
+  email: '',
+  password: '',
+  avatar: '',
 };
 
 // == Types
+const CHANGE_INPUT = 'CHANGE_INPUT';
 export const GET_PROFILE = 'GET_PROFILE';
 const SHOW_PROFILE = 'SHOW_PROFILE';
 export const GET_PINS = 'GET_PINS';
@@ -19,6 +24,11 @@ const SHOW_WROTE_STORIES = 'SHOW_WROTE_STORIES';
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case CHANGE_INPUT:
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
     case SHOW_PROFILE:
       return {
         ...state,
@@ -45,6 +55,12 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 // == Action Creators
+export const changeInput = (name, value) => ({
+  type: CHANGE_INPUT,
+  name,
+  value,
+});
+
 export const showProfile = (profile) => ({
   type: SHOW_PROFILE,
   profile,

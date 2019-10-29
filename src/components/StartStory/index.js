@@ -76,8 +76,12 @@ StartStory.propTypes = {
   getNextChapter: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string,
   choice: PropTypes.array.isRequired,
+};
+
+StartStory.defaultProps = {
+  image: '',
 };
 
 // == Export
