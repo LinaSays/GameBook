@@ -67,6 +67,7 @@
     "nodemon": "^1.19.3",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-bootstrap": "^1.0.0-beta.14",
     "react-color": "^2.17.3",
     "react-dom": "^16.10.2",
@@ -82,6 +83,7 @@
     "redux": "^4.0.1",
     "scrollmagic": "^2.0.7",
     "scrollmagic-plugin-gsap": "^1.0.3",
+    "regenerator-runtime": "^0.13.3",
     "sequelize": "^5.21.1",
     "sequelize-cli": "^5.5.1"
   }

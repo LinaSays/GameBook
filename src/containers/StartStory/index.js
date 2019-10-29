@@ -13,6 +13,7 @@ const mapStateToProps = (state) => ({
   text: state.startStory.text,
   color: state.startStory.color,
   image: state.startStory.image,
+  choice: state.startStory.choice,
 });
 
 /* === Actions === */
