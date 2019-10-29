@@ -15,6 +15,7 @@ const CardCategory = ({
     <img className="card-story-img" src={image} alt="" />
     <div className="card-story-text-content">
       <h2 className="card-story-title">{name}</h2>
+      <p className="card-story-descrip">{description}</p>
       <Link to={`categories/${id}`} className="card-story-link">Commencer l'histoire ></Link>
     </div>
   </div>

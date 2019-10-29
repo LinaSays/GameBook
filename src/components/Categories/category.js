@@ -6,9 +6,10 @@ import React, { useState } from 'react';
 //   UncontrolledCollapse, Button, CardBody, Card,
 // } from 'reactstrap';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
-import { FaChevronRight, FaPlayCircle } from 'react-icons/fa';
-import { GiReturnArrow, GiPlainArrow } from 'react-icons/gi';
+import { FaPlayCircle } from 'react-icons/fa';
+import { GiReturnArrow } from 'react-icons/gi';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 import { Button, Collapse } from 'react-bootstrap';
 
@@ -20,7 +21,7 @@ import './category.scss';
 /*
  * Components
  */
-const Category = ({ title, image, author, description }) => {
+const Category = ({ id, title, image, author, description }) => {
   const [open, setOpen] = useState(false);
   return (
     <div className="container-flippy">
@@ -54,7 +55,7 @@ const Category = ({ title, image, author, description }) => {
               />
               <h2 className="card-title-flippy">Description</h2>
               <p className="card-text-back">{description}</p>
-              <a href="#" className="card-link"> Lecture <FaPlayCircle /></a>
+              <Link to={`/story/${id}`} className="card-link"> Lecture <FaPlayCircle /></Link>
             </div>
           </BackSide>
         </Flippy>

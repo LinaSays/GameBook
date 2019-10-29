@@ -31,7 +31,7 @@ class StartStory extends React.Component {
         <div className="story">
           <div className="story-account">
             <Image
-              src="https://st2.depositphotos.com/1007566/11569/v/950/depositphotos_115690782-stock-illustration-young-and-elegant-woman-avatar.jpg"
+              src="https://i.imgur.com/rMxbnBM.png"
               className="story-account-img"
               roundedCircle
             />

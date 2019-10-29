@@ -4,6 +4,8 @@ const db = require('../../connection');
 
 module.exports = {
   create: (req, res) => {
+    const avatar = 'https://i.imgur.com/rMxbnBM.png';
+    const role = 2;
     const { user_name, email, password } = req.body;
 
     const query = `SELECT user.id FROM user WHERE user.email='${email}'`;
@@ -14,7 +16,7 @@ module.exports = {
         res.send('Utilisateur existe');
       }
       else {
-        const query1 = `INSERT INTO user (name, email, password) VALUES ('${user_name}', '${email}', '${password}')`;
+        const query1 = `INSERT INTO user (name, email, password, avatar, role_id) VALUES ('${user_name}', '${email}', '${password}', '${avatar}', '${role}')`;
         db.query(query1, (err2, result2) => {
           if (err2) throw err;
           const tokenSettings = {

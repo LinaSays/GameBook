@@ -43,6 +43,7 @@ const profileMiddleware = (store) => (next) => (action) => {
       axios.defaults.withCredentials = true;
       axios.get('http://localhost:3000/profile')
         .then((response) => {
+          console.log(response);
           const save = showProfile(response.data);
           store.dispatch(save);
         })
