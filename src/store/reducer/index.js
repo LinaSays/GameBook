@@ -3,10 +3,10 @@ import { combineReducers } from 'redux';
 // on importe chacun des sous-reducers
 import profile from './profile';
 import createStory from './createStory';
-import connexion from './connexion';
 import signin from './signin';
 import forgotten from './forgotten';
 import home from './home';
+import startStory from './startStory';
 
 // combineReducers nous retourne le reducer parent généré
 // on doit fournir en paramètre un objet
@@ -16,10 +16,10 @@ const reducer = combineReducers({
   // user: user
   profile,
   createStory,
-  connexion,
   signin,
   forgotten,
   home,
+  startStory,
 });
 
 export default reducer;

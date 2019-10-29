@@ -1,5 +1,4 @@
 const db = require('../../connection');
-const chapter = require('./chapterModel');
 
 module.exports = {
   getAllStories: (req, res) => {
@@ -13,8 +12,8 @@ module.exports = {
   },
 
   getStory: (req, res) => {
-    const { story_id } = req.body;
-    const query = `SELECT id FROM situation where story_id = ${story_id} and id not in (select distinct id_situation_child from choice where id_situation_child is not null)`;
+    const story_id = req.params.id;
+    const query = `SELECT * FROM situation where situation.story_id = ${story_id} and situation.id not in (select distinct id_situation_child from choice where id_situation_child is not null)`;
 
     // execute query
     db.query(query, (err, result) => {

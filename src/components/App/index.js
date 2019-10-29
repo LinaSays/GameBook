@@ -2,6 +2,7 @@
 // == Import : npm
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -18,6 +19,9 @@ import Categories from 'src/containers/Categories';
 import CreateStory from 'src/containers/CreateStory';
 import Profile from 'src/containers/Profile';
 import Team from 'src/components/Team';
+import StartStory from 'src/containers/StartStory';
+
+toast.configure();
 
 // == Composant
 
@@ -31,6 +35,7 @@ class App extends React.Component {
     const { isConnected } = this.props;
     return (
       <div id="app">
+        <ToastContainer autoClose={5000} />
         <Navigation isConnected={isConnected} />
         <Switch>
           <Route exact path="/">
@@ -43,7 +48,7 @@ class App extends React.Component {
             <Contact />
           </Route>
           <Route path="/signup">
-            <Signup />
+            {isConnected ? <Redirect to="/" /> : <Signup />}
           </Route>
           <Route path="/signin">
             {isConnected ? <Redirect to="/" /> : <Signin />}
@@ -71,6 +76,9 @@ class App extends React.Component {
           </Route>
           <Route path="/team">
             <Team />
+          </Route>
+          <Route path="/story/:id">
+            <StartStory />
           </Route>
           <Route>
             <PageNotFound />

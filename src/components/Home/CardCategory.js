@@ -7,8 +7,11 @@ import { Link } from 'react-router-dom';
 import './home.scss';
 
 // == Composant
-const CardCategory = ({ id, name, image, description }) => (
-  <div className="card-story container" category_id={id}>
+const CardCategory = ({
+  id, name, image, description,
+}) => (
+
+  <div className="card-story container" category_id={id} id={`card-story${id}`}>
     <img className="card-story-img" src={image} alt="" />
     <div className="card-story-text-content">
       <h2 className="card-story-title">{name}</h2>
