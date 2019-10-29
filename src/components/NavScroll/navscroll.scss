@@ -27,6 +27,17 @@
 			padding: 1.5rem;
 		}
 
+		&-scroll {
+			background-color: white;
+			position: fixed;
+			top: -100%;
+			transition: .6s ease-in-out;
+			z-index: 106;
+			padding: 1.5rem;
+			box-shadow: rgb(116, 116, 116) 0px -5px 30px;
+			
+		}
+
 		&-container-fixed {
 			position: fixed;
 			top:0;
@@ -35,7 +46,7 @@
 			margin:0;
         }
         
-		&-group-link {
+		&-group-link , &-group-scroll{
 			display: none;
 		}
 
@@ -133,6 +144,18 @@
 			}
 		}
 
+		&-group-scroll {
+			display: initial;
+			margin: .9rem;
+			color: black;
+            transition: .3s;
+            		
+			&:hover {
+				text-decoration: none;
+				color: rgb(94, 255, 0);	
+			}
+		}
+
 		&-burger {
 			display: none;
 		}
@@ -143,6 +166,10 @@
 
 		&-icon1 {
 			display: none;
+		}
+
+		&-scroll {
+			padding: .5rem;
 		}
 
 }
@@ -165,6 +192,24 @@
 		&:hover {
 			background-color:  #fc5c42;
 			border: 2px solid #fc5c42;			
+		}
+	}
+	
+	&-link-scroll {
+		position: relative;
+		background-color: #fc5c42;
+		border: 2px solid #fc5c42;
+		padding: .5rem 1rem;
+		border-radius: 20px;
+		text-transform: uppercase;
+		font-size: .8em;
+		font-weight: bold;
+		color: #fff;
+		transition: .2s ease-in;
+
+		&:hover {
+			background-color:  #2d0edb;
+			border: 2px solid #2d0edb;			
 		}
     }
     
