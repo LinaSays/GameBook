@@ -37,6 +37,10 @@
 
       &-link {
         color: blueviolet;
+
+        &:hover{
+          text-decoration: none;
+        }
       }
     }
 

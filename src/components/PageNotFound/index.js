@@ -1,5 +1,6 @@
 // == Import : npm
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 // == Import : local
 import './pagenotfound.scss';
@@ -7,12 +8,14 @@ import './pagenotfound.scss';
 // == Composant
 const PageNotFound = () => (
   <div className="not-found">
-    <img src="https://image.freepik.com/vecteurs-libre/animal-marmotte-dessin-anime_11460-7906.jpg" alt="cypok404" />
-    <div>404 Page Not Found
-      <div className="not-found-text">et la marmotte elle met le chocolat dans le papier d’alu</div>
-    </div>
+    <h2 className="not-found-title">404</h2>
+    <p className="not-found-text">Page non trouvée</p>
+    <div className="not-found-button-nav"><NavLink to="/"><button type="button" className="not-found-button">Retourner à la home</button></NavLink></div>
   </div>
+
 );
 
 // == Export
 export default PageNotFound;
+
+// <img className="not-found-image" src="https://3kllhk1ibq34qk6sp3bhtox1-wpengine.netdna-ssl.com/wp-content/uploads/2017/12/44-incredible-404-error-pages@3x-1560x760.png" alt="page404" />
