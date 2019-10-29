@@ -4,6 +4,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+// import { toast } from 'react-toastify';
 
 // == Import : local
 import './navnew.scss';
@@ -24,6 +25,7 @@ const NavNew = ({
   //   const colorLogo = classNames('text-white', { 'text-dark': isOpen });
 
   const removeCookie = () => {
+    // toast.success('A très bientôt !');
     document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     document.location.href = '/';
   };

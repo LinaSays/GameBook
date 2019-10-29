@@ -6,6 +6,8 @@ import {
   showStartStories,
   GET_CHOICES,
   showChoices,
+  GET_NEXT_CHAPTER,
+  showNextChapter,
 } from 'src/store/reducer/startStory';
 
 async function getStartStories(store) {
@@ -14,6 +16,26 @@ async function getStartStories(store) {
     const response = await axios.get(`http://localhost:3000${window.location.pathname}`);
     console.log(response);
     const save = showStartStories(
+      response.data[0].id,
+      response.data[0].text,
+      response.data[0].color,
+      response.data[0].image,
+    );
+    console.log(response.data[0].id);
+    getChoices(store, response.data[0].id);
+    store.dispatch(save);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
+async function getNextChapter(store, id) {
+  try {
+    axios.defaults.withCredentials = true;
+    const response = await axios.get(`http://localhost:3000/chapter/${id}`);
+    console.log(response);
+    const save = showNextChapter(
       response.data[0].id,
       response.data[0].text,
       response.data[0].color,
@@ -49,6 +71,10 @@ const storyMiddleware = (store) => (next) => (action) => {
     }
     case GET_CHOICES: {
       getChoices(store, action.id);
+      break;
+    }
+    case GET_NEXT_CHAPTER: {
+      getNextChapter(store, action.id);
       break;
     }
     default:

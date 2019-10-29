@@ -16,6 +16,12 @@ class StartStory extends React.Component {
     getStartStories();
   }
 
+  handleClick = (id) => () => {
+    const { getNextChapter } = this.props;
+    getNextChapter(id);
+  }
+
+
   render() {
     const { id, text, color, image, choice } = this.props;
     // style= {{ background: color }};
@@ -44,7 +50,7 @@ class StartStory extends React.Component {
             </div>
             <div className="story-choice">
               {choice.map((item) => (
-                <button type="submit" className="story-choice-link" variant="secondary" key={item.text}>{item.text}</button>
+                <button type="submit" onClick={this.handleClick(item.id_situation_child)} id={item.id_situation_child} className="story-choice-link" variant="secondary" key={item.text}>{item.text}</button>
               ))}
             </div>
             <div className="story-account-nav-mobile mt-4">
@@ -67,6 +73,7 @@ class StartStory extends React.Component {
 StartStory.propTypes = {
   id: PropTypes.number.isRequired,
   getStartStories: PropTypes.func.isRequired,
+  getNextChapter: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
