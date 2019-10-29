@@ -1,67 +1,18 @@
-.home {
-    background: linear-gradient(-134deg, #C86DD7 0%, #3023AE 100%);
-    position: relative;
-    //width: 70%;
-    
-}
+// Size for mobile
 
-.content {
-    display: flex;
-    flex-direction: column;
-}
-
-.card-story {
-    position: relative;
-    width: 100%;
-    background-color: black; 
-    margin: 30px auto;
-    border-radius: 30px;  
-    box-shadow: rgb(82, 82, 82) 5px 5px 30px;
-    cursor: pointer;
-    transition: .4s;
-    padding: 0;
-    overflow: hidden;
-    
-
-   
-    &-title {
-        font-family: sans-serif;
-        font-weight: bold;
-        text-transform: uppercase;
-        transition: .4s;
-
-        &:hover {
-            transform: scale(1.03)
-        }
-    
-    }
-
-    &-link {
-        color: white;
-        font-size: .9em;
-
-    }
-
-
-    &-img {
-
-        height: 100%;
-        object-fit: cover;
-        width: 100%;
-        opacity: .6;
-        
-        
-    }
-
-}
-
-@media screen and (min-width:320px){
+@media screen and (min-width:320px) {
 
     .home {
         background: linear-gradient(-134deg, #C86DD7 0%, #3023AE 100%);
         position: relative;
-        height: 80vh;
-        
+        min-height: 100vh;   
+    }
+
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
     }
 
     .wave {
@@ -72,89 +23,126 @@
         position: absolute;
         bottom:-80px;
         z-index: 0;
-     
     }
     
    
     .intro {
         padding: 0 20px 30px;
         
-
         &-content {
             display: flex;
             position: relative;
             flex-wrap: wrap-reverse;
-            z-index: 1;
+            padding-top: 4rem;
         }
     
 
         &-title {
             color: white;
-            font-size: 1.5em;
             text-align: center;
             font-weight: bold;
+            font-family: 'Poppins';
+            text-transform: uppercase;
 
         }
 
         &-text {
             color: white;
-            font-size: .8em;
             text-align: center;
             word-spacing: -1px;
+            font-family: 'Poppins';
+            
+            
         }
 
         &-button {
             color: white;
             display: block;
-            background-color: transparent;
+            background-color: blue;
             border: 1px white solid;
             border-radius: 20px;
-            padding: 5px 15px;
-            margin: auto;
-            font-size: .9em;
-            transition: .3s;
+            padding: .3rem .9rem;
+            margin: 2.2rem auto 3rem;
+            transition: .4s;
 
             &:hover {
                 background-color: #fc5c42;
                 border: 1px #fc5c42 solid;
             }
-
-
         }
 
         &-img--image {
             width: 100%;
+            margin-bottom: 1rem;
             
         }
     }
 
     .card-story {
         height: 50vh;
+        position: relative;
+        width: 100%;
+        background-color: black; 
+        margin: 30px auto;
+        border-radius: 30px;  
+        box-shadow: rgb(82, 82, 82) 5px 5px 30px;
+        cursor: pointer;
+        transition: .4s;
+        padding: 0;
+        overflow: hidden;
 
         &-title {
-            font-size: 1.5em;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 1em;
+            text-transform: uppercase;
+            transition: .5s;
         }
+    
+        &-descrip {
+            color: white;
+            position: absolute;
+            top: 0px;
+            transition: .5s;
+            opacity: 0;
+        }
+    
+        &-link {
+            position: absolute;
+            color: white;
+            font-size: .9em;
+            transition: .5s;
+        }
+    
+    
+        &-img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+            opacity: .6;   
+        } 
 
         &-text-content {
             position: absolute;
             color: white;
-            bottom: 30px;
-            left: 20px;
-            
-            }
+            bottom: 80px;
+            left: 20px;    
+        }
     }
-
-  
-
 }
+
+// Size for tablet
 
 @media screen and (min-width: 768px) {
 
     .home {
-        background: linear-gradient(-134deg, #C86DD7 0%, #3023AE 100%);
-        position: relative;
-        height: 800px;
+      min-height: 950px;  
+
         
+    }
+
+    .content {
+        padding: 3rem;
     }
 
     .wave {
@@ -181,26 +169,29 @@
             word-spacing: -1px;
         }
 
+        &-button {
+            margin-top: 3rem;
+        }
+
         &-img {
             margin: auto;
             text-align: center;
         }
 
         &-img--image {
-            width: 80%;
-            
+            width: 100%;
         }
 
     }
 
     .card-story {
-        height: 70vh;
+        height: 45vh;
 
         &-text-content {
             position: absolute;
             color: white;
-            bottom: 100px;
-            left: 80px;
+            bottom: 30px;
+            left: 50px;
             
             }
     }
@@ -210,8 +201,16 @@
 
 }
 
+// Size for desktop
 
 @media screen and (min-width: 992px) {
+    .home {
+        padding-top: 10rem;
+        min-height: 900px;
+        
+        
+
+    }
     .wave {
         width: 100%;
         height: 500px;
@@ -220,31 +219,27 @@
         position: absolute;
         bottom:-130px;
         z-index: 0;
+    }
 
-    }
-    .home {
-        height: 100vh;
-       
-    }
     .intro {
+
+        padding: 0;
 
         &-content {
             flex-wrap: nowrap;
-            //background-color: green;
-            //margin-top: 40px;
             padding: 20px 20px 0;
-            //background-color: green;
         }
 
         &-left{
-            padding: 0;
             width: 50%;
+            padding: 0;
         }
 
         &-title {
             color: white;
             font-size: 2em;
             text-align: left;
+            margin-bottom: 2rem;
 
         }
 
@@ -253,38 +248,65 @@
             font-size: .9em;
             text-align: left;
             word-spacing: -1px;
-
         }
 
         &-button {
-            margin: inherit;
-            font-size: .9em;
+            margin-left: inherit;
+            
         }
 
         &-img {
             margin: auto;
             text-align: center;
-            //background-color: red;
-            width: 50%;
-            
+            width: 50%; 
         }
 
         &-img--image {
+            position: relative;
             width: 130%;
+            z-index: 3;
+            
             
         }
 
     }
 
 
-    .card-story-text-content {
-        position: absolute;
-        color: white;
-        bottom: 150px;
-        left: 80px;
-        
-    
+    .card-story {
+
+        height: 70vh;
+         
+        &-text-content{
+            position: absolute;
+            color: white;
+            bottom: 150px;
+            left: 80px;      
+        }
+
+        &-title {
+            font-size: 2rem;
+        }
+
+        &:hover &-title {
+            transform: translateY(-45%);
         }
     
+        &:hover &-descrip {
+            transform: translateY(40%);
+            opacity: 1;
+        }
+    
+        &:hover &-link {
+            transform: translateY(210%);
+        }
+    
+        &:hover .link-3 {
+            transform: translateY(100%);
+        }
+    }
 
+    #card-1:target {
+        transition: 1s;
+        
+    }
 }
