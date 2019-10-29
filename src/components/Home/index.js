@@ -36,7 +36,7 @@ class Home extends React.Component {
                 <Intro isConnected={isConnected} />
                 <div className="wave" />
               </div>
-              <div className="content">
+              <div className="content" id="histoire">
                 {story.map((item) => (
                   <Card key={item.title} {...item} />
                 ))}
