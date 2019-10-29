@@ -1,9 +1,8 @@
 // == Import : npm
 import React from 'react';
 import {
-  Form, FormGroup, Label,
-  Input, FormText, CustomInput,
-  Pagination, PaginationItem, PaginationLink,
+  FormGroup, Label, Input, FormText, CustomInput,
+  Pagination, PaginationItem, PaginationLink, Button,
 }
   from 'reactstrap';
 import { CirclePicker } from 'react-color';
@@ -18,7 +17,14 @@ import PropTypes from 'prop-types';
 import Choix from './Choix';
 
 // == Composant
-const Chapitres = ({ changeValue, recap, text, title, choice, choice2 }) => {
+const Chapitres = ({ 
+  changeValue,
+  recap,
+  text,
+  title,
+  choice,
+  choice2,
+}) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     changeValue(name, value);
@@ -83,14 +89,45 @@ const Chapitres = ({ changeValue, recap, text, title, choice, choice2 }) => {
             <Input type="textarea" value={text} onChange={handleChange} rows="26" name="text" id="chapterText" />
           </FormGroup>
         </div>
+        <Choix changeValue={changeValue} title={title} recap={recap} text={text} choice={choice} choice2={choice2} />
       </div>
-      <Choix changeValue={changeValue} title={title} recap={recap} text={text} />
+      <FormGroup>
+        {/* Image de fond */}
+        <Label for="customImage">Sélectionnez une image de fond</Label>
+        <CustomInput type="file" name="customFile" id="customImage" label="format .jpg ou .png" />
+        <FormText>Une image de fond pour illustrer votre page/chapitre.</FormText>
+      </FormGroup>
+      <FormGroup>
+        {/* Couleur de fond */}
+        <Label for="colorPicker">Choisissez une couleur de fond</Label>
+        <CirclePicker width="100%" className="color-picker" id="colorPicker" />
+        <FormText className="legendColor">Peut compléter votre image de fond et la remplacer pour la version mobile</FormText>
+      </FormGroup>
+      <FormGroup>
+        {/* Boutons supprimer sauvegarder et nouveau chapitre */}
+        <Button className="trash-icon" title="Supprimer l'histoire" color="danger">
+          <FiTrash />
+        </Button>
+        <div className="button-bar">
+          <Button className="custom-button" title="Sauvegarder les changements" color="dark">
+            Sauvegarder
+          </Button>
+          <Button className="custom-button" title="Écrire la suite" color="danger">
+            <FiEdit3 /> Nouveau chapitre
+          </Button>
+        </div>
+        <Button className="trash-icon-mobile" title="Supprimer l'histoire" color="danger">
+          <FiTrash />
+        </Button>
+      </FormGroup>
+      
     </>
   );
 };
 
 Chapitres.propTypes = {
   changeValue: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
   recap: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   choice: PropTypes.string,

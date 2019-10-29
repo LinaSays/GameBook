@@ -85,35 +85,7 @@ const Choix = ({ changeValue, choice, choice2 }) => {
           <hr />
         </FormGroup>
       </div>
-      <FormGroup>
-        {/* Image de fond */}
-        <Label for="customImage">Sélectionnez une image de fond</Label>
-        <CustomInput type="file" name="customFile" id="customImage" label="format .jpg ou .png" />
-        <FormText>Une image de fond pour illustrer votre page/chapitre.</FormText>
-      </FormGroup>
-      <FormGroup>
-        {/* Couleur de fond */}
-        <Label for="colorPicker">Choisissez une couleur de fond</Label>
-        <CirclePicker width="100%" className="color-picker" id="colorPicker" />
-        <FormText className="legendColor">Peut compléter votre image de fond et la remplacer pour la version mobile</FormText>
-      </FormGroup>
-      <FormGroup>
-        {/* Boutons supprimer sauvegarder et nouveau chapitre */}
-        <Button className="trash-icon" title="Supprimer l'histoire" color="danger">
-          <FiTrash />
-        </Button>
-        <div className="button-bar">
-          <Button className="custom-button" title="Sauvegarder les changements" color="dark">
-            Sauvegarder
-          </Button>
-          <Button className="custom-button" title="Écrire la suite" color="danger">
-            <FiEdit3 /> Nouveau chapitre
-          </Button>
-        </div>
-        <Button className="trash-icon-mobile" title="Supprimer l'histoire" color="danger">
-          <FiTrash />
-        </Button>
-      </FormGroup>
+      
     </>
   );
 };
