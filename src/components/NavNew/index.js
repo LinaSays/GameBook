@@ -58,7 +58,7 @@ const NavNew = ({
 
           <nav className="nav container">
             <div className="nav-group">
-              <NavLink to="/" className="nav-logo" name="accueil"><span>LOGO</span></NavLink>
+              <NavLink to="/" className="nav-logo" name="accueil"><span>GAMEBook</span></NavLink>
               <NavLink to="/" className="nav-group-link" name="accueil">Accueil</NavLink>
               <NavLink to="/team" className="nav-group-link" name="team">La team</NavLink>
               <NavLink to="/contact" className="nav-group-link" name="contact">Contact</NavLink>

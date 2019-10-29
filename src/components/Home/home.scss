@@ -58,7 +58,7 @@
         &-button {
             color: white;
             display: block;
-            background-color: transparent;
+            background-color: blue;
             border: 1px white solid;
             border-radius: 20px;
             padding: .3rem .9rem;
@@ -205,7 +205,7 @@
 
 @media screen and (min-width: 992px) {
     .home {
-        padding-top: 7rem;
+        padding-top: 10rem;
         min-height: 900px;
         
         
@@ -303,5 +303,10 @@
         &:hover .link-3 {
             transform: translateY(100%);
         }
+    }
+
+    #card-1:target {
+        transition: 1s;
+        
     }
 }
