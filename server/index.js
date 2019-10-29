@@ -1,10 +1,25 @@
 // Import
 const express = require('express');
 const bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
+const fileupload = require('express-fileupload');
 
 // Server
 const app = module.exports = express();
+
+app.use(fileupload());
+
+app.post('/createstory/upload', function(req, res, next) {
+  const file = req.files.photo;
+  file.mv('./public/uploads/' + file.name, function(err, result) {
+    if(err)
+      throw err;
+    res.send({
+      success:true,
+      message: 'Fichier envoyé',
+    });
+  });
+});
 
 app.use(cookieParser());
 app.use(bodyParser.json());
