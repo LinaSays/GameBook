@@ -35,7 +35,7 @@ const NavNew = ({
         isConnected ? (
           <nav className="nav container">
             <div className="nav-group">
-              <NavLink to="/accueil" className="text-dark">LOGO</NavLink>
+              <NavLink to="/accueil" className="text-dark" id="gamebook">LOGO</NavLink>
               <NavLink to="/profile" className="nav-group-link text-dark font-weight-bold">Mon compte</NavLink>
               <NavLink to="/concept" className="nav-group-link text-dark font-weight-bold">Catégories</NavLink>
               <NavLink to="/team" className="nav-group-link text-dark font-weight-bold">A propos</NavLink>
@@ -60,7 +60,7 @@ const NavNew = ({
 
           <nav className="nav container">
             <div className="nav-group">
-              <NavLink to="/" className="nav-logo" name="accueil"><span>GAMEBook</span></NavLink>
+              <NavLink to="/" className="nav-logo" name="accueil" id="gamebook"><span>GAMEBook</span></NavLink>
               <NavLink to="/" className="nav-group-link" name="accueil">Accueil</NavLink>
               <NavLink to="/team" className="nav-group-link" name="team">La team</NavLink>
               <NavLink to="/contact" className="nav-group-link" name="contact">Contact</NavLink>
