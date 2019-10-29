@@ -10,8 +10,8 @@ const initialState = {
 
 // - Actions Types
 const CHANGE_INPUT = 'CHANGE_INPUT';
-
-// export const CONNECT_USER = 'CONNECT_USER';
+export const SEND_STORY = 'SEND_STORY';
+const PUBLISH_STORY = 'PUBLISH_STORY';
 
 // - Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -20,6 +20,10 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
+      };
+    case PUBLISH_STORY:
+      return {
+        ...state,
       };
     default:
       return state;
@@ -33,10 +37,13 @@ export const changeInput = (name, value) => ({
   value,
 });
 
+export const publishStory = () => ({
+  type: PUBLISH_STORY,
+});
 
-// export const connectUser = () => ({
-//   type: CONNECT_USER,
-// });
+export const sendStory = () => ({
+  type: SEND_STORY,
+});
 
 // - Selectors
 
