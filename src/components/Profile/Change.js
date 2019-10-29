@@ -46,12 +46,20 @@ const Change = ({
 };
 
 Change.propTypes = {
-  changeValue: PropTypes.func.isRequired,
-  user_name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
+  changeValue: PropTypes.func,
+  user_name: PropTypes.string,
+  email: PropTypes.string,
+  password: PropTypes.string,
+  avatar: PropTypes.string,
 };
+
+Change.defaultProps = {
+  changeValue: '',
+  user_name: '',
+  email: '',
+  password: '',
+  avatar: '',
+}
 
 // == Export
 export default Change;

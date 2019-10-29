@@ -36,7 +36,7 @@ const NavNew = ({ isConnected }) => {
             <div className="nav-group">
               <NavLink to="/" className={colorLogo} onClick={() => SeeMenu(!isOpen)}>LOGO</NavLink>
               <NavLink to="/profile" className="nav-group-link text-dark ">Mon compte</NavLink>
-              <NavLink to="/concept" className="nav-group-link text-dark">Catégories</NavLink>
+              <NavLink to="/categories" className="nav-group-link text-dark">Catégories</NavLink>
               <NavLink to="/team" className="nav-group-link text-dark">A propos</NavLink>
               <NavLink to="/contact" className="nav-group-link text-dark">Contact</NavLink>
             </div>
