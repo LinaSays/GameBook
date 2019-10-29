@@ -2,13 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Controller, Scene } from 'react-scrollmagic';
-import { Tween, Timeline } from 'react-gsap';
 
 // == Import : local
 import './home.scss';
-
-console.log(Tween);
 
 // == Composant
 const CardCategory = ({
