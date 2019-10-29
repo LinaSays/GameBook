@@ -25,7 +25,7 @@ const Card = ({
     new ScrollMagic.Scene({
 
       triggerElement: `#card-${id}`,
-      duration: '400px',
+      duration: '300px',
       // offset: '100px',
     })
 

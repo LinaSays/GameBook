@@ -2,13 +2,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Controller, Scene } from 'react-scrollmagic';
+import { Tween, Timeline } from 'react-gsap';
 
 // == Import : local
 import './home.scss';
 
+console.log(Tween);
+
 // == Composant
-const CardCategory = ({ id, name, image, description }) => (
-  <div className="card-story container" category_id={id}>
+const CardCategory = ({
+  id, name, image, description,
+}) => (
+
+  <div className="card-story container" category_id={id} id={`card-story${id}`}>
     <img className="card-story-img" src={image} alt="" />
     <div className="card-story-text-content">
       <h2 className="card-story-title">{name}</h2>
