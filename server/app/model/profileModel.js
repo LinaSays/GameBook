@@ -4,6 +4,8 @@ const db = require('../../connection');
 
 module.exports = {
   create: (req, res) => {
+    const avatar = 'https://i.imgur.com/rMxbnBM.png';
+    const role = 2;
     const { user_name, email, password } = req.body;
 
     const query = `SELECT user.id FROM user WHERE user.email='${email}'`;
@@ -14,7 +16,7 @@ module.exports = {
         res.send('Utilisateur existe');
       }
       else {
-        const query1 = `INSERT INTO user (name, email, password) VALUES ('${user_name}', '${email}', '${password}')`;
+        const query1 = `INSERT INTO user (name, email, password, avatar, role_id) VALUES ('${user_name}', '${email}', '${password}', '${avatar}', '${role}')`;
         db.query(query1, (err2, result2) => {
           if (err2) throw err;
           const tokenSettings = {
@@ -36,7 +38,7 @@ module.exports = {
     const { email, password } = req.body;
     // console.log(email, password);
     // console.log(req.session);
-    const query = `SELECT user.id, user.password FROM user WHERE user.email='${email}'`;
+    const query = `SELECT user.id, user.password FROM user WHERE user.email='${email}' AND user.password='${password}'`;
     // execute query
     db.query(query, (err, result) => {
       if (err) throw err;
@@ -71,7 +73,7 @@ module.exports = {
       }
       else {
         const user_id = decoded.user;
-        const query = `SELECT user.id, user.name, user.avatar, role.name as role FROM user JOIN role ON user.role_id = role.id WHERE user.id=${user_id}`;
+        const query = `SELECT user.id, user.name, user.email, user.avatar, user.password, role.name as role FROM user JOIN role ON user.role_id = role.id WHERE user.id=${user_id}`;
         // execute query
         db.query(query, (err2, result) => {
           if (err2) throw err2;
@@ -82,13 +84,21 @@ module.exports = {
   },
 
   editProfile: (req, res) => {
-    const { user_name, email, password, avatar } = req.body;
-    const query = `UPDATE user SET name='${user_name}', email='${email}', password='${password}', avatar='${avatar}' WHERE id=${req.params.id}`;
-
-    // execute query
-    db.query(query, (err, result) => {
-      if (err) throw err;
-      res.redirect(`/profile/${req.params.id}`);
+    const { token } = req.cookies;
+    jwt.verify(token, 'cypok', (err, decoded) => {
+      if (err) {
+        res.status(401).send('Unauthorized: Invalid token');
+      }
+      else {
+        const { user_name, email, password, avatar } = req.body;
+        const user_id = decoded.user;
+        const query = `UPDATE user SET name='${user_name}', email='${email}', password='${password}', avatar='${avatar}' WHERE id=${user_id}`;
+        // execute query
+        db.query(query, (err, result) => {
+          if (err) throw err;
+          res.redirect('/profile');
+        });
+      }
     });
   },
 

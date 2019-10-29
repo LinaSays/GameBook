@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import StartStory from 'src/components/StartStory';
 
 // Action Creators
-import { getStartStories } from 'src/store/reducer/startStory';
+import { getStartStories, getNextChapter } from 'src/store/reducer/startStory';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
@@ -20,6 +20,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getStartStories: () => {
     const action = getStartStories();
+    dispatch(action);
+  },
+  getNextChapter: (id) => {
+    const action = getNextChapter(id);
     dispatch(action);
   },
 });

@@ -21,8 +21,12 @@ const Info = ({ name, avatar, role }) => (
 Info.propTypes = {
   name: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
-  role: PropTypes.string.isRequired,
+  role: PropTypes.string,
 };
+
+Info.defaultProps = {
+  role: '',
+}
 
 // == Export
 export default Info;

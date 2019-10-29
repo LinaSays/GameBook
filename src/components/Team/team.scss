@@ -1,77 +1,115 @@
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
-
-.body {
-  background-image: url('../../../public/images/wave (1).svg');
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: 100%;
+@media screen and (min-width: 320px) {
+ .body {
 
   &-title {
     text-align: center;
-    font-family: 'Indie Flower', cursive;
-    font-size: 3em;
-    padding-top: 1em;
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+    background-color: blueviolet;
+    color: #fff;
   }
-}
+ }
 
-.team {
-  width: 900px;
-  margin: 3em auto 0;
+ .team {
   display: flex;
-  justify-content: space-between;
-  padding-bottom: 5em;
-  
-  &-info {
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+  flex-direction: column;
+  margin-bottom: 2rem;
 
-    &-title {
-      font-family: 'Indie Flower', cursive;
+    &-info {
+      width: 90%;
+      margin: auto;
+      padding: 2rem;
+      border: 1px solid #eee;
+      box-shadow: 4px 2px 20px 0px #9e9494;
+      margin-top: 3rem;
+
+      &-title {
+        text-align: center;
+        margin: 2rem 0;
+      }
+
+      &-description {
+        
+        &-li {
+          margin-bottom: 0.1rem;
+        }
+      }
+
+      &-link {
+        color: blueviolet;
+
+        &:hover{
+          text-decoration: none;
+        }
+      }
     }
 
-    &-description {
-      font-size: 0.8em;
-      list-style: circle;
-    }
-
-    &-link {
-      font-size: .7em;
-    }
-  }
-
-  &-image {
-    width: 150px;
-    height: 150px;
-  }
-}
-
-
-@media screen and (max-width: 976px) {
-.team {
-  width: 550px;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-
-  &-image {
-    width: 100px;
-    height: 100px;
-  }
-}
-}
-
-@media screen and (max-width: 414px) {
-  .team {
-    width: 300px;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-  
     &-image {
-      width: 100px;
-      height: 100px;
+      width: 200px;
+      height: 200px;
+      margin-top: -3.5rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      object-fit: cover;
+    }
+ }
+}
+
+@media screen and (min-width: 445px) {
+  .team {
+ 
+     &-info {
+       width: 400px;
+     }
+  }
+ }
+
+@media screen and (min-width: 768px) {
+  .team {
+    flex-wrap: wrap;
+    flex-direction: unset;
+    margin: 1rem 3rem;
+  }
+  .team-info {
+    margin-top: 3rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .body-title {
+    padding-bottom: 2rem;
+  }
+  .team {
+    flex-wrap: wrap;
+    flex-direction: unset;
+    margin: 1rem 3rem;
+
+    &-info-link {
+      font-size: 14px;
+    }
+
+    &-info-description {
+      font-size: 14px;
     }
   }
+}
+
+@media screen and (min-width: 1200px) {
+  .team {
+    flex-wrap: unset;
+
+    &-info {
+      margin-right: 1rem;
+      padding: 1rem;
+    }
+    
   }
+}
+
+@media screen and (min-width: 1400px) {
+  .team-info {
+    margin-right: 2.2rem;
+  }
+
+}

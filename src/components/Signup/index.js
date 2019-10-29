@@ -1,6 +1,5 @@
 // == Import : npm
-import React, { useState } from 'react';
-import { Alert } from 'reactstrap';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -8,14 +7,14 @@ import PropTypes from 'prop-types';
 import './signup.scss';
 
 // == Composant
-const Signup = ({ 
+const Signup = ({
   changeValue,
   user_name,
   email,
   password,
   confirm,
   createUser,
- }) => {
+}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     createUser();
@@ -26,14 +25,10 @@ const Signup = ({
     changeValue(name, value);
   };
 
-  const [visible, setVisible] = useState(false);
-  const onDismiss = () => setVisible(false);
+
   return (
     <div className="signup">
       <form className="signup-left" onSubmit={handleSubmit}>
-        <Alert color="danger" isOpen={visible} toggle={onDismiss}>
-        Votre mot de passe ne correspond pas
-        </Alert>
         <h3 className="signup-left-title">Commencer l'aventure</h3>
         <div className="signup-left-field">
           <i className="fas fa-user signup-left-field-img" />
@@ -76,7 +71,7 @@ const Signup = ({
       </div>
     </div>
   );
-}
+};
 
 
 Signup.propTypes = {

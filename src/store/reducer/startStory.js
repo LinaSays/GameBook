@@ -12,6 +12,8 @@ export const GET_START_STORIES = 'GET_START_STORIES';
 const SHOW_START_STORIES = 'SHOW_START_STORIES';
 export const GET_CHOICES = 'GET_CHOICES';
 const SHOW_CHOICES = 'SHOW_CHOICES';
+export const GET_NEXT_CHAPTER = 'GET_NEXT_CHAPTER';
+const SHOW_NEXT_CHAPTER = 'SHOW_NEXT_CHAPTER';
 
 // - Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -28,6 +30,14 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         choice: action.choice,
+      };
+    case SHOW_NEXT_CHAPTER:
+      return {
+        ...state,
+        id: action.id,
+        text: action.text,
+        color: action.color,
+        image: action.image,
       };
     default:
       return state;
@@ -54,6 +64,19 @@ export const showChoices = (choice) => ({
 
 export const getChoices = (id) => ({
   type: GET_CHOICES,
+  id,
+});
+
+export const showNextChapter = (id, text, color, image) => ({
+  type: SHOW_NEXT_CHAPTER,
+  id,
+  text,
+  color,
+  image,
+});
+
+export const getNextChapter = (id) => ({
+  type: GET_NEXT_CHAPTER,
   id,
 });
 

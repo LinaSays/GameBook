@@ -43,7 +43,7 @@ class Profile extends React.Component {
                 <Menu />
               </Col>
               <Col>
-                <Change />
+                <Change {...this.props} />
               </Col>
             </Row>
           </Container>

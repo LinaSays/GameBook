@@ -62,8 +62,15 @@ const profileMiddleware = (store) => (next) => (action) => {
         password,
       })
         .then((response) => {
-          const actionSaveUser = saveUser(response.data);
-          store.dispatch(actionSaveUser);
+          console.log(response);
+          if (password === response.data[0].password
+            && email === response.data[0].email) {
+            const actionSaveUser = saveUser(response.data);
+            store.dispatch(actionSaveUser);
+          }
+          else {
+            toast.error('Votre email ou le mot de passe ne correspondent pas');
+          }
         })
         .catch((error) => {
           console.error(error);
