@@ -1,12 +1,9 @@
 // == Import : npm
 import React from 'react';
 import Image from 'react-bootstrap/Image';
-import {
-  MdExitToApp, MdHome, MdBookmark, MdPerson,
-} from 'react-icons/md';
+import { MdHome, MdBookmark, MdPerson } from 'react-icons/md';
 import { FaUser } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -20,7 +17,7 @@ class StartStory extends React.Component {
   }
 
   render() {
-    const { id, text, color, image } = this.props;
+    const { id, text, color, image, choice } = this.props;
     // style= {{ background: color }};
     return (
       <div className="container-story">
@@ -44,14 +41,11 @@ class StartStory extends React.Component {
           <div className="story-page">
             <div className="story-text">
               {text}
-              {/* {startStory.map((story) => (
-                <p key={story.text}>{story.text}</p>
-              ))} */}
             </div>
             <div className="story-choice">
-              <button type="submit" className="story-choice-link" variant="secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit</button>
-              <button type="submit" className="story-choice-link" variant="secondary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis, aliquam?</button>
-              <button type="submit" className="story-choice-link" variant="secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam quod repudiandae quia delectus ad saepe.</button>
+              {choice.map((item) => (
+                <button type="submit" className="story-choice-link" variant="secondary" key={item.text}>{item.text}</button>
+              ))}
             </div>
             <div className="story-account-nav-mobile mt-4">
               <NavLink to="/profile" className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdPerson className="mr-1" />Mon profil</NavLink>
@@ -76,6 +70,7 @@ StartStory.propTypes = {
   text: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  choice: PropTypes.array.isRequired,
 };
 
 // == Export
