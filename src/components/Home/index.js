@@ -21,7 +21,7 @@ class Home extends React.Component {
   render() {
     const { isConnected, story, category } = this.props;
     return (
-      <main>
+      <main id="home">
 
         {
           isConnected ? (

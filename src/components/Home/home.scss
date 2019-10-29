@@ -28,6 +28,7 @@
    
     .intro {
         padding: 0 20px 30px;
+       
         
         &-content {
             display: flex;
@@ -57,17 +58,22 @@
 
         &-button {
             color: white;
-            display: block;
-            background-color: blue;
+            text-align: center;
+            width: 50%;
+            background-color: transparent;
             border: 1px white solid;
             border-radius: 20px;
-            padding: .3rem .9rem;
+            padding: .5rem .9rem;
             margin: 2.2rem auto 3rem;
             transition: .4s;
+            display: block;
+            
 
             &:hover {
+                color: white;
                 background-color: #fc5c42;
                 border: 1px #fc5c42 solid;
+                text-decoration: none;
             }
         }
 
@@ -171,6 +177,7 @@
 
         &-button {
             margin-top: 3rem;
+            width: 45%;
         }
 
         &-img {
@@ -248,10 +255,16 @@
             font-size: .9em;
             text-align: left;
             word-spacing: -1px;
+            ;
         }
 
         &-button {
             margin-left: inherit;
+            position: relative;
+            margin-top:0;
+            z-index: 55;
+            width: 60%;
+            padding: .3rem;
             
         }
 
