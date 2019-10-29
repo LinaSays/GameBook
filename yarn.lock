@@ -796,6 +796,11 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/gsap@^1.20.1":
+  version "1.20.2"
+  resolved "https://registry.yarnpkg.com/@types/gsap/-/gsap-1.20.2.tgz#038d0e81a8dd50b9b6894f34f3cd4045f71c62b8"
+  integrity sha512-i9nUsnS32+VTgoX5IlaCYukJpCoB3c6h3bZvO67aIRdb3z8NFTWgeUDpQutLyb1ujowp6nw37qLQNvEowqq8yw==
+
 "@types/minimatch@*":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
@@ -4272,6 +4277,11 @@ growl@1.10.5:
   version "1.10.5"
   resolved "https://registry.yarnpkg.com/growl/-/growl-1.10.5.tgz#f2735dc2283674fa67478b10181059355c369e5e"
   integrity sha512-qBr4OuELkhPenW6goKVXiv47US3clb3/IbuWF9KNKEijAy9oeHxU9IgzjvJhHkUzhaj7rOUD7+YGWqUjLp5oSA==
+
+gsap@^2.0.2, gsap@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-2.1.3.tgz#c63ee3a50f0b7dc3b46ed0845bb0f09049feb944"
+  integrity sha512-8RFASCqi2FOCBuv7X4o7M6bLdy+1hbR0azg+MG7zz+EVsI+OmJblYsTk0GEepQd2Jg/ItMPiVTibF7r3EVxjZQ==
 
 gud@^1.0.0:
   version "1.0.0"
@@ -7796,6 +7806,13 @@ react-flippy@^0.1.5:
   resolved "https://registry.yarnpkg.com/react-flippy/-/react-flippy-0.1.5.tgz#ba097fbd671ef315e7726dc26ea918e0b19be343"
   integrity sha512-y0q9l33YQmASGY7ojcrlY0BzVsCYgThFjXjNL+4C19ws5vEpdKH+PyG5v9ZbLXq2kGArDO921FT7fhFSAX2SMQ==
 
+react-gsap@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-gsap/-/react-gsap-1.2.0.tgz#38e89b6802c5521fd27677ce27ba6ac119f7348e"
+  integrity sha512-hopmcLuMFcUd8MHVA7gK5VHUeuXnqOJjTADPsEjIGVG1pCP05Uagt1TQri2pG67QOZkEWHwQGT6vwlzXPUbLZQ==
+  dependencies:
+    gsap "^2.0.2"
+
 react-icons@^3.7.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.7.0.tgz#64fe46231fabfeea27895edeae6c3b78114b8c8f"
@@ -7949,6 +7966,11 @@ react-router@^4.3.1:
     path-to-regexp "^1.7.0"
     prop-types "^15.6.1"
     warning "^4.0.1"
+
+react-scrollmagic@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-scrollmagic/-/react-scrollmagic-2.1.1.tgz#3c174ccc1d6b884d0d17257d36fc010258dae1f8"
+  integrity sha512-ELdWwdLWHF9qrZA74GTA/2JuxgbZxjq/mlXGNAYDQ9+pOzj2TGqiGNqm4rhQM+ifdh9YrB/2Xmzyy/AtWoeGPw==
 
 react-test-renderer@^16.0.0-0:
   version "16.10.2"
@@ -8571,6 +8593,18 @@ schema-utils@^2.0.0, schema-utils@^2.0.1, schema-utils@^2.1.0:
   dependencies:
     ajv "^6.10.2"
     ajv-keywords "^3.4.1"
+
+scrollmagic-plugin-gsap@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/scrollmagic-plugin-gsap/-/scrollmagic-plugin-gsap-1.0.3.tgz#39e50ffc2fb0fb0eb90b3a487cb598d18251cd90"
+  integrity sha512-UxsMxJOuHEr6MRfxeTML2SLWA1wy1SeoHr7JEIfe6+Z48Mbqf98DAkuC+5jvlbFY3WCYTkaXjjpot/+8ZjjEdA==
+  dependencies:
+    "@types/gsap" "^1.20.1"
+
+scrollmagic@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/scrollmagic/-/scrollmagic-2.0.7.tgz#4139216f3849d226e38b3ef1e5dbbacf25190b35"
+  integrity sha512-Qu23XB3YTBhqbnTIkyVhVAEP/7r2APvW+QFfxCpd6LvJ5byCnlvSMzSeBdpyKbDKXBxVWGE9XFXUTvue3B7VrQ==
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"

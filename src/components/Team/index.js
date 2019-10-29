@@ -38,7 +38,7 @@ const Team = () => (
           <li>Lead dev Front</li>
           <li>Référent Technique Framework CSS</li>
         </ul>
-        <a href="https://www.linkedin.com/in/ismaël-mmadi-13b870195" className="team-info-link"><FaLinkedin /> in/ismaël-mmadi-13b870195</a>
+        <a href="https://www.linkedin.com/in/ismaël-mmadi-dev" className="team-info-link"><FaLinkedin /> in/ismaël-mmadi-dev</a>
       </div>
 
       <div className="team-info">
