@@ -20,6 +20,7 @@ import CreateStory from 'src/containers/CreateStory';
 import Profile from 'src/containers/Profile';
 import Team from 'src/components/Team';
 import StartStory from 'src/containers/StartStory';
+import NavNew from 'src/components/NavNew';
 
 toast.configure();
 
@@ -36,7 +37,8 @@ class App extends React.Component {
     return (
       <div id="app">
         <ToastContainer autoClose={5000} />
-        <Navigation isConnected={isConnected} />
+        {/* <Navigation isConnected={isConnected} /> */}
+        <NavNew isConnected={isConnected} />
         <Switch>
           <Route exact path="/">
             <Home isConnected={isConnected} />

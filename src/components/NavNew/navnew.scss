@@ -8,20 +8,13 @@
 		margin:auto;
 		position: relative;
 
-		
 		&-logo {
-			//margin: 0 5rem 0 2rem;
-			color:red;
-			//color: white;
-			//transition: .3s;
-
-			
+            margin: 0 5rem 0 1rem;
+            
 			&:hover {
 				text-decoration: none;
-				//color: black;
-
+				color: black;
 			}
-
 		}
 
 		&-container {
@@ -31,8 +24,6 @@
 			z-index: 2;
 			width:100%;
 			padding: 1.5rem;
-				
-			
 		}
 
 		&-container-fixed {
@@ -41,14 +32,10 @@
 			z-index: 2;
 			width:100%;
 			margin:0;
-			
-		}
-
-
-
+        }
+        
 		&-group-link {
 			display: none;
-
 		}
 
 		&-hidden {
@@ -65,8 +52,6 @@
 		 	font-size: 1.25em;
 		 	padding: 60px 0;
 			//transition: .5s;
-			
-		
 		}
 
 		&-visible {
@@ -83,27 +68,23 @@
 		 	text-align: center;
 		 	text-transform: uppercase;
 		 	font-size: 1.25em;
-		 	padding: 60px 0;
-
-			
+             padding: 60px 0;
+             
 		}
 
 		&-close {
-
 			position: absolute;
 			right: 1rem;
 			top: 1rem;
-
-
 		}
 
 		&-mobile {
-		 display: flex;
-		 flex-direction: column;
-		 text-align: center;
-		 text-transform: uppercase;
-		 font-size: 1.25em;
-		 padding: 50px 0;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 1.25em;
+            padding: 50px 0;
 		}
 
 		&-logo {
@@ -116,7 +97,6 @@
 	.nav-group-link-bis {
 		margin-bottom: 2rem;
 		transition: 1s;
-
 	}
 
 
@@ -124,32 +104,24 @@
 		display: none;
 		justify-self: flex-end;
 		//background-color: red;
-		padding: 1rem;
-
+        padding: 1rem;   
 	}
-
-	
-
 }
 
 
 @media screen and (min-width:992px) {
 	.nav {
-		
-		
+
 		&-group-link {
 			display: initial;
 			margin: .9rem;
 			color: white;
-			transition: .3s;
-
-				
+            transition: .3s;
+            		
 			&:hover {
 				text-decoration: none;
-				color: rgb(94, 255, 0);
-				
+				color: rgb(94, 255, 0);	
 			}
-			
 		}
 
 		&-burger {
@@ -165,6 +137,7 @@
 		}
 
 }
+
 .button-group {
 	display: initial;
 
@@ -182,14 +155,9 @@
 
 		&:hover {
 			background-color:  #fc5c42;
-			border: 2px solid #fc5c42;
-			
-			
-			
+			border: 2px solid #fc5c42;			
 		}
-	}
-	
+    }
+    
 }
-
-	
 }
