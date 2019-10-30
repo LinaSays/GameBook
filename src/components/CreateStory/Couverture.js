@@ -29,6 +29,9 @@ class Couverture extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const { createNewStory, toggle } = this.props;
+    createNewStory();
+    toggle('2');
   };
 
   render() {
@@ -53,8 +56,8 @@ class Couverture extends React.Component {
         <FormGroup>
           {/* Choix de la catégorie */}
           <Label for="categorieSelect">Choisissez le genre de votre histoire...</Label>
-          <Input type="select" name="select" id="categorieSelect">
-            {category.map((item) => <option key={item.id}>{item.name}</option>)}
+          <Input type="select" name="select" id="categorieSelect" onChange={this.handleChange}>
+            {category.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}
           </Input>
         </FormGroup>
         <FormGroup>
@@ -72,7 +75,8 @@ class Couverture extends React.Component {
             <Button className="custom-button" title="Sauvegarder les changements" color="dark">
               Mettre à jour
             </Button>
-            <Button className="custom-button" title="Commencer l'écriture" color="danger">
+            <Button className="custom-button" title="Commencer l'écriture" color="danger"
+              onClick={this.handleSubmit}>
               <FiEdit3 /> Commencer
             </Button>
           </div>
@@ -91,6 +95,8 @@ Couverture.propTypes = {
   summary: PropTypes.string.isRequired,
   getCategory: PropTypes.func.isRequired,
   category: PropTypes.array.isRequired,
+  createNewStory: PropTypes.func.isRequired,
+  toggle: PropTypes.func.isRequired,
 };
 
 // == Export

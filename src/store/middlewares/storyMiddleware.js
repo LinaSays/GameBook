@@ -9,7 +9,7 @@ import {
   GET_NEXT_CHAPTER,
   showNextChapter,
 } from 'src/store/reducer/startStory';
-import { SEND_STORY, publishStory } from 'src/store/reducer/createStory';
+import { SEND_STORY, publishStory, CREATE_STORY, saveNewStory } from 'src/store/reducer/createStory';
 
 async function getStartStories(store) {
   try {
@@ -71,6 +71,23 @@ async function sendPublishedStory(store) {
   }
 }
 
+async function newStory(store) {
+  try {
+    const state = store.getState();
+    const { title, summary, select } = state.createStory;
+    axios.defaults.withCredentials = true;
+    const response = await axios.post('http://localhost:3000/story/add', {
+      title, summary, select,
+    });
+    const save = saveNewStory(response.data);
+    console.log(response);
+    store.dispatch(save);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
 const storyMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_START_STORIES: {
@@ -87,6 +104,10 @@ const storyMiddleware = (store) => (next) => (action) => {
     }
     case SEND_STORY: {
       sendPublishedStory(store);
+      break;
+    }
+    case CREATE_STORY: {
+      newStory(store);
       break;
     }
     default:

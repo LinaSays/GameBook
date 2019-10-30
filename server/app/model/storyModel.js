@@ -51,7 +51,7 @@ module.exports = {
                 if (err2) throw err2;
                 db.commit((err3) => {
                   if (err3) throw err3;
-                  res.send(storyId);
+                  res.sendStatus(200).send(storyId);
                 });
               });
             });

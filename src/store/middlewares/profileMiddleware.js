@@ -17,11 +17,11 @@ const profileMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CREATE_USER: {
       const state = store.getState();
-      const { user_name, email, password, confirm } = state.signin;
+      const { user_name, email, password, confirm, choice } = state.signin;
       if (password === confirm) {
         axios.defaults.withCredentials = true;
         axios.post('http://localhost:3000/profile/add', {
-          user_name, email, password,
+          user_name, email, password, choice,
         })
           .then((response) => {
             const save = saveNewUser(response.data);
