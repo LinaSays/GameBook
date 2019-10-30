@@ -1,7 +1,7 @@
 // == Import : npm
 import React from 'react';
 import {
-  Button, FormGroup, Label, Card, CardTitle, CardText, Row, Col,
+  Button, Form, FormGroup, Label, Card, CardTitle, CardText, Row, Col,
 }
   from 'reactstrap';
 import BootstrapSwitchButton from 'bootstrap-switch-button-react';
@@ -18,7 +18,7 @@ const Publication = ({ sendStory }) => {
   };
 
   return (
-    <>
+    <Form>
       <FormGroup>
         <h4>La fin se rapproche petit à petit...</h4>
       </FormGroup>
@@ -56,12 +56,16 @@ const Publication = ({ sendStory }) => {
           </Card>
         </Col>
       </Row>
-    </>
+    </Form>
   );
 };
 
 Publication.propTypes = {
-  sendStory: PropTypes.func.isRequired,
+  sendStory: PropTypes.func,
+};
+
+Publication.defaultProps = {
+  sendStory: () => {},
 };
 
 // == Export
