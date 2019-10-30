@@ -9,7 +9,7 @@ import {
   GET_NEXT_CHAPTER,
   showNextChapter,
 } from 'src/store/reducer/startStory';
-import { SEND_STORY, publishStory, CREATE_STORY, saveNewStory } from 'src/store/reducer/createStory';
+import { SEND_STORY, publishStory, CREATE_STORY, saveNewStory, DELETE_STORY, deleteStoryFromDB } from 'src/store/reducer/createStory';
 
 async function getStartStories(store) {
   try {
@@ -82,6 +82,21 @@ async function newStory(store) {
     const save = saveNewStory(response.data);
     console.log(response);
     store.dispatch(save);
+    sessionStorage.setItem('story', response.data);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
+async function deleteStory(store, id) {
+  try {
+    console.log(id);
+    axios.defaults.withCredentials = true;
+    const response = await axios.delete('http://localhost:3000/story/delete', { data: { id } });
+    const save = deleteStoryFromDB(response.data);
+    store.dispatch(save);
+    sessionStorage.removeItem('story');
   }
   catch (err) {
     console.log(err);
@@ -108,6 +123,10 @@ const storyMiddleware = (store) => (next) => (action) => {
     }
     case CREATE_STORY: {
       newStory(store);
+      break;
+    }
+    case DELETE_STORY: {
+      deleteStory(store, action.id);
       break;
     }
     default:

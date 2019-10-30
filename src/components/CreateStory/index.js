@@ -34,6 +34,7 @@ const CreateStory = ({
   choice2,
   getCategory,
   category,
+  deleteStory,
 }) => {
   const [activeTab, setActiveTab] = useState('1');
 
@@ -100,6 +101,7 @@ const CreateStory = ({
                   summary={summary}
                   createNewStory={createNewStory}
                   toggle={toggle}
+                  deleteStory={deleteStory}
                 />
               </TabPane>
               <TabPane tabId="2">
@@ -127,6 +129,7 @@ CreateStory.propTypes = {
   getCategory: PropTypes.func.isRequired,
   category: PropTypes.array.isRequired,
   createNewStory: PropTypes.func.isRequired,
+  deleteStory: PropTypes.func.isRequired,
 };
 
 // == Export

@@ -15,6 +15,8 @@ export const SEND_STORY = 'SEND_STORY';
 const PUBLISH_STORY = 'PUBLISH_STORY';
 export const CREATE_STORY = 'CREATE_STORY';
 const SAVE_NEW_STORY = 'SAVE_NEW_STORY';
+export const DELETE_STORY = 'DELETE_STORY';
+const DELETE_STORY_FROM_DB = 'DELETE_STORY_FROM_DB';
 
 // - Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -29,6 +31,10 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
       };
     case SAVE_NEW_STORY:
+      return {
+        ...state,
+      };
+    case DELETE_STORY_FROM_DB:
       return {
         ...state,
       };
@@ -57,6 +63,15 @@ export const createNewStory = () => ({
 });
 export const saveNewStory = () => ({
   type: SAVE_NEW_STORY,
+});
+
+export const deleteStoryFromDB = () => ({
+  type: DELETE_STORY_FROM_DB,
+});
+
+export const deleteStory = (id) => ({
+  type: DELETE_STORY,
+  id,
 });
 
 // - Selectors

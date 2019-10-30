@@ -27,11 +27,19 @@ class Couverture extends React.Component {
     changeValue(name, value);
   };
 
-  handleSubmit = (event) => {
+  startWritting = (event) => {
     event.preventDefault();
     const { createNewStory, toggle } = this.props;
     createNewStory();
     toggle('2');
+  };
+
+  deleteStory = (event) => {
+    event.preventDefault();
+    const storyId = sessionStorage.getItem('story');
+    const { deleteStory } = this.props;
+    deleteStory(storyId);
+    document.location.href = '/profile';
   };
 
   render() {
@@ -68,15 +76,19 @@ class Couverture extends React.Component {
         </FormGroup>
         <FormGroup>
           {/* Boutons supprimer, mettre à jour et commencer */}
-          <Button className="trash-icon" title="Supprimer l'histoire" color="danger">
+          <Button className="trash-icon" title="Supprimer l'histoire" color="danger" onClick={this.deleteStory}>
             <FiTrash />
           </Button>
           <div className="button-bar">
             <Button className="custom-button" title="Sauvegarder les changements" color="dark">
               Mettre à jour
             </Button>
-            <Button className="custom-button" title="Commencer l'écriture" color="danger"
-              onClick={this.handleSubmit}>
+            <Button
+              className="custom-button"
+              title="Commencer l'écriture"
+              color="danger"
+              onClick={this.startWritting}
+            >
               <FiEdit3 /> Commencer
             </Button>
           </div>
@@ -97,6 +109,7 @@ Couverture.propTypes = {
   category: PropTypes.array.isRequired,
   createNewStory: PropTypes.func.isRequired,
   toggle: PropTypes.func.isRequired,
+  deleteStory: PropTypes.func.isRequired,
 };
 
 // == Export
