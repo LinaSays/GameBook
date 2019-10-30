@@ -42,6 +42,13 @@ class Couverture extends React.Component {
     document.location.href = '/profile';
   };
 
+  updateStory = (event) => {
+    event.preventDefault();
+    const storyId = sessionStorage.getItem('story');
+    const { findStoryToEdit } = this.props;
+    findStoryToEdit(storyId);
+  };
+
   render() {
     const { title, summary, category } = this.props;
     return (
@@ -80,7 +87,7 @@ class Couverture extends React.Component {
             <FiTrash />
           </Button>
           <div className="button-bar">
-            <Button className="custom-button" title="Sauvegarder les changements" color="dark">
+            <Button className="custom-button" title="Sauvegarder les changements" color="dark" onClick={this.updateStory}>
               Mettre à jour
             </Button>
             <Button
@@ -110,6 +117,7 @@ Couverture.propTypes = {
   createNewStory: PropTypes.func.isRequired,
   toggle: PropTypes.func.isRequired,
   deleteStory: PropTypes.func.isRequired,
+  findStoryToEdit: PropTypes.func.isRequired,
 };
 
 // == Export

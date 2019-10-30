@@ -5,7 +5,13 @@ import { connect } from 'react-redux';
 import createStory from 'src/components/CreateStory';
 
 // Action Creators
-import { changeInput, sendStory, createNewStory, deleteStory } from 'src/store/reducer/createStory';
+import {
+  changeInput,
+  sendStory,
+  createNewStory,
+  deleteStory,
+  findStoryToEdit,
+} from 'src/store/reducer/createStory';
 import { getCategory } from 'src/store/reducer/home';
 
 /* === State (données) === */
@@ -40,6 +46,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   deleteStory: (id) => {
     const action = deleteStory(id);
+    dispatch(action);
+  },
+  findStoryToEdit: (id) => {
+    const action = findStoryToEdit(id);
     dispatch(action);
   },
 });

@@ -76,19 +76,38 @@ module.exports = {
   },
 
   editStory: (req, res) => {
-    const { title, summary } = req.body;
-    const query = `UPDATE story SET title='${title}', description='${summary}' WHERE id=${req.params.id}`;
+    const { title, summary, select } = req.body;
 
-    // execute query
-    db.query(query, (err, result) => {
+    db.beginTransaction((err) => {
       if (err) throw err;
-      res.send(result);
+      try {
+        // execute query 1 
+        let query = `UPDATE story SET title='${title}', description='${summary}' WHERE id=${req.body.id}`;
+        db.query(query, (err1, result) => {
+          if (err1) throw err1;
+          const storyId = req.body.id;
+
+          // execute query 2
+          query = `UPDATE story_has_category SET category_id=${select} WHERE story_id=${storyId}`;
+          db.query(query, (err2, result2) => {
+            if (err2) throw err2;
+            db.commit((err3) => {
+              if (err3) throw err3;
+              res.send(`${storyId}`);
+            });
+          });
+        });
+      }
+      catch (ex) {
+        db.rollback();
+        throw ex;
+      }
     });
   },
 
   publishStory: (req, res) => {
     const published = 1;
-    const query = `UPDATE story SET published='${published}' WHERE id=${req.params.id}`;
+    const query = `UPDATE story SET published='${published}' WHERE id=${req.body.id}`;
 
     // execute query
     db.query(query, (err, result) => {

@@ -9,7 +9,16 @@ import {
   GET_NEXT_CHAPTER,
   showNextChapter,
 } from 'src/store/reducer/startStory';
-import { SEND_STORY, publishStory, CREATE_STORY, saveNewStory, DELETE_STORY, deleteStoryFromDB } from 'src/store/reducer/createStory';
+import {
+  SEND_STORY,
+  publishStory,
+  CREATE_STORY,
+  saveNewStory,
+  DELETE_STORY,
+  deleteStoryFromDB,
+  FIND_STORY_TO_EDIT,
+  updateStory
+} from 'src/store/reducer/createStory';
 
 async function getStartStories(store) {
   try {
@@ -91,12 +100,27 @@ async function newStory(store) {
 
 async function deleteStory(store, id) {
   try {
-    console.log(id);
     axios.defaults.withCredentials = true;
     const response = await axios.delete('http://localhost:3000/story/delete', { data: { id } });
     const save = deleteStoryFromDB(response.data);
     store.dispatch(save);
     sessionStorage.removeItem('story');
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
+async function editStory(store, id) {
+  try {
+    const state = store.getState();
+    const { title, summary, select } = state.createStory;
+    axios.defaults.withCredentials = true;
+    const response = await axios.patch('http://localhost:3000/story/edit', {
+      id, title, summary, select,
+    });
+    const save = updateStory(response.data);
+    store.dispatch(save);
   }
   catch (err) {
     console.log(err);
@@ -127,6 +151,10 @@ const storyMiddleware = (store) => (next) => (action) => {
     }
     case DELETE_STORY: {
       deleteStory(store, action.id);
+      break;
+    }
+    case FIND_STORY_TO_EDIT: {
+      editStory(store, action.id);
       break;
     }
     default:

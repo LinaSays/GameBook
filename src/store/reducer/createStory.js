@@ -17,6 +17,8 @@ export const CREATE_STORY = 'CREATE_STORY';
 const SAVE_NEW_STORY = 'SAVE_NEW_STORY';
 export const DELETE_STORY = 'DELETE_STORY';
 const DELETE_STORY_FROM_DB = 'DELETE_STORY_FROM_DB';
+export const FIND_STORY_TO_EDIT = 'FIND_STORY_TO_EDIT';
+const UPDATE_STORY = 'UPDATE_STORY';
 
 // - Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -35,6 +37,10 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
       };
     case DELETE_STORY_FROM_DB:
+      return {
+        ...state,
+      };
+    case UPDATE_STORY:
       return {
         ...state,
       };
@@ -71,6 +77,15 @@ export const deleteStoryFromDB = () => ({
 
 export const deleteStory = (id) => ({
   type: DELETE_STORY,
+  id,
+});
+
+export const updateStory = () => ({
+  type: UPDATE_STORY,
+});
+
+export const findStoryToEdit = (id) => ({
+  type: FIND_STORY_TO_EDIT,
   id,
 });
 
