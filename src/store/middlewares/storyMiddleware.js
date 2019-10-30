@@ -9,6 +9,7 @@ import {
   GET_NEXT_CHAPTER,
   showNextChapter,
 } from 'src/store/reducer/startStory';
+import { SEND_STORY, publishStory } from 'src/store/reducer/createStory';
 
 async function getStartStories(store) {
   try {
@@ -58,6 +59,18 @@ async function getChoices(store, id) {
   }
 }
 
+async function sendPublishedStory(store) {
+  try {
+    axios.defaults.withCredentials = true;
+    const response = await axios.patch(`http://localhost:3000/story/${id}/publish`);
+    const save = publishStory(response.data);
+    store.dispatch(save);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
 const storyMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_START_STORIES: {
@@ -70,6 +83,10 @@ const storyMiddleware = (store) => (next) => (action) => {
     }
     case GET_NEXT_CHAPTER: {
       getNextChapter(store, action.id);
+      break;
+    }
+    case SEND_STORY: {
+      sendPublishedStory(store);
       break;
     }
     default:

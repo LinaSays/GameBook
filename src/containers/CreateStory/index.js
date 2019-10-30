@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import createStory from 'src/components/CreateStory';
 
 // Action Creators
-import { changeInput } from 'src/store/reducer/createStory';
+import { changeInput, sendStory } from 'src/store/reducer/createStory';
 import { getCategory } from 'src/store/reducer/home';
 
 /* === State (données) === */
@@ -27,6 +27,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getCategory: () => {
     const action = getCategory();
+    dispatch(action);
+  },
+  sendStory: () => {
+    const action = sendStory();
     dispatch(action);
   },
 });
