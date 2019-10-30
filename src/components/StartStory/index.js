@@ -23,26 +23,45 @@ class StartStory extends React.Component {
 
 
   render() {
-    const { id, text, color, image, choice } = this.props;
+    const {
+      id, text, color, image, choice, isConnected,
+    } = this.props;
     // style= {{ background: color }};
     return (
       <div className="container-story">
         <Image src={image} alt="" className="bg-image" />
         <div className="story">
           <div className="story-account">
-            <Image
-              src="https://i.imgur.com/rMxbnBM.png"
-              className="story-account-img"
-              roundedCircle
-            />
-            <div className="story-account-info">
-              <p className="story-account-name">Nom / Pseudo</p>
-              <div className="story-account-nav">
-                <NavLink to="/profile" className="d-flex justify-content-center align-items-center" variant="light mt-1"><FaUser className="mr-2" /> Mon profil</NavLink>
-                <NavLink to="" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdBookmark className="mr-1" /> Sauvegarder</NavLink>
-                <NavLink to="/" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdHome className="mr-1" /> Retour à l'accueil</NavLink>
-              </div>
-            </div>
+            {
+              isConnected ? (
+                <>
+                  <Image
+                    src="https://i.imgur.com/rMxbnBM.png"
+                    className="story-account-img"
+                    roundedCircle
+              />
+                  <div className="story-account-info">
+                    <p className="story-account-name">Nom / Pseudo</p>
+                    <div className="story-account-nav">
+                      <NavLink to="/profile" className="d-flex justify-content-center align-items-center" variant="light mt-1"><FaUser className="mr-2" /> Mon profil</NavLink>
+                      <NavLink to="" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdBookmark className="mr-1" /> Sauvegarder</NavLink>
+                      <NavLink to="/" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdHome className="mr-1" /> Retour à l'accueil</NavLink>
+                    </div>
+                  </div>
+                </>
+
+              ) : (
+                <>
+                  <div className="story-account-info">
+                    <div className="story-account-nav">
+                      <NavLink to="/" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdHome className="mr-1" /> Retour à l'accueil</NavLink>
+                    </div>
+                  </div>
+                </>
+
+              )
+            }
+
           </div>
           <div className="story-page">
             <div className="story-text">
@@ -78,6 +97,7 @@ StartStory.propTypes = {
   color: PropTypes.string.isRequired,
   image: PropTypes.string,
   choice: PropTypes.array.isRequired,
+  isConnected: PropTypes.bool.isRequired,
 };
 
 StartStory.defaultProps = {

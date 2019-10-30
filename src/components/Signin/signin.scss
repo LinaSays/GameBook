@@ -138,6 +138,7 @@
     border-radius: 10px;
     overflow: hidden;
    
+   
   }
   .signin {
 
@@ -157,6 +158,8 @@
         transition: .4s;
         font-size: 1rem;
         font-weight: normal;
+      
+        
 
         &:hover {
           color: rgb(88, 39, 167);
@@ -176,6 +179,7 @@
       display: none;
 
       &-desktop {
+        
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -183,6 +187,8 @@
         padding: 3rem ;
         //background-color: red;
         width: 50%;
+        //opacity: .2;
+        
 
       }
 

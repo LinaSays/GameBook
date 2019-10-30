@@ -26,7 +26,7 @@ const Signin = ({
           <img
             className="signin-left-img"
             alt=""
-            src="https://images.pexels.com/photos/34592/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=750&w=1260"
+            src="https://ak2.picdn.net/shutterstock/videos/19972852/thumb/1.jpg"
           />
           <Link to="/signup" className="signin-right-link">Créer un compte</Link>
         </div>

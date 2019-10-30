@@ -67,7 +67,7 @@ const Signup = ({
           <img
             className="signup-right-img"
             alt=""
-            src="https://images.pexels.com/photos/34592/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=750&w=1260"
+            src="https://ak6.picdn.net/shutterstock/videos/13295906/thumb/1.jpg"
           />
           <Link to="/signin" className="signup-right-link">Se connecter</Link>
         </div>
