@@ -31,6 +31,8 @@ const CreateStory = ({
   text,
   choice,
   choice2,
+  getCategory,
+  category,
 }) => {
   const [activeTab, setActiveTab] = useState('1');
 
@@ -47,12 +49,12 @@ const CreateStory = ({
         <div>
           {/* Breadcrumb de la page Create Story */}
           <Breadcrumb tag="nav" listTag="div">
-            <BreadcrumbItem tag="a" href="#">Accueil</BreadcrumbItem>
-            <BreadcrumbItem tag="a" href="#">Mon profil</BreadcrumbItem>
+            <BreadcrumbItem tag="a" href="/">Accueil</BreadcrumbItem>
+            <BreadcrumbItem tag="a" href="/profile">Mon profil</BreadcrumbItem>
             <BreadcrumbItem active tag="span">Créer une histoire</BreadcrumbItem>
           </Breadcrumb>
         </div>
-        <Form>
+        <div>
           <div>
             {/* Titre des Tabs */}
             <Nav tabs>
@@ -89,7 +91,7 @@ const CreateStory = ({
             </Nav>
             <TabContent activeTab={activeTab}>
               <TabPane tabId="1">
-                <Couverture changeValue={changeValue} title={title} summary={summary} />
+                <Couverture getCategory={getCategory} category={category} changeValue={changeValue} title={title} summary={summary} />
               </TabPane>
               <TabPane tabId="2">
                 <Chapitres changeValue={changeValue} title={title} recap={recap} text={text} choice={choice} choice2={choice2} />
@@ -99,7 +101,7 @@ const CreateStory = ({
               </TabPane>
             </TabContent>
           </div>
-        </Form>
+        </div>
       </Container>
     </Jumbotron>
   );
@@ -113,6 +115,8 @@ CreateStory.propTypes = {
   text: PropTypes.string.isRequired,
   choice: PropTypes.string.isRequired,
   choice2: PropTypes.string.isRequired,
+  getCategory: PropTypes.func.isRequired,
+  category: PropTypes.array.isRequired,
 };
 
 // == Export

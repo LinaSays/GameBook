@@ -1,7 +1,7 @@
 // == Import : npm
 import React from 'react';
 import {
-  FormGroup, Label, Input, FormText, CustomInput,
+  Form, FormGroup, Label, Input, FormText, CustomInput,
   Pagination, PaginationItem, PaginationLink, Button,
 }
   from 'reactstrap';
@@ -31,7 +31,7 @@ const Chapitres = ({
   };
 
   return (
-    <>
+    <Form>
       {/* Contenu du Tabs 2 - les chapitres */}
       <FormGroup>
         {/* Pagination des chapitres */}
@@ -120,7 +120,7 @@ const Chapitres = ({
           <FiTrash />
         </Button>
       </FormGroup>
-    </>
+    </Form>
   );
 };
 
