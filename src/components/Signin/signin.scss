@@ -1,22 +1,37 @@
+// == Mobile
 @media screen and (min-width: 320px) {
   #connexion {
     border: none;
   }
+
+  .testing {
+    width: 90%;
+    //background-color: yellow;
+    
+  }
+
   .signin {
     display: flex;
-    background-color: rgb(30, 135, 255);
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(122, 122, 255);
+    padding-top: 3rem;
     min-height: 100vh;
-    padding-top: 5rem;
+    min-width: 100%;
+
+    display: flex;
+
+    //padding: 5rem 0;
+
     
 
     &-right {
       background-color: #fff;
       width: 95%;
-      margin: auto;
+      margin: 3rem auto;
       display: flex;
       flex-direction: column;
-      height: 500px;
-      padding: 3rem 2rem;
+      padding: 5rem 2rem;
       border-radius: 5px;
 
       &-title {
@@ -90,6 +105,10 @@
       border-radius: 5px;
       border: solid 1px rgb(176, 152, 214);
 
+      &-desktop {
+        display: none;
+      }
+
       &-subscribe {
         font-family: 'Lato';
         margin-right: .3rem;
@@ -113,6 +132,80 @@
 
 
 
+}
+
+// == Tablet
+@media screen and (min-width: 768px) {
+  .testing {
+    width: 90%;
+    background-color: rgb(124, 79, 196);
+    display: flex;
+    position: relative;  
+    border-radius: 10px;
+    overflow: hidden;
+   
+  }
+  .signin {
+
+    &-right {
+      width: 50%;
+      margin: 0;
+      border-radius: 0;
+
+      &-title {
+        display: none;
+      }
+
+      &-link {
+        color: white;
+        position: relative;
+        padding: .5rem 1.5rem;
+        transition: .4s;
+
+        &:hover {
+          color: rgb(88, 39, 167);
+          text-decoration: none;
+          background-color: #fff;
+          border-radius: 5px;
+          padding: .5rem 1.5rem;
+          
+        }
+      }
+    }
+
+   
+
+    &-left{
+
+      display: none;
+
+      &-desktop {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3rem ;
+        //background-color: red;
+        width: 50%;
+
+      }
+
+      &-img {
+        display: block;
+        position: absolute;
+        object-fit: cover;
+        top:0;
+        width: 50%;
+        height: 100%;
+        z-index: -1;
+
+      }
+
+      // &-link {
+      //   position: absolute;
+      // }
+    }
+  }
 }
 
 

@@ -21,34 +21,45 @@ const Signin = ({
   return (
 
     <div className="signin">
-      {/* <div className="signin-left">
-        <Link to="/signup" className="signin-left-link">Créer un compte</Link>
-      </div> */}
-      <form className="signin-right" onSubmit={handleSubmit}>
-        <h2 className="signin-right-title">GameBOok</h2>
-        <h3 className="signin-right-subtitle">Login into account</h3>
+      <div className="testing">
+        <div className="signin-left-desktop">
+          <h2 className="signin-left-title text-white">GameBOok</h2>
+          <img
+            className="signin-left-img"
+            alt=""
+            src="https://images.pexels.com/photos/34592/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=750&w=1260"
+          />
 
-        <div className="signin-right-field">
-          {/* <i className="fas fa-envelope signin-right-field-img" /> */}
-          <input type="email" placeholder="Email" className="signin-right-input" value={email} onChange={handleChange} name="email" />
-        </div>
+          <Link to="/signup" className="signin-right-link">Créer un compte</Link>
 
-        <div className="signin-right-field">
-          {/* <i className="fas fa-unlock-alt signin-right-field-img" /> */}
-          <input type="password" placeholder="Mot de passe" className="signin-right-input" value={password} onChange={handleChange} name="password" />
         </div>
+        <form className="signin-right" onSubmit={handleSubmit}>
+          <h2 className="signin-right-title">GameBOok</h2>
+          <h3 className="signin-right-subtitle">Accéder à votre compte</h3>
 
-        <div className="d-flex justify-content-between align-items-center flex-wrap">
-          <label className="signin-right-label m-0" htmlFor="connection"><input type="checkbox" name="connection" id="connection" /> Remember me</label>
-          <Link to="/forgotten" className="signin-right-forgot">Mot de passe oublié ?</Link>
-        </div>
-        <button type="submit" className="signin-right-button">Se connecter</button>
-        <div className="signin-left">
-          <span className="signin-left-subscribe">Pas de compte ?</span> <Link to="/signup" className="signin-left-link">Créer un compte</Link>
-        </div>
+          <div className="signin-right-field">
+            {/* <i className="fas fa-envelope signin-right-field-img" /> */}
+            <input type="email" placeholder="Email" className="signin-right-input" value={email} onChange={handleChange} name="email" />
+          </div>
 
-      </form>
+          <div className="signin-right-field">
+            {/* <i className="fas fa-unlock-alt signin-right-field-img" /> */}
+            <input type="password" placeholder="Mot de passe" className="signin-right-input" value={password} onChange={handleChange} name="password" />
+          </div>
+
+          <div className="d-flex justify-content-between align-items-center flex-wrap">
+            <label className="signin-right-label m-0" htmlFor="connection"><input type="checkbox" name="connection" id="connection" /> Remember me</label>
+            <Link to="/forgotten" className="signin-right-forgot">Mot de passe oublié ?</Link>
+          </div>
+          <button type="submit" className="signin-right-button">Se connecter</button>
+          <div className="signin-left">
+            <span className="signin-left-subscribe">Pas de compte ?</span> <Link to="/signup" className="signin-left-link">Créer un compte</Link>
+          </div>
+
+        </form>
+      </div>
     </div>
+
 
   );
 };
