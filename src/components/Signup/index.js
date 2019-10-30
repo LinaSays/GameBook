@@ -25,31 +25,25 @@ const Signup = ({
     changeValue(name, value);
   };
 
-
   return (
     <div className="signup">
-      <form className="signup-left" onSubmit={handleSubmit}>
-        <h3 className="signup-left-title">Commencer l'aventure</h3>
-        <div className="signup-left-field">
-          <i className="fas fa-user signup-left-field-img" />
-          <input type="text" placeholder="Nom Prénom" value={user_name} onChange={handleChange} className="signup-left-input" name="user_name" required/>
-        </div>
-
-        <div className="signup-left-field">
-          <i className="fas fa-envelope signup-left-field-img" />
-          <input type="email" placeholder="Email" value={email} onChange={handleChange} className="signup-left-input" name="email" required/>
-        </div>
-
-        <div className="signup-left-field">
-          <i className="fas fa-unlock-alt signup-left-field-img" />
-          <input type="password" placeholder="Mot de passe" value={password} onChange={handleChange} className="signup-left-input" name="password" required/>
-        </div>
-
-        <div className="signup-left-field">
-          <i className="fas fa-unlock-alt signup-left-field-img" />
-          <input type="password" placeholder="Confirmer mot de passe" value={confirm} onChange={handleChange} className="signup-left-input" name="confirm" required/>
-        </div>
-        {/* <div>
+      <div className="testing1">
+        <form className="signup-left" onSubmit={handleSubmit}>
+          <h2 className="signup-left-title">GameBOok</h2>
+          <h3 className="signup-left-subtitle">Commencer l'aventure</h3>
+          <div className="signup-left-field">
+            <input type="text" placeholder="Nom Prénom" value={user_name} onChange={handleChange} className="signup-left-input" name="user_name" required />
+          </div>
+          <div className="signup-left-field">
+            <input type="email" placeholder="Email" value={email} onChange={handleChange} className="signup-left-input" name="email" required />
+          </div>
+          <div className="signup-left-field">
+            <input type="password" placeholder="Mot de passe" value={password} onChange={handleChange} className="signup-left-input" name="password" required />
+          </div>
+          <div className="signup-left-field">
+            <input type="password" placeholder="Confirmer mot de passe" value={confirm} onChange={handleChange} className="signup-left-input" name="confirm" required />
+          </div>
+          {/* <div>
           <div>Vous êtes ici pour :</div>
           <div className="signup-left-radio">
             <input type="radio" id="read" name="choice" value="1" />
@@ -60,14 +54,24 @@ const Signup = ({
             <label htmlFor="2">Ecrire</label>
           </div>
         </div> */}
-        <div>
-          <input type="checkbox" name="condition" id="condition" required />
-          <a className="signup-left-label" href="">Accepter les conditions d'utilisation</a>
+          <div>
+            <input type="checkbox" name="condition" id="condition" required /> <a className="signup-left-label" href="">Accepter les conditions d'utilisation</a>
+          </div>
+          <button type="submit" className="signup-left-button">S'inscrire</button>
+          <div className="signup-right">
+            <span className="signin-left-subscribe">Déjà un compte ?</span> <Link to="/signin" className="signup-right-link">Se connecter</Link>
+          </div>
+        </form>
+        <div className="signup-right-desktop">
+          <h2 className="signup-right-title text-white">GameBOok</h2>
+          <img
+            className="signup-right-img"
+            alt=""
+            src="https://images.pexels.com/photos/34592/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=750&w=1260"
+          />
+          <Link to="/signin" className="signup-right-link">Se connecter</Link>
         </div>
-        <button type="submit" className="signup-left-button">S'inscrire</button>
-      </form>
-      <div className="signup-right">
-        <Link to="/signin" className="signup-right-link">J'ai déjà un compte</Link>
+
       </div>
     </div>
   );

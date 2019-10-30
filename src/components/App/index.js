@@ -22,7 +22,6 @@ import Team from 'src/components/Team';
 import StartStory from 'src/containers/StartStory';
 import NavNew from 'src/components/NavNew';
 
-
 toast.configure();
 
 // == Composant
@@ -36,7 +35,7 @@ class App extends React.Component {
   render() {
     const { isConnected } = this.props;
     return (
-      <div id="app" className="app ">
+      <div id="app">
         <ToastContainer autoClose={5000} />
         <NavNew isConnected={isConnected} />
         <Switch>

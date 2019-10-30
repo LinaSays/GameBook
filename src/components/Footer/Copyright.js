@@ -15,7 +15,7 @@ const Copyright = () => (
         <nav className="footer-copyright--nav">
           <a className="footer-copyright--link" href="">Mentions légales</a>
           <a className="footer-copyright--link" href="">Politique de confidentialité</a>
-          <AnchorLink href="#home" className="footer-copyright--link">Haut de page</AnchorLink>
+          <AnchorLink href="#app" className="footer-copyright--link">Haut de page</AnchorLink>
         </nav>
         <p className="footer-copyright--text">&copy; 2019 LeNomDuSite - designed by <Link to="/team">Team Cypok</Link></p>
       </Row>
