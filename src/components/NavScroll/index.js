@@ -1,31 +1,79 @@
 // == Import : npm
-import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 // import { toast } from 'react-toastify';
 
 // == Import : local
-import './navnew.scss';
+import './navscroll.scss';
 
 // == Composant
 const NavNew = ({ isConnected }) => {
   // hook to managed a local state
   const [isOpen, SeeMenu] = useState(false);
 
-  const { pathname } = useLocation();
-
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    // nav fixed in scroll
+    // eslint-disable-next-line no-inner-declarations
+    function scrollFunction() {
+      const nav = document.querySelector('.nav-container-1');
+
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+       console.log(nav);
+       nav.style.top = 0;
+       nav.style.transition = "1s";
+      }
+      else {
+        nav.style.top = '-100%';
+      }
+    }
+
+    window.onscroll = function () {
+      scrollFunction();
+    };
+
+  });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
   // All variables who generate a classname with classNames library
   const visibleOrnot = classNames('nav-hidden', { 'nav-visible': isOpen });
-  const navContainer = 'container-fluid nav-container';
+  const navContainer = 'container-fluid nav-container-1';
   const openOrNot = classNames('nav-icon1', { open: isOpen });
   const whiteOrNot = classNames('is-close', { 'is-open': isOpen });
-  const fixOrNot = classNames(navContainer, { 'container-fluid nav-container-fixed': isOpen });
+  const fixOrNot = classNames(navContainer, { 'container-fluid nav-container-fixed-1': isOpen });
   const colorLogo = classNames('nav-logo text-white mob', { 'text-dark': isOpen });
 
   // Remove cookie
@@ -39,7 +87,7 @@ const NavNew = ({ isConnected }) => {
       {
         isConnected ? (
           <nav className="nav-div container">
-            <div className="nav-group">
+            <div  className="nav-group">
               <NavLink to="/" className={colorLogo} onClick={() => SeeMenu(!isOpen)}>LOGO</NavLink>
               <NavLink to="/profile" className="nav-group-link text-dark ">Mon compte</NavLink>
               <NavLink to="/concept" className="nav-group-link text-dark">Catégories</NavLink>
@@ -64,14 +112,14 @@ const NavNew = ({ isConnected }) => {
           </nav>
         ) : (
           <nav className="nav-div container">
-            <div className="nav-group">
+            <div  className="nav-group">
               <NavLink to="/" className={colorLogo}><span className={colorLogo}>GAMEBook</span></NavLink>
-              <NavLink to="/" className="nav-logo text-white desk"><span>GAMEBook</span></NavLink>
+              <NavLink to="/" className="nav-logo text-white desk"><span >GAMEBook</span></NavLink>
               <NavLink to="/" className="nav-group-link">Accueil</NavLink>
               <NavLink to="/team" className="nav-group-link">La team</NavLink>
               <NavLink to="/contact" className="nav-group-link">Contact</NavLink>
             </div>
-            <div className="button-group">
+            <div  className="button-group">
               <NavLink to="/signup"><button type="button" className=" button-group-link mr-3">S'inscrire</button></NavLink>
               <NavLink to="/signin"><button type="button" className="button-group-link">Se connecter</button></NavLink>
             </div>

@@ -24,16 +24,17 @@
 			}
 		}
 
-		&-container {
-			position: absolute;
-			//background-color: red;
-			top:0;
-			z-index: 10;
+		&-container-1 {
+			position: fixed;
+			background-color: red;
+			top:-100%;
+			z-index: 20;
 			width:100%;
 			padding: 1.5rem;
+			transtion: 1s;
 		}
 
-		&-container-fixed {
+		&-container-fixed-1 {
 			position: fixed;
 			top:0;
 			z-index: 2;
@@ -152,9 +153,9 @@
 			display: none;
 		}
 
-		// &-container {
-		// 	background-color: green;
-		// }
+		&-container {
+			background-color: green;
+		}
 
 		
 
