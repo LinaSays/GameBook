@@ -7,7 +7,9 @@ import PropTypes from 'prop-types';
 import './signin.scss';
 
 // == Composant
-const Signin = ({ changeValue, email, password, submitUser }) => {
+const Signin = ({
+  changeValue, email, password, submitUser,
+}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     submitUser();
@@ -17,31 +19,37 @@ const Signin = ({ changeValue, email, password, submitUser }) => {
     changeValue(name, value);
   };
   return (
+
     <div className="signin">
-      <div className="signin-left">
+      {/* <div className="signin-left">
         <Link to="/signup" className="signin-left-link">Créer un compte</Link>
-      </div>
+      </div> */}
       <form className="signin-right" onSubmit={handleSubmit}>
-        <h3 className="signin-right-title">Accéder à mon compte</h3>
+        <h2 className="signin-right-title">GameBOok</h2>
+        <h3 className="signin-right-subtitle">Login into account</h3>
 
         <div className="signin-right-field">
-          <i className="fas fa-envelope signin-right-field-img" />
+          {/* <i className="fas fa-envelope signin-right-field-img" /> */}
           <input type="email" placeholder="Email" className="signin-right-input" value={email} onChange={handleChange} name="email" />
         </div>
 
         <div className="signin-right-field">
-          <i className="fas fa-unlock-alt signin-right-field-img" />
+          {/* <i className="fas fa-unlock-alt signin-right-field-img" /> */}
           <input type="password" placeholder="Mot de passe" className="signin-right-input" value={password} onChange={handleChange} name="password" />
         </div>
 
-        <div>
-          <input type="checkbox" name="connection" id="connection" />
-          <label className="signin-right-label" htmlFor="connection">Remember me</label>
+        <div className="d-flex justify-content-between align-items-center flex-wrap">
+          <label className="signin-right-label m-0" htmlFor="connection"><input type="checkbox" name="connection" id="connection" /> Remember me</label>
+          <Link to="/forgotten" className="signin-right-forgot">Mot de passe oublié ?</Link>
         </div>
         <button type="submit" className="signin-right-button">Se connecter</button>
-        <Link to="/forgotten" className="signin-right-forgot">Mot de passe oublié ?</Link>
+        <div className="signin-left">
+          <span className="signin-left-subscribe">Pas de compte ?</span> <Link to="/signup" className="signin-left-link">Créer un compte</Link>
+        </div>
+
       </form>
     </div>
+
   );
 };
 

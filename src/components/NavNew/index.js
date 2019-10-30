@@ -67,7 +67,7 @@ const NavNew = ({ isConnected }) => {
         ) : (
           <nav className="nav-div container">
             <div className="nav-group">
-              <NavLink to="/" className={colorLogo}><span className={colorLogo}>GAMEBook</span></NavLink>
+              <NavLink to="/" className={colorLogo}><span className={colorLogo} >GAMEBook</span></NavLink>
               <NavLink to="/" className="nav-logo text-white desk"><span>GAMEBook</span></NavLink>
               <NavLink to="/" className="nav-group-link">Accueil</NavLink>
               <NavLink to="/team" className="nav-group-link">La team</NavLink>

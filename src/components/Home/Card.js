@@ -20,18 +20,16 @@ const Card = ({
   useEffect(() => {
     const card = document.getElementById(`card-${id}`);
     const controller = new ScrollMagic.Controller();
-    const tween = TweenMax.to(card, .5, { scale: 1.09, repeat: 1, yoyo: true });
+    const tween = TweenMax.to(card, 0.1, {scale: 1.067, repeat : 1, yoyo: true});
 
     new ScrollMagic.Scene({
 
       triggerElement: `#card-${id}`,
-      duration: '300px',
+      duration: '450px',
       // offset: '100px',
     })
 
       .setTween(tween)
-      .addIndicators()
-
       .addTo(controller);
   });
   return (
