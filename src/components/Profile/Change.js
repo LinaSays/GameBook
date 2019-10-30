@@ -38,7 +38,7 @@ const Change = ({
         <Form.Label>Avatar</Form.Label>
         <Form.Control type="file" placeholder="Avatar" name="avatar" value={avatar} onChange={handleChange} />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" className="change-button-form" type="submit">
         Modifier
       </Button>
     </Form>
@@ -59,7 +59,7 @@ Change.defaultProps = {
   email: '',
   password: '',
   avatar: '',
-}
+};
 
 // == Export
 export default Change;

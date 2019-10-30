@@ -1,7 +1,6 @@
 // == Import : npm
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -25,113 +24,74 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { profile, location, pins, read, wrote } = this.props;
+    const {
+      profile,
+      location,
+      pins,
+      read,
+      wrote,
+    } = this.props;
     // const { path, url } = this.props.match;
     switch (location.pathname) {
       case '/profile/modify': {
         return (
-          <Container>
-            <Row>
-              <Col>
-                {profile.map((item) => (
-                  <Info key={item.id} {...item} />
-                ))}
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={6} md={4}>
-                <Menu />
-              </Col>
-              <Col>
-                <Change {...this.props} />
-              </Col>
-            </Row>
-          </Container>
+          <div className="menu-button-modify-profile">
+            {profile.map((item) => (
+              <Info key={item.id} {...item} />
+            ))}
+            <Menu />
+            <Change {...this.props} />
+          </div>
         ); }
       case '/profile/created': {
         return (
-          <Container>
-            <Row>
-              <Col>
-                {profile.map((item) => (
-                  <Info key={item.id} {...item} />
-                ))}
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={6} md={4}>
-                <Menu />
-              </Col>
-              {wrote.map((item) => (
-                <Col><Wrote key={item.image} {...item} /></Col>
-              ))}
-            </Row>
-          </Container>
+          <div className="menu-button-stories-created">
+            {profile.map((item) => (
+              <Info key={item.id} {...item} />
+            ))}
+            <Menu />
+            {wrote.map((item) => (
+              <Wrote key={item.image} {...item} />
+            ))}
+          </div>
         ); }
       case '/profile/read': {
         return (
-          <Container>
-            <Row>
-              <Col>
-                {profile.map((item) => (
-                  <Info key={item.id} {...item} />
-                ))}
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={6} md={4}>
-                <Menu />
-              </Col>
-              {read.map((item) => (
-                <Col><Read key={item.image} {...item} /></Col>
-              ))}
-            </Row>
-          </Container>
+          <div className="menu-button-stories-read">
+            {profile.map((item) => (
+              <Info key={item.id} {...item} />
+            ))}
+            <Menu />
+            {read.map((item) => (
+              <Read key={item.image} {...item} />
+            ))}
+          </div>
         ); }
       case '/profile/pins': {
         return (
-          <Container>
-            <Row>
-              <Col>
-                {profile.map((item) => (
-                  <Info key={item.id} {...item} />
-                ))}
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={6} md={4}>
-                <Menu />
-              </Col>
-              <Col>
-                {pins.map((item) => (
-                  <Pins key={item.badge} {...item} />
-                ))}
-              </Col>
-            </Row>
-          </Container>
+          <div className="menu-button-pins">
+            {profile.map((item) => (
+              <Info key={item.id} {...item} />
+            ))}
+            <Menu />
+            {pins.map((item) => (
+              <Pins key={item.badge} {...item} />
+            ))}
+          </div>
         ); }
       default:
         return (
-          <Container>
-            <Row>
-              <Col>
-                {profile.map((item) => (
-                  <Info key={item.id} {...item} />
-                ))}
-              </Col>
-            </Row>
-            <Row className="nav-desktop">
-              <Col xs={6} md={4}>
-                <Menu />
-              </Col>
-              <Col>
-                Bienvenue
-              </Col>
-            </Row>
-            <Row className="nav-mobile">
-              <Col><Mobile /></Col>
-            </Row>
-          </Container>
+          <div className="profile-general-display">
+            {profile.map((item) => (
+              <Info key={item.id} {...item} />
+            ))}
+            <div className="navbar-desktop">
+              <Menu />
+            </div>
+            <div className="navbar-mobile">
+              <Mobile />
+            </div>
+          </div>
         );
     }
   }

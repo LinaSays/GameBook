@@ -1,65 +1,149 @@
-.menu {
-  line-height: 2em;
+@media screen and (min-width: 320px) {
+  .navbar-desktop {
+    display: none;
+  }
 
-  &-link {
-    color: black;
-
-    &-btn {
+  /* Header de la page profil */
+  .header-profile {
+    background-color:#263F68;
+    padding-top: 6rem;
+    
+    &-avatar {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin-left: auto;
+      margin-right: auto;
+      object-fit: cover;
       display: block;
     }
 
-    &:hover {
-      color: black;
-      text-decoration: none;
+    &-text-welcome {
+      color: #fff;
+      padding: 0.8rem 1rem 3rem;
+      text-align: center;
     }
   }
 
-  &-wrote {
+  /* Boutton au dessus du menu déroulant */
+  .wrapper-button {
     display: flex;
-    flex-direction: column;
-
-    &-delete {
-      margin-top: 1em;
+    justify-content: center;
+    padding: 1.4rem 0;
+  }
+  .button-createstory {
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    background-color: lighten(#1F2432, 5%);
+    border:1px solid #fff;
+    margin:-3rem;
+    width: 60%;
+    height: 3rem;
+    
+    &-text {
+      color: #fff;
+      line-height: 2rem ;
+      margin: 1rem;
+      font-size: 1.1rem;
     }
   }
-}
 
-.jumbotron-info {
-  background: linear-gradient(45deg, rgba(59,33,255,1) 0%, rgba(124,54,255,1) 50%, rgba(225,28,255,1) 100%); /* w3c */
-}
-
-.info {
-  display: flex;
-
-  &-image {
-    width: 150px;
-    height: 150px;
+  .animation-menu {
+    padding-bottom: 5rem;
+    margin-top: 2rem;
   }
 
-  &-text {
-    margin: auto;
+  /* Menu déroulant : modifier les infos */
+  .toggle-button {
+    text-align: center;
+    height: 4.7rem;
+    background-color: lighten(#263F68, 15%);
+    margin: 0.5rem 1rem;
   }
-}
 
-.pins {
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  &-info {
-    width: 80px;
-    margin-right: 4em;
+  .toggle-button-text {
+    color:#fff;
+    font-size: 1.2rem;
   }
 }
 
-@media screen and (min-width: 768px) {
-  .nav-mobile {
-    display: none;
-  }
+ /* Menu déroulant : intérieur des cards */
+.card-content-text {
+  margin-top: 0;
 }
 
-@media screen and (max-width: 767px) {
-  .nav-desktop {
-    display: none;
-  }
+.change-button-form {
+  float: right;
+  margin: 1rem 0 2rem;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .menu {
+//   line-height: 2em;
+
+//   &-link {
+//     color: black;
+
+//     &-btn {
+//       display: block;
+//     }
+
+//     &:hover {
+//       color: black;
+//       text-decoration: none;
+//     }
+//   }
+
+//   &-wrote {
+//     display: flex;
+//     flex-direction: column;
+
+//     &-delete {
+//       margin-top: 1em;
+//     }
+//   }
+// }
+
+// .jumbotron-info {
+//   background: linear-gradient(45deg, rgba(59,33,255,1) 0%, rgba(124,54,255,1) 50%, rgba(225,28,255,1) 100%); /* w3c */
+// }
+
+// .info {
+//   display: flex;
+
+//   &-image {
+//     width: 150px;
+//     height: 150px;
+//   }
+
+//   &-text {
+//     margin: auto;
+//   }
+// }
+
+// .pins {
+//   display: inline-flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+
+//   &-info {
+//     width: 80px;
+//     margin-right: 4em;
+//   }
+// }
+
