@@ -2,16 +2,16 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import * as ScrollMagic from 'scrollmagic';
-import { TweenMax, TimelineMax } from 'gsap';
-import { ScrollMagicPluginGsap } from 'scrollmagic-plugin-gsap';
+// import * as ScrollMagic from 'scrollmagic';
+// import { TweenMax, TimelineMax } from 'gsap';
+// import { ScrollMagicPluginGsap } from 'scrollmagic-plugin-gsap';
 
 
 // == Import : local
 import './home.scss';
 
 // == Plugins
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+// ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 // == Composant
 const Card = ({
@@ -20,7 +20,7 @@ const Card = ({
   useEffect(() => {
     const card = document.getElementById(`card-${id}`);
     const controller = new ScrollMagic.Controller();
-    const tween = TweenMax.to(card, 1, { scale: 1.09, repeat: 1, yoyo: true });
+    const tween = TweenMax.to(card, .5, { scale: 1.09, repeat: 1, yoyo: true });
 
     new ScrollMagic.Scene({
 
@@ -30,6 +30,7 @@ const Card = ({
     })
 
       .setTween(tween)
+      .addIndicators()
 
       .addTo(controller);
   });

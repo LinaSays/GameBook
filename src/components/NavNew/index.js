@@ -19,6 +19,8 @@ const NavNew = ({ isConnected }) => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  console.log(pathname);
+
 
   // All variables who generate a classname with classNames library
   const visibleOrnot = classNames('nav-hidden', { 'nav-visible': isOpen });
