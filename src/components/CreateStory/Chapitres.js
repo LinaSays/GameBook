@@ -17,7 +17,7 @@ import PropTypes from 'prop-types';
 import Choix from './Choix';
 
 // == Composant
-const Chapitres = ({ 
+const Chapitres = ({
   changeValue,
   recap,
   text,
