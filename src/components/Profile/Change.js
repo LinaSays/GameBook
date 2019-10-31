@@ -18,13 +18,13 @@ const Change = ({
     changeValue(name, value);
   };
   return (
-    <Form>
+    <Form className="form-change-info">
       <Form.Group controlId="formBasicName">
-        <Form.Label>Nom Prénom</Form.Label>
+        <Form.Label className="form-change-info-label">Nom Prénom</Form.Label>
         <Form.Control type="text" placeholder="Nom Prénom" name="user_name" value={user_name} onChange={handleChange} />
       </Form.Group>
       <Form.Group controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
+        <Form.Label className="form-change-info-label">Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" name="email" value={email} onChange={handleChange} />
       </Form.Group>
 
@@ -36,8 +36,8 @@ const Change = ({
       */}
 
       <Form.Group controlId="formBasicAvatar">
-        <Form.Label>Avatar</Form.Label>
-        <Form.Control type="file" placeholder="Avatar" name="avatar" value={avatar} onChange={handleChange} />
+        <Form.Label className="form-change-info-label">Avatar</Form.Label>
+        <Form.Control className="form-change-info-file" type="file" placeholder="Avatar" name="avatar" value={avatar} onChange={handleChange} />
       </Form.Group>
       <Button variant="primary" className="change-button-form" type="submit">
         Modifier

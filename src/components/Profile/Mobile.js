@@ -59,7 +59,7 @@ const Mobile = ({ pins, read, wrote, profile }) => (
         </Accordion.Toggle>
       </Card.Header>
       <Accordion.Collapse eventKey="4">
-        <Card.Body className="card-content-text">
+        <Card.Body className="card-content-text badge-ipad">
           {pins.map((test) => (
             <Pins key={test.badge} {...test} />
           ))}
