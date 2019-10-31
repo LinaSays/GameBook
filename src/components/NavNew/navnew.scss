@@ -4,6 +4,11 @@
 	}
 
 	.nav {
+
+		&-connect {
+			background-color: rgb(219, 219, 219);
+		}
+
 		&-div{
 			display: flex;
 			justify-content: space-between;
@@ -45,6 +50,10 @@
 		
         
 		&-group-link {
+			display: none;
+		}
+
+		&-group-link-cat {
 			display: none;
 		}
 
@@ -142,6 +151,20 @@
 			}
 		}
 
+		&-group-link-cat {
+			display: initial;
+			margin: .9rem;
+			font-size: 1rem;
+			transition: .3s;
+			color: black;
+			font-weight: bold;
+            		
+			&:hover {
+				text-decoration: none;
+				color: rgb(155, 32, 255);	
+			}
+		}
+
 		&-burger {
 			display: none;
 		}
@@ -198,6 +221,24 @@
 
 		&:hover {
 			background-color:  blue;
+			border: 2px solid rgb(12, 12, 230);			
+		}
+	}
+
+	&-link-cat {
+		position: relative;
+		background-color: #fc5c42;
+		padding: .5rem 1rem;
+		border-radius: 20px;
+		border: solid 2px #fc5c42;
+		text-transform: uppercase;
+		font-size: .8rem;
+		font-weight: bold;
+		color: #fff;
+		transition: .2s ease-in;
+
+		&:hover {
+			background-color:  rgb(12, 12, 230);
 			border: 2px solid rgb(12, 12, 230);			
 		}
 	}

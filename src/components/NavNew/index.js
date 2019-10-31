@@ -19,8 +19,6 @@ const NavNew = ({ isConnected }) => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  console.log(pathname);
-
 
   // All variables who generate a classname with classNames library
   const visibleOrnot = classNames('nav-hidden', { 'nav-visible': isOpen });
@@ -29,6 +27,7 @@ const NavNew = ({ isConnected }) => {
   const whiteOrNot = classNames('is-close', { 'is-open': isOpen });
   const fixOrNot = classNames(navContainer, { 'container-fluid nav-container-fixed': isOpen });
   const colorLogo = classNames('nav-logo text-white mob', { 'text-dark': isOpen });
+  const bgNav = classNames('', { 'nav-connect': isConnected });
 
   // Remove cookie
   const removeCookie = () => {
@@ -37,37 +36,37 @@ const NavNew = ({ isConnected }) => {
     document.location.href = '/';
   };
   return (
-    <div className={fixOrNot}>
+    <div className={`${fixOrNot} ${bgNav}`}>
       {
         isConnected ? (
-          <nav className="nav-div container">
+          <nav className="nav-div  container">
             <div className="nav-group">
-              <NavLink to="/" className={colorLogo} onClick={() => SeeMenu(!isOpen)}>LOGO</NavLink>
-              <NavLink to="/profile" className="nav-group-link text-dark ">Mon compte</NavLink>
-              <NavLink to="/concept" className="nav-group-link text-dark">Catégories</NavLink>
-              <NavLink to="/team" className="nav-group-link text-dark">A propos</NavLink>
-              <NavLink to="/contact" className="nav-group-link text-dark">Contact</NavLink>
+              <NavLink to="/" className="nav-logo" onClick={() => SeeMenu(!isOpen)}>GAMEBook</NavLink>
+              <NavLink to="/profile" className="nav-group-link-cat">Mon compte</NavLink>
+              <NavLink to="/concept" className="nav-group-link-cat">Catégories</NavLink>
+              <NavLink to="/team" className="nav-group-link-cat">A propos</NavLink>
+              <NavLink to="/contact" className="nav-group-link-cat">Contact</NavLink>
             </div>
             <div className="button-group">
-              <NavLink to="/signin"><button type="button" className="button-group-link" onClick={removeCookie}>Se déconnecter</button></NavLink>
+              <NavLink to="/signin"><button type="button" className="button-group-link-cat" onClick={removeCookie}>Se déconnecter</button></NavLink>
             </div>
             <div className={openOrNot} onClick={() => SeeMenu(!isOpen)}>
-              <span className={whiteOrNot} />
-              <span className={whiteOrNot} />
-              <span className={whiteOrNot} />
+              <span className="is-open" />
+              <span className="is-open" />
+              <span className="is-open" />
             </div>
             <div className={visibleOrnot}>
               <NavLink to="/" className="nav-group-link-bis" onClick={() => SeeMenu(!isOpen)}>Accueil</NavLink>
               <NavLink to="/profile" className="nav-group-link-bis" onClick={() => SeeMenu(!isOpen)}>Mon compte</NavLink>
               <NavLink to="/categories" className="nav-group-link-bis" onClick={() => SeeMenu(!isOpen)}>Catégories</NavLink>
               <NavLink to="/contact" className="nav-group-link-bis" onClick={() => SeeMenu(!isOpen)}>Contact</NavLink>
-              <NavLink to="/" className="nav-group-link-bis" onClick={removeCookie}>Se déconnecter</NavLink>
+              <NavLink to="/" className="nav-group-link-category" onClick={removeCookie}>Se déconnecter</NavLink>
             </div>
           </nav>
         ) : (
           <nav className="nav-div container">
             <div className="nav-group">
-              <NavLink to="/" className={colorLogo}><span className={colorLogo} >GAMEBook</span></NavLink>
+              <NavLink to="/" className={colorLogo}><span className={colorLogo}>GAMEBook</span></NavLink>
               <NavLink to="/" className="nav-logo text-white desk"><span>GAMEBook</span></NavLink>
               <NavLink to="/" className="nav-group-link">Accueil</NavLink>
               <NavLink to="/team" className="nav-group-link">La team</NavLink>
