@@ -3,7 +3,7 @@
     .container-story {
         //background: url('https://wallpaperset.com/w/full/0/5/1/442146.jpg') center no-repeat;
         //background-size: cover;
-        background-color: black;
+        //background-color: black;
         //padding: .8rem;
         min-height: 100vh;
         position:absolute;
@@ -20,6 +20,7 @@
         object-fit: cover;
         top: 0;
         left: 0;
+        display: none;
     }
 
     .story {
@@ -58,7 +59,7 @@
         }
 
         .button-nav-footer {
-            width: 25%;
+            width: 34%;
             height: 3.5rem;
             border-radius: 0;
             margin: 0;
@@ -108,6 +109,10 @@
     .container-story {
         //padding: 2rem;
         
+    }
+
+    .bg-image {
+        display: initial;
     }
 
     .story {

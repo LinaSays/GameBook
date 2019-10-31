@@ -5,6 +5,7 @@ import { MdHome, MdBookmark, MdPerson } from 'react-icons/md';
 import { FaUser } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 // == Import : local
 import './startstory.scss';
@@ -27,42 +28,33 @@ class StartStory extends React.Component {
       id, text, color, image, choice, isConnected,
     } = this.props;
     // style= {{ background: color }};
+
+
+    const connectOrNot = classNames('d-none', { 'story-account-nav-footer ': isConnected });
+
     return (
-      <div className="container-story">
-        <Image src={image} alt="" className="bg-image" />
+      <div className="container-story" style={{ backgroundColor: 'black' }}>
+        <Image src="https://wallpaperset.com/w/full/0/5/1/442146.jpg" alt="" className="bg-image" />
         <div className="story">
-          <div className="story-account">
-            {
-              isConnected ? (
-                <>
-                  <Image
-                    src="https://i.imgur.com/rMxbnBM.png"
-                    className="story-account-img"
-                    roundedCircle
-              />
-                  <div className="story-account-info">
-                    <p className="story-account-name">Nom / Pseudo</p>
-                    <div className="story-account-nav">
-                      <NavLink to="/profile" className="d-flex justify-content-center align-items-center" variant="light mt-1"><FaUser className="mr-2" /> Mon profil</NavLink>
-                      <NavLink to="" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdBookmark className="mr-1" /> Sauvegarder</NavLink>
-                      <NavLink to="/" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdHome className="mr-1" /> Retour à l'accueil</NavLink>
-                    </div>
-                  </div>
-                </>
-
-              ) : (
-                <>
-                  <div className="story-account-info">
-                    <div className="story-account-nav">
-                      <NavLink to="/" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdHome className="mr-1" /> Retour à l'accueil</NavLink>
-                    </div>
-                  </div>
-                </>
-
-              )
-            }
-
-          </div>
+          {
+             isConnected && (
+             <div className="story-account">
+               <Image
+                 src="https://i.imgur.com/rMxbnBM.png"
+                 className="story-account-img"
+                 roundedCircle
+               />
+               <div className="story-account-info">
+                 <p className="story-account-name">Nom / Pseudo</p>
+                 <div className="story-account-nav">
+                   <NavLink to="/profile" className="d-flex justify-content-center align-items-center" variant="light mt-1"><FaUser className="mr-2" /> Mon profil</NavLink>
+                   <NavLink to="" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdBookmark className="mr-1" /> Sauvegarder</NavLink>
+                   <NavLink to="/" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdHome className="mr-1" /> Retour à l'accueil</NavLink>
+                 </div>
+               </div>
+             </div>
+             )
+          }
           <div className="story-page">
             <div className="story-text">
               {text}
@@ -73,15 +65,21 @@ class StartStory extends React.Component {
               ))}
             </div>
             <div className="story-account-nav-mobile mt-4">
-              <NavLink to="/profile" className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdPerson className="mr-1" />Mon profil</NavLink>
+              <NavLink to="/profile" className="d-flex justify-content-center align-items-center " variant="primary mt-1"><MdPerson className="mr-1" />Mon profil</NavLink>
               <NavLink to="" className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdBookmark className="mr-1" /> Sauvegarder</NavLink>
               <NavLink to="/" className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdHome className="mr-1" /> Retour à l'accueil</NavLink>
             </div>
-            <div className="story-account-nav-footer">
-              <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdPerson /></NavLink>
-              <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdBookmark /></NavLink>
-              <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdHome /></NavLink>
-            </div>
+            {
+              isConnected && (
+              <div className="story-account-nav-footer ">
+                <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center bg-success" variant="secondary"><MdPerson /></NavLink>
+                <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center bg-success" variant="secondary"><MdBookmark /></NavLink>
+                <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center bg-success" variant="secondary"><MdHome /></NavLink>
+              </div>
+              )
+
+
+            }
           </div>
         </div>
       </div>
