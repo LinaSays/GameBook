@@ -92,29 +92,34 @@
             color: white;
             bottom: 150px;
             left: 80px;  
+            
              
+        }
+
+        &-descrip {
+            width: 50%;
         }
 
         &-title {
             font-size: 2rem;
         }
 
-        // &:hover &-title {
-        //     transform: translateY(-45%);
-        // }
+        &:hover &-title {
+            transform: translateY(-45%);
+        }
     
-        // &:hover &-descrip {
-        //     transform: translateY(40%);
-        //     opacity: 1;
-        // }
+        &:hover &-descrip {
+            transform: translateY(40%);
+            opacity: 1;
+        }
     
-        // &:hover &-link {
-        //     transform: translateY(210%);
-        // }
+        &:hover &-link {
+            transform: translateY(210%);
+        }
     
-        // &:hover .link-3 {
-        //     transform: translateY(100%);
-        // }
+        &:hover .cat-link-5 {
+            transform: translateY(100%);
+        }
     }
 
     #card-1:target {

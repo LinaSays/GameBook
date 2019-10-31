@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 // import { toast } from 'react-toastify';
 
 // == Import : local
@@ -12,7 +13,8 @@ import './navnew.scss';
 const NavNew = ({ isConnected }) => {
   // hook to managed a local state
   const [isOpen, SeeMenu] = useState(false);
-
+  const [dropDown, SeeDrop] = useState(false);
+ 
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -43,7 +45,7 @@ const NavNew = ({ isConnected }) => {
             <div className="nav-group">
               <NavLink to="/" className="nav-logo" onClick={() => SeeMenu(!isOpen)}>GAMEBook</NavLink>
               <NavLink to="/profile" className="nav-group-link-cat">Mon compte</NavLink>
-              <NavLink to="/concept" className="nav-group-link-cat">Catégories</NavLink>
+              <span className="nav-group-link-cat" onClick={() => SeeDrop(!dropDown)}>Catégories<MdKeyboardArrowDown /></span>
               <NavLink to="/team" className="nav-group-link-cat">A propos</NavLink>
               <NavLink to="/contact" className="nav-group-link-cat">Contact</NavLink>
             </div>

@@ -5,7 +5,7 @@ import { MdHome, MdBookmark, MdPerson } from 'react-icons/md';
 import { FaUser } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+
 
 // == Import : local
 import './startstory.scss';
@@ -15,6 +15,7 @@ class StartStory extends React.Component {
   componentDidMount() {
     const { getStartStories } = this.props;
     getStartStories();
+    
   }
 
   handleClick = (id) => () => {
@@ -29,8 +30,7 @@ class StartStory extends React.Component {
     } = this.props;
     // style= {{ background: color }};
 
-
-    const connectOrNot = classNames('d-none', { 'story-account-nav-footer ': isConnected });
+   
 
     return (
       <div className="container-story" style={{ backgroundColor: 'black' }}>
