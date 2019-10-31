@@ -28,26 +28,6 @@ class Profile extends React.Component {
     const { profile, location, pins, read, wrote } = this.props;
     // const { path, url } = this.props.match;
     switch (location.pathname) {
-      case '/profile/modify': {
-        return (
-          <Container>
-            <Row>
-              <Col>
-                {profile.map((item) => (
-                  <Info key={item.id} {...item} />
-                ))}
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={6} md={4}>
-                <Menu />
-              </Col>
-              <Col>
-                <Change {...this.props} />
-              </Col>
-            </Row>
-          </Container>
-        ); }
       case '/profile/created': {
         return (
           <Container>
@@ -62,9 +42,11 @@ class Profile extends React.Component {
               <Col xs={6} md={4}>
                 <Menu />
               </Col>
-              {wrote.map((item) => (
-                <Col><Wrote key={item.image} {...item} /></Col>
-              ))}
+              <Col>
+                {wrote.map((item) => (
+                  <Wrote key={item.image} {...item} />
+                ))}
+              </Col>
             </Row>
           </Container>
         ); }
@@ -125,7 +107,7 @@ class Profile extends React.Component {
                 <Menu />
               </Col>
               <Col>
-                Bienvenue
+                <Change {...this.props} />
               </Col>
             </Row>
             <Row className="nav-mobile">

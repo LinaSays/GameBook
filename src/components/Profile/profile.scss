@@ -1,11 +1,15 @@
 .menu {
   line-height: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
   &-link {
     color: black;
 
     &-btn {
       display: block;
+      margin-top: 1em;
     }
 
     &:hover {
