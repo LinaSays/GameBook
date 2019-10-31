@@ -12,10 +12,12 @@ const Signin = ({ changeValue, email, password, submitUser }) => {
     event.preventDefault();
     submitUser();
   };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     changeValue(name, value);
   };
+
   return (
     <div className="signin">
       <div className="signin-left">
@@ -35,7 +37,7 @@ const Signin = ({ changeValue, email, password, submitUser }) => {
         </div>
 
         <div>
-          <input type="checkbox" name="connection" id="connection" />
+          <input type="checkbox" name="connection" id="connection" onChange={handleChange} value="remember" />
           <label className="signin-right-label" htmlFor="connection">Remember me</label>
         </div>
         <button type="submit" className="signin-right-button">Se connecter</button>

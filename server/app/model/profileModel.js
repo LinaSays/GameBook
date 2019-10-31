@@ -40,26 +40,44 @@ module.exports = {
   },
 
   connect: (req, res) => {
-    const { email, password } = req.body;
-    // console.log(email, password);
+    const { email, password, connection } = req.body;
+    // console.log(email, password, connection);
     // console.log(req.session);
     const query = `SELECT user.id, user.password FROM user WHERE user.email='${email}'`;
     // execute query
     db.query(query, (err, result) => {
       if (err) throw err;
       if (result.length > 0) {
+        // compare two passwords (send by user and hashed in db)
         bcrypt.compare(password, result[0].password, (err2, res2) => {
           if (res2) {
-            const tokenSettings = {
-              expiresIn: '5d',
-            };
-            const token = jwt.sign({ user: result[0].id }, secret, tokenSettings);
-            // console.log(token);
-            const cookieSettings = {
-              httpOnly: false,
-              secure: false,
-            };
-            res.cookie('token', token, cookieSettings).redirect('/profile');
+            // if "remember me" checkbox is not checked, token will last for 2h
+            if (connection === undefined) {
+              const tokenSettings = {
+                expiresIn: '2h',
+              };
+              const token = jwt.sign({ user: result[0].id }, secret, tokenSettings);
+              // console.log(token);
+              const cookieSettings = {
+                httpOnly: false,
+                secure: false,
+              };
+              res.cookie('token', token, cookieSettings).redirect('/profile');
+              console.log(tokenSettings);
+            }
+            else {
+              const tokenSettings = {
+                expiresIn: '15d',
+              };
+              const token = jwt.sign({ user: result[0].id }, secret, tokenSettings);
+              // console.log(token);
+              const cookieSettings = {
+                httpOnly: false,
+                secure: false,
+              };
+              res.cookie('token', token, cookieSettings).redirect('/profile');
+              console.log(tokenSettings);
+            }
           }
           else {
             res.send('Mauvais mot de passe');
