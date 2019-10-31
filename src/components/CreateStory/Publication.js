@@ -12,9 +12,11 @@ import PropTypes from 'prop-types';
 
 // == Composant
 const Publication = ({ sendStory }) => {
-  const publishStory = () => () => {
-    sendStory();
-    document.location.href = '/';
+  const publishStory = (event) => {
+    event.preventDefault();
+    const storyId = sessionStorage.getItem('story');
+    sendStory(storyId);
+    document.location.href = '/profile/created';
   };
 
   return (
@@ -61,12 +63,12 @@ const Publication = ({ sendStory }) => {
 };
 
 Publication.propTypes = {
-  sendStory: PropTypes.func,
+  sendStory: PropTypes.func.isRequired,
 };
 
-Publication.defaultProps = {
-  sendStory: () => {},
-};
+// Publication.defaultProps = {
+//   sendStory: () => {},
+// };
 
 // == Export
 export default Publication;

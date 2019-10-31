@@ -68,12 +68,13 @@ async function getChoices(store, id) {
   }
 }
 
-async function sendPublishedStory(store) {
+async function sendPublishedStory(store, id) {
   try {
     axios.defaults.withCredentials = true;
-    const response = await axios.patch(`http://localhost:3000/story/${id}/publish`);
+    const response = await axios.patch(`http://localhost:3000/story/${id}/publish`, { id });
     const save = publishStory(response.data);
     store.dispatch(save);
+    sessionStorage.removeItem('story');
   }
   catch (err) {
     console.log(err);
@@ -142,7 +143,7 @@ const storyMiddleware = (store) => (next) => (action) => {
       break;
     }
     case SEND_STORY: {
-      sendPublishedStory(store);
+      sendPublishedStory(store, action.id);
       break;
     }
     case CREATE_STORY: {

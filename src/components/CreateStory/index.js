@@ -36,6 +36,7 @@ const CreateStory = ({
   category,
   deleteStory,
   findStoryToEdit,
+  sendStory,
 }) => {
   const [activeTab, setActiveTab] = useState('1');
 
@@ -107,10 +108,17 @@ const CreateStory = ({
                 />
               </TabPane>
               <TabPane tabId="2">
-                <Chapitres changeValue={changeValue} title={title} recap={recap} text={text} choice={choice} choice2={choice2} />
+                <Chapitres
+                  changeValue={changeValue}
+                  title={title}
+                  recap={recap}
+                  text={text}
+                  choice={choice}
+                  choice2={choice2}
+                />
               </TabPane>
               <TabPane tabId="3">
-                <Publication />
+                <Publication sendStory={sendStory} />
               </TabPane>
             </TabContent>
           </div>
@@ -133,6 +141,7 @@ CreateStory.propTypes = {
   createNewStory: PropTypes.func.isRequired,
   deleteStory: PropTypes.func.isRequired,
   findStoryToEdit: PropTypes.func.isRequired,
+  sendStory: PropTypes.func.isRequired,
 };
 
 // == Export

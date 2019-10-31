@@ -60,8 +60,9 @@ export const publishStory = () => ({
   type: PUBLISH_STORY,
 });
 
-export const sendStory = () => ({
+export const sendStory = (id) => ({
   type: SEND_STORY,
+  id,
 });
 
 export const createNewStory = () => ({

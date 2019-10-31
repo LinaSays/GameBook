@@ -36,8 +36,8 @@ const mapDispatchToProps = (dispatch) => ({
     const action = getCategory();
     dispatch(action);
   },
-  sendStory: () => {
-    const action = sendStory();
+  sendStory: (id) => {
+    const action = sendStory(id);
     dispatch(action);
   },
   createNewStory: () => {
