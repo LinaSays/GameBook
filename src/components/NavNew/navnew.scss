@@ -2,7 +2,9 @@
 	.desk {
 		display: none;
 	}
-
+	.drop {
+		display: none;
+	}
 	.nav {
 
 		&-connect {
@@ -132,11 +134,48 @@
 		display: none;
 	}
 
+	.drop {
+		display: initial;
+	}
+
 	.desk {
 		display: inline-block;
 	}
 
 	.nav {
+		&-drop{
+
+			&-desk-close {
+				background-color: rgb(185, 185, 185);
+				position: absolute;
+				display: flex;
+				flex-direction: column;
+				padding: 1rem;
+				left: 320px;
+				top: -200px;
+				z-index: -1;
+				opacity: 0;
+				}
+
+			&-desk-open {
+			background-color: rgb(185, 185, 185);
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			padding: 1rem;
+			left: 320px;
+			top: 50px;
+			opacity: 1;
+			
+			}
+
+			
+
+			&-link {
+				color: rgb(0, 0, 0);
+				
+			}
+		}
 
 		&-group-link {
 			display: initial;

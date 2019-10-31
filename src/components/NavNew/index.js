@@ -1,5 +1,5 @@
 // == Import : npm
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -14,11 +14,20 @@ const NavNew = ({ isConnected }) => {
   // hook to managed a local state
   const [isOpen, SeeMenu] = useState(false);
   const [dropDown, SeeDrop] = useState(false);
- 
+
+  const dropRef = useRef(null);
   const { pathname } = useLocation();
+  console.log(dropDown);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // const drop = dropRef.current.childNodes[0].firstChild;
+    // const { body } = document;
+    
+    // body.addEventListener('click', () => {
+    //   drop.classList.remove('nav-drop-desk-open');
+    // });
+   
   }, [pathname]);
 
 
@@ -30,6 +39,7 @@ const NavNew = ({ isConnected }) => {
   const fixOrNot = classNames(navContainer, { 'container-fluid nav-container-fixed': isOpen });
   const colorLogo = classNames('nav-logo text-white mob', { 'text-dark': isOpen });
   const bgNav = classNames('', { 'nav-connect': isConnected });
+  const dropOrNot = classNames('nav-drop-desk-close drop', { 'nav-drop-desk-open drop': dropDown });
 
   // Remove cookie
   const removeCookie = () => {
@@ -38,14 +48,23 @@ const NavNew = ({ isConnected }) => {
     document.location.href = '/';
   };
   return (
-    <div className={`${fixOrNot} ${bgNav}`}>
+    <div className={`${fixOrNot} ${bgNav}`} ref={dropRef}>
       {
         isConnected ? (
           <nav className="nav-div  container">
+            <div className={dropOrNot}>
+              <NavLink to="" className="nav-drop-link">Contes</NavLink>
+              <NavLink to="" className="nav-drop-link">Heroïc Fantasy</NavLink>
+              <NavLink to="" className="nav-drop-link">Polar</NavLink>
+              <NavLink to="" className="nav-drop-link">Science Fiction</NavLink>
+              <NavLink to="" className="nav-drop-link">Horreur</NavLink>
+            </div>
             <div className="nav-group">
               <NavLink to="/" className="nav-logo" onClick={() => SeeMenu(!isOpen)}>GAMEBook</NavLink>
               <NavLink to="/profile" className="nav-group-link-cat">Mon compte</NavLink>
-              <span className="nav-group-link-cat" onClick={() => SeeDrop(!dropDown)}>Catégories<MdKeyboardArrowDown /></span>
+              <NavLink to="" className="nav-group-link-cat" onClick={() => SeeDrop(!dropDown)}>
+                Catégories<MdKeyboardArrowDown />
+              </NavLink >
               <NavLink to="/team" className="nav-group-link-cat">A propos</NavLink>
               <NavLink to="/contact" className="nav-group-link-cat">Contact</NavLink>
             </div>

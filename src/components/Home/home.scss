@@ -59,14 +59,15 @@
         &-button {
             color: white;
             text-align: center;
-            width: 50%;
+            width: 80%;
             background-color: transparent;
             border: 1px white solid;
-            border-radius: 20px;
+            border-radius: 100px;
             padding: .5rem .9rem;
             margin: 2.2rem auto 3rem;
             transition: .4s;
             display: block;
+            
             
 
             &:hover {
@@ -268,7 +269,8 @@
             margin-top:0;
             z-index: 6;
             width: 60%;
-            padding: .3rem;
+            padding: .5rem 3rem;
+           
             
         }
 

@@ -20,7 +20,7 @@ const Card = ({
   useEffect(() => {
     const card = document.getElementById(`card-${id}`);
     const controller = new ScrollMagic.Controller();
-    const tween = TweenMax.to(card, 0.1, {scale: 1.067, repeat : 1, yoyo: true});
+    const tween = TweenMax.to(card, 0.1, { scale: 1.067, repeat: 1, yoyo: true });
 
     new ScrollMagic.Scene({
 
