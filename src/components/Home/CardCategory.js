@@ -2,15 +2,20 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import * as ScrollMagic from 'scrollmagic';
+import { TweenMax, TimelineMax } from 'gsap';
+import { ScrollMagicPluginGsap } from 'scrollmagic-plugin-gsap';
 
 // == Import : local
 import './cardcat.scss';
+
+// == Plugins
+ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 // == Composant
 const CardCategory = ({
   id, name, image, description,
 }) => {
-
   useEffect(() => {
     const card = document.getElementById(`card-story${id}`);
     const controller = new ScrollMagic.Controller();

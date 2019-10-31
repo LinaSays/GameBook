@@ -17,17 +17,8 @@ const NavNew = ({ isConnected }) => {
 
   const dropRef = useRef(null);
   const { pathname } = useLocation();
-  console.log(dropDown);
-
   useEffect(() => {
     window.scrollTo(0, 0);
-    // const drop = dropRef.current.childNodes[0].firstChild;
-    // const { body } = document;
-    
-    // body.addEventListener('click', () => {
-    //   drop.classList.remove('nav-drop-desk-open');
-    // });
-   
   }, [pathname]);
 
 
@@ -64,7 +55,7 @@ const NavNew = ({ isConnected }) => {
               <NavLink to="/profile" className="nav-group-link-cat">Mon compte</NavLink>
               <NavLink to="" className="nav-group-link-cat" onClick={() => SeeDrop(!dropDown)}>
                 Catégories<MdKeyboardArrowDown />
-              </NavLink >
+              </NavLink>
               <NavLink to="/team" className="nav-group-link-cat">A propos</NavLink>
               <NavLink to="/contact" className="nav-group-link-cat">Contact</NavLink>
             </div>

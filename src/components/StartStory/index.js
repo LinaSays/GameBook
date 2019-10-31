@@ -34,7 +34,7 @@ class StartStory extends React.Component {
 
     return (
       <div className="container-story" style={{ backgroundColor: 'black' }}>
-        <Image src="https://wallpaperset.com/w/full/0/5/1/442146.jpg" alt="" className="bg-image" />
+        <Image src={image} alt="" className="bg-image" />
         <div className="story">
           {
              isConnected && (
