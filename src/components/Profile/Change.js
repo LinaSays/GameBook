@@ -54,7 +54,7 @@ Change.propTypes = {
 };
 
 Change.defaultProps = {
-  changeValue: '',
+  changeValue: () => {},
   user_name: '',
   email: '',
   password: '',

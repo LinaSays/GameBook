@@ -1,6 +1,5 @@
 // == Import : npm
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Accordion, Card, Button } from 'react-bootstrap';
 
 // == Import : local
@@ -9,12 +8,10 @@ import Wrote from './Wrote';
 import Read from './Read';
 import Pins from './Pins';
 
+
 // == Composant
 const Mobile = () => (
   <>
-    <div className="wrapper-button">
-      <button type="button" variant="warning" className="button-createstory"><Link to="/createstory" className="button-createstory-text">Ecrire une histoire</Link></button>
-    </div>
     <Accordion className="animation-menu">
       <Card>
         <Card.Header className="toggle-button">
@@ -59,7 +56,6 @@ const Mobile = () => (
     </Accordion>
   </>
 );
-
 
 // == Export
 export default Mobile;

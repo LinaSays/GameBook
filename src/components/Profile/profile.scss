@@ -23,7 +23,15 @@
       padding: 0.8rem 1rem 3rem;
       text-align: center;
     }
+
+    &-role {
+      background-color: lighten(#263f68, 10%);
+      color: #eee;
+      padding: 0.3rem 0.5rem;
+      margin-top: 0.5rem;
+    }
   }
+
 
   /* Boutton au dessus du menu déroulant */
   .wrapper-button {
@@ -64,17 +72,26 @@
   .toggle-button-text {
     color:#fff;
     font-size: 1.2rem;
+    width: 100%;
   }
-}
 
- /* Menu déroulant : intérieur des cards */
-.card-content-text {
-  margin-top: 0;
-}
+  .toggle-button-text:focus {
+    color:#fff;
+    font-size: 1.2rem;
+    outline: none;
+    text-decoration: none;
+  }
 
-.change-button-form {
-  float: right;
-  margin: 1rem 0 2rem;
+
+  /* Menu déroulant : intérieur des cards */
+  .card-content-text {
+    margin-top: 0;
+  }
+
+  .change-button-form {
+    float: right;
+    margin: 1rem 0 2rem;
+  }
 }
 
 
