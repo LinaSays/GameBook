@@ -30,6 +30,10 @@ const Chapitres = ({
     changeValue(name, value);
   };
 
+  const handleChangeComplete = (color, event) => {
+    console.log(color.hex);
+  };
+
   return (
     <Form>
       {/* Contenu du Tabs 2 - les chapitres */}
@@ -100,7 +104,7 @@ const Chapitres = ({
       <FormGroup>
         {/* Couleur de fond */}
         <Label for="colorPicker">Choisissez une couleur de fond</Label>
-        <CirclePicker width="100%" className="color-picker" id="colorPicker" />
+        <CirclePicker onChangeComplete={handleChangeComplete} width="100%" className="color-picker" id="colorPicker" />
         <FormText className="legendColor">Peut compléter votre image de fond et la remplacer pour la version mobile</FormText>
       </FormGroup>
       <FormGroup>

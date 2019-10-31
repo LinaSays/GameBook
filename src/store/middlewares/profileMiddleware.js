@@ -55,11 +55,11 @@ const profileMiddleware = (store) => (next) => (action) => {
     }
     case CONNECT_USER: {
       const state = store.getState();
-      const { email, password } = state.signin;
-
+      const { email, password, connection } = state.signin;
       axios.post('http://localhost:3000/profile', {
         email,
         password,
+        connection,
       })
         .then((response) => {
           console.log(response);

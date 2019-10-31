@@ -116,9 +116,15 @@
         &:hover &-link {
             transform: translateY(210%);
         }
+
+        &:hover .cat-title-5 {
+            transform: translateY(-55%);
+
+        }
     
         &:hover .cat-link-5 {
             transform: translateY(100%);
+
         }
     }
 

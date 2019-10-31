@@ -14,10 +14,12 @@ const Signin = ({
     event.preventDefault();
     submitUser();
   };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     changeValue(name, value);
   };
+
   return (
     <div className="signin">
       <div className="testing">
