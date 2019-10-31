@@ -43,17 +43,17 @@ const Signup = ({
           <div className="signup-left-field">
             <input type="password" placeholder="Confirmer mot de passe" value={confirm} onChange={handleChange} className="signup-left-input" name="confirm" required />
           </div>
-          {/* <div>
-          <div>Vous êtes ici pour :</div>
-          <div className="signup-left-radio">
-            <input type="radio" id="read" name="choice" value="1" />
-            <label htmlFor="1">Lire</label>
+
+          <div className="signup-left-field d-flex ">
+            <span>Vous êtes ici pour :</span>
+            <div className="signup-left-radio mx-3">
+              <label htmlFor="read"><input type="radio" id="read" name="choice" value="1" onChange={handleChange} /> Lire</label>
+            </div>
+            <div className="signup-left-radio">
+              <label htmlFor="write"><input type="radio" id="write" name="choice" value="2" onChange={handleChange} /> Ecrire</label>
+            </div>
           </div>
-          <div className="signup-left-radio">
-            <input type="radio" id="write" name="choice" value="2" />
-            <label htmlFor="2">Ecrire</label>
-          </div>
-        </div> */}
+
           <div>
             <input type="checkbox" name="condition" id="condition" required /> <a className="signup-left-label" href="">Accepter les conditions d'utilisation</a>
           </div>
