@@ -6,8 +6,8 @@ import { Nav, Button } from 'react-bootstrap';
 // == Import : local
 
 // == Composant
-const Menu = () =>  (
-  <Nav defaultActiveKey="/home" className="flex-column menu">
+const Menu = () => (
+  <Nav className="flex-column menu">
     <NavLink to="/profile/modify">Modifier mes infos</NavLink>
     <NavLink to="/profile/created">Les histoires créées</NavLink>
     <NavLink to="/profile/read">Les histoires lues</NavLink>

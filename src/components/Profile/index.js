@@ -89,7 +89,7 @@ class Profile extends React.Component {
               <Menu />
             </div>
             <div className="navbar-mobile">
-              <Mobile />
+              <Mobile {...this.props} />
             </div>
           </div>
         );

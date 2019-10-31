@@ -1,18 +1,21 @@
 // == Import : npm
 import React from 'react';
-import { CardDeck, Card, Button } from 'react-bootstrap';
+import { CardDeck, Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 // == Import : local
 
 // == Composant
 const Wrote = ({ id, title, image }) => (
-  <CardDeck>
-    <Card>
-      <Card.Img variant="top" src={image} />
-      <Card.Body className="menu-wrote">
-        <Button variant="warning" size="sm" className={id}>Modifier</Button>
-        <Button variant="danger" size="sm" className={`menu-wrote-delete ${id}`}>Supprimer</Button>
+  <CardDeck className="card-story-profile-wrote">
+    <Card className="menu-story">
+      <Card.Img variant="top" className="menu-story-image" src={image} />
+      <Card.Body className="menu-story-written">
+        <h2 className="menu-story-title">{title}</h2>
+        <div className={`menu-story-buttons ${id}`}>
+          <button type="button" className={`menu-story-delete ${id}`}>Supprimer</button>
+          <button type="button" className={`menu-story-modify ${id}`}>Modifier</button>
+        </div>
       </Card.Body>
     </Card>
   </CardDeck>

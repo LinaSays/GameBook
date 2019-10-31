@@ -10,15 +10,13 @@ const Change = ({
   changeValue,
   user_name,
   email,
-  password,
+  // password,
   avatar,
 }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
     changeValue(name, value);
   };
-
   return (
     <Form>
       <Form.Group controlId="formBasicName">
@@ -30,10 +28,13 @@ const Change = ({
         <Form.Control type="email" placeholder="Enter email" name="email" value={email} onChange={handleChange} />
       </Form.Group>
 
-      <Form.Group controlId="formBasicPassword">
+      {/*
+        <Form.Group controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" placeholder="Password" name="password" value={password} onChange={handleChange} />
-      </Form.Group>
+        </Form.Group>
+      */}
+
       <Form.Group controlId="formBasicAvatar">
         <Form.Label>Avatar</Form.Label>
         <Form.Control type="file" placeholder="Avatar" name="avatar" value={avatar} onChange={handleChange} />
@@ -49,7 +50,7 @@ Change.propTypes = {
   changeValue: PropTypes.func,
   user_name: PropTypes.string,
   email: PropTypes.string,
-  password: PropTypes.string,
+  // password: PropTypes.string,
   avatar: PropTypes.string,
 };
 
