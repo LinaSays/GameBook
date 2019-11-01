@@ -132,11 +132,12 @@
 @media screen and (min-width: 768px) {
   .testing {
     width: 90%;
-    background-color: rgb(124, 79, 196);
+    background-color: rgb(100, 62, 161);
     display: flex;
     position: relative;  
-    border-radius: 10px;
+    //border-radius: 10px;
     overflow: hidden;
+    
    
    
   }
@@ -179,7 +180,7 @@
       display: none;
 
       &-desktop {
-        
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -187,8 +188,8 @@
         padding: 3rem ;
         //background-color: red;
         width: 50%;
-        //opacity: .2;
-        
+        opacity: 1;
+       
 
       }
 
@@ -197,15 +198,26 @@
         position: absolute;
         object-fit: cover;
         top:0;
-        width: 50%;
+        width: 100%;
         height: 100%;
-        z-index: -1;
+        z-index: 0;
+        opacity: .3;
 
       }
 
-      // &-link {
-      //   position: absolute;
-      // }
+      &-title {
+        
+        position: relative;
+        z-index: 2;
+        
+      }
+
+      &-link {
+        
+        position: relative;
+        z-index: 2;
+        
+      }
     }
   }
 }
