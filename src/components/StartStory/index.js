@@ -13,9 +13,9 @@ import './startstory.scss';
 // == Composant
 class StartStory extends React.Component {
   componentDidMount() {
-    const { getStartStories } = this.props;
+    const { getStartStories, getProfile } = this.props;
     getStartStories();
-    
+    getProfile();
   }
 
   handleClick = (id) => () => {
@@ -23,14 +23,11 @@ class StartStory extends React.Component {
     getNextChapter(id);
   }
 
-
   render() {
     const {
-      id, text, color, image, choice, isConnected,
+      id, text, color, image, choice, isConnected, profile,
     } = this.props;
     // style= {{ background: color }};
-
-   
 
     return (
       <div className="container-story" style={{ backgroundColor: 'black' }}>
@@ -38,21 +35,24 @@ class StartStory extends React.Component {
         <div className="story">
           {
              isConnected && (
-             <div className="story-account">
-               <Image
-                 src="https://i.imgur.com/rMxbnBM.png"
-                 className="story-account-img"
-                 roundedCircle
-               />
-               <div className="story-account-info">
-                 <p className="story-account-name">Nom / Pseudo</p>
-                 <div className="story-account-nav">
-                   <NavLink to="/profile" className="d-flex justify-content-center align-items-center" variant="light mt-1"><FaUser className="mr-2" /> Mon profil</NavLink>
-                   <NavLink to="" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdBookmark className="mr-1" /> Sauvegarder</NavLink>
-                   <NavLink to="/" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdHome className="mr-1" /> Retour à l'accueil</NavLink>
+               profile.map((item) => (
+                 <div className="story-account">
+                   <Image
+                     key={item.avatar}
+                     src={item.avatar}
+                     className="story-account-img"
+                     roundedCircle
+                   />
+                   <div className="story-account-info">
+                     <p className="story-account-name">{item.name}</p>
+                     <div className="story-account-nav">
+                       <NavLink to="/profile" className="d-flex justify-content-center align-items-center" variant="light mt-1"><FaUser className="mr-2" /> Mon profil</NavLink>
+                       <NavLink to="" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdBookmark className="mr-1" /> Sauvegarder</NavLink>
+                       <NavLink to="/" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdHome className="mr-1" /> Retour à l'accueil</NavLink>
+                     </div>
+                   </div>
                  </div>
-               </div>
-             </div>
+               ))
              )
           }
           <div className="story-page">
@@ -96,6 +96,8 @@ StartStory.propTypes = {
   image: PropTypes.string,
   choice: PropTypes.array.isRequired,
   isConnected: PropTypes.bool.isRequired,
+  getProfile: PropTypes.func.isRequired,
+  profile: PropTypes.array.isRequired,
 };
 
 StartStory.defaultProps = {

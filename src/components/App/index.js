@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 // == Import : local
 import './app.scss';
-import Footer from 'src/components/Footer';
+import Footer from 'src/containers/Footer';
 import PageNotFound from 'src/components/PageNotFound';
 import Home from 'src/containers/Home';
 import Contact from 'src/components/Contact';

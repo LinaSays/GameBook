@@ -1,7 +1,6 @@
 // == Import : npm
 import React from 'react';
 import { Col } from 'react-bootstrap';
-import datas from 'src/data/category';
 import { Link } from 'react-router-dom';
 import {
   FaFacebookF, FaTwitter, FaInstagram, FaSnapchatGhost,
@@ -12,39 +11,48 @@ import PropTypes from 'prop-types';
 
 
 // == Composant
-const FooterNavList = ({ isConnected }) => (
-  <Col>
+class FooterNavList extends React.Component {
+  componentDidMount() {
+    const { getCategory } = this.props;
+    getCategory();
+  }
 
-    {
-       isConnected ? (
-         <>
-           <h5 className="footer-titlelink">Catégories</h5>
-           <ul>
-             {
-          datas.map((data) => <li key={data}><a className="footer-link" href="http://">{data}</a></li>)
+  render() {
+    const { isConnected, category } = this.props;
+    return (
+      <Col>
+        {
+          isConnected ? (
+            <>
+              <h5 className="footer-titlelink">Catégories</h5>
+              <ul>
+                {
+                  category.map((data) => <li key={data.id}><Link className="footer-link" to={`categories/${data.id}`}>{data.name}</Link></li>)
+            }
+              </ul>
+            </>
+          ) : (
+            <>
+              <h5 className="footer-titlelink">Retrouvez-nous</h5>
+              <ul>
+                <Link to="/facebook" className="footer-link"><FaFacebookF className="mr-2" /> Facebook</Link>
+                <Link to="/instagram" className="footer-link"><FaTwitter className="mr-2" /> Twitter</Link>
+                <Link to="/twitter" className="footer-link"><FaInstagram className="mr-2" /> Instagram</Link>
+                <Link to="/snapchat" className="footer-link"><FaSnapchatGhost className="mr-2" /> Snapchat</Link>
+              </ul>
+            </>
+          )
         }
-           </ul>
-         </>
-
-       ) : (
-         <>
-           <h5 className="footer-titlelink">Retrouvez-nous</h5>
-           <ul>
-             <Link to="/facebook" className="footer-link"><FaFacebookF className="mr-2"  /> Facebook</Link>
-             <Link to="/instagram" className="footer-link"><FaTwitter className="mr-2"  /> Twitter</Link>
-             <Link to="/twitter" className="footer-link"><FaInstagram className="mr-2"  /> Instagram</Link>
-             <Link to="/snapchat" className="footer-link"><FaSnapchatGhost className="mr-2"  /> Snapchat</Link>
-           </ul>
-         </>
-       )
-     }
-
-  </Col>
-);
+      </Col>
+    );
+  }
+}
 
 // == Validation props
 FooterNavList.propTypes = {
   isConnected: PropTypes.bool.isRequired,
+  getCategory: PropTypes.func.isRequired,
+  category: PropTypes.array.isRequired,
 };
 
 // == Export

@@ -44,7 +44,7 @@ const Signin = ({
             <input type="password" placeholder="Mot de passe" className="signin-right-input" value={password} onChange={handleChange} name="password" />
           </div>
           <div className="d-flex justify-content-between align-items-center flex-wrap">
-            <label className="signin-right-label m-0" htmlFor="connection"><input type="checkbox" name="connection" id="connection" /> Remember me</label>
+            <label className="signin-right-label m-0" htmlFor="connection"><input type="checkbox" name="connection" id="connection" onChange={handleChange} value="remember" /> Remember me</label>
             <Link to="/forgotten" className="signin-right-forgot">Mot de passe oublié ?</Link>
           </div>
           <button type="submit" className="signin-right-button">Se connecter</button>
