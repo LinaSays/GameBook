@@ -1,134 +1,248 @@
-.signin {
-  width: 750px;
-  height: 500px;
-  border: 1px solid lightgray;
-  margin: auto;
-  margin-top: 1em;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  box-shadow: 4px 2px 20px 0px #bfb3b3;
-  border-radius: 5px;
-
-  &-left {
-    display: flex;
-    width: 50%;
-    background-image: url('https://images.pexels.com/photos/34592/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=750&w=1260');
-    background-position: center;
-
-    &-link {
-      align-self: flex-end;
-      margin: 0 auto;
-      padding-bottom: 30px; 
-      color: #ffffff;
-      font-size: 1.3em;
-      font-weight: bold;
-
-      &:hover {
-        color: #ffffff;
-      }
-    }
-
-    &-forgotten_image {
-      width: 50%;
-      background-image: url('https://images.pexels.com/photos/2859169/pexels-photo-2859169.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-      background-position: center;
-    }
+// == Mobile
+@media screen and (min-width: 320px) {
+  #connexion {
+    border: none;
   }
 
-  &-right {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding: 1em;
+  .testing {
+    width: 90%;
+    //background-color: yellow;
+    
+  }
 
-    &-field {
-      position: relative;
+  .signin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(122, 122, 255);
+    padding-top: 3rem;
+    min-height: 100vh;
+    min-width: 100%;
+
+    &-right {
+      background-color: #fff;
+      width: 95%;
+      margin: 3rem auto;
+      display: flex;
+      flex-direction: column;
+      padding: 5rem 2rem;
+      border-radius: 5px;
+
+      &-title {
+        text-align: center;
+        font-family: 'Lato';
+        font-weight: bold;
+      }
+
+      &-subtitle {
+        text-align: center;
+        font-family: 'Lato';
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: rgb(88, 88, 88);
+      }
+
+      &-label {
+        font-family: 'Lato';
+        font-size: 1rem;
+        color: rgb(109, 109, 109);
+        font-size: .8rem;
+      }
+      
+
+      &-input {
+        border: none;
+        border-radius: 5px;
+        padding: .7rem;
+        width: 100%;
+        margin: 1rem 0;
+        background-color: rgb(245, 245, 245);
+
+        &::placeholder {
+          font-family: 'Lato';
+        }
+
+      }
+
+      &-forgot {
+        font-family: 'Lato';
+        font-size: 1rem;
+        color: rgb(109, 109, 109);
+        font-size: .8rem;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+      }
+
+      &-button {
+        border: none;
+        border-radius: 100px;
+        padding: .7rem;
+        width: 100%;
+        margin: 1rem 0;
+        font-family: 'Lato';
+        color: white;
+        background-color: rgb(124, 79, 196);
+      }
+      
+    }
+
+    &-left {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+      background-color:  rgb(236, 224, 255);
+      padding: .7rem;
+      border-radius: 100px;
+      border: solid 1px rgb(176, 152, 214);
+
+      &-desktop {
+        display: none;
+      }
+
+      &-subscribe {
+        font-family: 'Lato';
+        margin-right: .3rem;
+        font-size: .8rem;
+        
+      }
+
+      &-link {
+        font-family: 'Lato';
+        font-weight: bold;
+        font-size: .8rem;
+        color:rgb(99, 61, 161);
+      }
+    }
+
+   
+  }
+
+
+
+
+
+
+}
+
+// == Tablet
+@media screen and (min-width: 768px) {
+  .testing {
+    width: 90%;
+    background-color: rgb(100, 62, 161);
+    display: flex;
+    position: relative;  
+    //border-radius: 10px;
+    overflow: hidden;
+    
+   
+   
+  }
+  .signin {
+
+    &-right {
+      width: 50%;
+      margin: 0;
+      border-radius: 0;
+
+      &-title {
+        display: none;
+      }
+
+      &-link {
+        color: white;
+        position: relative;
+        padding: .5rem 1.5rem;
+        transition: .4s;
+        font-size: 1rem;
+        font-weight: normal;
+      
+        
+
+        &:hover {
+          color: rgb(88, 39, 167);
+          text-decoration: none;
+          background-color: #fff;
+          border-radius: 100px;
+          padding: .5rem 1.5rem;
+          
+        }
+      }
+    }
+
+   
+
+    &-left{
+
+      display: none;
+
+      &-desktop {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem ;
+        //background-color: red;
+        width: 50%;
+        opacity: 1;
+       
+
+      }
 
       &-img {
+        display: block;
         position: absolute;
-        bottom: 7px;
+        object-fit: cover;
+        top:0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: .3;
+
       }
-    }
 
-    &-title {
-      text-align: center;
-    }
-
-    &-input {
-      border: none;
-      border-bottom: 1px solid gray;
-      width: 100%;
-      padding-left: 30px;
-
-      &:focus {
-        transition: 0.5s;
-        border-bottom: 2px solid lightskyblue;
+      &-title {
+        
+        position: relative;
+        z-index: 2;
+        
       }
-    }
 
-    &-label {
-      padding-left: 10px; 
-    }
-
-    &-button {
-      color: #20bf6b;
-      text-transform: uppercase;
-      background: #ffffff;
-      padding: 10px;
-      border: 4px solid #20bf6b;
-      border-radius: 6px;
-      display: inline-block;
-      transition: all 0.3s ease 0s;
-
-      &:hover {
-        color: #494949;
-        border-radius: 50px;
-        border-color: #494949;
-        transition: all 0.3s ease 0s;
-        }
-    }
-
-    &-forgot {
-      color: red;
-      text-decoration: underline;
-      text-align: center;
-      font-size: 0.7em;
-
-      &:hover {
-        color: darken($color: red, $amount: 30%)
+      &-link {
+        
+        position: relative;
+        z-index: 2;
+        
       }
-    }
-
-    &-change {
-      color: #fff;
-      text-transform: uppercase;
-      text-decoration: none;
-      background: #ed3330;
-      padding: 20px;
-      border-radius: 5px;
-      display: inline-block;
-      border: none;
-      transition: all 0.4s ease 0s;
     }
   }
 }
 
-@media screen and (max-width: 770px) {
+
+// == Desktop
+@media screen and (min-width: 992px) {
+  .testing {
+    width: 900px;
+    height: 550px;
+  }
+
   .signin {
-    width: 375px;
-
-    &-left {
-      display: none;
-
-      &-forgotten_image {
-        display: none;
-      }
-    }
 
     &-right {
-      width: 100%;
+
+      &-subtitle {
+      margin-bottom: 2.5rem;
+
+      }
+
+      &-button {
+        margin-top: 3rem;
+      }
     }
   }
+
 }

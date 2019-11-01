@@ -1,8 +1,9 @@
 // == Import : npm
-import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 // import { toast } from 'react-toastify';
 
 // == Import : local
@@ -10,9 +11,16 @@ import './navnew.scss';
 
 // == Composant
 const NavNew = ({ isConnected }) => {
-
   // hook to managed a local state
   const [isOpen, SeeMenu] = useState(false);
+  const [dropDown, SeeDrop] = useState(false);
+
+  const dropRef = useRef(null);
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
 
   // All variables who generate a classname with classNames library
   const visibleOrnot = classNames('nav-hidden', { 'nav-visible': isOpen });
@@ -21,6 +29,8 @@ const NavNew = ({ isConnected }) => {
   const whiteOrNot = classNames('is-close', { 'is-open': isOpen });
   const fixOrNot = classNames(navContainer, { 'container-fluid nav-container-fixed': isOpen });
   const colorLogo = classNames('nav-logo text-white mob', { 'text-dark': isOpen });
+  const bgNav = classNames('', { 'nav-connect': isConnected });
+  const dropOrNot = classNames('nav-drop-desk-close drop', { 'nav-drop-desk-open drop': dropDown });
 
   // Remove cookie
   const removeCookie = () => {
@@ -29,37 +39,44 @@ const NavNew = ({ isConnected }) => {
     document.location.href = '/';
   };
   return (
-    <div className={fixOrNot}>
+    <div className={`${fixOrNot} ${bgNav}`} ref={dropRef}>
       {
         isConnected ? (
-          <nav className="nav container">
+          <nav className="nav-div  container">
+            <div className={dropOrNot}>
+              <NavLink to="" className="nav-drop-link">Contes</NavLink>
+              <NavLink to="" className="nav-drop-link">Heroïc Fantasy</NavLink>
+              <NavLink to="" className="nav-drop-link">Polar</NavLink>
+              <NavLink to="" className="nav-drop-link">Science Fiction</NavLink>
+              <NavLink to="" className="nav-drop-link">Horreur</NavLink>
+            </div>
             <div className="nav-group">
-              <NavLink to="/" className={colorLogo} onClick={() => SeeMenu(!isOpen)}>LOGO</NavLink>
-              <NavLink to="/profile" className="nav-group-link text-dark ">Mon compte</NavLink>
-              <NavLink to="/categories" className="nav-group-link text-dark">Catégories</NavLink>
-              <NavLink to="/team" className="nav-group-link text-dark">A propos</NavLink>
-              <NavLink to="/contact" className="nav-group-link text-dark">Contact</NavLink>
+              <NavLink to="/" className="nav-logo" onClick={() => SeeMenu(!isOpen)}>GAMEBook</NavLink>
+              <NavLink to="/profile" className="nav-group-link-cat">Mon compte</NavLink>
+              <span className="nav-group-link-cat" onClick={() => SeeDrop(!dropDown)}>Catégories <MdKeyboardArrowDown /></span>
+              <NavLink to="/team" className="nav-group-link-cat">A propos</NavLink>
+              <NavLink to="/contact" className="nav-group-link-cat">Contact</NavLink>
             </div>
             <div className="button-group">
-              <NavLink to="/signin"><button type="button" className="button-group-link" onClick={removeCookie}>Se déconnecter</button></NavLink>
+              <NavLink to="/signin"><button type="button" className="button-group-link-cat" onClick={removeCookie}>Se déconnecter</button></NavLink>
             </div>
             <div className={openOrNot} onClick={() => SeeMenu(!isOpen)}>
-              <span className={whiteOrNot} />
-              <span className={whiteOrNot} />
-              <span className={whiteOrNot} />
+              <span className="is-open" />
+              <span className="is-open" />
+              <span className="is-open" />
             </div>
             <div className={visibleOrnot}>
               <NavLink to="/" className="nav-group-link-bis" onClick={() => SeeMenu(!isOpen)}>Accueil</NavLink>
               <NavLink to="/profile" className="nav-group-link-bis" onClick={() => SeeMenu(!isOpen)}>Mon compte</NavLink>
               <NavLink to="/categories" className="nav-group-link-bis" onClick={() => SeeMenu(!isOpen)}>Catégories</NavLink>
               <NavLink to="/contact" className="nav-group-link-bis" onClick={() => SeeMenu(!isOpen)}>Contact</NavLink>
-              <NavLink to="/" className="nav-group-link-bis" onClick={removeCookie}>Se déconnecter</NavLink>
+              <NavLink to="/" className="nav-group-link-category" onClick={removeCookie}>Se déconnecter</NavLink>
             </div>
           </nav>
         ) : (
-          <nav className="nav container">
+          <nav className="nav-div container">
             <div className="nav-group">
-              <NavLink to="/" className={colorLogo} onClick={() => SeeMenu(!isOpen)}><span>GAMEBook</span></NavLink>
+              <NavLink to="/" className={colorLogo}><span className={colorLogo}>GAMEBook</span></NavLink>
               <NavLink to="/" className="nav-logo text-white desk"><span>GAMEBook</span></NavLink>
               <NavLink to="/" className="nav-group-link">Accueil</NavLink>
               <NavLink to="/team" className="nav-group-link">La team</NavLink>

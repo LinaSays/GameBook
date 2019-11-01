@@ -25,49 +25,53 @@ const Signup = ({
     changeValue(name, value);
   };
 
-
   return (
     <div className="signup">
-      <form className="signup-left" onSubmit={handleSubmit}>
-        <h3 className="signup-left-title">Commencer l'aventure</h3>
-        <div className="signup-left-field">
-          <i className="fas fa-user signup-left-field-img" />
-          <input type="text" placeholder="Nom Prénom" value={user_name} onChange={handleChange} className="signup-left-input" name="user_name" required/>
-        </div>
-
-        <div className="signup-left-field">
-          <i className="fas fa-envelope signup-left-field-img" />
-          <input type="email" placeholder="Email" value={email} onChange={handleChange} className="signup-left-input" name="email" required/>
-        </div>
-
-        <div className="signup-left-field">
-          <i className="fas fa-unlock-alt signup-left-field-img" />
-          <input type="password" placeholder="Mot de passe" value={password} onChange={handleChange} className="signup-left-input" name="password" required/>
-        </div>
-
-        <div className="signup-left-field">
-          <i className="fas fa-unlock-alt signup-left-field-img" />
-          <input type="password" placeholder="Confirmer mot de passe" value={confirm} onChange={handleChange} className="signup-left-input" name="confirm" required/>
-        </div>
-        <div>
-          <div>Vous êtes ici pour :</div>
-          <div className="signup-left-radio">
-            <input type="radio" id="read" name="choice" value="1" onChange={handleChange} />
-            <label htmlFor="1">Lire</label>
+      <div className="testing1">
+        <form className="signup-left" onSubmit={handleSubmit}>
+          <h2 className="signup-left-title">GAMEBook</h2>
+          <h3 className="signup-left-subtitle">Commencer l'aventure</h3>
+          <div className="signup-left-field">
+            <input type="text" placeholder="Nom Prénom" value={user_name} onChange={handleChange} className="signup-left-input" name="user_name" required />
           </div>
-          <div className="signup-left-radio">
-            <input type="radio" id="write" name="choice" value="2" onChange={handleChange} />
-            <label htmlFor="2">Ecrire</label>
+          <div className="signup-left-field">
+            <input type="email" placeholder="Email" value={email} onChange={handleChange} className="signup-left-input" name="email" required />
           </div>
+          <div className="signup-left-field">
+            <input type="password" placeholder="Mot de passe" value={password} onChange={handleChange} className="signup-left-input" name="password" required />
+          </div>
+          <div className="signup-left-field">
+            <input type="password" placeholder="Confirmer mot de passe" value={confirm} onChange={handleChange} className="signup-left-input" name="confirm" required />
+          </div>
+
+          <div className="signup-left-field d-flex ">
+            <span>Vous êtes ici pour :</span>
+            <div className="signup-left-radio mx-3">
+              <label htmlFor="read"><input type="radio" id="read" name="choice" value="1" onChange={handleChange} /> Lire</label>
+            </div>
+            <div className="signup-left-radio">
+              <label htmlFor="write"><input type="radio" id="write" name="choice" value="2" onChange={handleChange} /> Ecrire</label>
+            </div>
+          </div>
+
+          <div>
+            <input type="checkbox" name="condition" id="condition" required /> <a className="signup-left-label" href="">Accepter les conditions d'utilisation</a>
+          </div>
+          <button type="submit" className="signup-left-button">S'inscrire</button>
+          <div className="signup-right">
+            <span className="signin-left-subscribe">Déjà un compte ?</span> <Link to="/signin" className="signup-right-link">Se connecter</Link>
+          </div>
+        </form>
+        <div className="signup-right-desktop">
+          <h2 className="signup-right-title text-white">GAMEBook</h2>
+          <img
+            className="signup-right-img"
+            alt=""
+            src="https://images.unsplash.com/photo-1517701221265-7da25447217b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=753&q=80"
+          />
+          <Link to="/signin" className="signup-right-link">Se connecter</Link>
         </div>
-        <div>
-          <input type="checkbox" name="condition" id="condition" required />
-          <a className="signup-left-label" href="">Accepter les conditions d'utilisation</a>
-        </div>
-        <button type="submit" className="signup-left-button">S'inscrire</button>
-      </form>
-      <div className="signup-right">
-        <Link to="/signin" className="signup-right-link">J'ai déjà un compte</Link>
+
       </div>
     </div>
   );

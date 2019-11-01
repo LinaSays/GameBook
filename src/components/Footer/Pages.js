@@ -23,7 +23,7 @@ const Pages = ({ isConnected }) => (
         ) : (
           <ul>
             <Link to="/" className="footer-link">Accueil</Link>
-            <Link to="/concept" className="footer-link">Le concept</Link>
+            <Link to="/team" className="footer-link">Team</Link>
             <Link to="/contact" className="footer-link">Contact</Link>
           </ul>
 
