@@ -1,62 +1,115 @@
-.footer {
-    padding-top: 50px;
+ //  == Fonts
+ @import url("https://use.typekit.net/hly5jtw.css");
+ @import url('https://rsms.me/inter/inter.css');
 
-    &-content {
-        margin-bottom: 50px;
+ 
+ 
+ // == Variables SCSS
+ $font-logo: 'Inter';
+ $font : 'aileron'; 
+ $grey-title: #2c2e30;
+ $grey-text : #54565a;
+ $violet : #7a55b1;
 
-    }
-
-    &-text{
-        font-size: 14px;
-
-    }
-
-    &-titlelink{
-        font-size: 18px;
-        font-weight: bold;
-
-    }
-
-    &-link {
-        font-size: 16px;
-        display: block;
-        color: black;
-
-        &:hover {
-            text-decoration: none;
-        }
-    &-social {
-        margin-right: 10px;
-    }
-
-
-    }
-
-    &-copyright {
-        background-color: white;
-        padding: 20px;
-        border-top: 1px solid #e7eaee;
-
-        
-        &--text {
-            font-size: 14px;
-            margin:0;
-
-        }
-
-        &--link {
-            font-size: 14px;
-            margin-left: 10px;
-            
-
-        }
-    }
-}
-
-
-
+/*******************************/
 
 @media screen and (min-width: 320px) {
+
+    .footer {
+        padding-top: 50px;
+        border-top: 1px solid #e7eaee;
+    
+        &-logo {
+            font-family: $font-logo;
+            font-weight: bold;
+            color: $violet;
+        }
+    
+        &-content {
+            margin-bottom: 50px;
+            
+        
+        }
+    
+        &-text{
+            font-size: 14px;
+            font-family: $font;
+            
+    
+        }
+    
+        &-titlelink{
+            margin-bottom: 1rem;
+            font-size: 18px;
+            font-family: $font;
+            font-weight: bold;
+            color: $grey-title;
+    
+        }
+    
+        &-link {
+            font-size: 16px;
+            display: block;
+            color: $grey-text;
+            font-family: $font;
+    
+            &:hover {
+                text-decoration: none;
+            }
+    
+            &-logo {
+               //color: $violet;
+            }
+        &-social {
+            margin-right: 10px;
+        }
+    
+    
+        }
+    
+        &-copyright {
+            background-color: #F6F8F9;
+            padding: 20px;
+            border-top: 1px solid #e7eaee;
+            
+            &--nav {
+                width: 100%;
+            
+            }
+            
+            &--text {
+                font-family: $font;
+                color: $grey-text;
+                font-size: 14px;
+                margin:0;
+                text-align: center;
+                margin: 0 auto 0;
+    
+            }
+    
+            &--link {
+                font-family: $font;
+                color: $grey-text;
+                font-weight: bold;
+                font-size: .8rem;
+                margin-left: 10px;
+                display: block;
+                text-align: center;
+                margin-bottom: 10px; 
+            }
+
+            &--cypok {
+                color: $violet;
+                font-family: $font-logo;
+                font-weight: bold;
+
+                &:hover {
+                    text-decoration: none;
+                    color: $violet;
+                }
+            }
+        }
+    }
 
     .icon-group {
         margin-bottom: 20px;
@@ -73,28 +126,6 @@
         text-align: justify;
 
     }
-    
-    .footer-copyright {
-
-        &--nav{
-            width: 100%;
-
-        }
-
-        &--link {
-            display: block;
-            text-align: center;
-            margin-bottom: 10px; 
-
-        }
-
-        &--text {
-            text-align: center;
-            margin: 20px auto 0;
-
-        }
-
-    }
 
     .form {
         display: flex;
@@ -109,9 +140,10 @@
         }   
 
         &-button {
+            font-family: $font;
             border: none;
             color: white;
-            background-color: blueviolet;
+            background-color: $violet;
             font-size: 14px;
             height: 30px;
         
@@ -160,6 +192,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            
 
         }
 

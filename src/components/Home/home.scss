@@ -1,4 +1,9 @@
 @import url('https://rsms.me/inter/inter.css');
+@import url('//db.onlinewebfonts.com/c/47f756de26af5b273193216c32a3ab75?family=Futura');
+
+// == Fonts 
+
+$font-card-title: 'Futura';
 
 
 
@@ -115,7 +120,7 @@
         overflow: hidden;
 
         &-title {
-            font-family: sans-serif;
+            font-family: $font-card-title;
             font-weight: bold;
             font-size: 1em;
             text-transform: uppercase;

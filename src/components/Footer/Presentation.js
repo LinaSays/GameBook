@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 // == Composant
 const Presentation = ({ isConnected }) => (
   <Col sm={12} md={6} lg={3}>
-    <h4 className="logo">Logo</h4>
+    <h4 className="footer-logo">GAMEBook</h4>
     <p className="footer-text">xPider is multi concept landing page theme for startups. Build your next landing page with proper variations.<br />Get started now.</p>
 
     { isConnected && (

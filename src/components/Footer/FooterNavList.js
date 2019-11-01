@@ -30,10 +30,10 @@ const FooterNavList = ({ isConnected }) => (
          <>
            <h5 className="footer-titlelink">Retrouvez-nous</h5>
            <ul>
-             <Link to="/facebook" className="footer-link"><FaFacebookF /> Facebook</Link>
-             <Link to="/instagram" className="footer-link"><FaTwitter /> Twitter</Link>
-             <Link to="/twitter" className="footer-link"><FaInstagram /> Instagram</Link>
-             <Link to="/snapchat" className="footer-link"><FaSnapchatGhost /> Snapchat</Link>
+             <Link to="/facebook" className="footer-link"><FaFacebookF className="mr-2"  /> Facebook</Link>
+             <Link to="/instagram" className="footer-link"><FaTwitter className="mr-2"  /> Twitter</Link>
+             <Link to="/twitter" className="footer-link"><FaInstagram className="mr-2"  /> Instagram</Link>
+             <Link to="/snapchat" className="footer-link"><FaSnapchatGhost className="mr-2"  /> Snapchat</Link>
            </ul>
          </>
        )
