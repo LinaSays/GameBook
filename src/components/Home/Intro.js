@@ -1,11 +1,10 @@
 // == Import : npm
 import React from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { IoIosArrowDroprightCircle } from "react-icons/io";
+import { IoIosArrowDroprightCircle } from 'react-icons/io';
 
 // == Import : local
 import './home.scss';
-
 
 
 // == Composant
@@ -21,7 +20,7 @@ const Intro = () => (
         <img className="intro-img--mobile" src="public\images\pngtube.com-iphone-in-hand-png-5316895.png" alt="" />
         <img className="intro-img--tablet" src="public\images\Ipad_iPhone_device.png" alt="" />
       </div>
-    
+
 
     </div>
   </div>
