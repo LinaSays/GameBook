@@ -5,6 +5,7 @@ const initialState = {
   select: 1,
   recap: '',
   text: '',
+  selectedColor: '',
   choice: '',
   choice2: '',
 };
@@ -19,6 +20,9 @@ export const DELETE_STORY = 'DELETE_STORY';
 const DELETE_STORY_FROM_DB = 'DELETE_STORY_FROM_DB';
 export const FIND_STORY_TO_EDIT = 'FIND_STORY_TO_EDIT';
 const UPDATE_STORY = 'UPDATE_STORY';
+
+export const SEND_CHAPTER = 'SEND_CHAPTER';
+const SHOW_CHAPTER = 'SHOW_CHAPTER';
 
 // - Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -41,6 +45,10 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
       };
     case UPDATE_STORY:
+      return {
+        ...state,
+      };
+    case SHOW_CHAPTER:
       return {
         ...state,
       };
@@ -88,6 +96,13 @@ export const updateStory = () => ({
 export const findStoryToEdit = (id) => ({
   type: FIND_STORY_TO_EDIT,
   id,
+});
+
+export const sendChapter = () => ({
+  type: SEND_CHAPTER,
+});
+export const showChapter = () => ({
+  type: SHOW_CHAPTER,
 });
 
 // - Selectors

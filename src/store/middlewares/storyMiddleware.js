@@ -17,7 +17,9 @@ import {
   DELETE_STORY,
   deleteStoryFromDB,
   FIND_STORY_TO_EDIT,
-  updateStory
+  updateStory,
+  SEND_CHAPTER,
+  showChapter,
 } from 'src/store/reducer/createStory';
 
 async function getStartStories(store) {
@@ -128,6 +130,24 @@ async function editStory(store, id) {
   }
 }
 
+async function newChapter(store) {
+  try {
+    const state = store.getState();
+    const { recap, text, selectedColor } = state.createStory;
+    const id = sessionStorage.getItem('story');
+    axios.defaults.withCredentials = true;
+    const response = await axios.post(`http://localhost:3000/story/${id}/chapter/add`, {
+      recap, text, selectedColor,
+    });
+    const save = showChapter(response.data);
+    console.log(response);
+    store.dispatch(save);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
 const storyMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_START_STORIES: {
@@ -156,6 +176,10 @@ const storyMiddleware = (store) => (next) => (action) => {
     }
     case FIND_STORY_TO_EDIT: {
       editStory(store, action.id);
+      break;
+    }
+    case SEND_CHAPTER: {
+      newChapter(store);
       break;
     }
     default:

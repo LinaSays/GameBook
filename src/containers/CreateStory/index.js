@@ -11,6 +11,7 @@ import {
   createNewStory,
   deleteStory,
   findStoryToEdit,
+  sendChapter,
 } from 'src/store/reducer/createStory';
 import { getCategory } from 'src/store/reducer/home';
 
@@ -21,6 +22,7 @@ const mapStateToProps = (state) => ({
   recap: state.createStory.recap,
   select: state.createStory.select,
   text: state.createStory.text,
+  selectedColor: state.createStory.selectedColor,
   choice: state.createStory.choice,
   choice2: state.createStory.choice2,
   category: state.home.category,
@@ -50,6 +52,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   findStoryToEdit: (id) => {
     const action = findStoryToEdit(id);
+    dispatch(action);
+  },
+  sendChapter: () => {
+    const action = sendChapter();
     dispatch(action);
   },
 });

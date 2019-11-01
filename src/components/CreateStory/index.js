@@ -37,6 +37,8 @@ const CreateStory = ({
   deleteStory,
   findStoryToEdit,
   sendStory,
+  sendChapter,
+  selectedColor,
 }) => {
   const [activeTab, setActiveTab] = useState('1');
 
@@ -115,6 +117,8 @@ const CreateStory = ({
                   text={text}
                   choice={choice}
                   choice2={choice2}
+                  sendChapter={sendChapter}
+                  selectedColor={selectedColor}
                 />
               </TabPane>
               <TabPane tabId="3">
