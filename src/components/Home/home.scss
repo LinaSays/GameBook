@@ -3,7 +3,7 @@
 @media screen and (min-width:320px) {
 
     .home {
-        background: linear-gradient(-134deg, #C86DD7 0%, #3023AE 100%);
+        background: linear-gradient(-134deg, rgb(149, 81, 160) 0%, rgb(33, 24, 107) 100%);
         position: relative;
         min-height: 100vh;   
     }
@@ -27,13 +27,13 @@
     
    
     .intro {
-        padding: 0 20px 30px;
+        padding: 1rem 20px 30px;
        
         
         &-content {
             display: flex;
             position: relative;
-            flex-wrap: wrap-reverse;
+            flex-wrap: wrap;
             padding-top: 4rem;
         }
     
@@ -44,6 +44,7 @@
             font-weight: bold;
             font-family: 'Poppins';
             text-transform: uppercase;
+            font-size: 2rem;
 
         }
 
@@ -78,10 +79,20 @@
             }
         }
 
-        &-img--image {
-            width: 100%;
+        &-img--mobile {
+            width: 70%;
+            position: relative;
+            left: 25%;
+
+        }
+
+        &-img--tablet {
+            display: none;
+            width: 80%;
+            position: relative;
             margin-bottom: 1rem;
-            
+          
+
         }
     }
 
@@ -158,6 +169,10 @@
     }
     .intro {
 
+        &-content {
+            flex-wrap: wrap-reverse;
+        }
+
         &-left{
             padding: 0 40px;
         }
@@ -186,9 +201,16 @@
             text-align: center;
         }
 
-        &-img--image {
-            width: 100%;
+        &-img--mobile {
+            display: none;
         }
+
+        &-img--tablet {
+            display: initial;
+        }
+
+        
+
 
     }
 
