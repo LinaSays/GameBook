@@ -53,9 +53,7 @@ const NavNew = ({ isConnected }) => {
             <div className="nav-group">
               <NavLink to="/" className="nav-logo" onClick={() => SeeMenu(!isOpen)}>GAMEBook</NavLink>
               <NavLink to="/profile" className="nav-group-link-cat">Mon compte</NavLink>
-              <NavLink to="" className="nav-group-link-cat" onClick={() => SeeDrop(!dropDown)}>
-                Catégories<MdKeyboardArrowDown />
-              </NavLink>
+              <span className="nav-group-link-cat" onClick={() => SeeDrop(!dropDown)}>Catégories <MdKeyboardArrowDown /></span>
               <NavLink to="/team" className="nav-group-link-cat">A propos</NavLink>
               <NavLink to="/contact" className="nav-group-link-cat">Contact</NavLink>
             </div>

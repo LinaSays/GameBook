@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import * as ScrollMagic from 'scrollmagic';
 import { TweenMax, TimelineMax } from 'gsap';
 import { ScrollMagicPluginGsap } from 'scrollmagic-plugin-gsap';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 
 
 // == Import : local
@@ -38,7 +39,7 @@ const Card = ({
       <div className="card-story-text-content">
         <h2 className="card-story-title">{title} .</h2>
         <p className="card-story-descrip">{description}</p>
-        <Link to={`story/${id}`} className={`card-story-link link-${id}`}>Commencer l'histoire ></Link>
+        <Link to={`story/${id}`} className={`card-story-link link-${id}`}>Commencer l'histoire <MdKeyboardArrowRight /> </Link>
       </div>
     </div>
   );

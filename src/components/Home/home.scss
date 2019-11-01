@@ -1,11 +1,4 @@
-@import url('https://rsms.me/inter/inter.css');
-@import url('//db.onlinewebfonts.com/c/47f756de26af5b273193216c32a3ab75?family=Futura');
-
-// == Fonts 
-
-$font-card-title: 'Futura';
-
-
+@import 'src/styles/vars';
 
 // Size for mobile
 
@@ -120,7 +113,7 @@ $font-card-title: 'Futura';
         overflow: hidden;
 
         &-title {
-            font-family: $font-card-title;
+            font-family: $font-futura;
             font-weight: bold;
             font-size: 1em;
             text-transform: uppercase;
@@ -133,6 +126,8 @@ $font-card-title: 'Futura';
             top: 0px;
             transition: .5s;
             opacity: 0;
+            font-family: $font-inter;
+          
         }
     
         &-link {
@@ -140,6 +135,12 @@ $font-card-title: 'Futura';
             color: white;
             font-size: .9em;
             transition: .5s;
+            font-family: $font-inter;
+
+            &:hover {
+                color:white;
+                text-decoration: none;
+            }
         }
     
     
@@ -147,7 +148,7 @@ $font-card-title: 'Futura';
             height: 100%;
             object-fit: cover;
             width: 100%;
-            opacity: .6;   
+            opacity: .4;   
         } 
 
         &-text-content {
@@ -300,8 +301,9 @@ $font-card-title: 'Futura';
             position: relative;
             margin-top:0;
             z-index: 6;
-            width: 60%;
-            padding: .5rem 3rem;
+            width: 70%;
+            padding: .5rem 1rem .6rem ;
+            //line-height:1.2;
            
             
         }

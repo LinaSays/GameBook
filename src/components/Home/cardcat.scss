@@ -1,3 +1,8 @@
+// Import Vars
+
+ @import 'src/styles/vars';
+
+
 // Size for mobile
 
 @media screen and (min-width:320px) { 
@@ -17,7 +22,7 @@
         overflow: hidden;
 
         &-title {
-            font-family: sans-serif;
+            font-family: $font-futura;
             font-weight: bold;
             font-size: 1em;
             text-transform: uppercase;
@@ -30,6 +35,7 @@
             top: 0px;
             transition: .5s;
             opacity: 0;
+            font-family: $font-inter;
         }
     
         &-link {
@@ -37,6 +43,12 @@
             color: white;
             font-size: .9em;
             transition: .5s;
+            font-family: $font-inter;
+
+            &:hover {
+                color:white;
+                text-decoration: none;
+            }
         }
     
     
@@ -44,7 +56,7 @@
             height: 100%;
             object-fit: cover;
             width: 100%;
-            opacity: .6;   
+            opacity: .5;   
         } 
 
         &-text-content {

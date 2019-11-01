@@ -29,7 +29,7 @@ const Signup = ({
     <div className="signup">
       <div className="testing1">
         <form className="signup-left" onSubmit={handleSubmit}>
-          <h2 className="signup-left-title">GameBOok</h2>
+          <h2 className="signup-left-title">GAMEBook</h2>
           <h3 className="signup-left-subtitle">Commencer l'aventure</h3>
           <div className="signup-left-field">
             <input type="text" placeholder="Nom Prénom" value={user_name} onChange={handleChange} className="signup-left-input" name="user_name" required />
@@ -63,7 +63,7 @@ const Signup = ({
           </div>
         </form>
         <div className="signup-right-desktop">
-          <h2 className="signup-right-title text-white">GameBOok</h2>
+          <h2 className="signup-right-title text-white">GAMEBook</h2>
           <img
             className="signup-right-img"
             alt=""

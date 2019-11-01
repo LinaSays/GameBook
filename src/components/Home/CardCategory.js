@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import * as ScrollMagic from 'scrollmagic';
 import { TweenMax, TimelineMax } from 'gsap';
 import { ScrollMagicPluginGsap } from 'scrollmagic-plugin-gsap';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 
 // == Import : local
 import './cardcat.scss';
@@ -25,7 +26,7 @@ const CardCategory = ({
 
       triggerElement: `#card-story${id}`,
       duration: '500px',
-      // offset: '100px',
+      offset: '100px',
     })
 
       .setTween(tween)
@@ -36,9 +37,9 @@ const CardCategory = ({
     <div className="card-story-category container" category_id={id} id={`card-story${id}`}>
       <img className="card-story-category-img" src={image} alt="" />
       <div className="card-story-category-text-content">
-        <h2 className={`card-story-category-title cat-title-${id}`}>{name}</h2>
+        <h2 className={`card-story-category-title cat-title-${id}`}>{name} .</h2>
         <p className="card-story-category-descrip">{description}</p>
-        <Link to={`categories/${id}`} className={`card-story-category-link cat-link-${id}`}>Commencer l'histoire ></Link>
+        <Link to={`categories/${id}`} className={`card-story-category-link cat-link-${id}`}>Commencer l'histoire<MdKeyboardArrowRight /></Link>
       </div>
     </div>
   );
