@@ -1,12 +1,15 @@
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+
+const saltRounds = 10; // for hash password
+const secret = 'cypok'; // for token
 
 const db = require('../../connection');
 
 module.exports = {
   create: (req, res) => {
     const avatar = 'https://i.imgur.com/rMxbnBM.png';
-    const role = 2;
-    const { user_name, email, password } = req.body;
+    const { user_name, email, password, choice } = req.body;
 
     const query = `SELECT user.id FROM user WHERE user.email='${email}'`;
     // execute query
@@ -16,48 +19,70 @@ module.exports = {
         res.send('Utilisateur existe');
       }
       else {
-        const query1 = `INSERT INTO user (name, email, password, avatar, role_id) VALUES ('${user_name}', '${email}', '${password}', '${avatar}', '${role}')`;
-        db.query(query1, (err2, result2) => {
-          if (err2) throw err;
-          const tokenSettings = {
-            expiresIn: '1h',
-          };
-          const token = jwt.sign({ user: result2.insertId }, 'cypok', tokenSettings);
-          // console.log(token);
-          const cookieSettings = {
-            httpOnly: false,
-            secure: false,
-          };
-          res.cookie('token', token, cookieSettings).redirect('/profile');
+        bcrypt.hash(password, saltRounds, (err, hash) => {
+          const query1 = `INSERT INTO user (name, email, password, avatar, role_id) VALUES ('${user_name}', '${email}', '${hash}', '${avatar}', '${choice}')`;
+          db.query(query1, (err2, result2) => {
+            if (err2) throw err;
+            const tokenSettings = {
+              expiresIn: '5d',
+            };
+            const token = jwt.sign({ user: result2.insertId }, secret, tokenSettings);
+            // console.log(token);
+            const cookieSettings = {
+              httpOnly: false,
+              secure: false,
+            };
+            res.cookie('token', token, cookieSettings).redirect('/profile');
+          });
         });
       }
     });
   },
 
   connect: (req, res) => {
-    const { email, password } = req.body;
-    // console.log(email, password);
+    const { email, password, connection } = req.body;
+    // console.log(email, password, connection);
     // console.log(req.session);
-    const query = `SELECT user.id, user.password FROM user WHERE user.email='${email}' AND user.password='${password}'`;
+    const query = `SELECT user.id, user.password FROM user WHERE user.email='${email}'`;
     // execute query
     db.query(query, (err, result) => {
       if (err) throw err;
       if (result.length > 0) {
-        if (password === result[0].password) {
-          const tokenSettings = {
-            expiresIn: '1h',
-          };
-          const token = jwt.sign({ user: result[0].id }, 'cypok', tokenSettings);
-          // console.log(token);
-          const cookieSettings = {
-            httpOnly: false,
-            secure: false,
-          };
-          res.cookie('token', token, cookieSettings).redirect('/profile');
-        }
-        else {
-          res.send('Mauvais mot de passe');
-        }
+        // compare two passwords (send by user and hashed in db)
+        bcrypt.compare(password, result[0].password, (err2, res2) => {
+          if (res2) {
+            // if "remember me" checkbox is not checked, token will last for 2h
+            if (connection === undefined) {
+              const tokenSettings = {
+                expiresIn: '2h',
+              };
+              const token = jwt.sign({ user: result[0].id }, secret, tokenSettings);
+              // console.log(token);
+              const cookieSettings = {
+                httpOnly: false,
+                secure: false,
+              };
+              res.cookie('token', token, cookieSettings).redirect('/profile');
+              console.log(tokenSettings);
+            }
+            else {
+              const tokenSettings = {
+                expiresIn: '15d',
+              };
+              const token = jwt.sign({ user: result[0].id }, secret, tokenSettings);
+              // console.log(token);
+              const cookieSettings = {
+                httpOnly: false,
+                secure: false,
+              };
+              res.cookie('token', token, cookieSettings).redirect('/profile');
+              console.log(tokenSettings);
+            }
+          }
+          else {
+            res.send('Mauvais mot de passe');
+          }
+        });
       }
       else {
         res.send('Utilisateur n\'existe pas');
@@ -67,7 +92,7 @@ module.exports = {
 
   getProfile: (req, res) => {
     const { token } = req.cookies;
-    jwt.verify(token, 'cypok', (err, decoded) => {
+    jwt.verify(token, secret, (err, decoded) => {
       if (err) {
         res.status(401).send('Unauthorized: Invalid token');
       }
@@ -85,7 +110,7 @@ module.exports = {
 
   editProfile: (req, res) => {
     const { token } = req.cookies;
-    jwt.verify(token, 'cypok', (err, decoded) => {
+    jwt.verify(token, secret, (err, decoded) => {
       if (err) {
         res.status(401).send('Unauthorized: Invalid token');
       }
@@ -104,7 +129,7 @@ module.exports = {
 
   getPins: (req, res) => {
     const { token } = req.cookies;
-    jwt.verify(token, 'cypok', (err, decoded) => {
+    jwt.verify(token, secret, (err, decoded) => {
       if (err) {
         res.status(401).send('Unauthorized: Invalid token');
       }
@@ -122,7 +147,7 @@ module.exports = {
 
   getReadStories: (req, res) => {
     const { token } = req.cookies;
-    jwt.verify(token, 'cypok', (err, decoded) => {
+    jwt.verify(token, secret, (err, decoded) => {
       if (err) {
         res.status(401).send('Unauthorized: Invalid token');
       }
@@ -140,7 +165,7 @@ module.exports = {
 
   getWroteStories: (req, res) => {
     const { token } = req.cookies;
-    jwt.verify(token, 'cypok', (err, decoded) => {
+    jwt.verify(token, secret, (err, decoded) => {
       if (err) {
         res.status(401).send('Unauthorized: Invalid token');
       }

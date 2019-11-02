@@ -27,12 +27,18 @@ const CreateStory = ({
   changeValue,
   title,
   summary,
+  createNewStory,
   recap,
   text,
   choice,
   choice2,
   getCategory,
   category,
+  deleteStory,
+  findStoryToEdit,
+  sendStory,
+  sendChapter,
+  selectedColor,
 }) => {
   const [activeTab, setActiveTab] = useState('1');
 
@@ -91,13 +97,32 @@ const CreateStory = ({
             </Nav>
             <TabContent activeTab={activeTab}>
               <TabPane tabId="1">
-                <Couverture getCategory={getCategory} category={category} changeValue={changeValue} title={title} summary={summary} />
+                <Couverture
+                  getCategory={getCategory}
+                  category={category}
+                  changeValue={changeValue}
+                  title={title}
+                  summary={summary}
+                  createNewStory={createNewStory}
+                  toggle={toggle}
+                  deleteStory={deleteStory}
+                  findStoryToEdit={findStoryToEdit}
+                />
               </TabPane>
               <TabPane tabId="2">
-                <Chapitres changeValue={changeValue} title={title} recap={recap} text={text} choice={choice} choice2={choice2} />
+                <Chapitres
+                  changeValue={changeValue}
+                  title={title}
+                  recap={recap}
+                  text={text}
+                  choice={choice}
+                  choice2={choice2}
+                  sendChapter={sendChapter}
+                  selectedColor={selectedColor}
+                />
               </TabPane>
               <TabPane tabId="3">
-                <Publication />
+                <Publication sendStory={sendStory} />
               </TabPane>
             </TabContent>
           </div>
@@ -117,6 +142,10 @@ CreateStory.propTypes = {
   choice2: PropTypes.string.isRequired,
   getCategory: PropTypes.func.isRequired,
   category: PropTypes.array.isRequired,
+  createNewStory: PropTypes.func.isRequired,
+  deleteStory: PropTypes.func.isRequired,
+  findStoryToEdit: PropTypes.func.isRequired,
+  sendStory: PropTypes.func.isRequired,
 };
 
 // == Export

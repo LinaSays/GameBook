@@ -3,31 +3,42 @@ import React from 'react';
 import {
   Form, FormGroup, Label, Input, FormText, CustomInput,
   Pagination, PaginationItem, PaginationLink, Button,
-}
-  from 'reactstrap';
+} from 'reactstrap';
 import { CirclePicker } from 'react-color';
-import {
-  FiTrash,
-  FiEdit3,
-}
-  from 'react-icons/fi';
+import { FiTrash, FiEdit3 } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 
 // == Import : local
 import Choix from './Choix';
 
 // == Composant
-const Chapitres = ({ 
+const Chapitres = ({
   changeValue,
   recap,
   text,
   title,
   choice,
   choice2,
+  sendChapter,
+  selectedColor,
 }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     changeValue(name, value);
+  };
+
+  const handleChangeComplete = (color, event) => {
+    document.getElementById('selectedColor').type = 'text';
+    document.getElementById('selectedColor').focus();
+    document.getElementById('selectedColor').value = color.hex;
+    document.getElementById('selectedColor').blur();
+    document.getElementById('selectedColor').type = 'hidden';
+  };
+
+  const newChapter = (event) => {
+    event.preventDefault();
+    sendChapter();
+    
   };
 
   return (
@@ -55,11 +66,6 @@ const Chapitres = ({
           <PaginationItem>
             <PaginationLink href="#">
               3
-            </PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">
-              4
             </PaginationLink>
           </PaginationItem>
           <PaginationItem>
@@ -100,8 +106,9 @@ const Chapitres = ({
       <FormGroup>
         {/* Couleur de fond */}
         <Label for="colorPicker">Choisissez une couleur de fond</Label>
-        <CirclePicker width="100%" className="color-picker" id="colorPicker" />
+        <CirclePicker onChangeComplete={handleChangeComplete} width="100%" className="color-picker" value={selectedColor} />
         <FormText className="legendColor">Peut compléter votre image de fond et la remplacer pour la version mobile</FormText>
+        <input type="hidden" onBlur={handleChange} name="selectedColor" value={selectedColor} id="selectedColor" />
       </FormGroup>
       <FormGroup>
         {/* Boutons supprimer sauvegarder et nouveau chapitre */}
@@ -112,7 +119,7 @@ const Chapitres = ({
           <Button className="custom-button" title="Sauvegarder les changements" color="dark">
             Sauvegarder
           </Button>
-          <Button className="custom-button" title="Écrire la suite" color="danger">
+          <Button className="custom-button" title="Écrire la suite" color="danger" onClick={newChapter}>
             <FiEdit3 /> Nouveau chapitre
           </Button>
         </div>

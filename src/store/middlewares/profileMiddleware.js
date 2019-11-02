@@ -17,11 +17,11 @@ const profileMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CREATE_USER: {
       const state = store.getState();
-      const { user_name, email, password, confirm } = state.signin;
+      const { user_name, email, password, confirm, choice } = state.signin;
       if (password === confirm) {
         axios.defaults.withCredentials = true;
         axios.post('http://localhost:3000/profile/add', {
-          user_name, email, password,
+          user_name, email, password, choice,
         })
           .then((response) => {
             const save = saveNewUser(response.data);
@@ -55,16 +55,15 @@ const profileMiddleware = (store) => (next) => (action) => {
     }
     case CONNECT_USER: {
       const state = store.getState();
-      const { email, password } = state.signin;
-
+      const { email, password, connection } = state.signin;
       axios.post('http://localhost:3000/profile', {
         email,
         password,
+        connection,
       })
         .then((response) => {
           console.log(response);
-          if (password === response.data[0].password
-            && email === response.data[0].email) {
+          if (email === response.data[0].email) {
             const actionSaveUser = saveUser(response.data);
             store.dispatch(actionSaveUser);
           }

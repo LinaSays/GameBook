@@ -7,40 +7,52 @@ import PropTypes from 'prop-types';
 import './signin.scss';
 
 // == Composant
-const Signin = ({ changeValue, email, password, submitUser }) => {
+const Signin = ({
+  changeValue, email, password, submitUser,
+}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     submitUser();
   };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     changeValue(name, value);
   };
+
   return (
     <div className="signin">
-      <div className="signin-left">
-        <Link to="/signup" className="signin-left-link">Créer un compte</Link>
+      <div className="testing">
+        <div className="signin-left-desktop">
+          <h2 className="signin-left-title text-white">GAMEBook</h2>
+          <img
+            className="signin-left-img"
+            alt=""
+            src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=414&q=80"
+          />
+          <Link to="/signup" className="signin-right-link">Créer un compte</Link>
+        </div>
+        <form className="signin-right" onSubmit={handleSubmit}>
+          <h2 className="signin-right-title">GAMEBook</h2>
+          <h3 className="signin-right-subtitle">Accéder à votre compte</h3>
+          <div className="signin-right-field">
+            {/* <i className="fas fa-envelope signin-right-field-img" /> */}
+            <input type="email" placeholder="Email" className="signin-right-input" value={email} onChange={handleChange} name="email" />
+          </div>
+          <div className="signin-right-field">
+            {/* <i className="fas fa-unlock-alt signin-right-field-img" /> */}
+            <input type="password" placeholder="Mot de passe" className="signin-right-input" value={password} onChange={handleChange} name="password" />
+          </div>
+          <div className="d-flex justify-content-between align-items-center flex-wrap">
+            <label className="signin-right-label m-0" htmlFor="connection"><input type="checkbox" name="connection" id="connection" onChange={handleChange} value="remember" /> Remember me</label>
+            <Link to="/forgotten" className="signin-right-forgot">Mot de passe oublié ?</Link>
+          </div>
+          <button type="submit" className="signin-right-button">Se connecter</button>
+          <div className="signin-left">
+            <span className="signin-left-subscribe">Pas de compte ?</span> <Link to="/signup" className="signin-left-link">Créer un compte</Link>
+          </div>
+        </form>
       </div>
-      <form className="signin-right" onSubmit={handleSubmit}>
-        <h3 className="signin-right-title">Accéder à mon compte</h3>
-
-        <div className="signin-right-field">
-          <i className="fas fa-envelope signin-right-field-img" />
-          <input type="email" placeholder="Email" className="signin-right-input" value={email} onChange={handleChange} name="email" />
-        </div>
-
-        <div className="signin-right-field">
-          <i className="fas fa-unlock-alt signin-right-field-img" />
-          <input type="password" placeholder="Mot de passe" className="signin-right-input" value={password} onChange={handleChange} name="password" />
-        </div>
-
-        <div>
-          <input type="checkbox" name="connection" id="connection" />
-          <label className="signin-right-label" htmlFor="connection">Remember me</label>
-        </div>
-        <button type="submit" className="signin-right-button">Se connecter</button>
-        <Link to="/forgotten" className="signin-right-forgot">Mot de passe oublié ?</Link>
-      </form>
     </div>
   );
 };

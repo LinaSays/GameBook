@@ -1,7 +1,8 @@
 // == Import : npm
 import React from 'react';
-import { Jumbotron, Container, Image, Badge } from 'react-bootstrap';
+import { Jumbotron, Container, Image, Badge, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // == Import : local
 
@@ -13,6 +14,7 @@ const Info = ({ name, avatar, role }) => (
       <div className="info-text">
         <h2>Bonjour {name}</h2>
         <Badge variant="info">{role}</Badge>
+        {role === 'author' && <Button variant="warning" className="menu-link-btn"><Link to="/createstory" className="menu-link">Ecrire une histoire</Link></Button>}
       </div>
     </Container>
   </Jumbotron>

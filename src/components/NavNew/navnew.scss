@@ -2,15 +2,29 @@
 	.desk {
 		display: none;
 	}
+	.drop {
+		display: none;
+	}
 	.nav {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin:auto;
-		position: relative;
+
+		&-connect {
+			background-color: rgb(219, 219, 219);
+		}
+
+		&-div{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin:auto;
+			position: relative;
+			//background-color: red;
+			z-index: 8;
+		}
 
 		&-logo {
-            margin: 0 5rem 0 1rem;
+			margin: 0 5rem 0 0;
+			color: red;
+			font-size: 1rem;
             
 			&:hover {
 				text-decoration: none;
@@ -22,7 +36,7 @@
 			position: absolute;
 			//background-color: red;
 			top:0;
-			z-index: 2;
+			z-index: 10;
 			width:100%;
 			padding: 1.5rem;
 		}
@@ -33,9 +47,15 @@
 			z-index: 2;
 			width:100%;
 			margin:0;
-        }
+		}
+		
+		
         
 		&-group-link {
+			display: none;
+		}
+
+		&-group-link-cat {
 			display: none;
 		}
 
@@ -52,12 +72,11 @@
 		 	text-transform: uppercase;
 		 	font-size: 1.25em;
 		 	padding: 60px 0;
-			//transition: .5s;
 		}
 
 		&-visible {
 			position: fixed;
-			background-color: #fff;
+			background-color:white;
 			z-index: -1;
 			top:0;
 			left: 0;
@@ -70,7 +89,6 @@
 		 	text-transform: uppercase;
 		 	font-size: 1.25em;
              padding: 60px 0;
-             
 		}
 
 		&-close {
@@ -116,20 +134,73 @@
 		display: none;
 	}
 
+	.drop {
+		display: initial;
+	}
+
 	.desk {
 		display: inline-block;
 	}
+
 	.nav {
+		&-drop{
+
+			&-desk-close {
+				background-color: rgb(185, 185, 185);
+				position: absolute;
+				display: flex;
+				flex-direction: column;
+				padding: 1rem;
+				left: 320px;
+				top: -200px;
+				z-index: -1;
+				opacity: 0;
+				}
+
+			&-desk-open {
+			background-color: rgb(185, 185, 185);
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			padding: 1rem;
+			left: 320px;
+			top: 50px;
+			opacity: 1;
+			
+			}
+
+			
+
+			&-link {
+				color: rgb(0, 0, 0);
+				
+			}
+		}
 
 		&-group-link {
 			display: initial;
 			margin: .9rem;
-			color: white;
-            transition: .3s;
+			font-size: 1rem;
+			transition: .3s;
+			color: #fff;
             		
 			&:hover {
 				text-decoration: none;
 				color: rgb(94, 255, 0);	
+			}
+		}
+
+		&-group-link-cat {
+			display: initial;
+			margin: .9rem;
+			font-size: 1rem;
+			transition: .3s;
+			color: black;
+			font-weight: bold;
+            		
+			&:hover {
+				text-decoration: none;
+				color: rgb(155, 32, 255);	
 			}
 		}
 
@@ -145,6 +216,12 @@
 			display: none;
 		}
 
+		// &-container {
+		// 	background-color: green;
+		// }
+
+		
+
 }
 
 .button-group {
@@ -157,7 +234,7 @@
 		border-radius: 20px;
 		border: solid 2px white;
 		text-transform: uppercase;
-		font-size: .8em;
+		font-size: .8rem;
 		font-weight: bold;
 		color: #fff;
 		transition: .2s ease-in;
@@ -166,7 +243,44 @@
 			background-color:  #fc5c42;
 			border: 2px solid #fc5c42;			
 		}
-    }
+	}
+	
+	&-link-2 {
+		position: relative;
+		background-color:  #fc5c42;
+		border: 2px solid #fc5c42;
+		padding: .5rem 1rem;
+		border-radius: 20px;
+		border: solid 2px white;
+		text-transform: uppercase;
+		font-size: .8em;
+		font-weight: bold;
+		color: #fff;
+		transition: .2s ease-in;
+
+		&:hover {
+			background-color:  blue;
+			border: 2px solid rgb(12, 12, 230);			
+		}
+	}
+
+	&-link-cat {
+		position: relative;
+		background-color: #fc5c42;
+		padding: .5rem 1rem;
+		border-radius: 20px;
+		border: solid 2px #fc5c42;
+		text-transform: uppercase;
+		font-size: .8rem;
+		font-weight: bold;
+		color: #fff;
+		transition: .2s ease-in;
+
+		&:hover {
+			background-color:  rgb(12, 12, 230);
+			border: 2px solid rgb(12, 12, 230);			
+		}
+	}
     
 }
 }

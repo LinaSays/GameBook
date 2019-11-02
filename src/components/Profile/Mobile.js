@@ -11,20 +11,7 @@ import Pins from './Pins';
 
 // == Composant
 const Mobile = () => (
-  <Accordion defaultActiveKey="0">
-    <Card>
-      <Card.Header>
-        <Accordion.Toggle as={Button} variant="link" eventKey="0">
-        Bienvenu dans votre profile
-        </Accordion.Toggle>
-      </Card.Header>
-      <Accordion.Collapse eventKey="0">
-        <Card.Body>
-        Vous êtes inscrit depuis 16/10/2019
-          <Button variant="warning" className="menu-link-btn"><Link to="/createstory" className="menu-link">Ecrire une histoire</Link></Button>
-        </Card.Body>
-      </Accordion.Collapse>
-    </Card>
+  <Accordion defaultActiveKey="1">
     <Card>
       <Card.Header>
         <Accordion.Toggle as={Button} variant="link" eventKey="1">

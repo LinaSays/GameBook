@@ -22,9 +22,9 @@ module.exports = {
   },
 
   createChapter: (req, res) => {
-    const { text, recap, colorPicker } = req.body;
+    const { text, recap, selectedColor } = req.body;
     const story_id = req.params.id;
-    const query = `INSERT INTO situation (text, recap, color, story_id) VALUES ('${text}','${recap}','${colorPicker}',${story_id})`;
+    const query = `INSERT INTO situation (text, recap, color, story_id) VALUES ('${text}','${recap}','${selectedColor}',${story_id})`;
 
     // execute query
     db.query(query, (err, result) => {

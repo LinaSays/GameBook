@@ -15,7 +15,6 @@ const Change = ({
 }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
     changeValue(name, value);
   };
 
@@ -54,7 +53,7 @@ Change.propTypes = {
 };
 
 Change.defaultProps = {
-  changeValue: '',
+  changeValue: () => {},
   user_name: '',
   email: '',
   password: '',

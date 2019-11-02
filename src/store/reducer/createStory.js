@@ -2,8 +2,10 @@
 const initialState = {
   title: '',
   summary: '',
+  select: 1,
   recap: '',
   text: '',
+  selectedColor: '',
   choice: '',
   choice2: '',
 };
@@ -12,6 +14,15 @@ const initialState = {
 const CHANGE_INPUT = 'CHANGE_INPUT';
 export const SEND_STORY = 'SEND_STORY';
 const PUBLISH_STORY = 'PUBLISH_STORY';
+export const CREATE_STORY = 'CREATE_STORY';
+const SAVE_NEW_STORY = 'SAVE_NEW_STORY';
+export const DELETE_STORY = 'DELETE_STORY';
+const DELETE_STORY_FROM_DB = 'DELETE_STORY_FROM_DB';
+export const FIND_STORY_TO_EDIT = 'FIND_STORY_TO_EDIT';
+const UPDATE_STORY = 'UPDATE_STORY';
+
+export const SEND_CHAPTER = 'SEND_CHAPTER';
+const SHOW_CHAPTER = 'SHOW_CHAPTER';
 
 // - Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -22,6 +33,22 @@ const reducer = (state = initialState, action = {}) => {
         [action.name]: action.value,
       };
     case PUBLISH_STORY:
+      return {
+        ...state,
+      };
+    case SAVE_NEW_STORY:
+      return {
+        ...state,
+      };
+    case DELETE_STORY_FROM_DB:
+      return {
+        ...state,
+      };
+    case UPDATE_STORY:
+      return {
+        ...state,
+      };
+    case SHOW_CHAPTER:
       return {
         ...state,
       };
@@ -41,8 +68,41 @@ export const publishStory = () => ({
   type: PUBLISH_STORY,
 });
 
-export const sendStory = () => ({
+export const sendStory = (id) => ({
   type: SEND_STORY,
+  id,
+});
+
+export const createNewStory = () => ({
+  type: CREATE_STORY,
+});
+export const saveNewStory = () => ({
+  type: SAVE_NEW_STORY,
+});
+
+export const deleteStoryFromDB = () => ({
+  type: DELETE_STORY_FROM_DB,
+});
+
+export const deleteStory = (id) => ({
+  type: DELETE_STORY,
+  id,
+});
+
+export const updateStory = () => ({
+  type: UPDATE_STORY,
+});
+
+export const findStoryToEdit = (id) => ({
+  type: FIND_STORY_TO_EDIT,
+  id,
+});
+
+export const sendChapter = () => ({
+  type: SEND_CHAPTER,
+});
+export const showChapter = () => ({
+  type: SHOW_CHAPTER,
 });
 
 // - Selectors
