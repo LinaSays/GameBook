@@ -17,9 +17,12 @@ ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 const CardCategory = ({
   id, name, image, description,
 }) => {
+
+  const controller = new ScrollMagic.Controller();
+  
   useEffect(() => {
     const card = document.getElementById(`card-story${id}`);
-    const controller = new ScrollMagic.Controller();
+    // const controller = new ScrollMagic.Controller();
     const tween = TweenMax.to(card, 0.1, { scale: 1.067, repeat: 1, yoyo: true });
 
     new ScrollMagic.Scene({

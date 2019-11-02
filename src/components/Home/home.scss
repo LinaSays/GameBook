@@ -97,6 +97,10 @@
           
 
         }
+
+        &-img--desk {
+            display: none;
+        }
     }
 
     .card-story {
@@ -246,23 +250,25 @@
 
 @media screen and (min-width: 992px) {
     .home {
-        padding-top: 10rem;
-        min-height: 900px;
+        padding-top: 12rem;
+        min-height:900px;
     }
 
     .content {
-        padding-top: 10rem;
+        padding: 10rem;
         min-height: 900px;
+
 
     }
 
     .wave {
         width: 100%;
-        height: 500px;
-        background: url('./Wave.svg') no-repeat center;
+        height: 100%;
+        background: url('./Wave_desk.svg') no-repeat center;
         background-size: cover;
         position: absolute;
-        bottom:-130px;
+        top: 0;
+        //bottom:-130px;
         z-index: 0;
     }
 
@@ -271,8 +277,11 @@
         padding: 0;
 
         &-content {
+            position: relative;
             flex-wrap: nowrap;
-            padding: 20px 20px 0;
+            padding: 20px 0 0;
+            z-index: 1;
+            
         }
 
         &-left{
@@ -293,6 +302,7 @@
             font-size: .9em;
             text-align: left;
             word-spacing: -1px;
+            line-height: 1.7;
             ;
         }
 
@@ -302,6 +312,7 @@
             margin-top:0;
             z-index: 6;
             width: 70%;
+            top: 50px;
             padding: .5rem 1rem .6rem ;
             //line-height:1.2;
            
@@ -314,12 +325,17 @@
             width: 50%; 
         }
 
-        &-img--image {
+        &-img--tablet {
+            display: none;
+        }
+
+        &-img--desk {
+            display: initial;
             position: relative;
-            width: 130%;
+            top: -50px;
+            left: 10px;
             z-index: 1;
-            
-            
+            width:110%;
         }
 
     }
