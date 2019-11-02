@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 // == Import : local
 
 // == Composant
-const Choix = ({ changeValue, choice, choice2 }) => {
+const Choix = ({ changeValue, choice1, choice2, choice3, chapters }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     changeValue(name, value);
@@ -30,10 +30,10 @@ const Choix = ({ changeValue, choice, choice2 }) => {
         {/* Préparez les choix disponibles pour le lecteur */}
         <FormGroup className="numberChoices">
           <Label for="numberChoicesSelect">Nombre de choix de décisions (0 à 3)</Label>
-          <ListGroup>
+          {/* <ListGroup>
             <ListGroupItem active className="add-choice" tag="a" color="success" href="#" action><FiPlus /> Ajouter un choix</ListGroupItem>
           </ListGroup>
-          <FormText>Nombre de choix proposés au lecteur</FormText>
+          <FormText>Nombre de choix proposés au lecteur</FormText> */}
         </FormGroup>
         <hr className="separation" />
         <FormGroup>
@@ -44,16 +44,15 @@ const Choix = ({ changeValue, choice, choice2 }) => {
             <Button className="delete-choice" title="Supprimer le choix" color="danger">
               <FiDelete />
             </Button>
-            <Input type="text" value={choice} onChange={handleChange} name="choice" id="choice1" placeholder="Écrivez le texte pour ce choix..." />
+            <Input type="text" value={choice} onChange={handleChange} name="choice1" id="choice1" placeholder="Écrivez le texte pour ce choix..." />
             <FormText>Offrez à votre lecteur une décision à prendre</FormText>
           </FormGroup>
           <FormGroup className="choices-fork">
             <FiCornerDownRight className="choices-fork-icon" />
             <Label for="destination1" className="choices-fork-icon-label">Chapitre de destination</Label>
-            <Input type="select" name="select" id="destination1">
+            <Input type="select" name="destination1" onChange={handleChange} id="destination1">
               <option>Choisir un chapitre d'arrivée</option>
-              <option>Retour à la taverne</option>
-              <option>Direction la forêt</option>
+              {chapters.map((chapter) => <option key={chapter.id} value={chapter.id}>{chapter.recap}</option>)}
             </Input>
             <FormText>Cette décision amène au chapitre sélectionné</FormText>
           </FormGroup>
@@ -71,10 +70,29 @@ const Choix = ({ changeValue, choice, choice2 }) => {
           <FormGroup className="choices-fork">
             <FiCornerDownRight className="choices-fork-icon" />
             <Label for="destination2" className="choices-fork-icon-label">Chapitre de destination</Label>
-            <Input type="select" name="select" id="destination2">
+            <Input type="select" name="destination2" id="destination2" onChange={handleChange}>
               <option>Choisir un chapitre d'arrivée</option>
-              <option>Retour à la taverne</option>
-              <option>Direction la forêt</option>
+              {chapters.map((chapter) => <option key={chapter.id} value={chapter.id}>{chapter.recap}</option>)}
+            </Input>
+            <FormText>Cette décision amène au chapitre sélectionné</FormText>
+          </FormGroup>
+          <hr />
+          <FormGroup className="choices">
+            {/* Choix 3 */}
+            <Label for="choice3" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 3</Label>
+            <Button className="save-choice" title="Sauver le choix" color="success"><FiSave /></Button>
+            <Button className="delete-choice" title="Supprimer le choix" color="danger">
+              <FiDelete />
+            </Button>
+            <Input type="text" value={choice3} onChange={handleChange} name="choice3" id="choice3" placeholder="Écrivez le texte pour ce choix..." />
+            <FormText>Offrez à votre lecteur une décision à prendre</FormText>
+          </FormGroup>
+          <FormGroup className="choices-fork">
+            <FiCornerDownRight className="choices-fork-icon" />
+            <Label for="destination3" className="choices-fork-icon-label">Chapitre de destination</Label>
+            <Input type="select" name="destination3" id="destination3" onChange={handleChange}>
+              <option>Choisir un chapitre d'arrivée</option>
+              {chapters.map((chapter) => <option key={chapter.id} value={chapter.id}>{chapter.recap}</option>)}
             </Input>
             <FormText>Cette décision amène au chapitre sélectionné</FormText>
           </FormGroup>
@@ -89,11 +107,13 @@ Choix.propTypes = {
   changeValue: PropTypes.func.isRequired,
   choice: PropTypes.string,
   choice2: PropTypes.string,
+  choice3: PropTypes.string,
 };
 
 Choix.defaultProps = {
   choice: '',
   choice2: '',
+  choice3: '',
 };
 
 // == Export

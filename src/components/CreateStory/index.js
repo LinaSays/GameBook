@@ -30,8 +30,9 @@ const CreateStory = ({
   createNewStory,
   recap,
   text,
-  choice,
+  choice1,
   choice2,
+  choice3,
   getCategory,
   category,
   deleteStory,
@@ -39,8 +40,11 @@ const CreateStory = ({
   sendStory,
   sendChapter,
   selectedColor,
+  chapters,
+  getAllChapters,
+  getSelectedChapter,
 }) => {
-  const [activeTab, setActiveTab] = useState('1');
+  const [activeTab, setActiveTab] = useState('2');
 
   const toggle = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
@@ -115,10 +119,14 @@ const CreateStory = ({
                   title={title}
                   recap={recap}
                   text={text}
-                  choice={choice}
+                  choice1={choice1}
                   choice2={choice2}
+                  choice3={choice3}
                   sendChapter={sendChapter}
                   selectedColor={selectedColor}
+                  chapters={chapters}
+                  getAllChapters={getAllChapters}
+                  getSelectedChapter={getSelectedChapter}
                 />
               </TabPane>
               <TabPane tabId="3">

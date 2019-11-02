@@ -12,6 +12,8 @@ import {
   deleteStory,
   findStoryToEdit,
   sendChapter,
+  getAllChapters,
+  getSelectedChapter,
 } from 'src/store/reducer/createStory';
 import { getCategory } from 'src/store/reducer/home';
 
@@ -23,9 +25,11 @@ const mapStateToProps = (state) => ({
   select: state.createStory.select,
   text: state.createStory.text,
   selectedColor: state.createStory.selectedColor,
-  choice: state.createStory.choice,
+  choice1: state.createStory.choice,
   choice2: state.createStory.choice2,
+  choice3: state.createStory.choice3,
   category: state.home.category,
+  chapters: state.createStory.chapters,
 });
 
 /* === Actions === */
@@ -56,6 +60,14 @@ const mapDispatchToProps = (dispatch) => ({
   },
   sendChapter: () => {
     const action = sendChapter();
+    dispatch(action);
+  },
+  getAllChapters: () => {
+    const action = getAllChapters();
+    dispatch(action);
+  },
+  getSelectedChapter: (id) => {
+    const action = getSelectedChapter(id);
     dispatch(action);
   },
 });

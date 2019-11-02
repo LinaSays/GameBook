@@ -11,17 +11,19 @@ module.exports = {
     const avatar = 'https://i.imgur.com/rMxbnBM.png';
     const { user_name, email, password, choice } = req.body;
 
-    const query = `SELECT user.id FROM user WHERE user.email='${email}'`;
+    const query = 'SELECT user.id FROM user WHERE user.email=?';
+    const params = [email];
     // execute query
-    db.query(query, (err, result) => {
+    db.query(query, params, (err, result) => {
       if (err) throw err;
       if (result.length > 0) {
         res.send('Utilisateur existe');
       }
       else {
         bcrypt.hash(password, saltRounds, (err, hash) => {
-          const query1 = `INSERT INTO user (name, email, password, avatar, role_id) VALUES ('${user_name}', '${email}', '${hash}', '${avatar}', '${choice}')`;
-          db.query(query1, (err2, result2) => {
+          const query1 = 'INSERT INTO user (name, email, password, avatar, role_id) VALUES (?, ?, ?, ?, ?)';
+          const params2 = [user_name, email, hash, avatar, choice];
+          db.query(query1, params2, (err2, result2) => {
             if (err2) throw err;
             const tokenSettings = {
               expiresIn: '5d',
@@ -43,9 +45,10 @@ module.exports = {
     const { email, password, connection } = req.body;
     // console.log(email, password, connection);
     // console.log(req.session);
-    const query = `SELECT user.id, user.password FROM user WHERE user.email='${email}'`;
+    const query = 'SELECT user.id, user.password FROM user WHERE user.email=?';
+    const params = [email];
     // execute query
-    db.query(query, (err, result) => {
+    db.query(query, params, (err, result) => {
       if (err) throw err;
       if (result.length > 0) {
         // compare two passwords (send by user and hashed in db)
@@ -98,9 +101,10 @@ module.exports = {
       }
       else {
         const user_id = decoded.user;
-        const query = `SELECT user.id, user.name, user.email, user.avatar, user.password, role.name as role FROM user JOIN role ON user.role_id = role.id WHERE user.id=${user_id}`;
+        const query = 'SELECT user.id, user.name, user.email, user.avatar, user.password, role.name as role FROM user JOIN role ON user.role_id = role.id WHERE user.id=?';
+        const params = [user_id];
         // execute query
-        db.query(query, (err2, result) => {
+        db.query(query, params, (err2, result) => {
           if (err2) throw err2;
           res.send(result);
         });
@@ -117,9 +121,10 @@ module.exports = {
       else {
         const { user_name, email, password, avatar } = req.body;
         const user_id = decoded.user;
-        const query = `UPDATE user SET name='${user_name}', email='${email}', password='${password}', avatar='${avatar}' WHERE id=${user_id}`;
+        const query = 'UPDATE user SET name=?, email=?, password=?, avatar=? WHERE id=?';
+        const params = [user_name, email, password, avatar, user_id];
         // execute query
-        db.query(query, (err, result) => {
+        db.query(query, params, (err, result) => {
           if (err) throw err;
           res.redirect('/profile');
         });
@@ -135,9 +140,10 @@ module.exports = {
       }
       else {
         const user_id = decoded.user;
-        const query = `SELECT user.id, user.name, pins.name AS badge, pins.image FROM user JOIN user_has_pins ON user_has_pins.user_id = user.id JOIN pins ON user_has_pins.pins_id = pins.id WHERE user.id=${user_id}`;
+        const query = 'SELECT user.id, user.name, pins.name AS badge, pins.image FROM user JOIN user_has_pins ON user_has_pins.user_id = user.id JOIN pins ON user_has_pins.pins_id = pins.id WHERE user.id=?';
+        const params = [user_id];
         // execute query
-        db.query(query, (err1, result) => {
+        db.query(query, params, (err1, result) => {
           if (err1) throw err1;
           res.send(result);
         });
@@ -153,9 +159,10 @@ module.exports = {
       }
       else {
         const user_id = decoded.user;
-        const query = `SELECT S.* FROM user U LEFT JOIN user_read_story R ON R.user_id = U.id LEFT JOIN story S ON R.story_id = S.id WHERE U.id=${user_id}`;
+        const query = 'SELECT S.* FROM user U LEFT JOIN user_read_story R ON R.user_id = U.id LEFT JOIN story S ON R.story_id = S.id WHERE U.id=?';
+        const params = [user_id];
         // execute query
-        db.query(query, (err1, result) => {
+        db.query(query, params, (err1, result) => {
           if (err1) throw err1;
           res.send(result);
         });
@@ -171,9 +178,10 @@ module.exports = {
       }
       else {
         const user_id = decoded.user;
-        const query = `SELECT story.id, story.title, story.image FROM story JOIN user ON story.author_id = user.id WHERE user.id=${user_id}`;
+        const query = 'SELECT story.id, story.title, story.image FROM story JOIN user ON story.author_id = user.id WHERE user.id=?';
+        const params = [user_id];
         // execute query
-        db.query(query, (err1, result) => {
+        db.query(query, params, (err1, result) => {
           if (err1) throw err1;
           res.send(result);
         });
