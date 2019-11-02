@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Badge } from 'react-bootstrap';
+import { GiBlackBook } from 'react-icons/gi';
 
 // == Import : local
 
@@ -11,9 +12,14 @@ const Info = ({ name, avatar, role }) => (
   <>
     <div className="header-profile">
       <img src={avatar} alt="" className="header-profile-avatar" />
+      <div className="write-story-desktop-wrapper">
+        <button type="button" className="write-story-desktop-wrapper-icon">
+          {role === 'author' && <GiBlackBook />}
+        </button>
+      </div>
       <div className="header-profile-text-welcome">
-        <h2>{name}</h2>
-        <Badge className="header-profile-role">{role}</Badge>
+        <h2 className="header-profile-text-welcome-name">{name}</h2>
+        <Badge className="header-profile-text-welcome-role">{role}</Badge>
       </div>
     </div>
     <div className="wrapper-button">

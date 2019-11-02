@@ -1,6 +1,6 @@
 // == Import : npm
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -39,9 +39,9 @@ const Change = ({
         <Form.Label className="form-change-info-label">Avatar</Form.Label>
         <Form.Control className="form-change-info-file" type="file" placeholder="Avatar" name="avatar" value={avatar} onChange={handleChange} />
       </Form.Group>
-      <Button variant="primary" className="change-button-form" type="submit">
+      <button variant="primary" className="change-button-form" type="submit">
         Modifier
-      </Button>
+      </button>
     </Form>
   );
 };
