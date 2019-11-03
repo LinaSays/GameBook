@@ -48,6 +48,22 @@ class Chapitres extends React.Component {
     getAllChapters();
   };
 
+  deleteChapter = (event) => {
+    event.preventDefault();
+    const id = document.getElementsByName('selectChapter')[0].value;
+    const { deleteChapter } = this.props;
+    deleteChapter(id);
+  };
+
+  updateChapter = (event) => {
+    event.preventDefault();
+    const id = document.getElementsByName('selectChapter')[0].value;
+    const { findChapterToEdit } = this.props;
+    findChapterToEdit(id);
+    const summary = document.getElementById('chapterSummary').value;
+    document.getElementsByName('selectChapter')[0].selectedOptions[0].text = summary;
+  };
+
   render() {
     const {
       changeValue, recap, text, title, choice1, choice2, choice3, selectedColor, chapters, sendChoice,
@@ -99,12 +115,12 @@ class Chapitres extends React.Component {
         </FormGroup>
         <FormGroup>
           {/* Boutons supprimer sauvegarder et nouveau chapitre */}
-          <Button className="trash-icon" title="Supprimer l'histoire" color="danger">
+          <Button className="trash-icon" title="Supprimer l'histoire" color="danger" onClick={this.deleteChapter}>
             <FiTrash />
           </Button>
           <div className="button-bar">
-            <Button className="custom-button" title="Sauvegarder les changements" color="dark">
-              Sauvegarder
+            <Button className="custom-button" title="Sauvegarder les changements" color="dark" onClick={this.updateChapter}>
+              Mettre à jour
             </Button>
             <Button className="custom-button" title="Écrire la suite" color="danger" onClick={this.newChapter}>
               <FiEdit3 /> Nouveau chapitre
