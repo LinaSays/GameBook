@@ -79,7 +79,6 @@ module.exports = {
                 secure: false,
               };
               res.cookie('token', token, cookieSettings).redirect('/profile');
-              console.log(tokenSettings);
             }
           }
           else {
