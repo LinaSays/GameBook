@@ -50,7 +50,7 @@ class Chapitres extends React.Component {
 
   render() {
     const {
-      changeValue, recap, text, title, choice, choice2, choice3, selectedColor, chapters,
+      changeValue, recap, text, title, choice1, choice2, choice3, selectedColor, chapters, sendChoice,
     } = this.props;
     return (
       <Form id="formidable">
@@ -82,7 +82,7 @@ class Chapitres extends React.Component {
               <Input type="textarea" value={text} onChange={this.handleChange} rows="32" name="text" id="chapterText" />
             </FormGroup>
           </div>
-          <Choix changeValue={changeValue} title={title} recap={recap} text={text} choice1={choice1} choice2={choice2} choice3={choice3} chapters={chapters} />
+          <Choix changeValue={changeValue} title={title} recap={recap} text={text} choice1={choice1} choice2={choice2} choice3={choice3} chapters={chapters} sendChoice={sendChoice} />
         </div>
         <FormGroup>
           {/* Image de fond */}
@@ -124,18 +124,21 @@ Chapitres.propTypes = {
   title: PropTypes.string.isRequired,
   recap: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  choice: PropTypes.string,
+  choice1: PropTypes.string,
   choice2: PropTypes.string,
+  choice3: PropTypes.string,
   selectedColor: PropTypes.string,
   chapters: PropTypes.array,
   getSelectedChapter: PropTypes.func.isRequired,
   getAllChapters: PropTypes.func.isRequired,
   sendChapter: PropTypes.func.isRequired,
+  sendChoice: PropTypes.func.isRequired,
 };
 
 Chapitres.defaultProps = {
-  choice: '',
+  choice1: '',
   choice2: '',
+  choice3: '',
   selectedColor: '',
   chapters: [],
 };
