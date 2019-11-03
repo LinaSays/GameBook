@@ -11,7 +11,6 @@ import Pins from './Pins';
 
 
 // == Composant
-
 const Mobile = ({ pins, read, wrote, profile }) => (
   <Accordion className="animation-menu">
     <Card>

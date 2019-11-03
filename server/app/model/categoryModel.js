@@ -22,10 +22,10 @@ module.exports = {
   },
 
   getCategory: (req, res) => {
-    const query = `SELECT S.*, C.name as category, U.name as author FROM story S LEFT JOIN story_has_category H ON S.id = H.story_id LEFT JOIN category C ON H.category_id = C.id LEFT JOIN user U ON S.author_id = U.id WHERE C.id=${req.params.id}`;
-
+    const query = 'SELECT S.*, C.name as category, U.name as author FROM story S LEFT JOIN story_has_category H ON S.id = H.story_id LEFT JOIN category C ON H.category_id = C.id LEFT JOIN user U ON S.author_id = U.id WHERE C.id=? AND S.published=1';
+    const params = [req.params.id];
     // execute query
-    db.query(query, (err, result) => {
+    db.query(query, params, (err, result) => {
       if (err) throw err;
       res.send(result);
     });

@@ -13,13 +13,17 @@ import Copyright from './Copyright';
 
 
 // == Composant
-const Footer = ({ isConnected }) => (
+const Footer = ({ isConnected, getCategory, category }) => (
   <footer className="footer">
     <Container className="footer-content">
       <Row>
         <Presentation isConnected={isConnected} />
         <Pages isConnected={isConnected} />
-        <FooterNavList isConnected={isConnected} />
+        <FooterNavList
+          isConnected={isConnected}
+          getCategory={getCategory}
+          category={category}
+        />
         <NewsLetter />
       </Row>
     </Container>
@@ -31,6 +35,8 @@ const Footer = ({ isConnected }) => (
 // == Validation props
 Footer.propTypes = {
   isConnected: PropTypes.bool.isRequired,
+  getCategory: PropTypes.func.isRequired,
+  category: PropTypes.array.isRequired,
 };
 
 // == Export

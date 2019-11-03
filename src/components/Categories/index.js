@@ -35,8 +35,6 @@ class Categories extends React.Component {
             {storylist.map((list) => (
               <>
                 <Col className="test2" key={list.description}><Category {...list} /></Col>
-                <Col className="test2" key={list.description}><Category {...list} /></Col>
-                <Col className="test2" key={list.description}><Category {...list} /></Col>
               </>
             ))}
           </Row>

@@ -7,6 +7,7 @@ const initialState = {
   user_name: '',
   email: '',
   password: '',
+  choice: 1,
   avatar: '',
 };
 

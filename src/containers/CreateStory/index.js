@@ -5,7 +5,17 @@ import { connect } from 'react-redux';
 import createStory from 'src/components/CreateStory';
 
 // Action Creators
-import { changeInput, sendStory } from 'src/store/reducer/createStory';
+import {
+  changeInput,
+  sendStory,
+  createNewStory,
+  deleteStory,
+  findStoryToEdit,
+  sendChapter,
+  getAllChapters,
+  getSelectedChapter,
+  sendChoice,
+} from 'src/store/reducer/createStory';
 import { getCategory } from 'src/store/reducer/home';
 
 /* === State (données) === */
@@ -13,10 +23,14 @@ const mapStateToProps = (state) => ({
   title: state.createStory.title,
   summary: state.createStory.summary,
   recap: state.createStory.recap,
+  select: state.createStory.select,
   text: state.createStory.text,
-  choice: state.createStory.choice,
+  selectedColor: state.createStory.selectedColor,
+  choice1: state.createStory.choice1,
   choice2: state.createStory.choice2,
+  choice3: state.createStory.choice3,
   category: state.home.category,
+  chapters: state.createStory.chapters,
 });
 
 /* === Actions === */
@@ -29,8 +43,36 @@ const mapDispatchToProps = (dispatch) => ({
     const action = getCategory();
     dispatch(action);
   },
-  sendStory: () => {
-    const action = sendStory();
+  sendStory: (id) => {
+    const action = sendStory(id);
+    dispatch(action);
+  },
+  createNewStory: () => {
+    const action = createNewStory();
+    dispatch(action);
+  },
+  deleteStory: (id) => {
+    const action = deleteStory(id);
+    dispatch(action);
+  },
+  findStoryToEdit: (id) => {
+    const action = findStoryToEdit(id);
+    dispatch(action);
+  },
+  sendChapter: () => {
+    const action = sendChapter();
+    dispatch(action);
+  },
+  getAllChapters: () => {
+    const action = getAllChapters();
+    dispatch(action);
+  },
+  getSelectedChapter: (id) => {
+    const action = getSelectedChapter(id);
+    dispatch(action);
+  },
+  sendChoice: (id) => {
+    const action = sendChoice(id);
     dispatch(action);
   },
 });
