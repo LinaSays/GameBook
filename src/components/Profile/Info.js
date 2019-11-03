@@ -13,9 +13,11 @@ const Info = ({ name, avatar, role }) => (
     <div className="header-profile">
       <img src={avatar} alt="" className="header-profile-avatar" />
       <div className="write-story-desktop-wrapper">
-        <button type="button" className="write-story-desktop-wrapper-icon">
-          {role === 'author' && <GiBlackBook />}
-        </button>
+        {role === 'author' && (
+          <button type="button" className="write-story-desktop-wrapper-icon">
+            <GiBlackBook />
+          </button>
+        )}
       </div>
       <div className="header-profile-text-welcome">
         <h2 className="header-profile-text-welcome-name">{name}</h2>
