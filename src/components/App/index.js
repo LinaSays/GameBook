@@ -19,7 +19,7 @@ import CreateStory from 'src/containers/CreateStory';
 import Profile from 'src/containers/Profile';
 import Team from 'src/components/Team';
 import StartStory from 'src/containers/StartStory';
-import NavNew from 'src/components/NavNew';
+import NavNew from 'src/containers/NavNew';
 
 toast.configure();
 
