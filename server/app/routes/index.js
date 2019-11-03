@@ -23,6 +23,7 @@ module.exports = (app) => {
   app.delete('/story/delete', story.deleteStory); // delete story
   app.patch('/story/edit', story.editStory); // edit story
   app.get('/chapter/:id', chapter.getChapter); // show next situation
+  app.get('/story/:id/chapters', chapter.getAllChapters); // get all situations for one story
   app.get('/chapter/:id/choices', chapter.getChapterChoices); // show  choices of one situation
   app.post('/story/:id/chapter/add', chapter.createChapter); // add situation
   app.delete('/story/:id/chapter/delete', chapter.deleteChapter); // delete situation

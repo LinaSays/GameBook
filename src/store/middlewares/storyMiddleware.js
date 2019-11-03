@@ -20,6 +20,12 @@ import {
   updateStory,
   SEND_CHAPTER,
   showChapter,
+  GET_ALL_CHAPTERS,
+  showAllChapters,
+  GET_SELECTED_CHAPTER,
+  showSelectedChapter,
+  SEND_CHOICE,
+  showChoice
 } from 'src/store/reducer/createStory';
 
 async function getStartStories(store) {
@@ -41,7 +47,11 @@ async function getStartStories(store) {
 }
 
 async function getNextChapter(store, id) {
-  try {
+  // cas spécial de la FAQ
+  if(isNaN(id)){
+    document.location.href = id;
+  }
+  else try {
     axios.defaults.withCredentials = true;
     const response = await axios.get(`http://localhost:3000/chapter/${id}`);
     const save = showNextChapter(
@@ -148,6 +158,53 @@ async function newChapter(store) {
   }
 }
 
+async function getAllChapters(store) {
+  try {
+    const id = sessionStorage.getItem('story');
+    axios.defaults.withCredentials = true;
+    const response = await axios.get(`http://localhost:3000/story/${id}/chapters`);
+    const save = showAllChapters(response.data);
+    store.dispatch(save);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
+async function getSelectedChapter(store, id) {
+  try {
+    axios.defaults.withCredentials = true;
+    const response = await axios.get(`http://localhost:3000/chapter/${id}`);
+    const save = showSelectedChapter(
+      response.data[0].recap,
+      response.data[0].text,
+      response.data[0].selectedColor,
+    );
+    store.dispatch(save);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
+async function newChoice(store, id) {
+  try {
+    const id_situation_parent = document.getElementsByName('selectChapter')[0].value;
+    const id_situation_child = document.getElementsByName(`destination${id}`)[0].value;
+    const text = document.getElementsByName(`choice${id}`)[0].value;
+    axios.defaults.withCredentials = true;
+    const response = await axios.post('http://localhost:3000/choice/add', {
+      text, id_situation_parent, id_situation_child,
+    });
+    const save = showChoice(response.data);
+    console.log(response);
+    store.dispatch(save);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
 const storyMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_START_STORIES: {
@@ -180,6 +237,18 @@ const storyMiddleware = (store) => (next) => (action) => {
     }
     case SEND_CHAPTER: {
       newChapter(store);
+      break;
+    }
+    case GET_ALL_CHAPTERS: {
+      getAllChapters(store);
+      break;
+    }
+    case GET_SELECTED_CHAPTER: {
+      getSelectedChapter(store, action.id);
+      break;
+    }
+    case SEND_CHOICE: {
+      newChoice(store, action.id);
       break;
     }
     default:

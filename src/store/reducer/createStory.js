@@ -6,8 +6,10 @@ const initialState = {
   recap: '',
   text: '',
   selectedColor: '',
-  choice: '',
+  choice1: '',
   choice2: '',
+  choice3: '',
+  chapters: [],
 };
 
 // - Actions Types
@@ -23,6 +25,14 @@ const UPDATE_STORY = 'UPDATE_STORY';
 
 export const SEND_CHAPTER = 'SEND_CHAPTER';
 const SHOW_CHAPTER = 'SHOW_CHAPTER';
+
+export const GET_ALL_CHAPTERS = 'GET_ALL_CHAPTERS';
+const SHOW_ALL_CHAPTERS = 'SHOW_ALL_CHAPTERS';
+export const GET_SELECTED_CHAPTER = 'GET_SELECTED_CHAPTER';
+const SHOW_SELECTED_CHAPTER = 'SHOW_SELECTED_CHAPTER';
+
+export const SEND_CHOICE = 'SEND_CHOICE';
+const SHOW_CHOICE = 'SHOW_CHOICE';
 
 // - Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -49,6 +59,24 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
       };
     case SHOW_CHAPTER:
+      return {
+        ...state,
+        recap: '',
+        text: '',
+      };
+    case SHOW_ALL_CHAPTERS:
+      return {
+        ...state,
+        chapters: action.chapters,
+      };
+    case SHOW_SELECTED_CHAPTER:
+      return {
+        ...state,
+        recap: action.recap,
+        text: action.text,
+        selectedColor: action.selectedColor,
+      };
+    case SHOW_CHOICE:
       return {
         ...state,
       };
@@ -105,6 +133,35 @@ export const showChapter = () => ({
   type: SHOW_CHAPTER,
 });
 
+export const showAllChapters = (chapters) => ({
+  type: SHOW_ALL_CHAPTERS,
+  chapters,
+});
+
+export const getAllChapters = () => ({
+  type: GET_ALL_CHAPTERS,
+});
+
+export const showSelectedChapter = (recap, text, selectedColor) => ({
+  type: SHOW_SELECTED_CHAPTER,
+  recap,
+  text,
+  selectedColor,
+});
+
+export const getSelectedChapter = (id) => ({
+  type: GET_SELECTED_CHAPTER,
+  id,
+});
+
+export const sendChoice = (id) => ({
+  type: SEND_CHOICE,
+  id
+});
+
+export const showChoice = () => ({
+  type: SHOW_CHOICE,
+});
 // - Selectors
 
 // - Export
