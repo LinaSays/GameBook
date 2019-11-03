@@ -350,6 +350,7 @@
             color: white;
             bottom: 150px;
             left: 80px;      
+            width: 70%;
         }
 
         &-title {
@@ -371,6 +372,16 @@
     
         &:hover .link-3 {
             transform: translateY(100%);
+        }
+
+        &:hover .title-5 {
+            transform: translateY(-55%);
+
+        }
+    
+        &:hover .link-5 {
+            transform: translateY(100%);
+
         }
     }
 
