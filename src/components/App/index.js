@@ -20,6 +20,8 @@ import Profile from 'src/containers/Profile';
 import Team from 'src/components/Team';
 import StartStory from 'src/containers/StartStory';
 import NavNew from 'src/containers/NavNew';
+import ScrollToTop from 'src/components/ScrollToTop';
+
 
 toast.configure();
 
@@ -36,6 +38,7 @@ class App extends React.Component {
     return (
       <div id="app">
         <ToastContainer autoClose={5000} />
+        <ScrollToTop />
         <NavNew isConnected={isConnected} />
         <Switch>
           <Route exact path="/">
