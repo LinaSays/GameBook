@@ -12,7 +12,6 @@ import Intro from './Intro';
 
 // == Composant
 class Home extends React.Component {
-  cardRef = React.createRef();
 
   componentDidMount() {
     const { getStories, getCategory } = this.props;
@@ -21,6 +20,7 @@ class Home extends React.Component {
   }
 
   componentDidUpdate() {
+    // == Animations on card
     const controller = new ScrollMagic.Controller();
     const { isConnected } = this.props;
     const card = document.querySelector('.content');
@@ -29,29 +29,28 @@ class Home extends React.Component {
 
     if (isConnected) {
       for (let i = 2; i <= cardArray; i++) {
-        const tween = TweenMax.to(`#card-${i}`, 0.1, { scale: 1.067, repeat: 1, yoyo: true });
+        const tween = TweenMax.to(`#card-${i}`, 0.1, { scale: 1.08, repeat: 1, yoyo: true });
         new ScrollMagic.Scene({
           triggerElement: `#card-${i}`,
           duration: '500px',
-          
+
         })
           .setTween(tween)
-          .addIndicators({ name: 'resize' }) // add indicators (requires plugin)
-
+          // .addIndicators({ name: 'resize' }) 
           .addTo(controller);
       }
     }
     else {
       for (let i = 1; i <= cardArray; i++) {
-        const tween = TweenMax.to(`#card-${i}`, 0.1, { scale: 1.067, repeat: 1, yoyo: true });
+        const tween = TweenMax.to(`#card-${i}`, 0.1, { scale: 1.08, repeat: 1, yoyo: true });
 
         new ScrollMagic.Scene({
           triggerElement: `#card-${i}`,
-          duration: '500px',
+          duration: '400px',
 
         })
           .setTween(tween)
-          .addIndicators({ name: 'resize' }) // add indicators (requires plugin)
+          // .addIndicators({ name: 'resize' })
           .addTo(controller);
       }
     }
@@ -69,9 +68,9 @@ class Home extends React.Component {
                 <div key={item.id} className="card-story container" category_id={item.id} id={`card-${item.id}`}>
                   <img className="card-story-img" src={item.image} alt="" />
                   <div className="card-story-text-content">
-                    <h2 className={`card-story-title title-${item.id}`}>{item.name} .</h2>
+                    <h2 className="card-story-title">{item.name} .</h2>
                     <p className="card-story-descrip">{item.description}</p>
-                    <Link to={`categories/${item.id}`} className={`card-story-link link-${item.id}`}>Commencer l'histoire<MdKeyboardArrowRight /></Link>
+                    <Link to={`categories/${item.id}`} className={`card-story-link link-cat-${item.id}`}>Commencer l'histoire<MdKeyboardArrowRight /></Link>
                   </div>
                 </div>
               ))}
@@ -87,9 +86,9 @@ class Home extends React.Component {
                   <div key={item.id} id={`card-${item.id}`} className="card-story container">
                     <img className="card-story-img" src={item.image} alt="" />
                     <div className="card-story-text-content">
-                      <h2 className="card-story-title">{item.title} .</h2>
+                      <h2 className={`card-story-title title-home-${item.id}`}>{item.title} .</h2>
                       <p className="card-story-descrip">{item.description}</p>
-                      <Link to={`story/${item.id}`} className={`card-story-link link-${item.id}`}>Commencer l'histoire <MdKeyboardArrowRight /> </Link>
+                      <Link to={`story/${item.id}`} className={`card-story-link link-home-${item.id}`}>Commencer l'histoire <MdKeyboardArrowRight /> </Link>
                     </div>
                   </div>
                 ))}
