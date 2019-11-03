@@ -43,6 +43,7 @@ const CreateStory = ({
   chapters,
   getAllChapters,
   getSelectedChapter,
+  sendChoice,
 }) => {
   const [activeTab, setActiveTab] = useState('2');
 
@@ -127,6 +128,7 @@ const CreateStory = ({
                   chapters={chapters}
                   getAllChapters={getAllChapters}
                   getSelectedChapter={getSelectedChapter}
+                  sendChoice={sendChoice}
                 />
               </TabPane>
               <TabPane tabId="3">
@@ -146,14 +148,27 @@ CreateStory.propTypes = {
   summary: PropTypes.string.isRequired,
   recap: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  choice: PropTypes.string.isRequired,
-  choice2: PropTypes.string.isRequired,
+  choice1: PropTypes.string,
+  choice2: PropTypes.string,
+  choice3: PropTypes.string,
   getCategory: PropTypes.func.isRequired,
   category: PropTypes.array.isRequired,
   createNewStory: PropTypes.func.isRequired,
   deleteStory: PropTypes.func.isRequired,
   findStoryToEdit: PropTypes.func.isRequired,
   sendStory: PropTypes.func.isRequired,
+  sendChapter: PropTypes.func.isRequired,
+  selectedColor: PropTypes.string.isRequired,
+  chapters: PropTypes.array.isRequired,
+  getAllChapters: PropTypes.func.isRequired,
+  getSelectedChapter: PropTypes.func.isRequired,
+  sendChoice: PropTypes.func.isRequired,
+};
+
+CreateStory.defaultProps = {
+  choice1: '',
+  choice2: '',
+  choice3: '',
 };
 
 // == Export

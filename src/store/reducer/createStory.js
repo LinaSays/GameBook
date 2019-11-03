@@ -31,6 +31,9 @@ const SHOW_ALL_CHAPTERS = 'SHOW_ALL_CHAPTERS';
 export const GET_SELECTED_CHAPTER = 'GET_SELECTED_CHAPTER';
 const SHOW_SELECTED_CHAPTER = 'SHOW_SELECTED_CHAPTER';
 
+export const SEND_CHOICE = 'SEND_CHOICE';
+const SHOW_CHOICE = 'SHOW_CHOICE';
+
 // - Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
@@ -72,6 +75,10 @@ const reducer = (state = initialState, action = {}) => {
         recap: action.recap,
         text: action.text,
         selectedColor: action.selectedColor,
+      };
+    case SHOW_CHOICE:
+      return {
+        ...state,
       };
     default:
       return state;
@@ -145,6 +152,15 @@ export const showSelectedChapter = (recap, text, selectedColor) => ({
 export const getSelectedChapter = (id) => ({
   type: GET_SELECTED_CHAPTER,
   id,
+});
+
+export const sendChoice = (id) => ({
+  type: SEND_CHOICE,
+  id
+});
+
+export const showChoice = () => ({
+  type: SHOW_CHOICE,
 });
 // - Selectors
 

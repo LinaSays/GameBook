@@ -3,25 +3,30 @@ import React from 'react';
 import {
   Button, Form, FormGroup, Label, Input, FormText,
   ListGroup, ListGroupItem,
-}
-  from 'reactstrap';
+} from 'reactstrap';
 import {
   FiCornerDownRight,
   FiGitCommit,
   FiDelete,
   FiPlus,
   FiSave,
-}
-  from 'react-icons/fi';
+} from 'react-icons/fi';
 import PropTypes from 'prop-types';
 
 // == Import : local
 
 // == Composant
-const Choix = ({ changeValue, choice1, choice2, choice3, chapters }) => {
+const Choix = ({
+  changeValue, choice1, choice2, choice3, chapters, sendChoice
+}) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     changeValue(name, value);
+  };
+
+  const sendNewChoice = (id) => (event) => {
+    event.preventDefault();
+    sendChoice(id);
   };
 
   return (
@@ -40,11 +45,11 @@ const Choix = ({ changeValue, choice1, choice2, choice3, chapters }) => {
           <FormGroup className="choices">
             {/* Choix 1 */}
             <Label for="choice1" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 1</Label>
-            <Button className="save-choice" title="Sauver le choix" color="success"><FiSave /></Button>
+            <Button className="save-choice" title="Sauver le choix" color="success" onClick={sendNewChoice(1)}><FiSave /></Button>
             <Button className="delete-choice" title="Supprimer le choix" color="danger">
               <FiDelete />
             </Button>
-            <Input type="text" value={choice} onChange={handleChange} name="choice1" id="choice1" placeholder="Écrivez le texte pour ce choix..." />
+            <Input type="text" value={choice1} onChange={handleChange} name="choice1" id="choice1" placeholder="Écrivez le texte pour ce choix..." />
             <FormText>Offrez à votre lecteur une décision à prendre</FormText>
           </FormGroup>
           <FormGroup className="choices-fork">
@@ -60,7 +65,7 @@ const Choix = ({ changeValue, choice1, choice2, choice3, chapters }) => {
           <FormGroup className="choices">
             {/* Choix 2 */}
             <Label for="choice2" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 2</Label>
-            <Button className="save-choice" title="Sauver le choix" color="success"><FiSave /></Button>
+            <Button className="save-choice" title="Sauver le choix" color="success" onClick={sendNewChoice(2)}><FiSave /></Button>
             <Button className="delete-choice" title="Supprimer le choix" color="danger">
               <FiDelete />
             </Button>
@@ -80,7 +85,7 @@ const Choix = ({ changeValue, choice1, choice2, choice3, chapters }) => {
           <FormGroup className="choices">
             {/* Choix 3 */}
             <Label for="choice3" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 3</Label>
-            <Button className="save-choice" title="Sauver le choix" color="success"><FiSave /></Button>
+            <Button className="save-choice" title="Sauver le choix" color="success" onClick={sendNewChoice(3)}><FiSave /></Button>
             <Button className="delete-choice" title="Supprimer le choix" color="danger">
               <FiDelete />
             </Button>
@@ -105,15 +110,17 @@ const Choix = ({ changeValue, choice1, choice2, choice3, chapters }) => {
 
 Choix.propTypes = {
   changeValue: PropTypes.func.isRequired,
-  choice: PropTypes.string,
+  choice1: PropTypes.string,
   choice2: PropTypes.string,
   choice3: PropTypes.string,
+  chapters: PropTypes.array,
 };
 
 Choix.defaultProps = {
-  choice: '',
+  choice1: '',
   choice2: '',
   choice3: '',
+  chapters: [],
 };
 
 // == Export

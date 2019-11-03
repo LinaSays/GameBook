@@ -14,6 +14,7 @@ import {
   sendChapter,
   getAllChapters,
   getSelectedChapter,
+  sendChoice,
 } from 'src/store/reducer/createStory';
 import { getCategory } from 'src/store/reducer/home';
 
@@ -25,7 +26,7 @@ const mapStateToProps = (state) => ({
   select: state.createStory.select,
   text: state.createStory.text,
   selectedColor: state.createStory.selectedColor,
-  choice1: state.createStory.choice,
+  choice1: state.createStory.choice1,
   choice2: state.createStory.choice2,
   choice3: state.createStory.choice3,
   category: state.home.category,
@@ -68,6 +69,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getSelectedChapter: (id) => {
     const action = getSelectedChapter(id);
+    dispatch(action);
+  },
+  sendChoice: (id) => {
+    const action = sendChoice(id);
     dispatch(action);
   },
 });

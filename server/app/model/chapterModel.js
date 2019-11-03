@@ -12,7 +12,7 @@ module.exports = {
   },
 
   getChapterChoices: (req, res) => {
-    const query = 'SELECT * FROM choice WHERE id_situation_parent=?';
+    const query = 'SELECT id, text, id_situation_parent, CASE WHEN id=15 THEN \'/signup\' WHEN id=16 THEN \'/story/2\' ELSE id_situation_child END as id_situation_child FROM choice WHERE id_situation_parent=?';
     const params = [req.params.id];
     // execute query
     db.query(query, params, (err, result) => {

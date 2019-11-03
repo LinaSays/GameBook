@@ -8,7 +8,7 @@ module.exports = {
     // execute query
     db.query(query, params, (err, result) => {
       if (err) throw err;
-      res.send(result.insertId);
+      res.sendStatus(200);
     });
   },
 
