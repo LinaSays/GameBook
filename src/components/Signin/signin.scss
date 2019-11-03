@@ -86,6 +86,17 @@
         color: white;
         background-color: rgb(124, 79, 196);
       }
+
+      &-change {
+        border: none;
+        border-radius: 100px;
+        padding: .7rem;
+        width: 100%;
+        margin: 1rem 0;
+        font-family: 'Lato';
+        color: white;
+        background-color: rgb(124, 79, 196);
+      }
       
     }
 
@@ -209,6 +220,7 @@
         
         position: relative;
         z-index: 2;
+        font-size: 2rem;
         
       }
 
@@ -216,6 +228,7 @@
         
         position: relative;
         z-index: 2;
+        font-size: 1rem;
         
       }
     }

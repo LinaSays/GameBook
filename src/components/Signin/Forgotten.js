@@ -15,7 +15,7 @@ const Forgotten = ({ changeValue, changeEmail }) => {
     <div className="signin">
       <div className="signin-left-forgotten_image" />
       <form className="signin-right">
-        <h3 className="signin-right-title">Vous avez oublié votre mot de passe ?</h3>
+        <h3 className="signin-right-title-change text-center">Vous avez oublié votre mot de passe ?</h3>
         <div className="signin-right-field">
           <input type="email" value={changeEmail} onChange={handleChange} placeholder="Email" name="changeEmail" className="signin-right-input" />
         </div>
