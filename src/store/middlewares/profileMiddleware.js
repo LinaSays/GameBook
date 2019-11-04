@@ -18,6 +18,9 @@ const profileMiddleware = (store) => (next) => (action) => {
     case CREATE_USER: {
       const state = store.getState();
       const { user_name, email, password, confirm, choice } = state.signin;
+      if (user_name.length === 0) {
+        toast.error('Veuillez saisir votre nom');
+      }
       if (password === confirm) {
         axios.defaults.withCredentials = true;
         axios.post('http://localhost:3000/profile/add', {

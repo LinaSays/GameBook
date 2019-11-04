@@ -177,7 +177,7 @@ module.exports = {
       }
       else {
         const user_id = decoded.user;
-        const query = 'SELECT story.id, story.title, story.image FROM story JOIN user ON story.author_id = user.id WHERE user.id=?';
+        const query = 'SELECT story.id, story.title, story.image, story.published FROM story JOIN user ON story.author_id = user.id WHERE user.id=?';
         const params = [user_id];
         // execute query
         db.query(query, params, (err1, result) => {
