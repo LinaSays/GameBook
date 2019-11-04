@@ -3,7 +3,7 @@
 @media screen and (min-width: 320px) {
 
     .footer {
-        padding-top: 50px;
+        position: relative;
         border-top: 1px solid #e7eaee;
     
         &-logo {
@@ -172,6 +172,10 @@
   
 
 @media screen and (min-width: 992px) {
+
+    .footer {
+        margin-top:0;
+    }
 
     .icon-group {
         margin-bottom: 20px;
