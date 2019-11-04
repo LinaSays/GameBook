@@ -21,7 +21,7 @@ class Categories extends React.Component {
 
   render() {
     const { storylist } = this.props;
-    console.log(this.props);
+    console.log(this.props.category);
     return (
       <div className="categories">
         <img
@@ -30,7 +30,7 @@ class Categories extends React.Component {
           className="image"
           width="100%"
         />
-        <h1 className="categories-title">{}</h1>
+        {/* <h1 className="categories-title">{this.props.category}</h1> */}
         <div className="cards-group">
           <Row className="test1">
             {storylist.map((list) => (
