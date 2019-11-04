@@ -1,7 +1,9 @@
 // == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import * as ScrollMagic from 'scrollmagic';
+import { TweenMax, TimelineMax } from 'gsap';
+import { ScrollMagicPluginGsap } from 'scrollmagic-plugin-gsap';
 
 // == Import : local
 import './home.scss';
@@ -9,6 +11,8 @@ import { Link } from 'react-router-dom';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import Intro from './Intro';
 
+// == Plugins ScrollMAgic and GSAP
+ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 // == Composant
 class Home extends React.Component {
