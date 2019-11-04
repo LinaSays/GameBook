@@ -1,12 +1,11 @@
 .card {
   border: 0;
 
-
   &-image-category {
     position: relative;
     max-height: 350px;
     box-shadow: 4px 2px 20px 0px #9e9494;
-    
+
   }
 
   
@@ -15,31 +14,48 @@
     bottom: 1rem;
     right: 1rem;
     font-size: 1em;
-    color: #fff;
+    color: #232323;
+    padding: .5rem;
+    background-color: lighten(#ddd, 15%);
+    opacity: 0.8;
+    border-radius: 5px;
   }
 
 
   &-text-front {
     position: absolute;
     top: 2rem;
-    color: #fff;
+    color: #232323;
     margin-left: 20px;
+    font-size: 1.8rem;
+    padding: .5rem;
+    background-color: lighten(#ddd, 15%);
+    opacity: 0.8;
+    border-radius: 5px;
 
     &-author {
       position: absolute;
       bottom: 1rem;
       left: 1.2rem;
       font-size: 1em;
-      color: #eee;
+      color: #232323;
       font-style: italic;
+      padding: .5rem;
+      background-color: lighten(#ddd, 15%);
+      opacity: 0.8;
+      border-radius: 5px;
     }
   }
 
   &-title-flippy {
     position: absolute;
     top: 1rem;
-    color: #fff;
+    color: #232323;
     left: 1rem;
+    padding: .5rem;
+    background-color: lighten(#ddd, 15%);
+    opacity: 0.8;
+    border-radius: 5px;
   }
 
   &-link {
@@ -48,14 +64,18 @@
     bottom: 1rem;
     right: 1.8rem;
     font-size: 1em;
-    color: #fff;
+    color: #232323;
+    background-color: lighten(#ddd, 15%);
+    opacity: 0.8;
+    border-radius: 5px;
+    padding: .5rem;
 
     &:hover {
-      background-color: #ffffff;
-      color: #000;
+      background-color: #232323;
+      color: #ddd;
       border-radius: 0.4rem;
       padding: 0.2rem 0.5rem;
-      transition: .8s;
+      transition: .5s;
       opacity: 0.8;
     }
   }
@@ -63,9 +83,14 @@
   &-text-back {
     position: absolute;
     font-size: 0.9em;
-    margin-top: 60px;
-    color: #fff;
+    margin-top: 1rem;
+    color: #232323;
     margin-left: 20px;
+    padding: .5rem;
+    background-color: lighten(#ddd, 15%);
+    opacity: 0.8;
+    border-radius: 5px;
+    margin-right: 1rem;
   }
 }
 .mobile {

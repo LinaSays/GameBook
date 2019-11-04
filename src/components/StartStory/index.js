@@ -30,7 +30,7 @@ class StartStory extends React.Component {
     // style= {{ background: color }};
 
     return (
-      <div className="container-story" style={{ backgroundColor: 'black' }}>
+      <div className="container-story" style={{ background: color }}>
         <Image src={image} alt="" className="bg-image" />
         <div className="story">
           {

@@ -25,7 +25,11 @@ import {
   GET_SELECTED_CHAPTER,
   showSelectedChapter,
   SEND_CHOICE,
-  showChoice
+  showChoice,
+  DELETE_CHAPTER,
+  deleteChapterFromDB,
+  FIND_CHAPTER_TO_EDIT,
+  updateChapter,
 } from 'src/store/reducer/createStory';
 
 async function getStartStories(store) {
@@ -48,7 +52,7 @@ async function getStartStories(store) {
 
 async function getNextChapter(store, id) {
   // cas spécial de la FAQ
-  if(isNaN(id)){
+  if (isNaN(id)) {
     document.location.href = id;
   }
   else try {
@@ -205,6 +209,34 @@ async function newChoice(store, id) {
   }
 }
 
+async function deleteChapter(store, id) {
+  try {
+    axios.defaults.withCredentials = true;
+    const response = await axios.delete('http://localhost:3000/chapter/delete', { data: { id } });
+    const save = deleteChapterFromDB(response.data);
+    store.dispatch(save);
+  }
+  catch (err) {
+    console.error(err);
+  }
+}
+
+async function editChapter(store, id) {
+  try {
+    const state = store.getState();
+    const { recap, text, selectedColor } = state.createStory;
+    axios.defaults.withCredentials = true;
+    const response = await axios.patch('http://localhost:3000/chapter/edit', {
+      recap, text, selectedColor, id,
+    });
+    const save = updateChapter(response.data);
+    store.dispatch(save);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
 const storyMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_START_STORIES: {
@@ -249,6 +281,14 @@ const storyMiddleware = (store) => (next) => (action) => {
     }
     case SEND_CHOICE: {
       newChoice(store, action.id);
+      break;
+    }
+    case DELETE_CHAPTER: {
+      deleteChapter(store, action.id);
+      break;
+    }
+    case FIND_CHAPTER_TO_EDIT: {
+      editChapter(store, action.id);
       break;
     }
     default:

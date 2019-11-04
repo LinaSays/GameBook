@@ -1,118 +1,164 @@
-.image {
-  display: flex;
-  background-size: contain;
-}
+@import 'src/styles/vars';
 
-.contact {
-  margin: 2rem;
-  display: flex;
+@media screen and (min-width: 320px) {
 
-  &-form {
-    width: 100%;
+  .image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
 
-    &-title {
-      margin-top: 1em;
+  
+    &-title{
+      position: relative;
+      font-family: $font-inter;
+      font-weight: bold;
+      margin-top: 5rem;
+      z-index: 1;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
     }
   
-    &-input {
-      margin-top: 2em;
-
-      &-textarea {
-        margin-top: 2em;
-      }
+    &-descrip {
+      position: relative;
+      font-family: $font;
+      z-index: 1;
+      color: white;
+      font-size: 1rem;
     }
- 
-    &-button {
-      float: right;
+    
+  
+    &-contact {
+      position: absolute;
+      object-fit: cover;
+      height: 100%;
+      opacity: .4;
+      top:0
     }
+  
+    
   }
-
-  &-info {
-    align-self: start;
-    margin-left: 1.5em;
-    width: 100%;
-
-    &-text-1 {
-      margin-top: 4.5rem;
-      padding-top: 1.2rem;
-      border-top: 1px solid #e1e1e1;
-    }
-
-    &-text-span {
-      margin-left: 1em;
-    }
-  }
-}
-
-
-@media screen and (max-width: 1000px) {
+  
+  
   .contact {
-    margin: 2rem;
-
-    &-form {
-      width: 100%;
-
-      &-title {
-        font-size: 2em;
-      }
-
-      &-form {
-        width: 100%;
-      }
-    }
-
-    &-info-text {
-      padding-top: 1rem;
-      margin: 0;
-      align-self: flex-start;
-
-      &-1 {
-        padding-top: 1rem;
-        margin-top: 3.5rem;
-        border-top: 1px solid #e1e1e1;
-      }
-    }
-  }
-}
-
-
-@media screen and (max-width: 550px) {
-  .contact {
-    margin: 2rem;
+    //margin: 2rem;
+    display: flex;
     flex-direction: column-reverse;
-
+    
+  
     &-form {
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-self: flex-end;
+      margin: 3rem 0;
 
+      &-desc {
+        margin: 0;
+        font-family: $font;
+        color: lighten(#000000, 40%);
+      }
+
+  
       &-title {
-        padding-top: 4rem;
+       
+        font-family: $font;
+        font-weight: bold;
+        font-size: 1.7rem;
+      }
+    
+      &-input {
+        margin-bottom: 2em;
+        background-color: rgb(243, 243, 243);
+        border: none;
+        font-family: $font;
+  
+        &-textarea {
+          margin-top: 2em;
+          background-color: rgb(243, 243, 243);
+          border: none;
+        }
+      }
+   
+      &-button {
+        //float: right;
+        background-color:$violet;
+        font-family: $font;
+        font-size: .9rem;
+        font-weight: bold;
+        border: none;
+
+        &:hover {
+          background-color: darken( $violet, 15% );
+        }
+
       }
     }
-
+  
     &-info {
-      padding-left: 0;
-      margin: 0;
+      width: 100%;
+      margin-top: 3rem;
+
+      &-title {
+        
+        font-family: $font;
+        font-weight: bold;
+        font-size: 1.7rem;
+      }
+  
+      &-text-1 {
+        font-family: $font-inter;
+        font-size: 1rem;
+        color: lighten(#000000, 40%); 
+      
+      }
+
+      &-icon {
+       color: $violet;
+      }
+  
+      &-text-span {
+        margin-left: 1em;
+        font-family: $font;
+        //background-color: red;
+       
+        
+      }
+    }
+  }
+  
+}
+
+@media screen and (min-width: 992px) {
+
+  .image {
+
+    &-title {
+      font-size: 3.5rem;
+    }
+    
+    &-descrip {
+      font-size: 1.3rem;
+    }
+  }
+
+  .contact {
+    flex-direction: row-reverse;
+    
+    &-info {
+
+      &-title {
+        
+      }
 
       &-text-1 {
-        margin: 2rem 0;
+        width: 80%;
+        margin-bottom: 3rem;
       }
     }
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .contact {
-    margin: 2rem;
-    display: block;
-
-    &-form {
-      width: 100%;
-    }
-
-    &-info {
-      padding-top: 5em;
-      padding-left: 0;
-      margin: 0;
-    }
+    
   }
 }

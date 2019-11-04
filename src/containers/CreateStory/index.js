@@ -15,6 +15,8 @@ import {
   getAllChapters,
   getSelectedChapter,
   sendChoice,
+  deleteChapter,
+  findChapterToEdit,
 } from 'src/store/reducer/createStory';
 import { getCategory } from 'src/store/reducer/home';
 
@@ -73,6 +75,14 @@ const mapDispatchToProps = (dispatch) => ({
   },
   sendChoice: (id) => {
     const action = sendChoice(id);
+    dispatch(action);
+  },
+  deleteChapter: (id) => {
+    const action = deleteChapter(id);
+    dispatch(action);
+  },
+  findChapterToEdit: (id) => {
+    const action = findChapterToEdit(id);
     dispatch(action);
   },
 });

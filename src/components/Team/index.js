@@ -9,7 +9,7 @@ import './team.scss';
 
 // == Composant
 const Team = () => (
-  <div className="body">
+  <div className="body container">
     <h1 className="body-title">Team</h1>
     <div className="team">
       <div className="team-info">

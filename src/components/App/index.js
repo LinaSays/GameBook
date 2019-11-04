@@ -19,7 +19,9 @@ import CreateStory from 'src/containers/CreateStory';
 import Profile from 'src/containers/Profile';
 import Team from 'src/components/Team';
 import StartStory from 'src/containers/StartStory';
-import NavNew from 'src/components/NavNew';
+import NavNew from 'src/containers/NavNew';
+import ScrollToTop from 'src/components/ScrollToTop';
+
 
 toast.configure();
 
@@ -36,6 +38,7 @@ class App extends React.Component {
     return (
       <div id="app">
         <ToastContainer autoClose={5000} />
+        <ScrollToTop />
         <NavNew isConnected={isConnected} />
         <Switch>
           <Route exact path="/">
@@ -65,7 +68,7 @@ class App extends React.Component {
           <Route exact path="/categories">
             <Home isConnected={isConnected} />
           </Route>
-          <Route path="/categories/:id">
+          <Route exact path="/categories/:id">
             <Categories />
           </Route>
           <Route path="/createstory">
