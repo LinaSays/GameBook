@@ -345,6 +345,13 @@
         font-size: 0.8rem;
       }
     }
+
+    .link-svg {
+
+      &:hover {
+        color: #fff;
+      }
+    }
   }
 
 /* Boutons menu profil */
@@ -353,6 +360,8 @@
     display: flex;
     justify-content: space-evenly;
     width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 
     &-button {
       background-color: lighten(#1F2432, 5%);
