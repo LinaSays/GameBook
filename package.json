@@ -33,7 +33,6 @@
     "style-loader": "*",
     "stylelint": "*",
     "stylelint-config-recommended": "*",
-    "uglifyjs-webpack-plugin": "*",
     "webpack": "*",
     "webpack-cli": "*",
     "webpack-dev-server": "*"
@@ -83,6 +82,7 @@
     "redux": "^4.0.1",
     "regenerator-runtime": "^0.13.3",
     "scrollmagic": "^2.0.7",
-    "scrollmagic-plugin-gsap": "^1.0.3"
+    "scrollmagic-plugin-gsap": "^1.0.3",
+    "terser-webpack-plugin": "^2.2.1"
   }
 }
