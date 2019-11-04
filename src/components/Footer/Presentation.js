@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 const Presentation = ({ isConnected }) => (
   <Col sm={12} md={6} lg={3}>
     <h4 className="footer-logo">GAMEBook</h4>
-    <p className="footer-text">xPider is multi concept landing page theme for startups. Build your next landing page with proper variations.<br />Get started now.</p>
+    <p className="footer-text">Bienvenue chez Gamebook. Fini la lecture avec une seule fin possible. Place à l’interaction ! Faites les bons choix pour faire avancer l'histoire ou votre personnage, en bref devenez le héros.</p>
 
     { isConnected && (
       <div className="icon-group">

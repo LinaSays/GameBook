@@ -14,7 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(122, 122, 255);
+    background-color: rgb(175, 175, 238);
     padding-top: 3rem;
     min-height: 100vh;
     min-width: 100%;
@@ -77,6 +77,17 @@
       }
 
       &-button {
+        border: none;
+        border-radius: 100px;
+        padding: .7rem;
+        width: 100%;
+        margin: 1rem 0;
+        font-family: 'Lato';
+        color: white;
+        background-color: rgb(124, 79, 196);
+      }
+
+      &-change {
         border: none;
         border-radius: 100px;
         padding: .7rem;
@@ -201,7 +212,7 @@
         width: 100%;
         height: 100%;
         z-index: 0;
-        opacity: .3;
+        opacity: .2;
 
       }
 
@@ -209,6 +220,7 @@
         
         position: relative;
         z-index: 2;
+        font-size: 2rem;
         
       }
 
@@ -216,6 +228,7 @@
         
         position: relative;
         z-index: 2;
+        
         
       }
     }
@@ -236,6 +249,7 @@
 
       &-subtitle {
       margin-bottom: 2.5rem;
+      
 
       }
 

@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(122, 122, 255);
+    background-color: rgb(175, 175, 238);
     padding-top: 3rem;
     min-height: 100vh;
     min-width: 100%;
@@ -113,14 +113,18 @@
 // == Tablet
 @media screen and (min-width: 768px) {
   .testing1 {
-    background-color: rgb(124, 79, 196);
+    width: 90%;
+    background-color: rgb(100, 62, 161);
     display: flex;
     position: relative;  
+    //border-radius: 10px;
     overflow: hidden;
          
   }
 
   .signup {
+
+    
 
     &-left {
       width: 50%;
@@ -209,6 +213,7 @@
   .testing1 {
     width: 900px;
     height: 570px;
+
   }
 
   .signup {
