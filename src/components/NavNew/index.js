@@ -67,6 +67,7 @@ class NavNew extends React.Component {
                           <NavLink
                             key={item.id}
                             to={`/categories/${item.id}`}
+                            exact
                             className="nav-drop-link"
                           >{item.name}
                           </NavLink>
