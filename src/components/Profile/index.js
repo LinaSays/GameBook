@@ -33,16 +33,16 @@ class Profile extends React.Component {
     } = this.props;
     // const { path, url } = this.props.match;
     switch (location.pathname) {
-      // case '/profile/created': {
-      //   return (
-      //     <div className="menu-button-modify-profile">
-      //       {profile.map((item) => (
-      //         <Info key={item.id} {...item} />
-      //       ))}
-      //       <Menu />
-      //       <Change {...this.props} />
-      //     </div>
-      //   ); }
+      case '/profile/modify': {
+        return (
+          <div className="menu-button-modify-profile">
+            {profile.map((item) => (
+              <Info key={item.id} {...item} />
+            ))}
+            <Menu />
+            <Change {...this.props} />
+          </div>
+        ); }
       case '/profile/created': {
         return (
           <div className="menu-button-stories-created">
