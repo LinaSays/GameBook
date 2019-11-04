@@ -12,6 +12,7 @@ import {
   getWroteStories,
   changeInput,
 } from 'src/store/reducer/profile';
+import { deleteStory } from 'src/store/reducer/createStory';
 
 
 const mapStateToProps = (state) => ({
@@ -44,6 +45,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getWroteStories: () => {
     const action = getWroteStories();
+    dispatch(action);
+  },
+  deleteStory: (id) => {
+    const action = deleteStory(id);
     dispatch(action);
   },
 });

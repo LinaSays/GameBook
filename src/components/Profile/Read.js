@@ -7,11 +7,11 @@ import PropTypes from 'prop-types';
 
 // == Composant
 const Read = ({ title, image }) => (
-  <CardDeck>
-    <Card>
-      <Card.Img variant="top" src={image} />
-      <Card.Footer>
-        <small className="text-muted">{title}</small>
+  <CardDeck className="card-story-profile-wrote read">
+    <Card className="menu-story-read">
+      <Card.Img variant="top" className="menu-story-image read" src={image} />
+      <Card.Footer className="menu-story-wrapper-read">
+        <h2 className="menu-story-title read">{title}</h2>
       </Card.Footer>
     </Card>
   </CardDeck>

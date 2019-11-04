@@ -26,8 +26,8 @@ module.exports = (app) => {
   app.get('/story/:id/chapters', chapter.getAllChapters); // get all situations for one story
   app.get('/chapter/:id/choices', chapter.getChapterChoices); // show  choices of one situation
   app.post('/story/:id/chapter/add', chapter.createChapter); // add situation
-  app.delete('/story/:id/chapter/delete', chapter.deleteChapter); // delete situation
-  app.patch('/story/:id/chapter/edit/:id', chapter.editChapter); // edit situation
+  app.delete('/chapter/delete', chapter.deleteChapter); // delete situation
+  app.patch('/chapter/edit', chapter.editChapter); // edit situation
   app.post('/choice/add', choice.createChoice); // add choice
   app.delete('/choice/delete/:id', choice.deleteChoice); // delete choice
   app.patch('/choice/edit/:id', choice.editChoice); // edit choice

@@ -40,12 +40,12 @@ class Home extends React.Component {
 
         })
           .setTween(tween)
-          // .addIndicators({ name: 'resize' }) 
+          //.addIndicators({ name: 'resize' }) 
           .addTo(controller);
       }
     }
     else {
-      for (let i = 1; i <= cardArray; i++) {
+      for (let i = 2; i <= cardArray; i++) {
         const tween = TweenMax.to(`#card-${i}`, 0.1, { scale: 1.08, repeat: 1, yoyo: true });
 
         new ScrollMagic.Scene({
@@ -54,7 +54,7 @@ class Home extends React.Component {
 
         })
           .setTween(tween)
-          // .addIndicators({ name: 'resize' })
+          //.addIndicators({ name: 'resize' })
           .addTo(controller);
       }
     }
@@ -74,7 +74,7 @@ class Home extends React.Component {
                   <div className="card-story-text-content">
                     <h2 className="card-story-title">{item.name} .</h2>
                     <p className="card-story-descrip">{item.description}</p>
-                    <Link to={`categories/${item.id}`} className={`card-story-link link-cat-${item.id}`}>Commencer l'histoire<MdKeyboardArrowRight /></Link>
+                    <Link to={`categories/${item.id}`} className={`card-story-link link-cat-${item.id}`}>Parcourir<MdKeyboardArrowRight /></Link>
                   </div>
                 </div>
               ))}

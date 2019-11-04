@@ -65,7 +65,6 @@ class NavNew extends React.Component {
                       {
                         category.map((item) => (
                           <NavLink
-                         
                             key={item.id}
                             to={`/categories/${item.id}`}
                             exact
@@ -74,7 +73,6 @@ class NavNew extends React.Component {
                           </NavLink>
                         ))
                       }
-                    
                     </div><MdKeyboardArrowDown />
                   </span>
                   <NavLink to="/team" className="nav-group-link-cat">A propos</NavLink>

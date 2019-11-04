@@ -33,6 +33,10 @@ const SHOW_SELECTED_CHAPTER = 'SHOW_SELECTED_CHAPTER';
 
 export const SEND_CHOICE = 'SEND_CHOICE';
 const SHOW_CHOICE = 'SHOW_CHOICE';
+export const DELETE_CHAPTER = 'DELETE_CHAPTER';
+const DELETE_CHAPTER_FROM_DB = 'DELETE_CHAPTER_FROM_DB';
+export const FIND_CHAPTER_TO_EDIT = 'FIND_CHAPTER_TO_EDIT';
+const UPDATE_CHAPTER = 'UPDATE_CHAPTER';
 
 // - Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -77,6 +81,16 @@ const reducer = (state = initialState, action = {}) => {
         selectedColor: action.selectedColor,
       };
     case SHOW_CHOICE:
+      return {
+        ...state,
+      };
+    case DELETE_CHAPTER_FROM_DB:
+      return {
+        ...state,
+        recap: '',
+        text: '',
+      };
+    case UPDATE_CHAPTER:
       return {
         ...state,
       };
@@ -161,6 +175,24 @@ export const sendChoice = (id) => ({
 
 export const showChoice = () => ({
   type: SHOW_CHOICE,
+});
+
+export const deleteChapterFromDB = () => ({
+  type: DELETE_CHAPTER_FROM_DB,
+});
+
+export const deleteChapter = (id) => ({
+  type: DELETE_CHAPTER,
+  id,
+});
+
+export const updateChapter = () => ({
+  type: UPDATE_CHAPTER,
+});
+
+export const findChapterToEdit = (id) => ({
+  type: FIND_CHAPTER_TO_EDIT,
+  id,
 });
 // - Selectors
 

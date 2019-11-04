@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 // == Import : local
 
 // == Composant
-const Pins = ({ badge, image }) => (
-  <div className="pins">
-    <div className="pins-info">
+const Pins = ({ image, badge }) => (
+  <div className="pins-content">
+    <div className="pins-content-info">
       <img src={image} alt="badge1" />
-      <Badge variant="primary">{badge}</Badge><br />
+      <Badge className="pins-content-badge" variant="primary">{badge}</Badge><br />
     </div>
   </div>
 );

@@ -53,7 +53,7 @@ const Category = ({ id, title, image, author, description }) => {
                 alt=""
                 className="card-image-category"
               />
-              <h2 className="card-title-flippy">Description</h2>
+              {/* <h2 className="card-title-flippy">Description</h2> */}
               <p className="card-text-back">{description}</p>
               <Link to={`/story/${id}`} className="card-link"> Lecture <FaPlayCircle /></Link>
             </div>
@@ -85,7 +85,7 @@ const Category = ({ id, title, image, author, description }) => {
               <h2 className="mobile-card-title">description</h2>
               {description} <br />
               <span className="mobile-card-text-front-author">{author}</span>
-              <a href="#" className="mobile-card-link">Lecture <FaPlayCircle /></a>
+              <Link to={`/story/${id}`} className="mobile-card-link">Lecture <FaPlayCircle /></Link>
             </div>
           </Collapse>
         </container>

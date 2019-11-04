@@ -39,14 +39,14 @@ module.exports = {
     // execute query
     db.query(query, params, (err, result) => {
       if (err) throw err;
-      res.send(result);
+      res.sendStatus(200);
     });
   },
 
   editChapter: (req, res) => {
-    const { text, recap, color } = req.body;
+    const { text, recap, selectedColor, id } = req.body;
     const query = 'UPDATE situation SET text=?, recap=?, color=? WHERE id=?';
-    const params = [text, recap, color, req.params.id];
+    const params = [text, recap, selectedColor, id];
     // execute query
     db.query(query, params, (err, result) => {
       if (err) throw err;
