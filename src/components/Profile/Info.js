@@ -15,7 +15,7 @@ const Info = ({ name, avatar, role }) => (
       <div className="write-story-desktop-wrapper">
         {role === 'author' && (
           <button type="button" className="write-story-desktop-wrapper-icon">
-          <Link to="/createstory"><GiBlackBook /></Link>
+            <Link to="/createstory"><GiBlackBook /></Link>
           </button>
         )}
       </div>
