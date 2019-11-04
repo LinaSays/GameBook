@@ -112,10 +112,12 @@
       &-text-1 {
         font-family: $font-inter;
         font-size: 1rem;
-        color: lighten(#000000, 40%);
-       
-        
-       
+        color: lighten(#000000, 40%); 
+      
+      }
+
+      &-icon {
+       color: $violet;
       }
   
       &-text-span {
@@ -128,4 +130,35 @@
     }
   }
   
+}
+
+@media screen and (min-width: 992px) {
+
+  .image {
+
+    &-title {
+      font-size: 3.5rem;
+    }
+    
+    &-descrip {
+      font-size: 1.3rem;
+    }
+  }
+
+  .contact {
+    flex-direction: row-reverse;
+    
+    &-info {
+
+      &-title {
+        
+      }
+
+      &-text-1 {
+        width: 80%;
+        margin-bottom: 3rem;
+      }
+    }
+    
+  }
 }
