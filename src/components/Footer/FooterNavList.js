@@ -27,7 +27,7 @@ class FooterNavList extends React.Component {
               <h5 className="footer-titlelink">Catégories</h5>
               <ul>
                 {
-                  category.map((data) => <li key={data.id}><Link className="footer-link" to={`categories/${data.id}`}>{data.name}</Link></li>)
+                  category.map((data) => <li key={data.id}><Link className="footer-link" to={`/categories/${data.id}`}>{data.name}</Link></li>)
             }
               </ul>
             </>

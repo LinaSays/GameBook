@@ -11,7 +11,7 @@ const Forgotten = ({ changeValue, changeEmail }) => {
     const { name, value } = event.target;
     changeValue(name, value);
   };
-  return(
+  return (
     <div className="signin">
       <div className="signin-left-forgotten_image" />
       <form className="signin-right">
@@ -23,12 +23,11 @@ const Forgotten = ({ changeValue, changeEmail }) => {
       </form>
     </div>
   );
-}
+};
 
 Forgotten.propTypes = {
   changeValue: PropTypes.func.isRequired,
   changeEmail: PropTypes.string.isRequired,
-
 };
 
 // == Export

@@ -65,16 +65,13 @@ class NavNew extends React.Component {
                       {
                         category.map((item) => (
                           <NavLink
-                         
                             key={item.id}
-                            to={`categories/${item.id}`}
-                            exact
+                            to={`/categories/${item.id}`}
                             className="nav-drop-link"
                           >{item.name}
                           </NavLink>
                         ))
                       }
-                    
                     </div><MdKeyboardArrowDown />
                   </span>
                   <NavLink to="/team" className="nav-group-link-cat">A propos</NavLink>
