@@ -85,7 +85,7 @@ const Category = ({ id, title, image, author, description }) => {
               <h2 className="mobile-card-title">description</h2>
               {description} <br />
               <span className="mobile-card-text-front-author">{author}</span>
-              <a href="#" className="mobile-card-link">Lecture <FaPlayCircle /></a>
+              <Link to={`/story/${id}`} className="mobile-card-link">Lecture <FaPlayCircle /></Link>
             </div>
           </Collapse>
         </container>
