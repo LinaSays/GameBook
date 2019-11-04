@@ -16,7 +16,9 @@ import './profile.scss';
 // == Composant
 class Profile extends React.Component {
   componentDidMount() {
-    const { getProfile, getPins, getReadStories, getWroteStories } = this.props;
+    const {
+      getProfile, getPins, getReadStories, getWroteStories,
+    } = this.props;
     getProfile();
     getPins();
     getReadStories();
@@ -30,6 +32,7 @@ class Profile extends React.Component {
       pins,
       read,
       wrote,
+      deleteStory,
     } = this.props;
     // const { path, url } = this.props.match;
     switch (location.pathname) {
@@ -51,7 +54,7 @@ class Profile extends React.Component {
             ))}
             <Menu />
             {wrote.map((item) => (
-              <Wrote key={item.image} {...item} />
+              <Wrote key={item.image} {...item} {...this.props} />
             ))}
           </div>
         ); }
