@@ -2,7 +2,7 @@
 
 @import 'src/styles/vars';
 
-// == Mobile
+// == Size Mobile and Tablet
 
 @media screen and (min-width:320px) {
 	.desk {
@@ -20,6 +20,9 @@
 		&-connect {
 			background-color: rgb(255, 255, 255);
 			box-shadow: rgb(219, 219, 219) 5px 0 10px;
+			height: 60px;
+			
+
 		}
 
 		&-div{
@@ -28,8 +31,10 @@
 			align-items: center;
 			margin:auto;
 			position: relative;
+			top: -5px;
 			//background-color: red;
 			z-index: 8;
+			padding: 0;
 		}
 
 		&-logo {
@@ -148,7 +153,7 @@
 	}
 }
 
-
+// == Size Desktop
 @media screen and (min-width:992px) {
 
 	.mob {
@@ -166,6 +171,10 @@
 
 	.nav {
 
+		&-connect {
+			height: 75px;
+		}
+
 		&-drop{
 
 		
@@ -178,8 +187,8 @@
 				padding: 1rem;
 				left: 320px;
 				top: 60px;
-				opacity: 0;
-				transition: .3s;
+				display: none;
+				transition: .3s ease-in-out;
 
 			}
 			
@@ -230,15 +239,28 @@
 				display: initial;
 				margin: .9rem;
 				font-size: 1rem;
-				transition: .3s;
 				font-family: $font-inter;
 				color: black;
 				padding: 0 0 1rem;
 
 				&:hover .nav-drop-desk-open {
-					opacity: 1;
+					display:block;
+					display: flex;
 					top: 50px;
+					animation: fade .3s;
 
+	
+				}
+
+				@keyframes fade {
+					from {
+						opacity: 0;
+					}
+
+					to {
+						opacity: 1;
+						
+					}
 				}
 
 			}

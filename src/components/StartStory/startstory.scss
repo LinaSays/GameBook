@@ -1,5 +1,6 @@
 @import 'src/styles/vars';
 
+// == Size Mobile
 @media screen and (min-width: 320px) {
     .container-story {
         //background: url('https://wallpaperset.com/w/full/0/5/1/442146.jpg') center no-repeat;
@@ -122,6 +123,7 @@
     
 }
 
+// == Size Tablet
 @media screen and (min-width: 768px) {
     .container-story {
         //padding: 2rem;
@@ -143,6 +145,7 @@
 
 }
 
+// == Size Desktop
 @media screen and (min-width: 992px) {
     .container-story {
         padding: 0;
@@ -211,6 +214,7 @@
 }
 
 
+// == Size Desktop ++
 @media screen and (min-width: 1200px) {
     .story {
         width: 80%;
