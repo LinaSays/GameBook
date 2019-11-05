@@ -72,7 +72,7 @@ class StartStory extends React.Component {
             {
               isConnected && (
               <div className="story-account-nav-footer ">
-                <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdPerson className="button-nav-logo"/></NavLink>
+                <NavLink to="/profile" className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdPerson className="button-nav-logo"/></NavLink>
                 <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdBook className="button-nav-logo"/></NavLink>
                 <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdHome className="button-nav-logo"/></NavLink>
               </div>

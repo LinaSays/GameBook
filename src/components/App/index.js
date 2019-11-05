@@ -17,7 +17,7 @@ import Signup from 'src/containers/Signup';
 import Categories from 'src/containers/Categories';
 import CreateStory from 'src/containers/CreateStory';
 import Profile from 'src/containers/Profile';
-import Team from 'src/components/Team';
+import Team from 'src/components/TeamNew';
 import StartStory from 'src/containers/StartStory';
 import NavNew from 'src/containers/NavNew';
 import ScrollToTop from 'src/components/ScrollToTop';
