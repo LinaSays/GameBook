@@ -46,6 +46,7 @@
             &-info {
                 text-align: center;
                
+               
             }
             &-nav-mobile {
                 display: none;
@@ -57,6 +58,7 @@
                 display: flex;
                 left:0;
                 bottom:0;
+                background-color: $violet;
             }
         }
 
@@ -65,6 +67,17 @@
             height: 3.5rem;
             border-radius: 0;
             margin: 0;
+           
+
+            &:hover {
+                background-color: darken($violet , 10%);
+                
+            }
+        }
+
+        .button-nav-logo {
+            color: lighten($violet , 30%);
+            font-size: 1.5rem;
         }
     
         &-page {
@@ -163,6 +176,24 @@
                 display: flex;
                 flex-direction: column;
                 padding: 1rem 3rem;
+               
+
+                &-side {
+                    background-color: $violet;
+                    font-family: $font;
+                    font-size: 1rem;
+                    color: white;
+                    margin-bottom: 1rem;
+                    padding: .3rem;
+                    border-radius: 5px;
+                    transition: .2s;
+                    
+                    &:hover {
+                        text-decoration: none;
+                        color: lighten($violet, 20%);
+                    }
+                   
+                }
             }
 
             &-nav-footer {

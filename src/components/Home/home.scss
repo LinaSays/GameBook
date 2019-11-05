@@ -76,16 +76,16 @@
 
             &:hover {
                 color: white;
-                background-color: #fc5c42;
-                border: 1px #fc5c42 solid;
+                background-color: $orange;
+                border: 1px $orange solid;
                 text-decoration: none;
             }
         }
 
         &-img--mobile {
-            width: 70%;
+            width: 80%;
             position: relative;
-            left: 25%;
+            left: 20%;
 
         }
 
@@ -117,8 +117,8 @@
         overflow: hidden;
 
         &-title {
-            font-family: $font-futura;
-            font-weight: bold;
+            font-family: 'Futura';
+            font-weight: 900;
             font-size: 1em;
             text-transform: uppercase;
             transition: .5s;
@@ -177,7 +177,7 @@
     }
 
     .content {
-        padding: 3rem;
+        padding-top: 7rem;
     }
 
     .wave {

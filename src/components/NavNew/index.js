@@ -95,7 +95,7 @@ class NavNew extends React.Component {
                 </div>
               </nav>
             ) : (
-              <nav className="nav-div container bg-primary">
+              <nav className="nav-div container">
                 <div className="nav-group">
                   <NavLink to="/" className={colorLogo}><span className={colorLogo}>GAMEBook</span></NavLink>
                   <NavLink to="/" className="nav-logo text-white desk"><span>GAMEBook</span></NavLink>

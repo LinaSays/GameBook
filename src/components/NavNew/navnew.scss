@@ -100,7 +100,7 @@
 		 	text-align: center;
 		 	text-transform: uppercase;
 		 	font-size: 1.25em;
-             padding: 60px 0;
+            padding: 10rem 0;
 		}
 
 		&-close {
@@ -127,7 +127,16 @@
 	
 	.nav-group-link-bis {
 		margin-bottom: 2rem;
-		transition: 1s;
+		transition: .5s;
+		font-family: $font;
+		font-weight: bold;
+		font-size: 1.8rem;
+		color: gray;
+
+		&:hover {
+			text-decoration: none;
+			color: $orange;
+		}
 	}
 
 
