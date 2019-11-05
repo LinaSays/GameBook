@@ -1,3 +1,6 @@
+@import 'src/styles/vars';
+
+
 // == Mobile
 @media screen and (min-width: 320px) {
   .testing1 {
@@ -10,7 +13,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(175, 175, 238);
+    //background-color: rgb(175, 175, 238);
+    background: url('https://www.xtrafondos.com/wallpapers/montanas-en-bosque-minimalista-flat-3306.jpg') center no-repeat;
+    background-size: cover;
     padding-top: 3rem;
     min-height: 100vh;
     min-width: 100%;
@@ -26,13 +31,13 @@
 
       &-title {
         text-align: center;
-        font-family: 'Lato';
+        font-family: $font-inter;
         font-weight: bold;
       }
 
       &-subtitle {
         text-align: center;
-        font-family: 'Lato';
+        font-family: $font;
         font-weight: bold;
         font-size: 1.5rem;
         color: rgb(88, 88, 88);
@@ -41,13 +46,14 @@
       &-input {
         border: none;
         border-radius: 5px;
-        padding: .7rem;
+        padding: .5rem;
         width: 100%;
         margin: .8rem 0;
         background-color: rgb(245, 245, 245);
 
         &::placeholder {
-          font-family: 'Lato';
+          font-family: $font;
+          font-size: .9rem;
         }
 
       }
@@ -69,6 +75,12 @@
         font-family: 'Lato';
         color: white;
         background-color: rgb(124, 79, 196);
+      }
+
+      &-choice {
+        font-size: 1.1rem;
+        margin-right: 1rem;
+        font-family: $font;
       }
 
     }
@@ -187,6 +199,7 @@
         position: relative;
         padding: .5rem 1.5rem;
         transition: .4s;
+        font-family: $font-inter;
         font-size: 1rem;
         font-weight: normal;
 
@@ -196,6 +209,7 @@
           background-color: #fff;
           border-radius: 100px;
           padding: .5rem 1.5rem;
+        
           
         }
 
@@ -217,7 +231,17 @@
   }
 
   .signup {
+    &-left-field {
+      align-items: center;
+     //background-color: green;
 
+    }
+    &-left-choice {
+        //background-color: red;
+        margin-bottom: 2px;
+        font-size: 1.2rem;
+       
+    }
 
   }
 
