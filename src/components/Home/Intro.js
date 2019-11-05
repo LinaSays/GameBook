@@ -19,7 +19,7 @@ const Intro = () => (
       <div className="intro-img">
         <img className="intro-img--mobile" src="public\images\pngtube.com-iphone-in-hand-png-5316895.png" alt="" />
         <img className="intro-img--tablet" src="public\images\Ipad_iPhone_device.png" alt="" />
-        <img className="intro-img--desk" src="src\components\Home\girl_laptop_fv_bg.png" alt="" />
+        <img className="intro-img--desk" src="public\images\girl_laptop_fv_bg.png" alt="" />
       </div>
 
 
