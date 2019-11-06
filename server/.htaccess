@@ -1,0 +1,4 @@
+<LocationMatch ^/server>
+  Order Allow,Deny
+  Deny from all
+</LocationMatch>

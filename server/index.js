@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 // Server
 const app = module.exports = express();
 
-app.use(cors());
+app.use(cors({ origin: '*' }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
