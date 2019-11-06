@@ -28,13 +28,13 @@ module.exports = {
             if (err2) throw err;
             const tokenSettings = {
               expiresIn: '5d',
+              iss: issuer,
             };
             const token = jwt.sign({ user: result2.insertId }, secret, tokenSettings);
             // console.log(token);
             const cookieSettings = {
               httpOnly: false,
               secure: false,
-              iss: issuer,
             };
             res.cookie('token', token, cookieSettings).redirect('/profile');
           });
@@ -60,26 +60,26 @@ module.exports = {
             if (connection === undefined) {
               const tokenSettings = {
                 expiresIn: '2h',
+                iss: issuer,
               };
               const token = jwt.sign({ user: result[0].id }, secret, tokenSettings);
               // console.log(token);
               const cookieSettings = {
                 httpOnly: false,
                 secure: false,
-                iss: issuer,
               };
               res.cookie('token', token, cookieSettings).redirect('/profile');
             }
             else {
               const tokenSettings = {
                 expiresIn: '15d',
+                iss: issuer,
               };
               const token = jwt.sign({ user: result[0].id }, secret, tokenSettings);
               // console.log(token);
               const cookieSettings = {
                 httpOnly: false,
                 secure: false,
-                iss: issuer,
               };
               res.cookie('token', token, cookieSettings).redirect('/profile');
             }
