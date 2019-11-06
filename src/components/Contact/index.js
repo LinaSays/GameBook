@@ -21,7 +21,7 @@ const Contact = () => (
       <div className="image">
         <img src="https://i.imgur.com/dWJbYAQ.jpg" className="image-contact" width="100%" alt="banniere contact" />
         <h1 className="image-title">Contact</h1>
-        <p className="image-descrip">Une petit question? Contacter nous.</p>
+        <p className="image-descrip">Une petite question? Contacter nous.</p>
       </div>
       <div className="contact container mx-auto">
         <div className="contact-form">
