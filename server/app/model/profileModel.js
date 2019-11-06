@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 
 const saltRounds = 10; // for hash password
 const secret = 'cypok'; // for token
-const issuer = 'api.gamebook.tech';
 
 const db = require('../../connection');
 
@@ -28,7 +27,6 @@ module.exports = {
             if (err2) throw err;
             const tokenSettings = {
               expiresIn: '5d',
-              iss: issuer,
             };
             const token = jwt.sign({ user: result2.insertId }, secret, tokenSettings);
             // console.log(token);
@@ -60,7 +58,6 @@ module.exports = {
             if (connection === undefined) {
               const tokenSettings = {
                 expiresIn: '2h',
-                iss: issuer,
               };
               const token = jwt.sign({ user: result[0].id }, secret, tokenSettings);
               // console.log(token);
@@ -73,7 +70,6 @@ module.exports = {
             else {
               const tokenSettings = {
                 expiresIn: '15d',
-                iss: issuer,
               };
               const token = jwt.sign({ user: result[0].id }, secret, tokenSettings);
               // console.log(token);
