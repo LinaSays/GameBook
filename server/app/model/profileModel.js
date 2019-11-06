@@ -34,7 +34,7 @@ module.exports = {
               httpOnly: false,
               secure: false,
             };
-            res.cookie('token', token, cookieSettings).redirect('/profile');
+            res.cookie('token', token, cookieSettings, { domain: '.gamebook.tech' }).redirect('/profile');
           });
         });
       }
@@ -65,8 +65,7 @@ module.exports = {
                 httpOnly: false,
                 secure: false,
               };
-              res.cookie('token', token, cookieSettings).redirect('/profile');
-              console.log(tokenSettings);
+              res.cookie('token', token, cookieSettings, { domain: '.gamebook.tech' }).redirect('/profile');
             }
             else {
               const tokenSettings = {
@@ -78,7 +77,7 @@ module.exports = {
                 httpOnly: false,
                 secure: false,
               };
-              res.cookie('token', token, cookieSettings).redirect('/profile');
+              res.cookie('token', token, cookieSettings, { domain: '.gamebook.tech' }).redirect('/profile');
             }
           }
           else {
