@@ -20,7 +20,7 @@
     .wave {
         width: 100%;
         height: 200px;
-        //background: url('./Wave.svg') no-repeat center;
+        background: url('/public/images/Wave_mobile.svg') no-repeat center;
         background-size: cover;
         position: absolute;
         bottom:-80px;
@@ -451,6 +451,11 @@
         &:hover .descrip-home-3 {
             transform: translateY(30%);
         }
+
+        &:hover .title-home-3 {
+            transform: translateY(-70%);
+        }
+
 
         &:hover .link-home-3 {
             transform: translateY(90%);
