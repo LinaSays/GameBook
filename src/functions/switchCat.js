@@ -61,7 +61,7 @@ const switchCat = (path) => {
           width="100%"
         />
         <div className="categories-header-content">
-        <h1 className="categories-header-title m-0">Science Fiction</h1>
+        <h1 className="categories-header-title m-0">Science Fiction .</h1>
         </div>
         </>
       );
@@ -76,7 +76,7 @@ const switchCat = (path) => {
           width="100%"
           />
           <div className="categories-header-content">
-          <h1 className="categories-header-title m-0">Horreur</h1>          
+          <h1 className="categories-header-title m-0">Horreur .</h1>          
           </div>
           </>
       );
