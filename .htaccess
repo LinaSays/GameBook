@@ -1,9 +1,9 @@
 RewriteEngine On
- RewriteCond %{HTTPS} off [OR]
- RewriteCond %{HTTP_HOST} ^www\. [NC]
- RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
- RewriteCond %{REQUEST_FILENAME} -s [OR]
- RewriteCond %{REQUEST_FILENAME} -l [OR]
- RewriteCond %{REQUEST_FILENAME} -d
- RewriteRule ^.*$ - [NC,L]
- RewriteRule ^(.*) /index.html [NC,L]
+# dynamically setup base URI
+RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+RewriteRule ^(.*) - [E=BASE_URI:%1]
+# redirect every request to index.php
+# and give the relative URL in "_url" GET param
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.html?_url=/$1 [QSA,L]
