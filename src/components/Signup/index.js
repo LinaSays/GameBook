@@ -44,13 +44,13 @@ const Signup = ({
             <input type="password" placeholder="Confirmer mot de passe" value={confirm} onChange={handleChange} className="signup-left-input" name="confirm" required />
           </div>
 
-          <div className="signup-left-field d-flex ">
-            <span>Vous êtes ici pour :</span>
-            <div className="signup-left-radio mx-3">
-              <label htmlFor="read"><input type="radio" id="read" name="choice" value="1" onChange={handleChange} /> Lire</label>
+          <div className="signup-left-field d-flex  ">
+            <span className="signup-left-choice">Vous êtes ici pour :</span>
+            <div className="signup-left-radio">
+              <label htmlFor="read" className="signup-left-choice"><input type="radio" id="read" name="choice" value="1" onChange={handleChange} className="radio"/> Lire</label>
             </div>
             <div className="signup-left-radio">
-              <label htmlFor="write"><input type="radio" id="write" name="choice" value="2" onChange={handleChange} /> Ecrire</label>
+              <label htmlFor="write" className="signup-left-choice"><input type="radio" id="write" name="choice" value="2" onChange={handleChange}  className="radio"/> Ecrire</label>
             </div>
           </div>
 
