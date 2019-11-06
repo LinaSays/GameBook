@@ -1,10 +1,11 @@
 @import 'src/styles/vars';
 
+// == Size Mobile
 @media screen and (min-width: 320px) {
     .container-story {
         //background: url('https://wallpaperset.com/w/full/0/5/1/442146.jpg') center no-repeat;
-        //background-size: cover;
-        //background-color: black;
+        background-size: cover;
+        background-color: black;
         //padding: .8rem;
         min-width: 100%;
         min-height: 100vh;
@@ -18,7 +19,7 @@
         height: 100%;
         width: 100%;
         z-index: -1;
-        opacity: .5;
+        opacity: 1;
         object-fit: cover;
         top: 0;
         left: 0;
@@ -46,6 +47,7 @@
             &-info {
                 text-align: center;
                
+               
             }
             &-nav-mobile {
                 display: none;
@@ -57,6 +59,7 @@
                 display: flex;
                 left:0;
                 bottom:0;
+                background-color: $violet;
             }
         }
 
@@ -65,6 +68,17 @@
             height: 3.5rem;
             border-radius: 0;
             margin: 0;
+           
+
+            &:hover {
+                background-color: darken($violet , 10%);
+                
+            }
+        }
+
+        .button-nav-logo {
+            color: lighten($violet , 30%);
+            font-size: 1.5rem;
         }
     
         &-page {
@@ -109,6 +123,7 @@
     
 }
 
+// == Size Tablet
 @media screen and (min-width: 768px) {
     .container-story {
         //padding: 2rem;
@@ -130,6 +145,7 @@
 
 }
 
+// == Size Desktop
 @media screen and (min-width: 992px) {
     .container-story {
         padding: 0;
@@ -163,10 +179,35 @@
                 display: flex;
                 flex-direction: column;
                 padding: 1rem 3rem;
+               
+
+                &-side {
+                    background-color: $violet;
+                    font-family: $font;
+                    font-size: 1rem;
+                    color: white;
+                    margin-bottom: 1rem;
+                    padding: .3rem;
+                    border-radius: 5px;
+                    transition: .2s;
+                    
+                    &:hover {
+                        text-decoration: none;
+                        color: lighten($violet, 20%);
+                    }
+                   
+                }
             }
 
             &-nav-footer {
                 display: none;
+            }
+
+            &-img {
+                border-radius: 50%;
+                height: 150px;
+                width: 150px;
+
             }
         }
 
@@ -180,6 +221,7 @@
 }
 
 
+// == Size Desktop ++
 @media screen and (min-width: 1200px) {
     .story {
         width: 80%;

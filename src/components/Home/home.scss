@@ -20,7 +20,7 @@
     .wave {
         width: 100%;
         height: 200px;
-        background: url('./Wave.svg') no-repeat center;
+        //background: url('./Wave.svg') no-repeat center;
         background-size: cover;
         position: absolute;
         bottom:-80px;
@@ -76,16 +76,16 @@
 
             &:hover {
                 color: white;
-                background-color: #fc5c42;
-                border: 1px #fc5c42 solid;
+                background-color: $orange;
+                border: 1px $orange solid;
                 text-decoration: none;
             }
         }
 
         &-img--mobile {
-            width: 70%;
+            width: 80%;
             position: relative;
-            left: 25%;
+            left: 20%;
 
         }
 
@@ -117,11 +117,14 @@
         overflow: hidden;
 
         &-title {
-            font-family: $font-futura;
-            font-weight: bold;
-            font-size: 1em;
+            font-family: 'Futura';
+            font-weight: 900;
+            font-size: 1rem;
             text-transform: uppercase;
             transition: .5s;
+            width: 100%;
+            
+
             
         }
     
@@ -153,15 +156,15 @@
             height: 100%;
             object-fit: cover;
             width: 100%;
-            opacity: .4;   
+            opacity: .5;   
         } 
 
         &-text-content {
             position: absolute;
             color: white;
             bottom: 80px;
-            left: 20px;   
-            width: 100%; 
+            left: 5px;   
+            width: 80%; 
         }
     }
 }
@@ -177,7 +180,7 @@
     }
 
     .content {
-        padding: 3rem;
+        padding-top: 7rem;
     }
 
     .wave {
@@ -267,7 +270,7 @@
     .wave {
         width: 100%;
         height: 100%;
-        background: url('./Wave_desk.svg') no-repeat center;
+        background: url('/public/images/Wave_desk.svg') no-repeat center;
         background-size: cover;
         position: absolute;
         top: 0;
@@ -363,7 +366,7 @@
         }
 
         &:hover &-title {
-            transform: translateY(-40%);
+            transform: translateY(-60%);
         }
 
         &:hover .title-home-3 {
@@ -400,10 +403,48 @@
     }
 }
 
+@media screen and (min-width:1200px) {
+    .card-story {
+
+        &:hover .link-home-1 {
+            transform: translateY(80%);
+        }
+
+        &:hover .link-home-2 {
+            transform: translateY(80%);
+        }
+
+        &:hover .link-home-3 {
+            transform: translateY(50%);
+        }
+
+        &:hover .title-home-3 {
+            transform: translateY(-40%);
+            opacity: 1;
+        }
+
+        &:hover .descrip-home-3 {
+            transform: translateY(100%);
+            opacity: 1;
+        }
+    }
+    }
+
+
 // Size for desktop ++
-@media screen and (min-width: 1371px) {
+@media screen and (min-width: 1385px) {
+
 
     .card-story {
+
+        &:hover .link-home-1 {
+            transform: translateY(200%);
+        }
+
+        &:hover .link-home-2 {
+            transform: translateY(200%);
+        }
+
         &:hover .link-cat-1,  {
             transform: translateY(90%);
         }

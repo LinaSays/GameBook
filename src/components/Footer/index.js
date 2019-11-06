@@ -14,7 +14,7 @@ import Copyright from './Copyright';
 
 // == Composant
 const Footer = ({ isConnected, getCategory, category }) => (
-  <footer className="footer">
+  <footer className="footer-home">
     <Container className="footer-content">
       <Row>
         <Presentation isConnected={isConnected} />

@@ -10,8 +10,8 @@ const NewsLetter = () => (
   <Col sm={12} md={4} lg={3}>
     <h5 className="footer-titlelink">Abonnez-vous</h5>
     <p className="footer-text">Pour être tenus informé des nouvelles histoires, fonctionnalités et autres actualités, abonnez-vous à la newsletter.</p>
-    <form className="form">
-      <input type="email" className="form-input" /><button type="submit" className="form-button">S'abonner</button>
+    <form className="footer-form">
+      <input type="email" className="footer-form-input" /><button type="submit" className="footer-form-button">S'abonner</button>
     </form>
   </Col>
 );

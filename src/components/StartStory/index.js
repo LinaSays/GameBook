@@ -1,7 +1,7 @@
 // == Import : npm
 import React from 'react';
 import Image from 'react-bootstrap/Image';
-import { MdHome, MdBookmark, MdPerson } from 'react-icons/md';
+import { MdHome, MdBook, MdPerson } from 'react-icons/md';
 import { FaUser } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -41,14 +41,14 @@ class StartStory extends React.Component {
                      key={item.avatar}
                      src={item.avatar}
                      className="story-account-img"
-                     roundedCircle
+                    
                    />
                    <div className="story-account-info">
                      <p className="story-account-name">{item.name}</p>
                      <div className="story-account-nav">
-                       <NavLink to="/profile" className="d-flex justify-content-center align-items-center" variant="light mt-1"><FaUser className="mr-2" /> Mon profil</NavLink>
-                       <NavLink to="" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdBookmark className="mr-1" /> Sauvegarder</NavLink>
-                       <NavLink to="/" className="d-flex justify-content-center align-items-center" variant="light mt-1"><MdHome className="mr-1" /> Retour à l'accueil</NavLink>
+                       <NavLink to="/profile" className=" story-account-nav-side d-flex justify-content-center align-items-center" variant="light mt-1"><FaUser className="mr-2" /> Mon profil</NavLink>
+                       <NavLink to="" className=" story-account-nav-side d-flex justify-content-center align-items-center" variant="light mt-1"><MdBook className="mr-1" /> Sauvegarder</NavLink>
+                       <NavLink to="/" className=" story-account-nav-side d-flex justify-content-center align-items-center" variant="light mt-1"><MdHome className="mr-1" /> Retour à l'accueil</NavLink>
                      </div>
                    </div>
                  </div>
@@ -66,15 +66,15 @@ class StartStory extends React.Component {
             </div>
             <div className="story-account-nav-mobile mt-4">
               <NavLink to="/profile" className="d-flex justify-content-center align-items-center " variant="primary mt-1"><MdPerson className="mr-1" />Mon profil</NavLink>
-              <NavLink to="" className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdBookmark className="mr-1" /> Sauvegarder</NavLink>
+              <NavLink to="" className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdBook className="mr-1" /> Sauvegarder</NavLink>
               <NavLink to="/" className="d-flex justify-content-center align-items-center" variant="primary mt-1"><MdHome className="mr-1" /> Retour à l'accueil</NavLink>
             </div>
             {
               isConnected && (
               <div className="story-account-nav-footer ">
-                <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center bg-success" variant="secondary"><MdPerson /></NavLink>
-                <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center bg-success" variant="secondary"><MdBookmark /></NavLink>
-                <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center bg-success" variant="secondary"><MdHome /></NavLink>
+                <NavLink to="/profile" className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdPerson className="button-nav-logo"/></NavLink>
+                <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdBook className="button-nav-logo"/></NavLink>
+                <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdHome className="button-nav-logo"/></NavLink>
               </div>
               )
 
