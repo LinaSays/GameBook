@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 
 const saltRounds = 10; // for hash password
 const secret = 'cypok'; // for token
+const issuer = 'gamebook.tech';
 
 const db = require('../../connection');
 
@@ -33,8 +34,9 @@ module.exports = {
             const cookieSettings = {
               httpOnly: false,
               secure: false,
+              iss: issuer,
             };
-            res.cookie('token', token, cookieSettings, { domain: '.gamebook.tech' }).redirect('/profile');
+            res.cookie('token', token, cookieSettings).redirect('/profile');
           });
         });
       }
@@ -64,8 +66,9 @@ module.exports = {
               const cookieSettings = {
                 httpOnly: false,
                 secure: false,
+                iss: issuer,
               };
-              res.cookie('token', token, cookieSettings, { domain: '.gamebook.tech' }).redirect('/profile');
+              res.cookie('token', token, cookieSettings).redirect('/profile');
             }
             else {
               const tokenSettings = {
@@ -76,8 +79,9 @@ module.exports = {
               const cookieSettings = {
                 httpOnly: false,
                 secure: false,
+                iss: issuer,
               };
-              res.cookie('token', token, cookieSettings, { domain: '.gamebook.tech' }).redirect('/profile');
+              res.cookie('token', token, cookieSettings).redirect('/profile');
             }
           }
           else {

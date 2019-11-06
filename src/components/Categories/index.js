@@ -40,7 +40,7 @@ class Categories extends React.Component {
 
 
     // console.log(this.props.location);
-    console.log(storylist);
+    // console.log(storylist);
     // console.log(this.props.category);
     return (
       <div className="categories">

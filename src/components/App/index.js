@@ -83,7 +83,7 @@ class App extends React.Component {
           <Route path="/story/:id">
             <StartStory isConnected={isConnected} />
           </Route>
-          <Route path="*">
+          <Route>
             <PageNotFound />
           </Route>
         </Switch>
