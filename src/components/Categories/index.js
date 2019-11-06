@@ -18,12 +18,12 @@ import './categories.scss';
  * Components
  */
 class Categories extends React.Component {
- 
+
   componentDidMount() {
     const { getCategoryStories } = this.props;
     getCategoryStories();
 
- 
+
   }
 
   componentDidUpdate() {
@@ -32,35 +32,34 @@ class Categories extends React.Component {
 
   }
 
+  
+
   render() {
-    const { storylist } = this.props;
+    const { storylist, location } = this.props;
 
-    //console.log(this.props.location.pathname);
 
+    // console.log(this.props.location);
     console.log(storylist);
-
-    
-    
-    //console.log(this.props.category);
+    // console.log(this.props.category);
     return (
       <div className="categories">
         <div className="categories-header">
-        {
-            switchCat(this.props.location.pathname)
-        }
+          {
+             switchCat(location.pathname)
+          }
         </div>
-  
+
         {/* <h1 className="categories-title">{this.props.category}</h1> */}
         <div>
-        <div className="cards-group">
-          <Row className="test1">
+          <div className="cards-group">
+            <Row className="test1">
             {storylist.map((list) => (
               <>
                 <Col className="test2" key={list.description}><Category {...list} /></Col>
               </>
             ))}
           </Row>
-        </div>
+          </div>
         </div>
       </div>
     );
