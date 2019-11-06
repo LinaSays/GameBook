@@ -1,11 +1,13 @@
 // Import
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 
 // Server
 const app = module.exports = express();
 
+app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
