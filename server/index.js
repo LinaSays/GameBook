@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 // Server
 const app = module.exports = express();
 
-app.use(cors({ origin: 'http://gamebook.tech' }));
+app.use(cors({ origin: 'http://gamebook.tech', credentials: true }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

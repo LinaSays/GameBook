@@ -57,6 +57,7 @@ const profileMiddleware = (store) => (next) => (action) => {
       break;
     }
     case CONNECT_USER: {
+      axios.defaults.withCredentials = true;
       const state = store.getState();
       const { email, password, connection } = state.signin;
       axios.post('http://api.gamebook.tech/profile', {
