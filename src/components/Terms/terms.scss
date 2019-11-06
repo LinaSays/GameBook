@@ -1,0 +1,143 @@
+@import 'src/styles/vars';
+
+@media screen and (min-width: 320px) {
+  .mentions-container-image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 200px;
+  }
+
+  .image {
+      
+    &-mentions-title{
+      position: relative;
+      font-family: $font;
+      color: white;
+      letter-spacing: 0.1rem;
+      text-align: center;
+      font-size: 1.1rem;
+      margin-top: 4rem;
+      font-weight: bold;
+    }
+  
+    &-mentions-descrip {
+      display: none;
+    }
+      
+    &-mentions {
+      position: absolute;
+      object-fit: cover;
+      height: 100%;
+      opacity: .4;
+      top:0
+    }
+  }
+  .mentions-wrapper {
+    width: 98%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: justify;
+    font-size: 1rem;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    line-height: 1.4rem;
+
+    &-span {
+      font-size: 1.2rem;
+      font-weight: bold;
+      line-height: 1.4rem;
+    }
+
+    &-text {
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+  
+      &-intro {
+      font-style: italic ;
+      margin-bottom: 2.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 650px) {
+
+  .image {
+
+    &-mentions-title{
+      font-size: 1.5rem;
+    }
+  
+    &-mentions-descrip {
+      display: inline-block;
+      position: relative;
+      font-family: $font;
+      z-index: 1;
+      color: white;
+      font-size: 0.8rem;
+      margin-top: 1rem;
+    }
+  }
+
+  .mentions-wrapper {
+    width: 95%;
+    padding: 2rem 2rem;
+  }
+}
+
+@media screen and (min-width: 751px) {
+
+  .mentions-container-image {
+    height: 250px;
+  }
+
+  .image {
+  
+    &-mentions-title{
+      font-size: 1.5rem;
+    }
+  
+    &-mentions-descrip {
+      display: inline-block;
+      position: relative;
+      font-family: $font;
+      z-index: 1;
+      color: white;
+      font-size: 0.8rem;
+      margin-top: 1rem;
+    }
+  }
+
+  .mentions-wrapper {
+    width: 95%;
+    padding: 2rem 2rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .mentions-container-image {
+    height: 400px;
+  }
+  .image {
+
+    &-mentions-title {
+      font-size: 2.5rem;
+    }
+    
+    &-mentions-descrip {
+      font-size: 1.3rem;
+    }
+  }
+
+  .mentions-wrapper {
+    width: 65%;
+    padding: 4rem 2rem;
+  }
+}
