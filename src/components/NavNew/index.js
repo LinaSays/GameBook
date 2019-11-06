@@ -15,8 +15,13 @@ class NavNew extends React.Component {
 
   }
 
+  removeCookie = () => {
+    // toast.success('A très bientôt !');
+    document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.location.href = '/';
+  };
 
- 
+
   // componentDidUpdate(prevProps) {
   //   if (
   //     this.props.location.pathname !== prevProps.location.pathname
@@ -35,13 +40,6 @@ class NavNew extends React.Component {
  render() {
    const { isOpen } = this.state;
    const { category, isConnected } = this.props;
-   
-   // == Remove cookies
-   const removeCookie = () => {
-     // toast.success('A très bientôt !');
-     document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-     document.location.href = '/';
-   };
 
    // All variables who generate a classname with classNames library
    const visibleOrnot = classNames('nav-hidden', { 'nav-visible': isOpen });
@@ -53,8 +51,8 @@ class NavNew extends React.Component {
    const bgNav = classNames('', { 'nav-connect': isConnected });
 
    return (
-      <div className={`${fixOrNot} ${bgNav}`}>
-        {
+     <div className={`${fixOrNot} ${bgNav}`}>
+       {
             isConnected ? (
               <nav className="nav-div  container">
                 <div className="nav-group">
@@ -79,7 +77,7 @@ class NavNew extends React.Component {
                   <NavLink to="/contact" className="nav-group-link-cat">Contact</NavLink>
                 </div>
                 <div className="button-group">
-                  <button type="button" className="button-group-link-cat" onClick={removeCookie}>Se déconnecter</button>
+                  <button type="button" className="button-group-link-cat" onClick={this.removeCookie}>Se déconnecter</button>
                 </div>
                 <div className={openOrNot} onClick={this.seeMenu}>
                   <span className="is-open" />
@@ -91,7 +89,7 @@ class NavNew extends React.Component {
                   <NavLink to="/profile" className="nav-group-link-bis" onClick={this.seeMenu}>Mon compte</NavLink>
                   <NavLink to="/categories" className="nav-group-link-bis" onClick={this.seeMenu}>Catégories</NavLink>
                   <NavLink to="/contact" className="nav-group-link-bis" onClick={this.seeMenu}>Contact</NavLink>
-                  <NavLink to="/" className="nav-group-link-bis" onClick={removeCookie}>Se déconnecter</NavLink>
+                  <NavLink to="/" className="nav-group-link-bis" onClick={this.removeCookie}>Se déconnecter</NavLink>
                 </div>
               </nav>
             ) : (
@@ -122,7 +120,7 @@ class NavNew extends React.Component {
               </nav>
             )
         }
-      </div>
+     </div>
    );
  }
 }
