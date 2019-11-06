@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 const saltRounds = 10; // for hash password
 const secret = 'cypok'; // for token
-const issuer = 'gamebook.tech';
+const issuer = 'api.gamebook.tech';
 
 const db = require('../../connection');
 
