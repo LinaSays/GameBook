@@ -1,4 +1,6 @@
 // Import
+const fallback = require('express-history-api-fallback');
+
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -7,6 +9,10 @@ const cookieParser = require('cookie-parser');
 // Server
 const app = module.exports = express();
 
+
+const root = `${__dirname}/public`;
+app.use(express.static(root));
+app.use(fallback('index.html', { root }));
 app.use(cors({ origin: 'http://gamebook.tech', credentials: true }));
 app.use(cookieParser());
 app.use(bodyParser.json());
