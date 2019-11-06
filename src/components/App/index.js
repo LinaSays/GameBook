@@ -11,6 +11,8 @@ import Footer from 'src/containers/Footer';
 import PageNotFound from 'src/components/PageNotFound';
 import Home from 'src/containers/Home';
 import Contact from 'src/components/Contact';
+import Terms from 'src/components/Terms';
+import Mentions from 'src/components/Mentions';
 import Signin from 'src/containers/Signin';
 import Forgotten from 'src/containers/Forgotten';
 import Signup from 'src/containers/Signup';
@@ -49,6 +51,12 @@ class App extends React.Component {
           </Route>
           <Route path="/contact">
             <Contact />
+          </Route>
+          <Route path="/terms">
+            <Terms />
+          </Route>
+          <Route path="/mentions">
+            <Mentions />
           </Route>
           <Route path="/signup">
             {isConnected ? <Redirect to="/" /> : <Signup />}

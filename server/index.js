@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const fileupload = require('express-fileupload');
 
 // Server
 const app = module.exports = express();
@@ -14,6 +15,20 @@ const root = `${__dirname}/public`;
 app.use(express.static(root));
 app.use(fallback('index.html', { root }));
 app.use(cors({ origin: 'http://gamebook.tech', credentials: true }));
+app.use(fileupload());
+
+app.post('/createstory/upload', function(req, res, next) {
+  const file = req.files.photo;
+  file.mv('./public/uploads/' + file.name, function(err, result) {
+    if(err)
+      throw err;
+    res.send({
+      success:true,
+      message: 'Fichier envoyé',
+    });
+  });
+});
+
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
