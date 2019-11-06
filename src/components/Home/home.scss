@@ -452,6 +452,11 @@
             transform: translateY(30%);
         }
 
+        &:hover .title-home-3 {
+            transform: translateY(-70%);
+        }
+
+
         &:hover .link-home-3 {
             transform: translateY(90%);
         }
