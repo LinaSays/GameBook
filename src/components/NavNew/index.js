@@ -56,7 +56,7 @@ class NavNew extends React.Component {
             isConnected ? (
               <nav className="nav-div  container">
                 <div className="nav-group">
-                  <NavLink to="/" className="nav-logo" onClick={this.seeMenu}>GAMEBook</NavLink>
+                  <NavLink to="/" className="nav-logo">GAMEBook</NavLink>
                   <NavLink to="/profile" className="nav-group-link-cat">Mon compte</NavLink>
                   <span className="nav-group-link-cat__category">Catégories
                     <div className="nav-drop-desk-open">
@@ -89,7 +89,7 @@ class NavNew extends React.Component {
                   <NavLink to="/profile" className="nav-group-link-bis" onClick={this.seeMenu}>Mon compte</NavLink>
                   <NavLink to="/categories" className="nav-group-link-bis" onClick={this.seeMenu}>Catégories</NavLink>
                   <NavLink to="/contact" className="nav-group-link-bis" onClick={this.seeMenu}>Contact</NavLink>
-                  <NavLink to="/" className="nav-group-link-bis" onClick={this.removeCookie}>Se déconnecter</NavLink>
+                  <button type="button" className="nav-group-link-bis" onClick={this.removeCookie}>Se déconnecter</button>
                 </div>
               </nav>
             ) : (

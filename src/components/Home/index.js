@@ -92,7 +92,7 @@ class Home extends React.Component {
                   <div key={item.id} id={`card-${item.id}`} className="card-story container">
                     <img className="card-story-img" src={item.image} alt="" />
                     <div className="card-story-text-content">
-                      <h2 className={`card-story-title title-home-${item.id}`}>{item.title} .</h2>
+                      <h2 className={`card-story-title title-home-${item.id}`}>{item.title}.</h2>
                       <p className={`card-story-descrip descrip-home-${item.id}`}>{item.description}</p>
                       <Link to={`story/${item.id}`} className={`card-story-link link-home-${item.id}`}>Commencer l'histoire <MdKeyboardArrowRight /> </Link>
                     </div>

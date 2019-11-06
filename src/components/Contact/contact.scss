@@ -18,8 +18,8 @@
       margin-top: 5rem;
       z-index: 1;
       color: white;
-      font-size: 2rem;
       font-weight: bold;
+      margin-bottom: 1rem;
     }
   
     &-descrip {
@@ -57,8 +57,8 @@
       margin: 3rem 0;
 
       &-desc {
-        margin: 0;
-        font-family: $font;
+        margin: 1rem 0;
+        font-family: $font-inter;
         color: lighten(#000000, 40%);
       }
 
@@ -113,19 +113,21 @@
         font-family: $font-inter;
         font-size: 1rem;
         color: lighten(#000000, 40%); 
+        margin-top: 1rem;
       
       }
 
       &-icon {
        color: $violet;
       }
+
+      &-text {
+        margin-bottom: 1rem;
+      }
   
       &-text-span {
         margin-left: 1em;
-        font-family: $font;
-        //background-color: red;
-       
-        
+        font-family: $font-inter;
       }
     }
   }

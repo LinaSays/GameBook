@@ -137,10 +137,15 @@
 		font-weight: bold;
 		font-size: 1.8rem;
 		color: gray;
+		cursor: pointer;
+		background-color: transparent;
+		text-transform: uppercase;
+		border:none;
 
 		&:hover {
 			text-decoration: none;
 			color: $orange;
+			
 		}
 	}
 
@@ -295,7 +300,7 @@
 	&-link {
 		position: relative;
 		background-color: transparent;
-		padding: .5rem 1rem;
+		padding: .9rem 1rem;
 		border-radius: 20px;
 		border: solid 1px white;
 		text-transform: uppercase;
@@ -323,6 +328,7 @@
 		font-weight: bold;
 		color: #fff;
 		transition: .2s ease-in;
+		
 
 		&:hover {
 			background-color:  blue;

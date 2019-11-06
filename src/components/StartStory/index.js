@@ -41,7 +41,6 @@ class StartStory extends React.Component {
                      key={item.avatar}
                      src={item.avatar}
                      className="story-account-img"
-                    
                    />
                    <div className="story-account-info">
                      <p className="story-account-name">{item.name}</p>
