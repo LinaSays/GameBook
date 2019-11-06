@@ -1,5 +1,6 @@
 import axios from 'axios';
 import 'regenerator-runtime/runtime';
+import { toast } from 'react-toastify';
 
 import {
   GET_START_STORIES,
@@ -101,14 +102,19 @@ async function newStory(store) {
   try {
     const state = store.getState();
     const { title, summary, select } = state.createStory;
-    axios.defaults.withCredentials = true;
-    const response = await axios.post('http://localhost:3000/story/add', {
-      title, summary, select,
-    });
-    const save = saveNewStory(response.data);
-    console.log(response);
-    store.dispatch(save);
-    sessionStorage.setItem('story', response.data);
+    if (title.length <= 0 && summary.length <= 5) {
+      toast.error('Veuillez saisir un titre ou un résumé');
+    }
+    else {
+      axios.defaults.withCredentials = true;
+      const response = await axios.post('http://localhost:3000/story/add', {
+        title, summary, select,
+      });
+      const save = saveNewStory(response.data);
+      console.log(response);
+      store.dispatch(save);
+      sessionStorage.setItem('story', response.data);
+    }
   }
   catch (err) {
     console.log(err);
@@ -149,13 +155,17 @@ async function newChapter(store) {
     const state = store.getState();
     const { recap, text, selectedColor } = state.createStory;
     const id = sessionStorage.getItem('story');
-    axios.defaults.withCredentials = true;
-    const response = await axios.post(`http://localhost:3000/story/${id}/chapter/add`, {
-      recap, text, selectedColor,
-    });
-    const save = showChapter(response.data);
-    console.log(response);
-    store.dispatch(save);
+    if (recap.length === 0) {
+      toast.error('Veuillez saisir un résumé de chapitre');
+    }
+    else {
+      axios.defaults.withCredentials = true;
+      const response = await axios.post(`http://localhost:3000/story/${id}/chapter/add`, {
+        recap, text, selectedColor,
+      });
+      const save = showChapter(response.data);
+      store.dispatch(save);
+    }
   }
   catch (err) {
     console.log(err);

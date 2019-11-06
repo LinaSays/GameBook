@@ -44,8 +44,11 @@ class Chapitres extends React.Component {
   newChapter = (event) => {
     const { sendChapter, getAllChapters } = this.props;
     event.preventDefault();
-    sendChapter();
-    getAllChapters();
+    const chapterRecap = document.getElementById('chapterSummary').value;
+    if (chapterRecap.length > 0) {
+      sendChapter();
+      getAllChapters();
+    }
   };
 
   deleteChapter = (event) => {
