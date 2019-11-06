@@ -6,7 +6,7 @@ import { GET_HOME, showHome } from 'src/store/reducer/signin';
 const homeMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_STORIES: {
-      axios.get('http://api.gamebook.tech:3000')
+      axios.get('http://api.gamebook.tech')
         .then((response) => {
           const save = showStories(response.data);
           store.dispatch(save);
@@ -20,7 +20,7 @@ const homeMiddleware = (store) => (next) => (action) => {
       break;
     }
     case GET_CATEGORIES: {
-      axios.get('http://api.gamebook.tech:3000/categories')
+      axios.get('http://api.gamebook.tech/categories')
         .then((response) => {
           const save = showCategory(response.data);
           store.dispatch(save);
@@ -35,7 +35,7 @@ const homeMiddleware = (store) => (next) => (action) => {
     }
     case GET_CATEGORY_STORIES: {
       axios.defaults.withCredentials = true;
-      axios.get(`http://api.gamebook.tech:3000${window.location.pathname}`)
+      axios.get(`http://api.gamebook.tech${window.location.pathname}`)
         .then((response) => {
           const save = showCategoryStories(response.data);
           store.dispatch(save);
@@ -52,7 +52,7 @@ const homeMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
       const { isConnected } = state.signin;
       axios.defaults.withCredentials = true;
-      axios.get('http://api.gamebook.tech:3000/checkToken')
+      axios.get('http://api.gamebook.tech/checkToken')
         .then(res => {
           if (res.status === 200) {
             const save = showHome(res.data);
