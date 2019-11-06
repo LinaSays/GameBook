@@ -23,7 +23,7 @@ const profileMiddleware = (store) => (next) => (action) => {
       }
       if (password === confirm) {
         axios.defaults.withCredentials = true;
-        axios.post('http://localhost:3000/profile/add', {
+        axios.post('http://api.gamebook.tech/profile/add', {
           user_name, email, password, choice,
         })
           .then((response) => {
@@ -44,7 +44,7 @@ const profileMiddleware = (store) => (next) => (action) => {
     }
     case GET_PROFILE: {
       axios.defaults.withCredentials = true;
-      axios.get('http://localhost:3000/profile')
+      axios.get('http://api.gamebook.tech/profile')
         .then((response) => {
           const save = showProfile(response.data);
           store.dispatch(save);
@@ -59,7 +59,7 @@ const profileMiddleware = (store) => (next) => (action) => {
     case CONNECT_USER: {
       const state = store.getState();
       const { email, password, connection } = state.signin;
-      axios.post('http://localhost:3000/profile', {
+      axios.post('http://api.gamebook.tech/profile', {
         email,
         password,
         connection,
@@ -84,7 +84,7 @@ const profileMiddleware = (store) => (next) => (action) => {
     }
     case GET_PINS: {
       axios.defaults.withCredentials = true;
-      axios.get('http://localhost:3000/pins')
+      axios.get('http://api.gamebook.tech/pins')
         .then((response) => {
           const save = showPins(response.data);
           store.dispatch(save);
@@ -98,7 +98,7 @@ const profileMiddleware = (store) => (next) => (action) => {
     }
     case GET_READ_STORIES: {
       axios.defaults.withCredentials = true;
-      axios.get('http://localhost:3000/readstories')
+      axios.get('http://api.gamebook.tech/readstories')
         .then((response) => {
           const save = showReadStories(response.data);
           store.dispatch(save);
@@ -112,7 +112,7 @@ const profileMiddleware = (store) => (next) => (action) => {
     }
     case GET_WROTE_STORIES: {
       axios.defaults.withCredentials = true;
-      axios.get('http://localhost:3000/wrotestories')
+      axios.get('http://api.gamebook.tech/wrotestories')
         .then((response) => {
           const save = showWroteStories(response.data);
           store.dispatch(save);

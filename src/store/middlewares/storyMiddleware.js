@@ -36,7 +36,7 @@ import {
 async function getStartStories(store) {
   try {
     axios.defaults.withCredentials = true;
-    const response = await axios.get(`http://localhost:3000${window.location.pathname}`);
+    const response = await axios.get(`http://api.gamebook.tech${window.location.pathname}`);
     const save = showStartStories(
       response.data[0].id,
       response.data[0].text,
@@ -58,7 +58,7 @@ async function getNextChapter(store, id) {
   }
   else try {
     axios.defaults.withCredentials = true;
-    const response = await axios.get(`http://localhost:3000/chapter/${id}`);
+    const response = await axios.get(`http://api.gamebook.tech/chapter/${id}`);
     const save = showNextChapter(
       response.data[0].id,
       response.data[0].text,
@@ -76,7 +76,7 @@ async function getNextChapter(store, id) {
 async function getChoices(store, id) {
   try {
     axios.defaults.withCredentials = true;
-    const response = await axios.get(`http://localhost:3000/chapter/${id}/choices`);
+    const response = await axios.get(`http://api.gamebook.tech/chapter/${id}/choices`);
     const save = showChoices(response.data);
     store.dispatch(save);
   }
@@ -88,7 +88,7 @@ async function getChoices(store, id) {
 async function sendPublishedStory(store, id) {
   try {
     axios.defaults.withCredentials = true;
-    const response = await axios.patch(`http://localhost:3000/story/${id}/publish`, { id });
+    const response = await axios.patch(`http://api.gamebook.tech/story/${id}/publish`, { id });
     const save = publishStory(response.data);
     store.dispatch(save);
     sessionStorage.removeItem('story');
@@ -107,7 +107,7 @@ async function newStory(store) {
     }
     else {
       axios.defaults.withCredentials = true;
-      const response = await axios.post('http://localhost:3000/story/add', {
+      const response = await axios.post('http://api.gamebook.tech/story/add', {
         title, summary, select,
       });
       const save = saveNewStory(response.data);
@@ -124,7 +124,7 @@ async function newStory(store) {
 async function deleteStory(store, id) {
   try {
     axios.defaults.withCredentials = true;
-    const response = await axios.delete('http://localhost:3000/story/delete', { data: { id } });
+    const response = await axios.delete('http://api.gamebook.tech/story/delete', { data: { id } });
     const save = deleteStoryFromDB(response.data);
     store.dispatch(save);
     sessionStorage.removeItem('story');
@@ -139,7 +139,7 @@ async function editStory(store, id) {
     const state = store.getState();
     const { title, summary, select } = state.createStory;
     axios.defaults.withCredentials = true;
-    const response = await axios.patch('http://localhost:3000/story/edit', {
+    const response = await axios.patch('http://api.gamebook.tech/story/edit', {
       id, title, summary, select,
     });
     const save = updateStory(response.data);
@@ -160,7 +160,7 @@ async function newChapter(store) {
     }
     else {
       axios.defaults.withCredentials = true;
-      const response = await axios.post(`http://localhost:3000/story/${id}/chapter/add`, {
+      const response = await axios.post(`http://api.gamebook.tech/story/${id}/chapter/add`, {
         recap, text, selectedColor,
       });
       const save = showChapter(response.data);
@@ -176,7 +176,7 @@ async function getAllChapters(store) {
   try {
     const id = sessionStorage.getItem('story');
     axios.defaults.withCredentials = true;
-    const response = await axios.get(`http://localhost:3000/story/${id}/chapters`);
+    const response = await axios.get(`http://api.gamebook.tech/story/${id}/chapters`);
     const save = showAllChapters(response.data);
     store.dispatch(save);
   }
@@ -188,7 +188,7 @@ async function getAllChapters(store) {
 async function getSelectedChapter(store, id) {
   try {
     axios.defaults.withCredentials = true;
-    const response = await axios.get(`http://localhost:3000/chapter/${id}`);
+    const response = await axios.get(`http://api.gamebook.tech/chapter/${id}`);
     const save = showSelectedChapter(
       response.data[0].recap,
       response.data[0].text,
@@ -207,7 +207,7 @@ async function newChoice(store, id) {
     const id_situation_child = document.getElementsByName(`destination${id}`)[0].value;
     const text = document.getElementsByName(`choice${id}`)[0].value;
     axios.defaults.withCredentials = true;
-    const response = await axios.post('http://localhost:3000/choice/add', {
+    const response = await axios.post('http://api.gamebook.tech/choice/add', {
       text, id_situation_parent, id_situation_child,
     });
     const save = showChoice(response.data);
@@ -222,7 +222,7 @@ async function newChoice(store, id) {
 async function deleteChapter(store, id) {
   try {
     axios.defaults.withCredentials = true;
-    const response = await axios.delete('http://localhost:3000/chapter/delete', { data: { id } });
+    const response = await axios.delete('http://api.gamebook.tech/chapter/delete', { data: { id } });
     const save = deleteChapterFromDB(response.data);
     store.dispatch(save);
   }
@@ -236,7 +236,7 @@ async function editChapter(store, id) {
     const state = store.getState();
     const { recap, text, selectedColor } = state.createStory;
     axios.defaults.withCredentials = true;
-    const response = await axios.patch('http://localhost:3000/chapter/edit', {
+    const response = await axios.patch('http://api.gamebook.tech/chapter/edit', {
       recap, text, selectedColor, id,
     });
     const save = updateChapter(response.data);
