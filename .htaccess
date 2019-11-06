@@ -1,4 +1,9 @@
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.html [L] 
+ RewriteCond %{HTTPS} off [OR]
+ RewriteCond %{HTTP_HOST} ^www\. [NC]
+ RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+ RewriteCond %{REQUEST_FILENAME} -s [OR]
+ RewriteCond %{REQUEST_FILENAME} -l [OR]
+ RewriteCond %{REQUEST_FILENAME} -d
+ RewriteRule ^.*$ - [NC,L]
+ RewriteRule ^(.*) /index.html [NC,L]
