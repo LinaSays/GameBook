@@ -1,4 +1,4 @@
-
+@import 'src/styles/vars';
   .image {
     height: 450px;
   }
@@ -14,19 +14,54 @@
     margin: 2rem 0;
   }
 
+  .categories-header {
 
+      position: relative;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 550px;
 
-@media screen and (max-width: 750px) {
-  .image {
-    height: 200px;
+    &-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    &-title {
+      color: white;
+      font-family: $font-futura;
+      text-transform: uppercase;
+      
+    }
+
+    &-text {
+      color: white;
+      text-align: center;
+    }
+    &-image {
+      position: absolute;
+      object-fit: cover;
+      top:0;
+      opacity: .4;
+      height: 100%;
+      
+    }
   }
 
-  .test1 {
-    display: block;
+
+
+// @media screen and (max-width: 750px) {
+//   .image {
+//     height: 200px;
+//   }
+
+//   .test1 {
+//     display: block;
   
-  }
+//   }
 
-  .test2 {
-    padding: 0;
-  }
-}
+//   .test2 {
+//     padding: 0;
+//   }
+// }

@@ -4,33 +4,54 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
+
 /*
  * Import : local
  */
+
+import switchCat from 'src/functions/switchCat';
 import Category from './category';
 import './categories.scss';
+
 
 /*
  * Components
  */
 class Categories extends React.Component {
+ 
   componentDidMount() {
     const { getCategoryStories } = this.props;
     getCategoryStories();
+
+ 
+  }
+
+  componentDidUpdate() {
+    const { getCategoryStories } = this.props;
+    getCategoryStories();
+
   }
 
   render() {
     const { storylist } = this.props;
-    console.log(this.props.category);
+
+    //console.log(this.props.location.pathname);
+
+    console.log(storylist);
+
+    
+    
+    //console.log(this.props.category);
     return (
       <div className="categories">
-        <img
-          src="https://adwebdesign.fr/wp-content/grand-media/image/banniere01.2.gif"
-          alt="Bannière"
-          className="image"
-          width="100%"
-        />
+        <div className="categories-header">
+        {
+            switchCat(this.props.location.pathname)
+        }
+        </div>
+  
         {/* <h1 className="categories-title">{this.props.category}</h1> */}
+        <div>
         <div className="cards-group">
           <Row className="test1">
             {storylist.map((list) => (
@@ -39,6 +60,7 @@ class Categories extends React.Component {
               </>
             ))}
           </Row>
+        </div>
         </div>
       </div>
     );
