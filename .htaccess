@@ -1,9 +1,7 @@
-RewriteEngine On
-# dynamically setup base URI
-RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
-RewriteRule ^(.*) - [E=BASE_URI:%1]
-# redirect every request to index.php
-# and give the relative URL in "_url" GET param
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ index.html?_url=/$1 [QSA,L]
+ RewriteEngine on
+    # Don't rewrite files or directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    # Rewrite everything else to index.html to allow html5 state links
+    RewriteRule ^ index.html [L]
