@@ -62,6 +62,8 @@ class Home extends React.Component {
 
   render() {
     const { isConnected, story, category } = this.props;
+
+    
     return (
       <main id="home">
 
@@ -91,7 +93,7 @@ class Home extends React.Component {
                     <img className="card-story-img" src={item.image} alt="" />
                     <div className="card-story-text-content">
                       <h2 className={`card-story-title title-home-${item.id}`}>{item.title} .</h2>
-                      <p className="card-story-descrip">{item.description}</p>
+                      <p className={`card-story-descrip descrip-home-${item.id}`}>{item.description}</p>
                       <Link to={`story/${item.id}`} className={`card-story-link link-home-${item.id}`}>Commencer l'histoire <MdKeyboardArrowRight /> </Link>
                     </div>
                   </div>

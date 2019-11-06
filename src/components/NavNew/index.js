@@ -79,7 +79,7 @@ class NavNew extends React.Component {
                   <NavLink to="/contact" className="nav-group-link-cat">Contact</NavLink>
                 </div>
                 <div className="button-group">
-                  <NavLink to="/signin"><button type="button" className="button-group-link-cat" onClick={removeCookie}>Se déconnecter</button></NavLink>
+                  <button type="button" className="button-group-link-cat" onClick={removeCookie}>Se déconnecter</button>
                 </div>
                 <div className={openOrNot} onClick={this.seeMenu}>
                   <span className="is-open" />
@@ -91,7 +91,7 @@ class NavNew extends React.Component {
                   <NavLink to="/profile" className="nav-group-link-bis" onClick={this.seeMenu}>Mon compte</NavLink>
                   <NavLink to="/categories" className="nav-group-link-bis" onClick={this.seeMenu}>Catégories</NavLink>
                   <NavLink to="/contact" className="nav-group-link-bis" onClick={this.seeMenu}>Contact</NavLink>
-                  <NavLink to="/" className="nav-group-link-category" onClick={this.removeCookie}>Se déconnecter</NavLink>
+                  <NavLink to="/" className="nav-group-link-bis" onClick={removeCookie}>Se déconnecter</NavLink>
                 </div>
               </nav>
             ) : (
