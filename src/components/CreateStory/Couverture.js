@@ -31,7 +31,11 @@ class Couverture extends React.Component {
     event.preventDefault();
     const { createNewStory, toggle } = this.props;
     createNewStory();
-    toggle('2');
+    const titleText = document.getElementById('storyTitle').value;
+    const summaryText = document.getElementById('summaryText').value;
+    if (titleText.length > 0 && summaryText.length > 5) {
+      toggle('2');
+    }
   };
 
   deleteStory = (event) => {

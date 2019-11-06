@@ -15,8 +15,8 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `category` (`id`, `name`, `image`, `description`) VALUES
-(1,	'Contes pour enfants',	'https://i.imgur.com/Qpz3IxL.jpg',	'Il est l\'heure de partir visiter le monde de l\'imagination, pour cela il est conseillé de se munir de sa plus belle voix de narrateur et d\'arriver à tenir en haleine c\'est chères têtes blondes.'),
-(2,	'Heroïc Fantasy',	'https://i.imgur.com/croWORO.jpg',	'Vos pouvoirs n\'ont comme limites que celles de votre imagination. Affrontez vos peurs, dominez la magie qui vous entoure mais attention à en sortir vivant sinon tout cela n\'aura été pour rien...'),
+(1,	'Heroïc Fantasy',	'https://i.imgur.com/croWORO.jpg',	'Vos pouvoirs n\'ont comme limites que celles de votre imagination. Affrontez vos peurs, dominez la magie qui vous entoure mais attention à en sortir vivant sinon tout cela n\'aura été pour rien...'),
+(2,	'Contes pour enfants',	'https://i.imgur.com/Qpz3IxL.jpg',	'Il est l\'heure de partir visiter le monde de l\'imagination, pour cela il est conseillé de se munir de sa plus belle voix de narrateur et d\'arriver à tenir en haleine c\'est chères têtes blondes.'),
 (3,	'Polar',	'https://i.imgur.com/lLHSVLi.jpg',	'Enquêtes, crimes, suspicions et trahisons peuplent ce sombre univers. Temps pour vous de vous faufiler dans la peau d\'un détective hors pair si vous voulez avoir une chance de résoudre ces mystères.'),
 (4,	'Science Fiction',	'https://i.imgur.com/2yyGZAM.jpg',	'Le futur vous entoure et il est devenu votre présent. Aventures aux confins de l\'espace et de l\'espèce, les limites de vos possibilités s\'amenuisent grâce aux dernières avancées technologiques.'),
 (5,	'Horreur',	'https://i.imgur.com/JgiShXY.jpg',	'Aucune idée de ce qui se trouve derrière cette porte, peu de gens en sont revenus. Entrez à vos risques et périls.')
@@ -133,7 +133,7 @@ CREATE TABLE `situation` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `story_id` (`story_id`),
-  CONSTRAINT `situation_ibfk_1` FOREIGN KEY (`story_id`) REFERENCES `story` (`id`) ON DELETE CASCADE
+  CONSTRAINT `situation_ibfk_4` FOREIGN KEY (`story_id`) REFERENCES `story` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `situation` (`id`, `text`, `recap`, `image`, `color`, `story_id`, `created_at`, `updated_at`) VALUES
@@ -162,7 +162,9 @@ INSERT INTO `situation` (`id`, `text`, `recap`, `image`, `color`, `story_id`, `c
 (23,	'Oh oh ! J’ai l’impression d’avoir entendu Nala le singe. Nala est vraiment très rapide et curieuse. Ça ne m’étonnerait pas qu’elle nous suive depuis le début.\r\n« Salut Hugo ! Salut Coco ! Où allez-vous comme ça ? »\r\n« Nous partons à l’anniversaire de Charlotte ! »\r\n« Oh trop chouette ! Je peux venir avec vous ? »\r\nC’est à toi de décider : est-ce que Nala peut venir avec nous à l’anniversaire de Charlotte ?',	'La rencontre avec Nala',	'https://i.imgur.com/5K8poL2.jpg',	'#89a4c7',	3,	'2019-11-03 13:45:41',	NULL),
 (24,	'Oh non ! Un énorme trou s’est créé ici. Avec la pluie qui est tombée hier, il est tout inondé. Impossible de passer de ce côté, nous ferions mieux de faire demi-tour.',	'Le gros trou',	'https://i.imgur.com/cRg6TZJ.jpg',	'#b8e4c9',	3,	'2019-11-03 13:47:38',	NULL),
 (25,	'YOUPIIIIIIIIIIIIIII !! Nous avons réussi ! Nous sommes arrivés chez Charlotte ! Elle était ravie de voir Nala !\r\nJe te remercie de m’avoir aidé à aller chez elle, maintenant nous pouvons nous amuser. Elle adore son cadeau, tu as très bien choisi, félicitations !!\r\nJ’espère te revoir très vite pour m’amuser avec toi !',	'notre arrivée avec Nala',	'https://i.imgur.com/DO806Wq.jpg',	'#89a4c7',	3,	'2019-11-03 13:49:29',	NULL),
-(26,	'YOUPIIIIIIIIIIIIIII !! Nous avons réussi ! Nous sommes arrivés chez Charlotte !\r\nJe te remercie de m’avoir aidé à aller chez elle, maintenant nous pouvons nous amuser. Elle adore son cadeau, tu as très bien choisi, félicitations !!\r\nJ’espère te revoir très vite pour m’amuser avec toi !',	'notre arrivée sans Nala',	'https://i.imgur.com/qx7bIEx.jpg',	'#e9fadd',	3,	'2019-11-03 13:49:38',	NULL)
+(26,	'YOUPIIIIIIIIIIIIIII !! Nous avons réussi ! Nous sommes arrivés chez Charlotte !\r\nJe te remercie de m’avoir aidé à aller chez elle, maintenant nous pouvons nous amuser. Elle adore son cadeau, tu as très bien choisi, félicitations !!\r\nJ’espère te revoir très vite pour m’amuser avec toi !',	'notre arrivée sans Nala',	'https://i.imgur.com/qx7bIEx.jpg',	'#e9fadd',	3,	'2019-11-03 13:49:38',	NULL),
+(27,	'Je veux plus écrire ce livre',	'Chapter 777',	NULL,	NULL,	20,	'2019-11-03 19:20:28',	NULL),
+(29,	'Je suis pas fatiguée',	'Chapter 12',	NULL,	NULL,	20,	'2019-11-03 19:04:07',	NULL)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `text` = VALUES(`text`), `recap` = VALUES(`recap`), `image` = VALUES(`image`), `color` = VALUES(`color`), `story_id` = VALUES(`story_id`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`);
 
 DROP TABLE IF EXISTS `story`;
@@ -195,11 +197,12 @@ INSERT INTO `story` (`id`, `author_id`, `title`, `description`, `image`, `publis
 (12,	1,	'Forme inconnue',	'Rêve ou réalité ? Cette forme s\'impose à vos yeux ébahis. Oserez-vous franchir son seuil ?',	'https://i.imgur.com/ediNfxp.jpg',	1,	'2019-11-03 12:26:12',	NULL),
 (13,	1,	'Générateur de trou noir',	'La nouvelle scientifique vient d\'être rendue publique. Ils ont réussi à faire un générateur de trous noirs. Folie scientifique à vos yeux ! Temps d\'aller saboter tout ça.',	'https://i.imgur.com/2EZoxyw.jpg',	1,	'2019-11-03 12:45:02',	NULL),
 (14,	1,	'Androïdes nouvelle génération',	'Ces nouvelles machines sont là pour satisfaire les plaisirs les plus sordides des plus puissants qui gouvernent la terre. Et si ces machines avaient une motivation tout autre ?',	'https://i.imgur.com/m5aYY6w.jpg',	1,	'2019-11-03 12:43:55',	NULL),
-(15,	1,	'Église abandonnée',	'Faire de cette vieille église, abandonnée au milieu de la forêt, la planque parfaite pour stocker les drogues de votre gang, vous semble subitement une mauvaise idée quand seul, au milieu de la nuit il faut aller faire l\'inventaire.',	'https://i.imgur.com/txtIjqm.jpg',	1,	'2019-11-03 12:43:55',	NULL),
+(15,	2,	'Église abandonnée',	'Faire de cette vieille église, abandonnée au milieu de la forêt, la planque parfaite pour stocker les drogues de votre gang, vous semble subitement une mauvaise idée quand seul, au milieu de la nuit il faut aller faire l\'inventaire.',	'https://i.imgur.com/txtIjqm.jpg',	1,	'2019-11-04 08:46:55',	NULL),
 (16,	1,	'Violences séquentielles',	'Votre ennui n\'arrive à être trompé que lorsque vous tombez dans la spirale de la violence pour divertir. Vous repoussez toujours plus loin les limites et les conséquences semblent vous éviter pour l\'instant.',	'https://i.imgur.com/8YfE9D4.jpg',	1,	'2019-11-03 12:43:55',	NULL),
 (17,	1,	'La traque ultime',	'Kidnappée, torturée et destinée à mourir, vous avez réussi à échapper à vos ravisseurs. Entre la vie et la mort, vous devez les semer à travers la forêt qui entoure leur repère.',	'https://i.imgur.com/7BHCbaK.jpg',	1,	'2019-11-03 13:20:03',	NULL),
 (18,	1,	'Le mystère d’Halloween',	'On raconte qu\'une sorcière a décidé de voler tous les bonbons le soir d\'Halloween car elle se régale d\'entendre les pleurs tristes des enfants. Comment l\'arrêter ?',	'https://i.imgur.com/kY3fR6h.jpg',	1,	'2019-11-03 12:43:55',	NULL),
-(19,	1,	'Le trampoline magique',	'On raconte que celui qui arrive à dompter le trampoline magique peut sauter jusqu\'où il veut, sans aucune limite. Et toi ? Tu irais où si tu trouvais ce trampoline magique ?',	'https://i.imgur.com/dYrKAKy.jpg',	1,	'2019-11-03 13:20:03',	NULL)
+(19,	1,	'Le trampoline magique',	'On raconte que celui qui arrive à dompter le trampoline magique peut sauter jusqu\'où il veut, sans aucune limite. Et toi ? Tu irais où si tu trouvais ce trampoline magique ?',	'https://i.imgur.com/dYrKAKy.jpg',	1,	'2019-11-03 13:20:03',	NULL),
+(20,	1,	'Le soir',	'Once upon a time ...',	NULL,	0,	'2019-11-03 16:56:43',	NULL)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `author_id` = VALUES(`author_id`), `title` = VALUES(`title`), `description` = VALUES(`description`), `image` = VALUES(`image`), `published` = VALUES(`published`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`);
 
 DROP TABLE IF EXISTS `story_has_category`;
@@ -215,13 +218,13 @@ CREATE TABLE `story_has_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `story_has_category` (`id`, `story_id`, `category_id`) VALUES
-(1,	2,	2),
-(2,	3,	1),
-(4,	4,	2),
-(5,	5,	2),
-(6,	6,	2),
-(7,	7,	2),
-(8,	8,	2),
+(1,	2,	1),
+(2,	3,	2),
+(4,	4,	1),
+(5,	5,	1),
+(6,	6,	1),
+(7,	7,	1),
+(8,	8,	1),
 (9,	9,	3),
 (10,	10,	3),
 (11,	11,	3),
@@ -231,8 +234,9 @@ INSERT INTO `story_has_category` (`id`, `story_id`, `category_id`) VALUES
 (15,	15,	5),
 (16,	16,	5),
 (17,	17,	5),
-(18,	18,	1),
-(19,	19,	1)
+(18,	18,	2),
+(19,	19,	2),
+(20,	20,	5)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `story_id` = VALUES(`story_id`), `category_id` = VALUES(`category_id`);
 
 DROP TABLE IF EXISTS `user`;
@@ -251,7 +255,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `avatar`, `role_id`, `created_at`, `updated_at`) VALUES
-(1,	'Victor Hugo',	'meutrix@gmail.com',	'$2b$10$b019KfXTqFvSIN8gl5wgAOox1GZ8kRvl.KsURbz8nXVj9UigGLU8G',	'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Victor_Hugo_001.jpg/1200px-Victor_Hugo_001.jpg',	2,	'2019-10-31 14:48:38',	NULL),
+(1,	'Hugo Victor',	'meutrix@gmail.com',	'$2b$10$b019KfXTqFvSIN8gl5wgAOox1GZ8kRvl.KsURbz8nXVj9UigGLU8G',	'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Victor_Hugo_001.jpg/1200px-Victor_Hugo_001.jpg',	2,	'2019-11-04 22:34:24',	NULL),
 (2,	'Jean-Jacques',	'hey@jacques.me',	'$2b$10$hQRQGYM4XpilQE0/l74OAe4I6lJkPIvRrcXGUsHzhkmHyI2nLl1E6',	'http://i-exc.ccm2.net/iex/1280/1481268465/752415.jpg',	1,	'2019-10-31 14:50:40',	'2019-10-25 11:57:36')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `name` = VALUES(`name`), `email` = VALUES(`email`), `password` = VALUES(`password`), `avatar` = VALUES(`avatar`), `role_id` = VALUES(`role_id`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`);
 
@@ -292,4 +296,4 @@ INSERT INTO `user_read_story` (`id`, `user_id`, `story_id`, `last_situation_id`)
 (2,	1,	3,	26)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `user_id` = VALUES(`user_id`), `story_id` = VALUES(`story_id`), `last_situation_id` = VALUES(`last_situation_id`);
 
--- 2019-11-03 14:25:05
+-- 2019-11-04 22:34:56
