@@ -28,8 +28,8 @@
         }
     
         &-text{
-            font-size: 14px;
             font-family: $font-inter;
+            margin: 1rem 0;
             
     
         }
@@ -46,8 +46,9 @@
         &-link {
             font-size: 16px;
             display: block;
-            color: $grey-text;
-            font-family: $font;
+            color: $grey-title;
+            font-family: $font-inter;
+            margin-bottom: .5rem;
     
             &:hover {
                 text-decoration: none;
