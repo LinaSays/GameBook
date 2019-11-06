@@ -138,10 +138,14 @@
 		font-size: 1.8rem;
 		color: gray;
 		cursor: pointer;
+		background-color: transparent;
+		text-transform: uppercase;
+		border:none;
 
 		&:hover {
 			text-decoration: none;
 			color: $orange;
+			
 		}
 	}
 
