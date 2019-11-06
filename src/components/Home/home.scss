@@ -123,6 +123,7 @@
             text-transform: uppercase;
             transition: .5s;
             width: 100%;
+            margin-bottom: 1rem;
             
 
             
@@ -144,6 +145,7 @@
             font-size: .9em;
             transition: .5s;
             font-family: $font-inter;
+            top: 40px;
 
             &:hover {
                 color:white;
@@ -163,7 +165,7 @@
             position: absolute;
             color: white;
             bottom: 80px;
-            left: 5px;   
+            left: 20px;   
             width: 80%; 
         }
     }
@@ -245,6 +247,10 @@
             width: 100%;
             
             }
+        
+        &-title {
+            font-size: 2rem;
+        }
     }
 
 
@@ -386,6 +392,11 @@
             transform: translateY(100%);
         }
 
+        &:hover &-descrip {
+            transform: translateY(40%);
+            opacity: 1;
+        }
+
         &:hover .title-5 {
             transform: translateY(-55%);
 
@@ -436,6 +447,14 @@
 
 
     .card-story {
+
+        &:hover .descrip-home-3 {
+            transform: translateY(30%);
+        }
+
+        &:hover .link-home-3 {
+            transform: translateY(90%);
+        }
 
         &:hover .link-home-1 {
             transform: translateY(200%);

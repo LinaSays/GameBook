@@ -10,10 +10,10 @@ import './team.scss';
 // == Composant
 const Team = () => (
   <div className="container-fluid p-0">
-    <div className="image">
-      <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" className="image-contact" width="100%" alt="banniere contact" />
-      <h1 className="image-title">Team</h1>
-      <p className="image-descrip">L'équipe de rêve</p>
+    <div className="image-team">
+      <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" className="image-team-contact" width="100%" alt="banniere contact" />
+      <h1 className="image-team-title">Team</h1>
+      <p className="image-team-descrip">L'équipe de rêve</p>
     </div>
 
     <div className="team container">
