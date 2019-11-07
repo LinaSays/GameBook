@@ -44,7 +44,7 @@ class Couverture extends React.Component {
     console.log(storyId);
     const { deleteStory } = this.props;
     deleteStory(storyId);
-    if (storyId === undefined) {
+    if (storyId === null) {
       document.location.href = '/profile';
     }
   };
