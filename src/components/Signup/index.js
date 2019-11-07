@@ -44,14 +44,16 @@ const Signup = ({
             <input type="password" placeholder="Confirmer mot de passe" value={confirm} onChange={handleChange} className="signup-left-input" name="confirm" required />
           </div>
 
-          <div className="signup-left-field d-flex  ">
+          <div className="signup-left-field-choice text-center ">
             <span className="signup-left-choice">Vous êtes ici pour :</span>
+            <div className="signup-left-choice-box">
             <div className="signup-left-radio">
-              <label htmlFor="read" className="signup-left-choice"><input type="radio" id="read" name="choice" value="1" onChange={handleChange} className="radio"/> Lire</label>
+              <label htmlFor="read" className="signup-left-choice"><input type="radio" id="read" name="choice" value="1" onChange={handleChange} className="radio" /> Lire</label>
             </div>
             <div className="signup-left-radio">
-              <label htmlFor="write" className="signup-left-choice"><input type="radio" id="write" name="choice" value="2" onChange={handleChange}  className="radio"/> Ecrire</label>
+              <label htmlFor="write" className="signup-left-choice"><input type="radio" id="write" name="choice" value="2" onChange={handleChange} className="radio" /> Ecrire</label>
             </div>
+          </div>
           </div>
 
           <div>
@@ -63,6 +65,7 @@ const Signup = ({
           </div>
         </form>
         <div className="signup-right-desktop">
+          <img src="/../../../public/images/GameBook_blanc_200x200.png" alt="" width="80" height="80" className="signup-right-logo" />
           <h2 className="signup-right-title text-white">GAMEBook</h2>
           <img
             className="signup-right-img"

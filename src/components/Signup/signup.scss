@@ -81,6 +81,11 @@
         font-size: 1.1rem;
         margin-right: 1rem;
         font-family: $font;
+
+        &-box {
+          display: flex;
+          justify-content: center;
+        }
       }
 
     }
@@ -151,6 +156,8 @@
         margin-bottom: 1rem;
       }
 
+
+
       
 
     }
@@ -187,11 +194,19 @@
 
       }
 
+      &-logo {
+        position: relative;
+        z-index: 1;
+      }
+
       &-title {
         
         position: relative;
-        z-index: 2;
+        z-index: 1;
         font-size: 2rem;
+        font-family: $font-inter;
+        top: 10px;
+        font-weight: 700;
         
       }
 
@@ -203,6 +218,7 @@
         font-family: $font-inter;
         font-size: 1rem;
         font-weight: normal;
+        top:10px;
 
         &:hover {
           color: rgb(88, 39, 167);
