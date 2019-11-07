@@ -14,9 +14,12 @@ import PropTypes from 'prop-types';
 const Publication = ({ sendStory }) => {
   const publishStory = (event) => {
     event.preventDefault();
-    const storyId = sessionStorage.getItem('story');
+    let storyId = sessionStorage.getItem('story');
     sendStory(storyId);
-    document.location.href = '/profile/created';
+    storyId = null;
+    if (storyId === null) {
+      document.location.href = '/profile/created';
+    }
   };
 
   return (
