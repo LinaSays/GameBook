@@ -41,9 +41,10 @@ class Couverture extends React.Component {
   deleteStory = (event) => {
     event.preventDefault();
     const storyId = sessionStorage.getItem('story');
+    console.log(storyId);
     const { deleteStory } = this.props;
     deleteStory(storyId);
-    document.location.href = '/profile';
+    // document.location.href = '/profile';
   };
 
   updateStory = (event) => {

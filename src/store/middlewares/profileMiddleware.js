@@ -66,7 +66,6 @@ const profileMiddleware = (store) => (next) => (action) => {
         connection,
       })
         .then((response) => {
-          console.log(response);
           if (email === response.data[0].email) {
             const actionSaveUser = saveUser(response.data);
             store.dispatch(actionSaveUser);
