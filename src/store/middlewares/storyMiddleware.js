@@ -103,7 +103,7 @@ async function newStory(store) {
   try {
     const state = store.getState();
     const { title, summary, select } = state.createStory;
-    if (title.length <= 0 && summary.length <= 5) {
+    if (title.length <= 0 && summary.length < 5) {
       toast.error('Veuillez saisir un titre ou un résumé');
     }
     else {

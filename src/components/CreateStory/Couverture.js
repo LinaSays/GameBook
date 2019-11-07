@@ -33,7 +33,7 @@ class Couverture extends React.Component {
     createNewStory();
     const titleText = document.getElementById('storyTitle').value;
     const summaryText = document.getElementById('summaryText').value;
-    if (titleText.length > 0 && summaryText.length > 5) {
+    if (titleText.length > 0 && summaryText.length >= 5) {
       toggle('2');
     }
   };
