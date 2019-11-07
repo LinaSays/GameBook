@@ -11,7 +11,7 @@ const Terms = () => (
     <div className="container-fluid p-0">
       <div className="mentions-container-image">
         <img src="https://i.imgur.com/I0hs4W4.jpg" className="image-mentions" width="100%" alt="banniere mentions" />
-        <h1 className="image-mentions-title">CONDITIONS GÉNÉRALES DU SITE GAMEBOOK</h1>
+        <h1 className="image-mentions-title">Conditions générales du site Gamebook</h1>
         <p className="image-mentions-descrip">pour terminer votre inscription, merci de lire les conditions générales ci-dessous.</p>
       </div>
       <div className="mentions-wrapper">
