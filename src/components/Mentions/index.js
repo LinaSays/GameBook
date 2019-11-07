@@ -11,7 +11,7 @@ const Mentions = () => (
     <div className="container-fluid p-0">
       <div className="mentions-container-image">
         <img src="https://i.imgur.com/4vNRUsC.jpg" className="image-mentions" width="100%" alt="banniere mentions" />
-        <h1 className="image-mentions-title">MENTIONS LÉGALES DU SITE GAMEBOOK</h1>
+        <h1 className="image-mentions-title">Mentions légales du site Gamebook</h1>
         <p className="image-mentions-descrip">nous espérons que vous trouverez la réponse à votre question.</p>
       </div>
       <div className="mentions-wrapper">
