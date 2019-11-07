@@ -2,7 +2,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, MemoryRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -14,9 +14,9 @@ import store from 'src/store';
 // == Render
 const rootComponent = (
   <Provider store={store}>
-    <Router>
+    <MemoryRouter>
       <App />
-    </Router>
+    </MemoryRouter>
   </Provider>
 );
 
