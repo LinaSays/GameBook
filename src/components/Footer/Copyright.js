@@ -9,8 +9,8 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 // == Composant
 const Copyright = () => (
-  <Container fluid="true" className="footer-copyright">
-    <Container>
+  <a fluid="true" className="footer-copyright">
+    <a>
       <Row className="footer-copyright--group">
         <nav className="footer-copyright--nav">
           <a className="footer-copyright--link" href="/mentions">Mentions légales</a>
@@ -19,8 +19,8 @@ const Copyright = () => (
         </nav>
         <p className="footer-copyright--text">&copy; 2019 GAMEBook- designed by <Link to="/team" className="footer-copyright--cypok">Team Cypok</Link></p>
       </Row>
-    </Container>
-  </Container>
+    </a>
+  </a>
 );
 
 // == Export
