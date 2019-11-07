@@ -83,6 +83,9 @@ const reducer = (state = initialState, action = {}) => {
     case SHOW_CHOICE:
       return {
         ...state,
+        choice1: '',
+        choice2: '',
+        choice3: '',
       };
     case DELETE_CHAPTER_FROM_DB:
       return {

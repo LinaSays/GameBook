@@ -13,8 +13,8 @@ const Copyright = () => (
     <Container>
       <Row className="footer-copyright--group">
         <nav className="footer-copyright--nav">
-          <a className="footer-copyright--link" href="/mentions">Mentions légales</a>
-          <a className="footer-copyright--link" href="/terms">Politique de confidentialité</a>
+          <Link className="footer-copyright--link" href="/mentions">Mentions légales</Link>
+          <Link className="footer-copyright--link" href="/terms">Politique de confidentialité</Link>
           <AnchorLink href="#app" className="footer-copyright--link">Haut de page</AnchorLink>
         </nav>
         <p className="footer-copyright--text">&copy; 2019 GAMEBook- designed by <Link to="/team" className="footer-copyright--cypok">Team Cypok</Link></p>
