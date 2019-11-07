@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 // == Import : local
 import './signin.scss';
+import logo from '../../../public/images/GameBook_blanc_200x200.png';
 
 // == Composant
 const Signin = ({
@@ -24,7 +25,7 @@ const Signin = ({
     <div className="signin">
       <div className="testing">
         <div className="signin-left-desktop">
-          <img src="/../../../public/images/GameBook_blanc_200x200.png" alt="" width="80" height="80" className="signup-right-logo" />
+          <img src={logo} alt="" width="80" height="80" className="signup-right-logo" />
           <h2 className="signin-left-title text-white">GAMEBook</h2>
           <img
             className="signin-left-img"
