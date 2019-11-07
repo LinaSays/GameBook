@@ -54,8 +54,8 @@ async function getStartStories(store) {
 async function getNextChapter(store, id) {
   // cas spécial de la FAQ
   if (isNaN(id)) {
-    // document.location.href = id;
-    window.history.pushState(null, null, id);
+    document.location.href = id;
+    // window.history.pushState(null, null, id);
   }
   else try {
     axios.defaults.withCredentials = true;
