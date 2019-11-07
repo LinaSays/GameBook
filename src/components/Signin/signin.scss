@@ -176,6 +176,7 @@
         font-size: 1rem;
         font-weight:normal;
         font-family: $font-inter;
+        top: 10px;
       
         
 
@@ -225,16 +226,18 @@
       &-title {
         
         position: relative;
-        z-index: 2;
+        z-index: 1;
         font-size: 2rem;
+        font-family: $font-inter;
+        font-weight: 700;
+        top:10px;
         
       }
 
       &-link {
         
         position: relative;
-        z-index: 2;
-        
+        z-index: 2;  
         
       }
     }
