@@ -43,7 +43,6 @@ const Signup = ({
           <div className="signup-left-field">
             <input type="password" placeholder="Confirmer mot de passe" value={confirm} onChange={handleChange} className="signup-left-input" name="confirm" required />
           </div>
-
           <div className="signup-left-field d-flex  ">
             <span className="signup-left-choice">Vous êtes ici pour :</span>
             <div className="signup-left-radio">
@@ -53,7 +52,6 @@ const Signup = ({
               <label htmlFor="write" className="signup-left-choice"><input type="radio" id="write" name="choice" value="2" onChange={handleChange}  className="radio"/> Ecrire</label>
             </div>
           </div>
-
           <div>
             <input type="checkbox" name="condition" id="condition" required /> <a className="signup-left-label" href="/terms">Accepter les conditions d'utilisation</a>
           </div>
@@ -71,13 +69,10 @@ const Signup = ({
           />
           <Link to="/signin" className="signup-right-link">Se connecter</Link>
         </div>
-
       </div>
     </div>
   );
 };
-
-
 Signup.propTypes = {
   changeValue: PropTypes.func.isRequired,
   user_name: PropTypes.string.isRequired,
@@ -86,6 +81,5 @@ Signup.propTypes = {
   confirm: PropTypes.string.isRequired,
   createUser: PropTypes.func.isRequired,
 };
-
 // == Export
 export default Signup;
