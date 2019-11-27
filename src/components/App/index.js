@@ -1,7 +1,7 @@
 /* eslint-disable react/prefer-stateless-function */
 // == Import : npm
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 
@@ -33,6 +33,37 @@ class App extends React.Component {
     const { getHome, getCategory } = this.props;
     getHome();
     getCategory();
+    this.changeTitle();
+    const { history } = this.props;
+    history.listen(this.changeTitle);
+  }
+
+  changeTitle = () => {
+    switch (window.location.pathname) {
+      case '/':
+        document.title = 'Accueil - Bienvenue sur GameBook';
+        break;
+      case '/contact':
+        document.title = 'Nous contacter';
+        break;
+      case '/signup':
+        document.title = 'S\'inscrire - Bienvenue sur GameBook';
+        break;
+      case '/signin':
+        document.title = 'Se connecter - Bienvenue sur GameBook';
+        break;
+      case '/categories':
+        document.title = 'Catégories de GameBook';
+        break;
+      case '/createstory':
+        document.title = 'Création d\'une histoire';
+        break;
+      case '/profile':
+        document.title = 'Mon profile';
+        break;
+      default:
+        document.title = 'GameBook';
+    }
   }
 
   render() {
@@ -103,4 +134,4 @@ App.propTypes = {
 };
 
 // == Export
-export default App;
+export default withRouter(App);

@@ -26,7 +26,7 @@
     position: absolute;
     top: 2rem;
     color: #232323;
-    margin-left: 20px;
+    margin: 0 20px;
     font-size: 1.8rem;
     padding: .5rem;
     background-color: lighten(#ddd, 15%);
@@ -109,7 +109,6 @@
   .container-flippy{
     margin-top: 2rem;
     margin-bottom: 2rem;
-
   }
 
 
@@ -175,5 +174,17 @@
       width: 100%;
       margin-bottom: -65px;
     }
+  }
+}
+
+@media screen and (min-width: 752px) and (max-width: 1123px) {
+  .container-flippy{
+    width: 40vw;
+  }
+}
+
+@media screen and (min-width: 1122px) and (max-width: 1728px) {
+  .container-flippy{
+    width: 45vw;
   }
 }

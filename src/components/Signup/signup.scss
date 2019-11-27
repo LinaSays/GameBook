@@ -55,7 +55,6 @@
           font-family: $font;
           font-size: .9rem;
         }
-
       }
 
       &-label {
@@ -63,7 +62,6 @@
         font-size: 1rem;
         color: rgb(109, 109, 109);
         font-size: .8rem;
-        
       }
 
       &-button {
@@ -71,7 +69,6 @@
         border-radius: 100px;
         padding: .7rem;
         width: 100%;
-        margin: 1rem 0;
         font-family: 'Lato';
         color: white;
         background-color: rgb(124, 79, 196);
@@ -87,7 +84,6 @@
           justify-content: center;
         }
       }
-
     }
 
     &-right {
@@ -108,7 +104,6 @@
         font-family: 'Lato';
         margin-right: .3rem;
         font-size: .8rem;
-        
       }
 
       &-link {
@@ -118,13 +113,7 @@
         color:rgb(99, 61, 161);
       }
     }
-
-
-
-
   }
-
-
 }
 
 // == Tablet
@@ -141,8 +130,6 @@
 
   .signup {
 
-    
-
     &-left {
       width: 50%;
       margin: 0;
@@ -155,17 +142,11 @@
       &-subtitle {
         margin-bottom: 1rem;
       }
-
-
-
-      
-
     }
 
    
 
     &-right {
-
       display: none;
 
       &-desktop {
@@ -177,8 +158,6 @@
         padding: 3rem ;
         //background-color: red;
         width: 50%;
-        
-
       }
 
       &-img {
@@ -191,7 +170,6 @@
         height: 100%;
         z-index: 0;
         opacity: .3;
-
       }
 
       &-logo {
@@ -200,14 +178,12 @@
       }
 
       &-title {
-        
         position: relative;
         z-index: 1;
         font-size: 2rem;
         font-family: $font-inter;
         top: 10px;
         font-weight: 700;
-        
       }
 
       &-link {
@@ -226,17 +202,10 @@
           background-color: #fff;
           border-radius: 100px;
           padding: .5rem 1.5rem;
-        
-          
         }
-
-      
-
       }
-
     }
   }  
-
 }
 
 // == Desktop
@@ -244,24 +213,18 @@
   .testing1 {
     width: 900px;
     height: 570px;
-
   }
 
   .signup {
     &-left-field {
       align-items: center;
-     //background-color: green;
-
     }
+
     &-left-choice {
-        //background-color: red;
-        margin-bottom: 2px;
-        font-size: 1.2rem;
-       
+      margin-bottom: 2px;
+      font-size: 1.2rem;
     }
-
   }
-
 }
 
 

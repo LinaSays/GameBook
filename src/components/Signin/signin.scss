@@ -9,7 +9,6 @@
   .testing {
     width: 90%;
     //background-color: yellow;
-    
   }
 
   .signin {
@@ -66,7 +65,6 @@
           font-family: $font;
           font-size: .9rem;
         }
-
       }
 
       &-forgot {
@@ -78,7 +76,6 @@
         &:hover {
           text-decoration: none;
         }
-
       }
 
       &-button {
@@ -102,7 +99,6 @@
         color: white;
         background-color: rgb(124, 79, 196);
       }
-      
     }
 
     &-left {
@@ -123,7 +119,6 @@
         font-family: 'Lato';
         margin-right: .3rem;
         font-size: .8rem;
-        
       }
 
       &-link {
@@ -133,15 +128,7 @@
         color:rgb(99, 61, 161);
       }
     }
-
-   
   }
-
-
-
-
-
-
 }
 
 // == Tablet
@@ -153,10 +140,8 @@
     position: relative;  
     //border-radius: 10px;
     overflow: hidden;
-    
-   
-   
   }
+
   .signin {
 
     &-right {
@@ -177,8 +162,6 @@
         font-weight:normal;
         font-family: $font-inter;
         top: 10px;
-      
-        
 
         &:hover {
           color: rgb(88, 39, 167);
@@ -186,7 +169,6 @@
           background-color: #fff;
           border-radius: 100px;
           padding: .5rem 1.5rem;
-          
         }
       }
     }
@@ -207,8 +189,6 @@
         //background-color: red;
         width: 50%;
         opacity: 1;
-       
-
       }
 
       &-img {
@@ -220,25 +200,21 @@
         height: 100%;
         z-index: 0;
         opacity: .2;
-
       }
 
       &-title {
-        
         position: relative;
         z-index: 1;
         font-size: 2rem;
         font-family: $font-inter;
         font-weight: 700;
         top:10px;
-        
       }
 
       &-link {
         
         position: relative;
         z-index: 2;  
-        
       }
     }
   }
@@ -254,15 +230,10 @@
 
   .signin {
 
- 
     &-right {
-
-   
 
       &-subtitle {
       margin: 1.5rem 0;
-      
-
       }
 
       &-button {
@@ -270,7 +241,4 @@
       }
     }
   }
-
 }
-
-

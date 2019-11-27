@@ -27,7 +27,6 @@ class StartStory extends React.Component {
     const {
       id, text, color, image, choice, isConnected, profile,
     } = this.props;
-
     return (
       <div className="container-story" style={{ background: color }}>
         <Image src={image} alt="" className="bg-image" />
@@ -75,8 +74,6 @@ class StartStory extends React.Component {
                 <NavLink to="" className="button-nav-footer d-flex justify-content-center align-items-center" variant="secondary"><MdHome className="button-nav-logo"/></NavLink>
               </div>
               )
-
-
             }
           </div>
         </div>

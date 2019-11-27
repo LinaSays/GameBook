@@ -41,8 +41,6 @@
 
         &-change {
           font-family: $font;
-          
-    
         }
       }
 
@@ -73,7 +71,6 @@
         &::placeholder {
           font-family: 'Lato';
         }
-
       }
 
       &-forgot {
@@ -85,7 +82,6 @@
         &:hover {
           text-decoration: none;
         }
-
       }
 
       &-button {
@@ -109,7 +105,6 @@
         color: white;
         background-color: rgb(124, 79, 196);
       }
-      
     }
 
     &-left {
@@ -130,7 +125,6 @@
         font-family: 'Lato';
         margin-right: .3rem;
         font-size: .8rem;
-        
       }
 
       &-link {
@@ -152,8 +146,6 @@
         text-decoration: none;
       }
     }
-
-   
   }
 
 
@@ -176,14 +168,11 @@
 
   .signin-forgotten {
 
-
     &-right {
       width: 70%;
       margin: 0;
       border-radius: 0;
       
-      
-
       &-title {
         display: none;
       }
@@ -195,8 +184,6 @@
         transition: .4s;
         font-size: 1rem;
         font-weight: normal;
-      
-        
 
         &:hover {
           color: rgb(88, 39, 167);
@@ -204,7 +191,6 @@
           background-color: #fff;
           border-radius: 100px;
           padding: .5rem 1.5rem;
-          
         }
       }
     }
@@ -225,8 +211,6 @@
         //background-color: red;
         width: 50%;
         opacity: 1;
-       
-
       }
 
       &-img {
@@ -238,23 +222,17 @@
         height: 100%;
         z-index: 0;
         opacity: .2;
-
       }
 
       &-title {
-        
         position: relative;
         z-index: 2;
         font-size: 2rem;
-        
       }
 
       &-link {
-        
         position: relative;
         z-index: 2;
-        
-        
       }
     }
   }
@@ -270,9 +248,6 @@
 
   .signin-forgotten {
 
-   
-
-  
     &-right {
 
       width: 30%;
@@ -280,15 +255,11 @@
 
       &-subtitle {
       margin-bottom: 2.5rem;
-      
-
       }
 
       &-button {
         margin-top: 3rem;
-
       }
     }
   }
-
 }

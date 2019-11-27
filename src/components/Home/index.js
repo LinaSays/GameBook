@@ -7,7 +7,7 @@ import { ScrollMagicPluginGsap } from 'scrollmagic-plugin-gsap';
 
 // == Import : local
 import './home.scss';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 import Intro from './Intro';
 
@@ -36,7 +36,6 @@ class Home extends React.Component {
         new ScrollMagic.Scene({
           triggerElement: `#card-${i}`,
           duration: '500px',
-
         })
           .setTween(tween)
           //.addIndicators({ name: 'resize' }) 
@@ -50,7 +49,6 @@ class Home extends React.Component {
         new ScrollMagic.Scene({
           triggerElement: `#card-${i}`,
           duration: '400px',
-
         })
           .setTween(tween)
           //.addIndicators({ name: 'resize' })
@@ -63,17 +61,22 @@ class Home extends React.Component {
     const { isConnected, story, category } = this.props;
     return (
       <main id="home">
-
         {
           isConnected ? (
             <div className="content">
               {category.map((item) => (
-                <div key={item.id} className="card-story container" category_id={item.id} id={`card-${item.id}`}>
+                <div
+                  key={item.id}
+                  className="card-story container"
+                  category_id={item.id}
+                  id={`card-${item.id}`}
+                  onClick={() => this.props.history.push(`categories/${item.id}`)}
+                >
                   <img className="card-story-img" src={item.image} alt="" />
                   <div className="card-story-text-content">
                     <h2 className="card-story-title">{item.name}.</h2>
                     <p className="card-story-descrip">{item.description}</p>
-                    <Link to={`categories/${item.id}`} className={`card-story-link link-cat-${item.id}`}>Parcourir<MdKeyboardArrowRight /></Link>
+                    <a className={`card-story-link link-cat-${item.id}`}>Parcourir<MdKeyboardArrowRight /></a>
                   </div>
                 </div>
               ))}
@@ -86,12 +89,17 @@ class Home extends React.Component {
               </div>
               <div className="content" id="histoire">
                 {story.map((item) => (
-                  <div key={item.id} id={`card-${item.id}`} className="card-story container">
+                  <div
+                    key={item.id}
+                    id={`card-${item.id}`}
+                    className="card-story container"
+                    onClick={() => this.props.history.push(`story/${item.id}`)}
+                  >
                     <img className="card-story-img" src={item.image} alt="" />
                     <div className="card-story-text-content">
                       <h2 className={`card-story-title title-home-${item.id}`}>{item.title}.</h2>
                       <p className={`card-story-descrip descrip-home-${item.id}`}>{item.description}</p>
-                      <Link to={`story/${item.id}`} className={`card-story-link link-home-${item.id}`}>Commencer l'histoire <MdKeyboardArrowRight /> </Link>
+                      <a className={`card-story-link link-home-${item.id}`}>Commencer l'histoire <MdKeyboardArrowRight /> </a>
                     </div>
                   </div>
                 ))}
@@ -114,4 +122,4 @@ Home.propTypes = {
 };
 
 // == Export
-export default Home;
+export default withRouter(Home);

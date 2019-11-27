@@ -2,6 +2,7 @@
  * Import : npm
  */
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
@@ -68,4 +69,4 @@ Categories.propTypes = {
 /*
  * Export
  */
-export default Categories;
+export default withRouter(Categories);

@@ -72,8 +72,6 @@
             transition: .4s;
             display: block;
             
-            
-
             &:hover {
                 color: white;
                 background-color: $orange;
@@ -87,7 +85,6 @@
             position: relative;
             left: 20%;
             top: 30px;
-
         }
 
         &-img--tablet {
@@ -95,8 +92,6 @@
             width: 80%;
             position: relative;
             margin-bottom: 1rem;
-          
-
         }
 
         &-img--desk {
@@ -124,10 +119,7 @@
             text-transform: uppercase;
             transition: .5s;
             width: 100%;
-            margin-bottom: 1rem;
-            
-
-            
+            margin-bottom: 1rem;   
         }
     
         &-descrip {
@@ -137,7 +129,6 @@
             transition: .5s;
             opacity: 0;
             font-family: $font-inter;
-          
         }
     
         &-link {
@@ -149,8 +140,8 @@
             top: 40px;
 
             &:hover {
-                color:white;
-                text-decoration: none;
+              color:white;
+              text-decoration: none;
             }
         }
     
@@ -178,8 +169,6 @@
 
     .home {
       min-height: 950px;  
-
-        
     }
 
     .content {
@@ -188,7 +177,6 @@
 
     .wave {
         height: 250px;
-        
     }
     .intro {
 
@@ -204,7 +192,6 @@
             color: white;
             font-size: 2em;
             text-align: left;
-
         }
 
         &-text {
@@ -231,10 +218,6 @@
         &-img--tablet {
             display: initial;
         }
-
-        
-
-
     }
 
     .card-story {
@@ -246,17 +229,12 @@
             bottom: 60px;
             left: 50px;
             width: 100%;
-            
             }
         
         &-title {
             font-size: 1.5rem;
         }
     }
-
-
-
-
 }
 
 // Size for desktop
@@ -270,8 +248,6 @@
     .content {
         padding: 10rem;
         min-height: 900px;
-
-
     }
 
     .wave {
@@ -294,7 +270,6 @@
             flex-wrap: nowrap;
             padding: 20px 0 0;
             z-index: 1;
-            
         }
 
         &-left{
@@ -315,8 +290,7 @@
             font-size: .9em;
             text-align: left;
             word-spacing: -1px;
-            line-height: 1.7;
-            
+            line-height: 1.7;  
         }
 
         &-button {
@@ -327,9 +301,7 @@
             width: 70%;
             top: 50px;
             padding: .5rem 1rem .6rem ;
-            //line-height:1.2;
-           
-            
+            //line-height:1.2;  
         }
 
         &-img {
@@ -350,7 +322,6 @@
             z-index: 1;
             width:110%;
         }
-
     }
 
 
@@ -400,18 +371,15 @@
 
         &:hover .title-5 {
             transform: translateY(-55%);
-
         }
     
         &:hover .link-cat-5 {
             transform: translateY(100%);
-
         }
     }
 
     #card-1:target {
-        transition: 1s;
-        
+        transition: 1s; 
     }
 }
 

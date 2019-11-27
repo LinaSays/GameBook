@@ -37,7 +37,7 @@ Wrote.propTypes = {
   id: PropTypes.number,
   title: PropTypes.string,
   image: PropTypes.string,
-  deleteStory: PropTypes.func.isRequired,
+  deleteStory: PropTypes.func,
 };
 
 Wrote.defaultProps = {
