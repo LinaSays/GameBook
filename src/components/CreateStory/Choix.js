@@ -1,14 +1,10 @@
 // == Import : npm
 import React from 'react';
-import {
-  Button, Form, FormGroup, Label, Input, FormText,
-  ListGroup, ListGroupItem,
-} from 'reactstrap';
+import { Button, FormGroup, Label, Input, FormText } from 'reactstrap';
 import {
   FiCornerDownRight,
   FiGitCommit,
   FiDelete,
-  FiPlus,
   FiSave,
 } from 'react-icons/fi';
 import PropTypes from 'prop-types';
@@ -114,6 +110,7 @@ Choix.propTypes = {
   choice2: PropTypes.string,
   choice3: PropTypes.string,
   chapters: PropTypes.array,
+  sendChoice: PropTypes.func.isRequired,
 };
 
 Choix.defaultProps = {

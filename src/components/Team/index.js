@@ -64,20 +64,3 @@ const Team = () => (
 
 // == Export
 export default Team;
-
-
-/**
- * Info importante :
- * Christian :
- *    <a href="https://www.linkedin.com/in/christianbourgeoisdev" className="team-info-link"><FaLinkedin /> in/christianbourgeoisdev</a>
- *    src="http://www.coldeporte.fr/upload/histoires/big/La-marmotte--774.jpg" roundedCircle
- * Baptiste :
- *    <a href="https://www.linkedin.com/in/baptiste-parville" className="team-info-link"><FaLinkedin /> in/baptiste-parville</a>
-*      src="https://i.ytimg.com/vi/Gn528HiYToM/maxresdefault.jpg" roundedCircle
- * Ismaël :
- *    <a href="https://www.linkedin.com/in/ismaël-mmadi-13b870195" className="team-info-link"><FaLinkedin /> in/ismaël-mmadi-13b870195</a>
- *    src="http://www.littlegoguette.com/wp-content/uploads/2014/11/La-Marmotte.jpg" roundedCircle
- * Alina :
- *    <a href="https://www.linkedin.com/in/alina-moskvina" className="team-info-link"><FaLinkedin /> in/alina-moskvina</a>
- *    src="http://lunivers-des-animaux.e-monsite.com/medias/album/marmotte-des-alpes1.jpg" roundedCircle
- */

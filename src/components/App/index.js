@@ -24,19 +24,19 @@ import StartStory from 'src/containers/StartStory';
 import NavNew from 'src/containers/NavNew';
 import ScrollToTop from 'src/components/ScrollToTop';
 
-
 toast.configure();
 
 // == Composant
 
 class App extends React.Component {
   componentDidMount() {
-    const { getHome } = this.props;
+    const { getHome, getCategory } = this.props;
     getHome();
+    getCategory();
   }
 
   render() {
-    const { isConnected } = this.props;
+    const { isConnected, category } = this.props;
     return (
       <div id="app">
         <ToastContainer autoClose={5000} />
@@ -45,9 +45,6 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/">
             <Home isConnected={isConnected} />
-          </Route>
-          <Route path="/concept">
-            <div>Voici notre concept</div>
           </Route>
           <Route path="/contact">
             <Contact />
@@ -76,14 +73,11 @@ class App extends React.Component {
           <Route exact path="/categories">
             <Home isConnected={isConnected} />
           </Route>
-          <Route exact path="/categories/:id" component={Categories} />
-            {/* <Categories />
-          </Route> */}
+          {category.map((item) => (
+            <Route exact path={`/categories/${item.id}`} key={item.name} render={() => <Categories />} />
+          ))}
           <Route path="/createstory">
             <CreateStory />
-          </Route>
-          <Route path="/about">
-            <div>A propos</div>
           </Route>
           <Route path="/team">
             <Team />
@@ -104,6 +98,8 @@ class App extends React.Component {
 App.propTypes = {
   isConnected: PropTypes.bool.isRequired,
   getHome: PropTypes.func.isRequired,
+  getCategory: PropTypes.func.isRequired,
+  category: PropTypes.array.isRequired,
 };
 
 // == Export

@@ -48,13 +48,13 @@ const Signup = ({
           <div className="signup-left-field-choice text-center ">
             <span className="signup-left-choice">Vous êtes ici pour :</span>
             <div className="signup-left-choice-box">
-            <div className="signup-left-radio">
-              <label htmlFor="read" className="signup-left-choice"><input type="radio" id="read" name="choice" value="1" onChange={handleChange} className="radio" /> Lire</label>
+              <div className="signup-left-radio">
+                <label htmlFor="read" className="signup-left-choice"><input type="radio" id="read" name="choice" value="1" onChange={handleChange} className="radio" /> Lire</label>
+              </div>
+              <div className="signup-left-radio">
+                <label htmlFor="write" className="signup-left-choice"><input type="radio" id="write" name="choice" value="2" onChange={handleChange} className="radio" /> Ecrire</label>
+              </div>
             </div>
-            <div className="signup-left-radio">
-              <label htmlFor="write" className="signup-left-choice"><input type="radio" id="write" name="choice" value="2" onChange={handleChange} className="radio" /> Ecrire</label>
-            </div>
-          </div>
           </div>
 
           <div>

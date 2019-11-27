@@ -11,6 +11,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import App from 'src/containers/App';
 import store from 'src/store';
 
+require('dotenv').config();
+
+
 // == Render
 const rootComponent = (
   <Provider store={store}>

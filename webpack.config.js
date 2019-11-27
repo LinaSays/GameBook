@@ -23,6 +23,9 @@ module.exports = {
       src: path.resolve(__dirname, 'src/'),
     },
   },
+  node: {
+    fs: "empty"
+  },
   // Points d'entrée pour le travail de Webpack
   entry: {
     app: [

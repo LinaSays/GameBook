@@ -5,11 +5,7 @@ import {
   FormText, CustomInput,
 }
   from 'reactstrap';
-import {
-  FiTrash,
-  FiEdit3,
-}
-  from 'react-icons/fi';
+import { FiTrash, FiEdit3 } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 
 // == Import : local

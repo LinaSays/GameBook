@@ -72,6 +72,7 @@ Mobile.propTypes = {
   pins: PropTypes.array.isRequired,
   read: PropTypes.array.isRequired,
   wrote: PropTypes.array.isRequired,
+  profile: PropTypes.array.isRequired,
 };
 
 // == Export

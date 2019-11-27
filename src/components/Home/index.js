@@ -16,7 +16,6 @@ ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 // == Composant
 class Home extends React.Component {
-
   componentDidMount() {
     const { getStories, getCategory } = this.props;
     getStories();
@@ -62,8 +61,6 @@ class Home extends React.Component {
 
   render() {
     const { isConnected, story, category } = this.props;
-
-    
     return (
       <main id="home">
 

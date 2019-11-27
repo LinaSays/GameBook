@@ -27,7 +27,6 @@ class StartStory extends React.Component {
     const {
       id, text, color, image, choice, isConnected, profile,
     } = this.props;
-    // style= {{ background: color }};
 
     return (
       <div className="container-story" style={{ background: color }}>

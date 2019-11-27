@@ -11,7 +11,6 @@ import PropTypes from 'prop-types';
 // == Import : local
 
 
-
 // == Composant
 const Presentation = ({ isConnected }) => (
   <Col sm={12} md={6} lg={3}>

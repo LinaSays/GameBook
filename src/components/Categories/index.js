@@ -9,8 +9,6 @@ import PropTypes from 'prop-types';
 /*
  * Import : local
  */
-
-import switchCat from 'src/functions/switchCat';
 import Category from './category';
 import './categories.scss';
 
@@ -19,53 +17,47 @@ import './categories.scss';
  * Components
  */
 class Categories extends React.Component {
-
   componentDidMount() {
     const { getCategoryStories } = this.props;
     getCategoryStories();
-
-
   }
-
-  componentDidUpdate() {
-    const { getCategoryStories } = this.props;
-    getCategoryStories();
-
-  }
-
-  
 
   render() {
-    const { storylist, location } = this.props;
-
-
-    // console.log(this.props.location);
-    console.log(storylist);
-    // console.log(this.props.category);
+    const { storylist } = this.props;
     return (
       <div className="categories">
         <div className="categories-header">
-          {
-             switchCat(location.pathname)
-          }
+          {storylist.length > 0
+          && (
+            <>
+              <img
+                src={storylist[0].catpic}
+                alt="Bannière"
+                className="categories-header-image"
+                width="100%"
+              />
+              <div className="categories-header-content">
+                <h1 className="categories-header-title m-0">{storylist[0].category}.</h1>
+              </div>
+            </>
+          )}
         </div>
-
-        {/* <h1 className="categories-title">{this.props.category}</h1> */}
         <div>
           <div className="cards-group">
             <Row className="test1">
-            {storylist.map((list) => (
-              <>
-                <Col className="test2" key={list.title}><Category {...list} /></Col>
-              </>
-            ))}
-          </Row>
+              {storylist.map((list) => (
+                <>
+                  <Col className="test2" key={list.description}>
+                    <Category {...list} />
+                  </Col>
+                </>
+              ))}
+            </Row>
           </div>
         </div>
       </div>
     );
   }
-
 }
 
 Categories.propTypes = {

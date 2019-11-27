@@ -58,7 +58,7 @@ Change.defaultProps = {
   changeValue: () => {},
   user_name: '',
   email: '',
-  password: '',
+  // password: '',
   avatar: '',
 };
 

@@ -6,9 +6,10 @@ import PropTypes from 'prop-types';
 // == Import : local
 
 // == Composant
-const Wrote = ({ id, title, image, deleteStory }) => {
+const Wrote = ({
+  id, title, image, deleteStory,
+}) => {
   const deleteOneStory = (storyId) => (event) => {
-    console.log(storyId);
     event.preventDefault();
     deleteStory(storyId);
     document.location.href = '/profile/created';
@@ -36,6 +37,7 @@ Wrote.propTypes = {
   id: PropTypes.number,
   title: PropTypes.string,
   image: PropTypes.string,
+  deleteStory: PropTypes.func.isRequired,
 };
 
 Wrote.defaultProps = {

@@ -13,6 +13,8 @@ import {
 } from 'src/store/reducer/profile';
 import { CONNECT_USER, saveUser, CREATE_USER, saveNewUser } from 'src/store/reducer/signin';
 
+const API_URI = 'http://localhost:3000';
+
 const profileMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CREATE_USER: {
@@ -23,7 +25,7 @@ const profileMiddleware = (store) => (next) => (action) => {
       }
       if (password === confirm) {
         axios.defaults.withCredentials = true;
-        axios.post('http://localhost:3000/profile/add', {
+        axios.post(`${API_URI}/profile/add`, {
           user_name, email, password, choice,
         })
           .then((response) => {
@@ -44,7 +46,7 @@ const profileMiddleware = (store) => (next) => (action) => {
     }
     case GET_PROFILE: {
       axios.defaults.withCredentials = true;
-      axios.get('http://localhost:3000/profile')
+      axios.get(`${API_URI}/profile`)
         .then((response) => {
           const save = showProfile(response.data);
           store.dispatch(save);
@@ -59,13 +61,12 @@ const profileMiddleware = (store) => (next) => (action) => {
     case CONNECT_USER: {
       const state = store.getState();
       const { email, password, connection } = state.signin;
-      axios.post('http://localhost:3000/profile', {
+      axios.post(`${API_URI}/profile`, {
         email,
         password,
         connection,
       })
         .then((response) => {
-          console.log(response);
           if (email === response.data[0].email) {
             const actionSaveUser = saveUser(response.data);
             store.dispatch(actionSaveUser);
@@ -84,7 +85,7 @@ const profileMiddleware = (store) => (next) => (action) => {
     }
     case GET_PINS: {
       axios.defaults.withCredentials = true;
-      axios.get('http://localhost:3000/pins')
+      axios.get(`${API_URI}/pins`)
         .then((response) => {
           const save = showPins(response.data);
           store.dispatch(save);
@@ -98,7 +99,7 @@ const profileMiddleware = (store) => (next) => (action) => {
     }
     case GET_READ_STORIES: {
       axios.defaults.withCredentials = true;
-      axios.get('http://localhost:3000/readstories')
+      axios.get(`${API_URI}/readstories`)
         .then((response) => {
           const save = showReadStories(response.data);
           store.dispatch(save);
@@ -112,7 +113,7 @@ const profileMiddleware = (store) => (next) => (action) => {
     }
     case GET_WROTE_STORIES: {
       axios.defaults.withCredentials = true;
-      axios.get('http://localhost:3000/wrotestories')
+      axios.get(`${API_URI}/wrotestories`)
         .then((response) => {
           const save = showWroteStories(response.data);
           store.dispatch(save);

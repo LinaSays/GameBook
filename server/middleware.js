@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const secret = 'cypok';
+const secret = process.env.SECRET_PASS;
 
 const withAuth = (req, res, next) => {
   // console.log(req.cookies.token);

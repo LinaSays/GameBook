@@ -2,16 +2,13 @@
  * Import : npm
  */
 import React, { useState } from 'react';
-// import {
-//   UncontrolledCollapse, Button, CardBody, Card,
-// } from 'reactstrap';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import { FaPlayCircle } from 'react-icons/fa';
 import { GiReturnArrow } from 'react-icons/gi';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-
 import { Button, Collapse } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 /*
  * Import : local
@@ -31,7 +28,6 @@ const Category = ({ id, title, image, author, description }) => {
           flipOnClick // default false
           flipDirection="horizontal" // horizontal or vertical
           style={{ marginTop: '1em' }}
-          
         >
           <FrontSide style={{ padding: '0' }}>
             <div className="card">
@@ -62,7 +58,7 @@ const Category = ({ id, title, image, author, description }) => {
       </div>
 
       <div className="mobile">
-        <container>
+        <>
           <Button
             onClick={() => setOpen(!open)}
             aria-controls="example-collapse-text"
@@ -88,13 +84,23 @@ const Category = ({ id, title, image, author, description }) => {
               <Link to={`/story/${id}`} className="mobile-card-link">Lecture <FaPlayCircle /></Link>
             </div>
           </Collapse>
-        </container>
+        </>
       </div>
     </div>
   );
 };
 
+
+Category.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
+
 /*
  * Export
  */
+
 export default Category;

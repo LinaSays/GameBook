@@ -1,6 +1,6 @@
 // == Import : npm
 import React from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { MdKeyboardArrowDown } from 'react-icons/md';
@@ -12,7 +12,6 @@ import './navnew.scss';
 class NavNew extends React.Component {
   state = {
     isOpen: false,
-
   }
 
   removeCookie = () => {
@@ -21,21 +20,13 @@ class NavNew extends React.Component {
     document.location.href = '/';
   };
 
-
-  // componentDidUpdate(prevProps) {
-  //   if (
-  //     this.props.location.pathname !== prevProps.location.pathname
-  //   ) {
-  //     window.scrollTo(0, 0);
-  //   }
-  // }
-
  seeMenu = () => {
    this.setState({
      ...this.state,
      isOpen: !this.state.isOpen,
    });
  }
+
 
  render() {
    const { isOpen } = this.state;
@@ -49,7 +40,6 @@ class NavNew extends React.Component {
    const fixOrNot = classNames(navContainer, { 'container-fluid nav-container-fixed': isOpen || isConnected });
    const colorLogo = classNames('nav-logo text-white mob', { 'text-dark': isOpen });
    const bgNav = classNames('', { 'nav-connect': isConnected });
-
    return (
      <div className={`${fixOrNot} ${bgNav}`}>
        {
@@ -65,7 +55,6 @@ class NavNew extends React.Component {
                           <NavLink
                             key={item.id}
                             to={`/categories/${item.id}`}
-                            exact
                             className="nav-drop-link"
                           >{item.name}
                           </NavLink>

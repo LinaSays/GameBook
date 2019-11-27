@@ -6,9 +6,11 @@ import App from 'src/components/App';
 
 // Action Creators
 import { getHome } from 'src/store/reducer/signin';
+import { getCategory } from 'src/store/reducer/home';
 
 const mapStateToProps = (state) => ({
   isConnected: state.signin.isConnected,
+  category: state.home.category,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -18,6 +20,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getHome: () => {
     const action = getHome();
+    dispatch(action);
+  },
+  getCategory: () => {
+    const action = getCategory();
     dispatch(action);
   },
 });

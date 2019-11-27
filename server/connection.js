@@ -1,13 +1,12 @@
 const mysql = require('mysql');
-const session = require('express-session');
 
 const app = require('./index');
 
 const options = {
-  host: 'localhost',
-  user: 'aventure',
-  password: 'aventure_cypok',
-  database: 'aventure',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_DB,
 };
 
 // MySQL connection

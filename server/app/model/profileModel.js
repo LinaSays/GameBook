@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const saltRounds = 10; // for hash password
-const secret = 'cypok'; // for token
+const secret = process.env.SECRET_PASS; // for token
 
 const db = require('../../connection');
 
@@ -66,7 +66,6 @@ module.exports = {
                 secure: false,
               };
               res.cookie('token', token, cookieSettings).redirect('/profile');
-              console.log(tokenSettings);
             }
             else {
               const tokenSettings = {

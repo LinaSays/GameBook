@@ -1,8 +1,7 @@
 // == Import : npm
 import React from 'react';
 import {
-  Form, FormGroup, Label, Input, FormText, CustomInput,
-  Pagination, PaginationItem, PaginationLink, Button,
+  Form, FormGroup, Label, Input, FormText, CustomInput, Button,
 } from 'reactstrap';
 import { CirclePicker } from 'react-color';
 import { FiTrash, FiEdit3 } from 'react-icons/fi';
@@ -27,7 +26,6 @@ class Chapitres extends React.Component {
   handleSelect = (event) => {
     const { getSelectedChapter, getAllChapters } = this.props;
     const { name, value } = event.target;
-    console.log(name, value);
     getSelectedChapter(value);
     getAllChapters();
   };
@@ -152,6 +150,8 @@ Chapitres.propTypes = {
   getAllChapters: PropTypes.func.isRequired,
   sendChapter: PropTypes.func.isRequired,
   sendChoice: PropTypes.func.isRequired,
+  deleteChapter: PropTypes.func.isRequired,
+  findChapterToEdit: PropTypes.func.isRequired,
 };
 
 Chapitres.defaultProps = {

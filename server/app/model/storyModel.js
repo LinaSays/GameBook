@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
 const db = require('../../connection');
 
+const secret = process.env.SECRET_PASS;
+
 module.exports = {
   getAllStories: (req, res) => {
     const query = 'SELECT * FROM story';
@@ -28,9 +30,11 @@ module.exports = {
 
   createStory: (req, res) => {
     const { token } = req.cookies;
-    const { title, summary, select, customFile } = req.body;
+    const {
+      title, summary, select, customFile,
+    } = req.body;
     const published = 0;
-    jwt.verify(token, 'cypok', (err, decoded) => {
+    jwt.verify(token, secret, (err, decoded) => {
       if (err) {
         res.status(401).send('Unauthorized: Invalid token');
       }

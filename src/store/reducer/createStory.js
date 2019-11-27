@@ -170,7 +170,7 @@ export const getSelectedChapter = (id) => ({
 
 export const sendChoice = (id) => ({
   type: SEND_CHOICE,
-  id
+  id,
 });
 
 export const showChoice = () => ({
