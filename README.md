@@ -1,12 +1,12 @@
-# L'aventure dont vous êtes le héros
+# GameBook
 
-![0_1572389829879_marmotte_de_combat.jpg](https://i.imgur.com/zDnONqu.jpg) 
+![front_page](./frontpage.png) 
 
 ## Le projet de fin de formation
 
 **L'équipe :**
 
-- Christian (Product Owner)
+- Alina (Lead dev back & Git Master)
+- Christian (Product Owner & Référent Technique Node.JS)
 - Baptiste (Scrum master & CHO)
-- Lead dev front (Ismaël)
-- Lead dev back (Alina)
+- Ismaël (Lead dev front & Référent Technique Framework CSS)
