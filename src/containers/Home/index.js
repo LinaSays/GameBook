@@ -11,6 +11,7 @@ import { getStories, getCategory } from 'src/store/reducer/home';
 const mapStateToProps = (state) => ({
   story: state.home.story,
   category: state.home.category,
+  loading: state.home.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({

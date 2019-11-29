@@ -3,7 +3,7 @@ import axios from 'axios';
 import {
   GET_STORIES, showStories, GET_CATEGORIES, showCategory, GET_CATEGORY_STORIES, showCategoryStories,
 } from 'src/store/reducer/home';
-import { GET_HOME, showHome } from 'src/store/reducer/signin';
+import { GET_HOME, showHome, loading } from 'src/store/reducer/signin';
 
 const API_URI = 'http://localhost:3000';
 
@@ -44,8 +44,6 @@ const homeMiddleware = (store) => (next) => (action) => {
       break;
     }
     case GET_HOME: {
-      const state = store.getState();
-      const { isConnected } = state.signin;
       axios.defaults.withCredentials = true;
       axios.get(`${API_URI}/checkToken`)
         .then((res) => {
@@ -54,6 +52,10 @@ const homeMiddleware = (store) => (next) => (action) => {
         })
         .catch((err) => {
           console.error(err);
+        })
+        .finally(() => {
+          const save = loading();
+          store.dispatch(save);
         });
       break;
     }

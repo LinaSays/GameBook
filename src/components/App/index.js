@@ -4,6 +4,7 @@ import React from 'react';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import PropTypes from 'prop-types';
+import PacmanLoader from 'react-spinners/PacmanLoader';
 
 // == Import : local
 import './app.scss';
@@ -67,7 +68,12 @@ class App extends React.Component {
   }
 
   render() {
-    const { isConnected, category } = this.props;
+    const { isConnected, category, loading } = this.props;
+    const override = `
+      display: block;
+      margin: 5rem auto;
+      border-color: red;
+    `;
     return (
       <div id="app">
         <ToastContainer autoClose={5000} />
@@ -75,7 +81,7 @@ class App extends React.Component {
         <NavNew isConnected={isConnected} />
         <Switch>
           <Route exact path="/">
-            <Home isConnected={isConnected} />
+            {loading ? <PacmanLoader css={override} size={50} color={'#BD10E0'} loading={loading} /> : <Home isConnected={isConnected} />}
           </Route>
           <Route path="/contact">
             <Contact />
@@ -131,6 +137,7 @@ App.propTypes = {
   getHome: PropTypes.func.isRequired,
   getCategory: PropTypes.func.isRequired,
   category: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 // == Export

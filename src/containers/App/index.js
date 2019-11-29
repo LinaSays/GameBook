@@ -11,6 +11,7 @@ import { getCategory } from 'src/store/reducer/home';
 const mapStateToProps = (state) => ({
   isConnected: state.signin.isConnected,
   category: state.home.category,
+  loading: state.signin.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
