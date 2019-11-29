@@ -10,7 +10,6 @@ module.exports = {
   create: (req, res) => {
     const avatar = 'https://i.imgur.com/rMxbnBM.png';
     const { user_name, email, password, choice } = req.body;
-
     const query = 'SELECT user.id FROM user WHERE user.email=?';
     const params = [email];
     // execute query
@@ -20,31 +19,48 @@ module.exports = {
         res.send('Utilisateur existe');
       }
       else {
-        bcrypt.hash(password, saltRounds, (err, hash) => {
-          const query1 = 'INSERT INTO user (name, email, password, avatar, role_id) VALUES (?, ?, ?, ?, ?)';
-          const params2 = [user_name, email, hash, avatar, choice];
-          db.query(query1, params2, (err2, result2) => {
-            if (err2) throw err;
-            const tokenSettings = {
-              expiresIn: '5d',
-            };
-            const token = jwt.sign({ user: result2.insertId }, secret, tokenSettings);
-            // console.log(token);
-            const cookieSettings = {
-              httpOnly: false,
-              secure: false,
-            };
-            res.cookie('token', token, cookieSettings).redirect('/profile');
-          });
+        db.beginTransaction((error) => {
+          if (error) throw error;
+          try {
+            bcrypt.hash(password, saltRounds, (err, hash) => {
+              let query1 = 'INSERT INTO user (name, email, password, avatar, role_id) VALUES (?, ?, ?, ?, ?)';
+              const params1 = [user_name, email, hash, avatar, choice];
+              db.query(query1, params1, (err1, result1) => {
+                if (err1) throw err1;
+                const tokenSettings = {
+                  expiresIn: '5d',
+                };
+                const token = jwt.sign({ user: result1.insertId }, secret, tokenSettings);
+                const cookieSettings = {
+                  httpOnly: false,
+                  secure: false,
+                };
+
+                // execute query 2
+                query1 = 'INSERT INTO user_has_pins (user_id, pins_id) VALUES (?, ?)';
+                const params2 = [result1.insertId, 5];
+                db.query(query1, params2, (err2, result2) => {
+                  if (err2) throw err2;
+                  db.commit((err3) => {
+                    if (err3) throw err3;
+                    res.cookie('token', token, cookieSettings).redirect('/profile');
+                  });
+                });
+              });
+            });
+          }
+          catch (ex) {
+            db.rollback();
+            throw ex;
+          }
         });
       }
     });
   },
 
+
   connect: (req, res) => {
     const { email, password, connection } = req.body;
-    // console.log(email, password, connection);
-    // console.log(req.session);
     const query = 'SELECT user.id, user.password FROM user WHERE user.email=?';
     const params = [email];
     // execute query
@@ -60,7 +76,6 @@ module.exports = {
                 expiresIn: '2h',
               };
               const token = jwt.sign({ user: result[0].id }, secret, tokenSettings);
-              // console.log(token);
               const cookieSettings = {
                 httpOnly: false,
                 secure: false,
@@ -72,7 +87,6 @@ module.exports = {
                 expiresIn: '15d',
               };
               const token = jwt.sign({ user: result[0].id }, secret, tokenSettings);
-              // console.log(token);
               const cookieSettings = {
                 httpOnly: false,
                 secure: false,

@@ -5,9 +5,7 @@
     position: relative;
     max-height: 350px;
     box-shadow: 4px 2px 20px 0px #9e9494;
-
   }
-
   
   &-icon-return {
     position: absolute;
@@ -20,7 +18,6 @@
     opacity: 0.8;
     border-radius: 5px;
   }
-
 
   &-text-front {
     position: absolute;
@@ -111,7 +108,6 @@
     margin-bottom: 2rem;
   }
 
-
   .flippy {
     display: none;
   }
@@ -120,14 +116,12 @@
     font-size: 3.3em;
     color: #fff;
     transition: all .3s linear;
-    
   }
 
   .mobile-icon-return:hover {
     transform: rotate(-180deg);
     margin-top: 1rem;
   }
-
 
   .mobile-card-title {
     margin-bottom: 0.5rem;

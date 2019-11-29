@@ -1,7 +1,6 @@
 @import 'src/styles/vars';
 
 
-
 // == Mobile
 @media screen and (min-width: 320px) {
   #connexion {
@@ -10,15 +9,12 @@
 
   .testing {
     width: 90%;
-    //background-color: yellow;
-    
   }
 
   .signin-forgotten {
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-color: rgb(175, 175, 238);
     background: url('https://www.xtrafondos.com/wallpapers/montanas-en-bosque-minimalista-flat-3306.jpg') center no-repeat;
     background-size: cover;
     padding-top: 3rem;
@@ -147,12 +143,6 @@
       }
     }
   }
-
-
-
-
-
-
 }
 
 // == Tablet
@@ -162,12 +152,10 @@
     background-color: rgb(100, 62, 161);
     display: flex;
     position: relative;  
-    //border-radius: 10px;
     overflow: hidden;
   }
 
   .signin-forgotten {
-
     &-right {
       width: 70%;
       margin: 0;
@@ -198,7 +186,6 @@
    
 
     &-left{
-
       display: none;
 
       &-desktop {
@@ -208,7 +195,6 @@
         align-items: center;
         justify-content: center;
         padding: 3rem ;
-        //background-color: red;
         width: 50%;
         opacity: 1;
       }
@@ -247,9 +233,7 @@
   }
 
   .signin-forgotten {
-
     &-right {
-
       width: 30%;
       padding: 8rem 2rem; 
 

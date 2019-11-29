@@ -3,13 +3,11 @@
 // Size for mobile
 
 @media screen and (min-width:320px) {
-
     .home {
         background: linear-gradient(-134deg, rgb(149, 81, 160) 0%, rgb(33, 24, 107) 100%);
         position: relative;
         min-height: 100vh;   
     }
-
 
     .content {
         display: flex;
@@ -27,10 +25,8 @@
         z-index: 0;
     }
     
-   
     .intro {
         padding: 1rem 20px 30px;
-       
         
         &-content {
             display: flex;
@@ -47,17 +43,13 @@
             font-family: 'Poppins';
             text-transform: uppercase;
             font-size: 2rem;
-
         }
 
         &-text {
             color: white;
             text-align: center;
             word-spacing: -1px;
-            font-family: 'Inter';;
-      
-            
-            
+            font-family: 'Inter';   
         }
 
         &-button {
@@ -166,7 +158,6 @@
 // Size for tablet
 
 @media screen and (min-width: 768px) {
-
     .home {
       min-height: 950px;  
     }
@@ -178,8 +169,8 @@
     .wave {
         height: 250px;
     }
-    .intro {
 
+    .intro {
         &-content {
             flex-wrap: wrap-reverse;
         }
@@ -238,7 +229,6 @@
 }
 
 // Size for desktop
-
 @media screen and (min-width: 992px) {
     .home {
         padding-top: 12rem;
@@ -257,12 +247,10 @@
         background-size: cover;
         position: absolute;
         top: 0;
-        //bottom:-130px;
         z-index: 0;
     }
 
     .intro {
-
         padding: 0;
 
         &-content {
@@ -282,7 +270,6 @@
             font-size: 2em;
             text-align: left;
             margin-bottom: 2rem;
-
         }
 
         &-text {
@@ -300,8 +287,7 @@
             z-index: 6;
             width: 70%;
             top: 50px;
-            padding: .5rem 1rem .6rem ;
-            //line-height:1.2;  
+            padding: .5rem 1rem .6rem;  
         }
 
         &-img {
@@ -324,9 +310,7 @@
         }
     }
 
-
     .card-story {
-
         height: 70vh;
         margin-bottom: 5rem;
          
@@ -413,10 +397,7 @@
 
 // Size for desktop ++
 @media screen and (min-width: 1385px) {
-
-
     .card-story {
-
         &:hover .descrip-home-3 {
             transform: translateY(50%);
         }
@@ -424,7 +405,6 @@
         &:hover .title-home-3 {
             transform: translateY(-70%);
         }
-
 
         &:hover .link-home-3 {
             transform: translateY(90%);

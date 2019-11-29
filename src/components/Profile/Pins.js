@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 const Pins = ({ image, badge }) => (
   <div className="pins-content">
     <div className="pins-content-info">
-      <img src={image} alt="badge1" />
+      <img src={image} alt="badge1" className="pins-content-image" />
       <Badge className="pins-content-badge" variant="primary">{badge}</Badge><br />
     </div>
   </div>

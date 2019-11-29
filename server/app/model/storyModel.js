@@ -114,13 +114,52 @@ module.exports = {
   },
 
   publishStory: (req, res) => {
+    const { token } = req.cookies;
     const published = 1;
+    const findPinsQuery = 'SELECT * FROM user_has_pins WHERE user_id=? AND pins_id=?';
     const query = 'UPDATE story SET published=? WHERE id=?';
     const params = [published, req.body.id];
-    // execute query
-    db.query(query, params, (err, result) => {
-      if (err) throw err;
-      res.send(result);
+
+    jwt.verify(token, secret, (err, decoded) => {
+      if (err) {
+        res.status(401).send('Unauthorized: Invalid token');
+      }
+      else {
+        const author_id = decoded.user;
+        const params2 = [author_id, 1];
+        db.query(findPinsQuery, params2, (err1, result) => {
+          if (err1) throw err1;
+          if (result.length > 0) {
+            db.query(query, params, (err2, result1) => {
+              if (err2) throw err2;
+              res.send(result1);
+            });
+          }
+          else {
+            db.beginTransaction((error) => {
+              if (error) throw error;
+              try {
+                // execute query
+                db.query(query, params, (err3, result2) => {
+                  if (err3) throw err3;
+                  const query1 = 'INSERT INTO user_has_pins (user_id, pins_id) VALUES (?, ?)';
+                  db.query(query1, params2, (err4, result3) => {
+                    if (err4) throw err4;
+                    db.commit((err5) => {
+                      if (err5) throw err5;
+                      res.send(result2);
+                    });
+                  });
+                });
+              }
+              catch (ex) {
+                db.rollback();
+                throw ex;
+              }
+            });
+          }
+        });
+      }
     });
   },
 };

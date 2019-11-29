@@ -5,7 +5,6 @@
   
   .cards-group {
     margin: 6rem 1.5em;
-
   }
   
   .categories-title {
@@ -15,7 +14,6 @@
   }
 
   .categories-header {
-
       position: relative;
       background-color: black;
       display: flex;
@@ -34,23 +32,21 @@
       text-transform: uppercase;
       text-align: center;
       font-size: 3rem;
-      
     }
 
     &-text {
       color: white;
       text-align: center;
     }
+
     &-image {
       position: absolute;
       object-fit: cover;
       top:0;
       opacity: .4;
       height: 100%;
-      
     }
   }
-
 
 
 @media screen and (max-width: 750px) {
@@ -60,7 +56,6 @@
 
   .test1 {
     display: block;
-  
   }
 
   .test2 {

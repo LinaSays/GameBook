@@ -290,13 +290,13 @@ p {
   }
 
   .trash-icon {
-    display:none;
+    display: none;
 
     &-mobile {
-    display:block;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
-    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1)
+      display: block;
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+      box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1)
     }
   }
 }
@@ -355,10 +355,10 @@ p {
     display:none;
 
     &-mobile {
-    display:block;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
-    box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1)
+      display:block;
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+      box-shadow: 4px 4px 1px 1px rgba(0, 0, 0, .1)
     }
   }
 }

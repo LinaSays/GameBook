@@ -38,7 +38,6 @@
     display: none;
   }
 
-
   /* Bouton au dessus du menu déroulant */
   .wrapper-button {
     display: flex;
@@ -124,9 +123,7 @@
   .menu-story {
 
     &-image {
-      margin-top: 2rem;
-      margin-right: auto;
-      margin-left: auto;
+      margin: 2em auto 0;
       width: 98%;
       box-shadow: 6px 6px 3px 1px rgba(0, 0, 0, .2);
     }
@@ -183,7 +180,8 @@
     margin-left: 15%;
 
     &-image {
-      width: 90%;
+      width: 150px;
+      height: 150px;
     }
 
     &-info {
@@ -246,9 +244,14 @@
 
 /* Menu déroulant : Les Badges */
   .pins-content {
-    display: inline-block;
+    display: flex;
     font-size: 1.5rem;
-    margin-left: 0;
+    margin-left: auto;
+
+    &-image {
+      width: 150px;
+      height: 150px;
+    }
 
     &-badge {
       height: 30px;
@@ -392,6 +395,8 @@
 /* Menu déroulant : Les histoires créées */
   .card-story-profile-wrote {
     border-bottom: none;
+    width: 50%;
+    display: inline-flex;
   }
 
 /* Menu déroulant : Les histoires créées et lues */
@@ -411,12 +416,11 @@
     justify-content: center;
     margin: 2rem 0 5rem;
 
-    &-info {
-      height: 150px ;
+    &-info, &-image {
+      height: 150px;
       width:  150px;
     }
   }
-
 }
 
 @media screen and (min-width: 1200px) {

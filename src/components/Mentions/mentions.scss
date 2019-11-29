@@ -36,6 +36,7 @@
       top:0
     }
   }
+
   .mentions-wrapper {
     width: 98%;
     margin-right: auto;
@@ -63,9 +64,7 @@
 }
 
 @media screen and (min-width: 650px) {
-
   .image {
-
     &-mentions-title{
       font-size: 1.5rem;
     }
@@ -88,13 +87,11 @@
 }
 
 @media screen and (min-width: 751px) {
-
   .mentions-container-image {
     height: 250px;
   }
 
   .image {
-  
     &-mentions-title{
       font-size: 1.5rem;
     }
@@ -120,8 +117,8 @@
   .mentions-container-image {
     height: 400px;
   }
-  .image {
 
+  .image {
     &-mentions-title {
       font-size: 2.5rem;
     }

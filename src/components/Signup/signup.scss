@@ -5,15 +5,12 @@
 @media screen and (min-width: 320px) {
   .testing1 {
     width: 90%;
-    //background-color: yellow;
-    
   }
 
   .signup {
     display: flex;
     justify-content: center;
     align-items: center;
-    //background-color: rgb(175, 175, 238);
     background: url('https://www.xtrafondos.com/wallpapers/montanas-en-bosque-minimalista-flat-3306.jpg') center no-repeat;
     background-size: cover;
     padding-top: 3rem;
@@ -123,9 +120,7 @@
     background-color: rgb(100, 62, 161);
     display: flex;
     position: relative;  
-    //border-radius: 10px;
-    overflow: hidden;
-         
+    overflow: hidden;    
   }
 
   .signup {
@@ -156,7 +151,6 @@
         align-items: center;
         justify-content: center;
         padding: 3rem ;
-        //background-color: red;
         width: 50%;
       }
 

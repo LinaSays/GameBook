@@ -1,7 +1,6 @@
 @import 'src/styles/vars';
 
 @media screen and (min-width: 320px) {
-
   .image {
     position: relative;
     display: flex;
@@ -9,7 +8,6 @@
     justify-content: center;
     align-items: center;
     background-color: black;
-
   
     &-title{
       position: relative;
@@ -39,16 +37,12 @@
       opacity: .4;
       top:0
     }
-  
-    
   }
   
   
   .contact {
-    //margin: 2rem;
     display: flex;
     flex-direction: column-reverse;
-    
   
     &-form {
       width: 100%;
@@ -65,7 +59,6 @@
 
   
       &-title {
-       
         font-family: $font;
         font-weight: bold;
         font-size: 1.7rem;
@@ -85,7 +78,6 @@
       }
    
       &-button {
-        //float: right;
         background-color:$violet;
         font-family: $font;
         font-size: .9rem;
@@ -95,7 +87,6 @@
         &:hover {
           background-color: darken( $violet, 15% );
         }
-
       }
     }
   
@@ -104,7 +95,6 @@
       margin-top: 3rem;
 
       &-title {
-        
         font-family: $font;
         font-weight: bold;
         font-size: 1.7rem;
@@ -115,7 +105,6 @@
         font-size: 1rem;
         color: lighten(#000000, 40%); 
         margin: 2rem 0;
-      
       }
 
       &-icon {
@@ -136,9 +125,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  
   .image {
-
     &-title {
       font-size: 2.5rem;
     }
@@ -146,9 +133,7 @@
 }
 
 @media screen and (min-width: 992px) {
-
   .image {
-
     &-title {
       font-size: 3.5rem;
     }
@@ -162,16 +147,10 @@
     flex-direction: row-reverse;
     
     &-info {
-
-      &-title {
-        
-      }
-
       &-text-1 {
         width: 80%;
         margin-bottom: 3rem;
       }
     }
-    
   }
 }

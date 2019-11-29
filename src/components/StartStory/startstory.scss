@@ -3,15 +3,12 @@
 // == Size Mobile
 @media screen and (min-width: 320px) {
     .container-story {
-        //background: url('https://wallpaperset.com/w/full/0/5/1/442146.jpg') center no-repeat;
         background-size: cover;
         background-color: black;
-        //padding: .8rem;
         min-width: 100%;
         min-height: 100vh;
         position:absolute;
         z-index: 1;
-       
     }
 
     .bg-image {
@@ -30,7 +27,6 @@
         padding: 7rem .5rem 3.5rem;
         
         &-account {
-           
             display: none;
     
             &-img {
@@ -46,9 +42,8 @@
     
             &-info {
                 text-align: center;
-               
-               
             }
+
             &-nav-mobile {
                 display: none;
             }
@@ -69,10 +64,8 @@
             border-radius: 0;
             margin: 0;
            
-
             &:hover {
                 background-color: darken($violet , 10%);
-                
             }
         }
 
@@ -82,12 +75,7 @@
         }
     
         &-page {
-            
-            //flex-direction: column;
-            //background-color: #fff;
             padding: 15px;
-           
-            
         }
     
         &-text {
@@ -100,8 +88,7 @@
            text-align: justify;
            opacity: .85;
            font-family: $font-inter;
-            line-height: 1.4;
-    
+           line-height: 1.4;
         }
     
         &-choice-link {
@@ -114,20 +101,15 @@
             margin: .5rem auto;
             font-size: 1.1rem;
             font-weight: bold;
-            font-family: $font-inter;
-            
+            font-family: $font-inter;  
         }
-
-     
     }
-    
 }
 
 // == Size Tablet
 @media screen and (min-width: 768px) {
     .container-story {
         //padding: 2rem;
-        
     }
 
     .bg-image {
@@ -149,8 +131,7 @@
 @media screen and (min-width: 992px) {
     .container-story {
         padding: 0;
-        min-height:100%;
-        
+        min-height:100%; 
     }
 
     .story {
@@ -162,14 +143,12 @@
         &-text {
             height: 480px;
             margin-bottom: 1rem;
-            
         }
 
         &-account {
             display: block;
             width: 30%;
             padding-top: 3rem;
-            //background-color: red;
     
             &-nav-mobile {
                 display: none;
@@ -195,7 +174,6 @@
                         text-decoration: none;
                         color: lighten($violet, 20%);
                     }
-                   
                 }
             }
 
@@ -207,14 +185,12 @@
                 border-radius: 50%;
                 height: 150px;
                 width: 150px;
-
             }
         }
 
         &-page {
             width: 70%;
             padding-bottom: 0;
-           
         }
     }
     
@@ -225,8 +201,6 @@
 @media screen and (min-width: 1200px) {
     .story {
         width: 80%;
-        
-
     }
     
 }
@@ -234,16 +208,12 @@
 @media screen and (min-width: 1500px) {
     .story {
         width: 70%;
-
     }
-    
 }
 
 @media screen and (min-width: 1800px) {
     .story {
         width: 60%;
-
-    }
-    
+    } 
 }
 

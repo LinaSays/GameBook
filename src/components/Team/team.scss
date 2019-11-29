@@ -43,8 +43,6 @@
       opacity: .4;
       top:0
     }
-  
-    
   }
   
 
@@ -58,7 +56,6 @@
         margin: auto;
         padding: 2rem;
         border: 1px solid lighten($grey-text, 40%);
-        //box-shadow: 4px 2px 10px 0px #9e9494;
         margin-top: 3rem;
   
         &-title {
@@ -87,7 +84,6 @@
           font-weight: bold;
           transition: .3s;
 
-  
           &:hover{
             text-decoration: none;
             color: darken($violet, 5%);
@@ -110,7 +106,6 @@
 
 // == Size Tablet
 @media screen and (min-width: 768px) {
-
   .image-team {
     height: 450px;
 
@@ -121,7 +116,6 @@
   .team-info {
     width: 60%;
   }
-
 }
 
 // == Size Desktop
@@ -134,15 +128,12 @@
 
     &-info {
       width: 450px;
-     
     }
   }
 
   .image-team {
-     
     &-title {
      font-size: 3.5rem;
-     
     }
 
     &-descrip {

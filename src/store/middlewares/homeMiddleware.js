@@ -49,18 +49,11 @@ const homeMiddleware = (store) => (next) => (action) => {
       axios.defaults.withCredentials = true;
       axios.get(`${API_URI}/checkToken`)
         .then((res) => {
-          if (res.status === 200) {
-            const save = showHome(res.data);
-            store.dispatch(save);
-          }
-          else {
-            const error = new Error(res.error);
-            throw error;
-          }
+          const save = showHome(res.data);
+          store.dispatch(save);
         })
         .catch((err) => {
           console.error(err);
-          return isConnected;
         });
       break;
     }

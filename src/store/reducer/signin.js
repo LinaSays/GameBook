@@ -40,7 +40,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isConnected: true,
-        // newUser: action.newUser,
       };
     default:
       return state;
