@@ -1,6 +1,6 @@
 // == Import : npm
-import React from 'react';
-import { CardDeck, Card } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { CardDeck, Card, Modal, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -9,26 +9,48 @@ import PropTypes from 'prop-types';
 const Wrote = ({
   id, title, image, deleteStory,
 }) => {
+  // state for modal
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // delete story function
   const deleteOneStory = (storyId) => (event) => {
     event.preventDefault();
     deleteStory(storyId);
     document.location.href = '/profile/created';
   };
 
+  // ajouter un tri des livres publiés/non publiés
   return (
-    // ajouter un tri des livres publiés/non publiés
-    <CardDeck className="card-story-profile-wrote">
-      <Card className="menu-story">
-        <Card.Img variant="top" className="menu-story-image" src={image} />
-        <Card.Body className="menu-story-written">
-          <h2 className="menu-story-title">{title}</h2>
-          <div className={`menu-story-buttons ${id}`}>
-            <button type="button" className={`menu-story-delete ${id}`} onClick={deleteOneStory(id)}>Supprimer</button>
-            <button type="button" className={`menu-story-modify ${id}`}>Modifier</button>
-          </div>
-        </Card.Body>
-      </Card>
-    </CardDeck>
+    <>
+      <CardDeck className="card-story-profile-wrote">
+        <Card className="menu-story">
+          <Card.Img variant="top" className="menu-story-image" src={image} />
+          <Card.Body className="menu-story-written">
+            <h2 className="menu-story-title">{title}</h2>
+            <div className={`menu-story-buttons ${id}`}>
+              <button type="button" className={`menu-story-delete ${id}`} onClick={handleShow}>Supprimer</button>
+              <button type="button" className={`menu-story-modify ${id}`}>Modifier</button>
+            </div>
+          </Card.Body>
+        </Card>
+      </CardDeck>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Est-ce que vous voulez vraiment supprimer "{title}" ?</Modal.Title>
+        </Modal.Header>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Non
+          </Button>
+          <Button variant="primary" onClick={deleteOneStory(id)}>
+            Oui
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 }
 

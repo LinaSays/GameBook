@@ -1,0 +1,5 @@
+<LocationMatch ^/server>
+  Order Allow,Deny
+  Deny from all
+  Options -Indexes
+</LocationMatch>
