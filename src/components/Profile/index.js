@@ -1,6 +1,6 @@
 // == Import : npm
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -34,6 +34,8 @@ class Profile extends React.Component {
       wrote,
       deleteStory,
     } = this.props;
+    const notpublished = wrote.filter((story) => (story.published === 0));
+    const published = wrote.filter((story) => (story.published === 1));
     // const { path, url } = this.props.match;
     switch (location.pathname) {
       case '/profile/modify': {
@@ -53,7 +55,46 @@ class Profile extends React.Component {
               <Info key={item.id} {...item} />
             ))}
             <Menu />
+            <div className="sorted-stories">
+              <NavLink exact to="/profile/created" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Tout</NavLink>
+              <NavLink to="/profile/created/1" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Publiés</NavLink>
+              <NavLink to="/profile/created/2" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Non publiés</NavLink>
+            </div>
             {wrote.map((item) => (
+              <Wrote key={item.image} {...item} {...this.props} />
+            ))}
+          </div>
+        ); }
+      case '/profile/created/1': {
+        return (
+          <div className="menu-button-stories-created">
+            {profile.map((item) => (
+              <Info key={item.id} {...item} />
+            ))}
+            <Menu />
+            <div className="sorted-stories">
+              <NavLink exact to="/profile/created" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Tout</NavLink>
+              <NavLink to="/profile/created/1" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Publiés</NavLink>
+              <NavLink to="/profile/created/2" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Non publiés</NavLink>
+            </div>
+            {published.map((item) => (
+              <Wrote key={item.image} {...item} {...this.props} />
+            ))}
+          </div>
+        ); }
+      case '/profile/created/2': {
+        return (
+          <div className="menu-button-stories-created">
+            {profile.map((item) => (
+              <Info key={item.id} {...item} />
+            ))}
+            <Menu />
+            <div className="sorted-stories">
+              <NavLink exact to="/profile/created" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Tout</NavLink>
+              <NavLink to="/profile/created/1" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Publiés</NavLink>
+              <NavLink to="/profile/created/2" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Non publiés</NavLink>
+            </div>
+            {notpublished.map((item) => (
               <Wrote key={item.image} {...item} {...this.props} />
             ))}
           </div>

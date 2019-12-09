@@ -21,7 +21,6 @@ const Wrote = ({
     document.location.href = '/profile/created';
   };
 
-  // ajouter un tri des livres publiés/non publiés
   return (
     <>
       <CardDeck className="card-story-profile-wrote">

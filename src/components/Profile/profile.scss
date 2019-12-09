@@ -365,6 +365,7 @@
     margin-left: auto;
     margin-right: auto;
 
+
     &-button {
       background-color: lighten(#1F2432, 5%);
       color: #fff;
@@ -377,6 +378,43 @@
 
       &:hover {
         box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2);
+        background-color: #9c27b0;
+        color: #fff;
+        text-decoration: none;
+      }
+      
+    &-selected {
+      background-color: #9c27b0;
+      color: #fff;
+      text-decoration: none;
+    }
+    }
+  }
+
+  // tri des histoires
+  .sorted-stories {
+    display: flex;
+    width: 55%;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    margin-top: 1em;
+
+    &-link {
+      background-color: lighten(#1F2432, 5%);
+      color: #fff;
+      border-radius: 5px;
+      border: none;
+      width: 20%;
+      padding: 0.2rem;
+      line-height: 2rem;
+      text-align: center;
+
+      &:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      &-selected {
         background-color: #9c27b0;
         color: #fff;
         text-decoration: none;
