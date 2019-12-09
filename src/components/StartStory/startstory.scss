@@ -108,10 +108,6 @@
 
 // == Size Tablet
 @media screen and (min-width: 768px) {
-    .container-story {
-        //padding: 2rem;
-    }
-
     .bg-image {
         display: initial;
     }
@@ -121,6 +117,7 @@
             height: 600px;
         }
     }
+
     .story-page {
         padding: 2rem 3rem;
     }
@@ -141,7 +138,7 @@
         padding-bottom:0; 
 
         &-text {
-            height: 480px;
+            height: auto;
             margin-bottom: 1rem;
         }
 
@@ -192,8 +189,7 @@
             width: 70%;
             padding-bottom: 0;
         }
-    }
-    
+    } 
 }
 
 
@@ -202,7 +198,6 @@
     .story {
         width: 80%;
     }
-    
 }
 
 @media screen and (min-width: 1500px) {

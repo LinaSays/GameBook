@@ -290,7 +290,7 @@
   }
 
   .profile-general-display {
-    height: 94vh;
+    margin-bottom: 1em;
   }
 
 /* Icone desktop pour écrire une histoire */
@@ -320,7 +320,7 @@
 
 /* Bandeau Header avec l'avatar */
   .header-profile {
-    padding-top: 4rem;
+    padding-top: 1rem;
 
     &-avatar {
       width: 200px;
@@ -362,8 +362,7 @@
     display: flex;
     justify-content: space-evenly;
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 
 
     &-button {
@@ -371,7 +370,7 @@
       color: #fff;
       border-radius: 5px;
       border: none;
-      width: 20%;
+      width: 23%;
       padding: 0.5rem;
       line-height: 2rem;
       text-align: center;
