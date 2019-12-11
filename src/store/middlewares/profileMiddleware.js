@@ -10,6 +10,8 @@ import {
   showReadStories,
   GET_WROTE_STORIES,
   showWroteStories,
+  DELETE_PROFILE,
+  deleteProfileFromDB,
 } from 'src/store/reducer/profile';
 import { CONNECT_USER, saveUser, CREATE_USER, saveNewUser } from 'src/store/reducer/signin';
 
@@ -122,6 +124,22 @@ const profileMiddleware = (store) => (next) => (action) => {
           console.error(error);
         })
         .finally(() => {
+        });
+      break;
+    }
+    case DELETE_PROFILE: {
+      axios.defaults.withCredentials = true;
+      axios.delete(`${API_URI}/profile/delete`)
+        .then((response) => {
+          const save = deleteProfileFromDB(response.data);
+          store.dispatch(save);
+        })
+        .catch((error) => {
+          console.error(error);
+        })
+        .finally(() => {
+          document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+          document.location.href = '/';
         });
       break;
     }

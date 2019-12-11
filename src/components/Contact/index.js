@@ -27,7 +27,7 @@ const Contact = () => (
         <div className="contact-form">
           <h1 className="contact-form-title">Nous contacter</h1>
           <p className="contact-form-desc">Envoyer un message</p>
-          {/* Formulaire pour nous contacter */}
+          {/* Contact form */}
           <Form className="contact-form-form">
             <Form.Group controlId="formBasicPassword">
               <Form.Control type="text" placeholder="Nom *" className="contact-form-input" required />
@@ -42,7 +42,7 @@ const Contact = () => (
           </Form>
         </div>
 
-        {/* Information sur comment nous contacter */}
+        {/* Info about how to contact us */}
         <div className="contact-info">
           <h1 className="contact-info-title">Information</h1>
           <p className="contact-info-text-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit non quidem temporibus quae tenetur laudantium maiores laborum nostrum id, iure, repellendus quo, expedita accusamus ipsa.</p>

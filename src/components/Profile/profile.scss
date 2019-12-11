@@ -3,7 +3,7 @@
     display: none;
   }
 
-  /* Header de la page profil */
+  /* Header of profile page */
   .header-profile {
     background-color:#263F68;
     padding-top: 6rem;
@@ -33,12 +33,12 @@
     }
   }
 
-/* Icone desktop pour écrire une histoire */
+/* Icone desktop to write a story */
   .write-story-desktop-wrapper {
     display: none;
   }
 
-  /* Bouton au dessus du menu déroulant */
+  /* Button above burger menu */
   .wrapper-button {
     display: flex;
     justify-content: center;
@@ -71,7 +71,7 @@
     margin-top: 2rem;
   }
 
-  /* Menu déroulant : modifier les infos */
+  /* Burger menu : change personal info */
   .toggle-button {
     text-align: center;
     height: 4.7rem;
@@ -93,14 +93,14 @@
   }
 
 
-  /* Menu déroulant : intérieur des cards */
+  /* Burger menu : intérieur des cards */
   .card-content-text {
     margin-top: 0;
     padding-top: 0;
   }
 
   .change-button-form {
-    margin: 1rem 0 2rem;
+    margin: 1rem 5rem 2rem 0;
     background-color: #292f42;
     border-color: #292f42;
     color: #fff;
@@ -110,7 +110,7 @@
     border-radius: 5px;
   }
 
-  /* Menu déroulant : Les histoires créées */
+  /* Burger menu : Created stories */
   .card-story-profile-wrote {
     border-bottom: 0.04rem solid black;
     margin: 0px;
@@ -167,13 +167,13 @@
     }
   }
 
-  /* Menu déroulant : Les histoires lues */
+  /* Burger menu : Read stories */
   .menu-story-wrapper-read {
     background-color: transparent;
     border: none;
   }
 
-  /* Menu déroulant : Les Badges */
+  /* Burger menu : Pins */
   .pins-content {
     display: flex;
     margin-top: 1.4rem;
@@ -197,7 +197,7 @@
 
 
 @media screen and (min-width: 768px) {
-/* Menu déroulant : Le formulaire pour modifier ses infos */
+/* Burger menu : change info form */
   .form-change-info {
     width: 90%;
     font-size: 1.3rem;
@@ -217,7 +217,7 @@
     font-size: 1.1rem;
   }
 
-/* Menu déroulant : Les histoires créées et lues */
+/* Burger menu : stories */
   .menu-story {
 
     &-image {
@@ -242,7 +242,7 @@
     border: none;
   }
 
-/* Menu déroulant : Les Badges */
+/* Burger menu : pins */
   .pins-content {
     display: flex;
     font-size: 1.5rem;
@@ -284,7 +284,7 @@
     margin-top: 5rem;
   }
 
-/* Button mobile pour écrire une histoire */
+/* Button mobile to write a story */
   .wrapper-button {
     display: none;
   }
@@ -293,7 +293,7 @@
     margin-bottom: 1em;
   }
 
-/* Icone desktop pour écrire une histoire */
+/* Icone desktop to write a story */
   .write-story-desktop-wrapper {
     display: flex;
     justify-content: flex-end;
@@ -318,14 +318,14 @@
     }
   }
 
-/* Bandeau Header avec l'avatar */
+/* Header with user photo */
   .header-profile {
     padding-top: 1rem;
 
     &-avatar {
       width: 200px;
       height: 200px;
-      margin-bottom: 2rem;
+      margin-bottom: 5rem;
       box-shadow: 0 5px 15px -8px rgba(0, 0, 0, 0.24), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
       transform: translate3d(0, 70%, 0);
     }
@@ -356,7 +356,7 @@
     }
   }
 
-/* Boutons menu profil */
+/* Buttons menu profil */
   .flex-column-menu-desktop {
     margin-top: 2rem;
     display: flex;
@@ -390,7 +390,7 @@
     }
   }
 
-  // tri des histoires
+  // sort of stories
   .sorted-stories {
     display: flex;
     width: 55%;
@@ -421,7 +421,7 @@
     }
   }
 
- /* Formulaire changer ses infos */
+ /* Form to change info */
   .form-change-info {
     width: 60%;
     font-size: 1.3rem;
@@ -429,14 +429,14 @@
     margin-left: auto;
   }
 
-/* Menu déroulant : Les histoires créées */
+/* Burger menu : Created stories */
   .card-story-profile-wrote {
     border-bottom: none;
     width: 50%;
     display: inline-flex;
   }
 
-/* Menu déroulant : Les histoires créées et lues */
+/* Burger menu : Stories */
   .menu-story-image {
     width: 70%;
   }
@@ -447,7 +447,7 @@
     margin-left: auto;
   }
 
-  /* Menu déroulant : Les Badges */
+  /* Burger menu : Pins */
   .pins-content {
     display: flex;
     justify-content: center;
@@ -462,7 +462,7 @@
 
 @media screen and (min-width: 1200px) {
   
-/* Bouton écrire une histoire desktop */
+/* Button to write a story for desktop */
   .write-story-desktop-wrapper {
     margin-right: 35%;
   }
@@ -480,7 +480,7 @@
     width: 50%;
   }
 
-  /* Menu déroulant : Les histoires créées et lues */
+  /* Burger menu : Stories */
   .menu-story-image {
     width: 50%;
   }

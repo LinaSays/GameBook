@@ -36,7 +36,6 @@ class Profile extends React.Component {
     } = this.props;
     const notpublished = wrote.filter((story) => (story.published === 0));
     const published = wrote.filter((story) => (story.published === 1));
-    // const { path, url } = this.props.match;
     switch (location.pathname) {
       case '/profile/modify': {
         return (

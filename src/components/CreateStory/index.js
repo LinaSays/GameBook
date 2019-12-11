@@ -55,12 +55,12 @@ const CreateStory = ({
 
   return (
     <Jumbotron fluid className="writer-background">
-      {/* Titre de la page Create Story */}
+      {/* Title of the page Create Story */}
       <h1 className="title">L'aventure démarre enfin...</h1>
       <p className="lead">révélez votre talent d'écrivain et prenez en main le destin de vos lecteurs</p>
       <Container fluid className="container-box">
         <div>
-          {/* Breadcrumb de la page Create Story */}
+          {/* Breadcrumb of Create Story */}
           <Breadcrumb tag="nav" listTag="div">
             <BreadcrumbItem tag="a" href="/">Accueil</BreadcrumbItem>
             <BreadcrumbItem tag="a" href="/profile">Mon profil</BreadcrumbItem>
@@ -69,7 +69,7 @@ const CreateStory = ({
         </div>
         <div>
           <div>
-            {/* Titre des Tabs */}
+            {/* Title of Tabs */}
             <Nav tabs>
               <NavItem>
                 <NavLink

@@ -71,9 +71,9 @@ class Chapitres extends React.Component {
     } = this.props;
     return (
       <Form id="formidable">
-        {/* Contenu du Tabs 2 - les chapitres */}
+        {/* Content of Tabs 2 - chapters */}
         <FormGroup>
-          {/* Pagination des chapitres */}
+          {/* Pages of chapters */}
           <Input type="select" name="selectChapter" id="allchapters" onChange={this.handleSelect}>
             <option>Choisir un chapitre</option>
             {chapters.map((chapter) => <option key={chapter.id} value={chapter.id}>{chapter.recap}</option>)}
@@ -86,7 +86,7 @@ class Chapitres extends React.Component {
           </h5>
         </FormGroup>
         <FormGroup>
-          {/* Résumé du chapitre */}
+          {/* Recap of chapter */}
           <Label for="chapterSummary">Résumé de chapitre</Label>
           <Input type="text" name="recap" value={recap} onChange={this.handleChange} id="chapterSummary" placeholder="Résumez rapidement ce chapitre" />
           <FormText>Vous aide à identifier rapidement la trame de ce chapitre</FormText>
@@ -94,7 +94,7 @@ class Chapitres extends React.Component {
         <div className="columns">
           <div className="writer-column">
             <FormGroup>
-              {/* Texte du chapitre */}
+              {/* Text of chapter */}
               <Label for="chapterText">Texte du chapitre</Label>
               <Input type="textarea" value={text} onChange={this.handleChange} rows="32" name="text" id="chapterText" />
             </FormGroup>
@@ -102,20 +102,20 @@ class Chapitres extends React.Component {
           <Choix changeValue={changeValue} title={title} recap={recap} text={text} choice1={choice1} choice2={choice2} choice3={choice3} chapters={chapters} sendChoice={sendChoice} />
         </div>
         <FormGroup>
-          {/* Image de fond */}
+          {/* Back image */}
           <Label for="customImage">Sélectionnez une image de fond</Label>
           <CustomInput type="file" name="customFile" id="customImage" label="format .jpg ou .png" />
           <FormText>Une image de fond pour illustrer votre page/chapitre.</FormText>
         </FormGroup>
         <FormGroup>
-          {/* Couleur de fond */}
+          {/* Back color */}
           <Label for="colorPicker">Choisissez une couleur de fond</Label>
           <CirclePicker onChangeComplete={this.handleChangeComplete} width="100%" className="color-picker" value={selectedColor} />
           <FormText className="legendColor">Peut compléter votre image de fond et la remplacer pour la version mobile</FormText>
           <input type="hidden" onBlur={this.handleChange} name="selectedColor" value={selectedColor} id="selectedColor" />
         </FormGroup>
         <FormGroup>
-          {/* Boutons supprimer sauvegarder et nouveau chapitre */}
+          {/* Delete, Save, New chapter buttons */}
           <Button className="trash-icon" title="Supprimer l'histoire" color="danger" onClick={this.deleteChapter}>
             <FiTrash />
           </Button>

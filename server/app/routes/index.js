@@ -13,6 +13,7 @@ module.exports = (app) => {
   app.get('/profile', profile.getProfile); // my profile
   app.post('/profile/add', profile.create); // sign up
   app.post('/profile/edit/:id', profile.editProfile); // edit my profile
+  app.delete('/profile/delete', profile.deleteProfile); // delete my profile
   app.get('/pins', profile.getPins); // show the pins
   app.get('/readstories', profile.getReadStories); // show read stories
   app.get('/wrotestories', profile.getWroteStories); // show wrote srories

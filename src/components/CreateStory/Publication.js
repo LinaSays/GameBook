@@ -27,7 +27,7 @@ const Publication = ({ sendStory }) => {
       <Row>
         <Col sm="6">
           <Card body>
-            {/* Statut de publication - Switch bouton */}
+            {/* Publication status - Switch bouton */}
             <CardTitle>Statut de publication</CardTitle>
             <CardText>
               Ici vous allez choisir si votre histoire est publiée et
@@ -46,7 +46,7 @@ const Publication = ({ sendStory }) => {
           </Card>
         </Col>
         <Col sm="6">
-          {/* Boite - J'ai fini avec bouton */}
+          {/* Window - Finished */}
           <Card body>
             <CardTitle>Temps de prendre une pause ou de boucler le livre !</CardTitle>
             <CardText>

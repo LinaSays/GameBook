@@ -58,7 +58,6 @@ module.exports = {
     });
   },
 
-
   connect: (req, res) => {
     const { email, password, connection } = req.body;
     const query = 'SELECT user.id, user.password FROM user WHERE user.email=?';
@@ -196,6 +195,25 @@ module.exports = {
         db.query(query, params, (err1, result) => {
           if (err1) throw err1;
           res.send(result);
+        });
+      }
+    });
+  },
+
+  deleteProfile: (req, res) => {
+    const { token } = req.cookies;
+    jwt.verify(token, secret, (err, decoded) => {
+      if (err) {
+        res.status(401).send('Unauthorized: Invalid token');
+      }
+      else {
+        const user_id = decoded.user;
+        const query = 'DELETE FROM user WHERE user.id=?';
+        const params = [user_id];
+        // execute query
+        db.query(query, params, (err1, result) => {
+          if (err1) throw err1;
+          res.redirect('/');
         });
       }
     });

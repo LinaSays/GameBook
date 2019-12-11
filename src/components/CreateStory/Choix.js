@@ -28,7 +28,7 @@ const Choix = ({
   return (
     <>
       <div className="choices-column">
-        {/* Préparez les choix disponibles pour le lecteur */}
+        {/* Prepare the available choices for reader */}
         <FormGroup className="numberChoices">
           <Label for="numberChoicesSelect">Nombre de choix de décisions (0 à 3)</Label>
           {/* <ListGroup>
@@ -39,7 +39,7 @@ const Choix = ({
         <hr className="separation" />
         <FormGroup>
           <FormGroup className="choices">
-            {/* Choix 1 */}
+            {/* Choice 1 */}
             <Label for="choice1" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 1</Label>
             <Button className="save-choice" title="Sauver le choix" color="success" onClick={sendNewChoice(1)}><FiSave /></Button>
             <Button className="delete-choice" title="Supprimer le choix" color="danger">
@@ -59,7 +59,7 @@ const Choix = ({
           </FormGroup>
           <hr />
           <FormGroup className="choices">
-            {/* Choix 2 */}
+            {/* Choice 2 */}
             <Label for="choice2" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 2</Label>
             <Button className="save-choice" title="Sauver le choix" color="success" onClick={sendNewChoice(2)}><FiSave /></Button>
             <Button className="delete-choice" title="Supprimer le choix" color="danger">
@@ -79,7 +79,7 @@ const Choix = ({
           </FormGroup>
           <hr />
           <FormGroup className="choices">
-            {/* Choix 3 */}
+            {/* Choice 3 */}
             <Label for="choice3" className="choices-label"><FiGitCommit className="choices-icon" /> Choix 3</Label>
             <Button className="save-choice" title="Sauver le choix" color="success" onClick={sendNewChoice(3)}><FiSave /></Button>
             <Button className="delete-choice" title="Supprimer le choix" color="danger">

@@ -21,6 +21,8 @@ export const GET_READ_STORIES = 'GET_READ_STORIES';
 const SHOW_READ_STORIES = 'SHOW_READ_STORIES';
 export const GET_WROTE_STORIES = 'GET_WROTE_STORIES';
 const SHOW_WROTE_STORIES = 'SHOW_WROTE_STORIES';
+export const DELETE_PROFILE = 'DELETE_PROFILE';
+const DELETE_PROFILE_FROM_DB = 'DELETE_PROFILE_FROM_DB';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -49,6 +51,10 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         wrote: action.wrote,
+      };
+    case DELETE_PROFILE_FROM_DB:
+      return {
+        ...state,
       };
     default:
       return state;
@@ -96,6 +102,14 @@ export const showWroteStories = (wrote) => ({
 
 export const getWroteStories = () => ({
   type: GET_WROTE_STORIES,
+});
+
+export const deleteProfileFromDB = () => ({
+  type: DELETE_PROFILE_FROM_DB,
+});
+
+export const deleteProfile = () => ({
+  type: DELETE_PROFILE,
 });
 
 // == Selectors
