@@ -2,11 +2,12 @@
 import React from 'react';
 import {
   Button, Form, FormGroup, Label, Input,
-  FormText, CustomInput,
+  FormText,
 }
   from 'reactstrap';
 import { FiTrash, FiEdit3 } from 'react-icons/fi';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 // == Import : local
 
@@ -49,8 +50,29 @@ class Couverture extends React.Component {
     findStoryToEdit(storyId);
   };
 
+  upload = (widget) => {
+    widget.open();
+  }
+
+  getUrl = (url) => {
+    document.getElementById('customCover').type = 'text';
+    document.getElementById('customCover').focus();
+    document.getElementById('customCover').value = url;
+    document.getElementById('customCover').blur();
+    document.getElementById('customCover').type = 'hidden';
+  }
+
   render() {
-    const { title, summary, category } = this.props;
+    const { title, summary, category, customFile } = this.props;
+    const widget = window.cloudinary.createUploadWidget({
+      cloudName: 'gamebook',
+      uploadPreset: 'vdwhzsak'}, (error, result) => { 
+      if (!error && result && result.event === 'success') {
+        const { url } = result.info;
+        this.getUrl(url);
+        toast.success('L\'image a été bien chargée');
+      }
+    });
     return (
       <Form>
         <FormGroup>
@@ -77,9 +99,10 @@ class Couverture extends React.Component {
         </FormGroup>
         <FormGroup>
           {/* Choix de la couverture */}
-          <Label for="customCover">Sélectionnez une image de couverture</Label>
-          <CustomInput type="file" name="customFile" id="customCover" label="format .jpg ou .png" />
+          <Label for="customCover">Sélectionnez une image de couverture : </Label>
+          <Button id="upload_widget" className="cloudinary-button" color="info" onClick={() => this.upload(widget)}>Charger une image</Button>
           <FormText>C'est comme la jaquette de votre livre.</FormText>
+          <input type="hidden" onBlur={this.handleChange} name="customFile" id="customCover" value={customFile} />
         </FormGroup>
         <FormGroup>
           {/* Boutons supprimer, mettre à jour et commencer */}
@@ -99,7 +122,7 @@ class Couverture extends React.Component {
               <FiEdit3 /> Commencer
             </Button>
           </div>
-          <Button className="trash-icon-mobile" title="Supprimer l'histoire" color="danger">
+          <Button className="trash-icon-mobile" title="Supprimer l'histoire" color="danger" onClick={this.deleteStory}>
             <FiTrash />
           </Button>
         </FormGroup>
@@ -112,6 +135,7 @@ Couverture.propTypes = {
   changeValue: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
+  customFile: PropTypes.string.isRequired,
   getCategory: PropTypes.func.isRequired,
   category: PropTypes.array.isRequired,
   createNewStory: PropTypes.func.isRequired,

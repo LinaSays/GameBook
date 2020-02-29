@@ -31,7 +31,7 @@ module.exports = {
   createStory: (req, res) => {
     const { token } = req.cookies;
     const {
-      title, summary, select, customFile,
+      title, summary, select, customFile
     } = req.body;
     const published = 0;
     jwt.verify(token, secret, (err, decoded) => {
@@ -44,8 +44,8 @@ module.exports = {
           try {
             const author_id = decoded.user;
             // execute query 1 
-            let query = 'INSERT INTO story (title, description, published, author_id) VALUES (?, ?, ?, ?)';
-            const params = [title, summary, published, author_id];
+            let query = 'INSERT INTO story (title, description, published, author_id, image) VALUES (?, ?, ?, ?, ?)';
+            const params = [title, summary, published, author_id, customFile];
             db.query(query, params, (err1, result) => {
               if (err1) throw err1;
               const storyId = result.insertId;

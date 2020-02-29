@@ -58,7 +58,7 @@ const Signup = ({
           </div>
 
           <div>
-            <input type="checkbox" name="condition" id="condition" required /> <a className="signup-left-label" href="/terms">Accepter les conditions d'utilisation</a>
+            <input type="checkbox" name="condition" id="condition" required /> <a className="signup-left-label" href="/terms" target="_blank">Accepter les conditions d'utilisation</a>
           </div>
           <button type="submit" className="signup-left-button">S'inscrire</button>
           <div className="signup-right">

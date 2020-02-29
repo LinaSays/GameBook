@@ -2,6 +2,7 @@
 const initialState = {
   title: '',
   summary: '',
+  customFile: '',
   select: 1,
   recap: '',
   text: '',

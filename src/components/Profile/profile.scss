@@ -139,6 +139,8 @@
       margin: 0;
       text-align: center;
       font-size: 1.3rem;
+      text-decoration: none !important;
+      color: #292f42;
     }
 
     &-buttons {
@@ -225,7 +227,6 @@
     }
 
     &-title {
-      font-size: 1.8rem;
       margin-top: 1rem;
     }
 

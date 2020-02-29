@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 
 
 // Start on :3000
-app.listen(3000);
+app.listen(process.env.SERVER_PORT || 3000);
 
 // importing route
 const routes = require('./app/routes');

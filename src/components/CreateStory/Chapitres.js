@@ -6,6 +6,7 @@ import {
 import { CirclePicker } from 'react-color';
 import { FiTrash, FiEdit3 } from 'react-icons/fi';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 // == Import : local
 import Choix from './Choix';
@@ -20,6 +21,7 @@ class Chapitres extends React.Component {
   handleChange = (event) => {
     const { changeValue } = this.props;
     const { name, value } = event.target;
+    console.log(name, value);
     changeValue(name, value);
   };
 
@@ -65,10 +67,31 @@ class Chapitres extends React.Component {
     document.getElementsByName('selectChapter')[0].selectedOptions[0].text = summary;
   };
 
+  upload = (widget) => {
+    widget.open();
+  }
+
+  getUrl = (url) => {
+    document.getElementById('customChapter').type = 'text';
+    document.getElementById('customChapter').focus();
+    document.getElementById('customChapter').value = url;
+    document.getElementById('customChapter').blur();
+    document.getElementById('customChapter').type = 'hidden';
+  }
+
   render() {
     const {
-      changeValue, recap, text, title, choice1, choice2, choice3, selectedColor, chapters, sendChoice,
+      changeValue, recap, text, title, choice1, choice2, choice3, selectedColor, chapters, sendChoice, customFile,
     } = this.props;
+    const widget = window.cloudinary.createUploadWidget({
+      cloudName: 'gamebook',
+      uploadPreset: 'vdwhzsak'}, (error, result) => { 
+      if (!error && result && result.event === 'success') {
+        const { url } = result.info;
+        this.getUrl(url);
+        toast.success('L\'image a été bien chargée');
+      }
+    });
     return (
       <Form id="formidable">
         {/* Content of Tabs 2 - chapters */}
@@ -104,8 +127,9 @@ class Chapitres extends React.Component {
         <FormGroup>
           {/* Back image */}
           <Label for="customImage">Sélectionnez une image de fond</Label>
-          <CustomInput type="file" name="customFile" id="customImage" label="format .jpg ou .png" />
+          <Button id="upload_widget" className="cloudinary-button" color="info" onClick={() => this.upload(widget)}>Charger une image</Button>
           <FormText>Une image de fond pour illustrer votre page/chapitre.</FormText>
+          <input type="hidden" onBlur={this.handleChange} name="customFile" id="customChapter" value={customFile} />
         </FormGroup>
         <FormGroup>
           {/* Back color */}
@@ -141,6 +165,7 @@ Chapitres.propTypes = {
   title: PropTypes.string.isRequired,
   recap: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  customFile: PropTypes.string.isRequired,
   choice1: PropTypes.string,
   choice2: PropTypes.string,
   choice3: PropTypes.string,

@@ -27,6 +27,7 @@ const CreateStory = ({
   changeValue,
   title,
   summary,
+  customFile,
   createNewStory,
   recap,
   text,
@@ -110,6 +111,7 @@ const CreateStory = ({
                   changeValue={changeValue}
                   title={title}
                   summary={summary}
+                  customFile={customFile}
                   createNewStory={createNewStory}
                   toggle={toggle}
                   deleteStory={deleteStory}
@@ -122,6 +124,7 @@ const CreateStory = ({
                   title={title}
                   recap={recap}
                   text={text}
+                  customFile={customFile}
                   choice1={choice1}
                   choice2={choice2}
                   choice3={choice3}
@@ -150,6 +153,7 @@ CreateStory.propTypes = {
   changeValue: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
+  customFile: PropTypes.string.isRequired,
   recap: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   choice1: PropTypes.string,

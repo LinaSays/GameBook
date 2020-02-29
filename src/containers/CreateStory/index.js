@@ -24,6 +24,7 @@ import { getCategory } from 'src/store/reducer/home';
 const mapStateToProps = (state) => ({
   title: state.createStory.title,
   summary: state.createStory.summary,
+  customFile: state.createStory.customFile,
   recap: state.createStory.recap,
   select: state.createStory.select,
   text: state.createStory.text,

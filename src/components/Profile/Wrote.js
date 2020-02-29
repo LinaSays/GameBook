@@ -1,6 +1,7 @@
 // == Import : npm
 import React, { useState } from 'react';
 import { CardDeck, Card, Modal, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -27,7 +28,7 @@ const Wrote = ({
         <Card className="menu-story">
           <Card.Img variant="top" className="menu-story-image" src={image} />
           <Card.Body className="menu-story-written">
-            <h2 className="menu-story-title">{title}</h2>
+            <Link to={`/story/${id}`} className="menu-story-title"> {title} </Link>
             <div className={`menu-story-buttons ${id}`}>
               <button type="button" className={`menu-story-delete ${id}`} onClick={handleShow}>Supprimer</button>
               <button type="button" className={`menu-story-modify ${id}`}>Modifier</button>

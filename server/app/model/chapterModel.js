@@ -22,10 +22,10 @@ module.exports = {
   },
 
   createChapter: (req, res) => {
-    const { text, recap, selectedColor } = req.body;
+    const { text, recap, customFile, selectedColor } = req.body;
     const story_id = req.params.id;
-    const query = 'INSERT INTO situation (text, recap, color, story_id) VALUES (?,?,?,?)';
-    const params = [text, recap, selectedColor, story_id];
+    const query = 'INSERT INTO situation (text, recap, image, color, story_id) VALUES (?,?,?,?,?)';
+    const params = [text, recap, customFile, selectedColor, story_id];
     // execute query
     db.query(query, params, (err, result) => {
       if (err) throw err;

@@ -103,14 +103,14 @@ async function sendPublishedStory(store, id) {
 async function newStory(store) {
   try {
     const state = store.getState();
-    const { title, summary, select } = state.createStory;
+    const { title, summary, select, customFile } = state.createStory;
     if (title.length <= 0 && summary.length <= 5) {
       toast.error('Veuillez saisir un titre ou un résumé');
     }
     else {
       axios.defaults.withCredentials = true;
       const response = await axios.post(`${API_URI}/story/add`, {
-        title, summary, select,
+        title, summary, select, customFile,
       });
       const save = saveNewStory(response.data);
       store.dispatch(save);
@@ -154,7 +154,7 @@ async function editStory(store, id) {
 async function newChapter(store) {
   try {
     const state = store.getState();
-    const { recap, text, selectedColor } = state.createStory;
+    const { recap, text, customFile, selectedColor } = state.createStory;
     const id = sessionStorage.getItem('story');
     if (recap.length === 0) {
       toast.error('Veuillez saisir un résumé de chapitre');
@@ -162,7 +162,7 @@ async function newChapter(store) {
     else {
       axios.defaults.withCredentials = true;
       const response = await axios.post(`${API_URI}/story/${id}/chapter/add`, {
-        recap, text, selectedColor,
+        recap, text, customFile, selectedColor,
       });
       const save = showChapter(response.data);
       store.dispatch(save);
