@@ -32,7 +32,6 @@ class Profile extends React.Component {
       pins,
       read,
       wrote,
-      deleteStory,
     } = this.props;
     const notpublished = wrote.filter((story) => (story.published === 0));
     const published = wrote.filter((story) => (story.published === 1));
@@ -56,8 +55,8 @@ class Profile extends React.Component {
             <Menu />
             <div className="sorted-stories">
               <NavLink exact to="/profile/created" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Tout</NavLink>
-              <NavLink to="/profile/created/1" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Publiés</NavLink>
-              <NavLink to="/profile/created/2" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Non publiés</NavLink>
+              <NavLink to="/profile/created/1" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Publiées</NavLink>
+              <NavLink to="/profile/created/2" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Non publiées</NavLink>
             </div>
             {wrote.map((item) => (
               <Wrote key={item.image} {...item} {...this.props} />
@@ -73,8 +72,8 @@ class Profile extends React.Component {
             <Menu />
             <div className="sorted-stories">
               <NavLink exact to="/profile/created" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Tout</NavLink>
-              <NavLink to="/profile/created/1" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Publiés</NavLink>
-              <NavLink to="/profile/created/2" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Non publiés</NavLink>
+              <NavLink to="/profile/created/1" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Publiées</NavLink>
+              <NavLink to="/profile/created/2" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Non publiées</NavLink>
             </div>
             {published.map((item) => (
               <Wrote key={item.image} {...item} {...this.props} />
@@ -90,8 +89,8 @@ class Profile extends React.Component {
             <Menu />
             <div className="sorted-stories">
               <NavLink exact to="/profile/created" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Tout</NavLink>
-              <NavLink to="/profile/created/1" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Publiés</NavLink>
-              <NavLink to="/profile/created/2" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Non publiés</NavLink>
+              <NavLink to="/profile/created/1" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Publiées</NavLink>
+              <NavLink to="/profile/created/2" className="sorted-stories-link" activeClassName="sorted-stories-link-selected">Non publiées</NavLink>
             </div>
             {notpublished.map((item) => (
               <Wrote key={item.image} {...item} {...this.props} />

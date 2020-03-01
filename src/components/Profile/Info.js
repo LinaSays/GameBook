@@ -18,7 +18,7 @@ const Info = ({ name, avatar, role }) => {
       <div className="header-profile">
         <img src={avatar} alt="" className="header-profile-avatar" />
         <div className="write-story-desktop-wrapper">
-          {role === 'author' && (
+          {role === 'auteur' && (
             <button type="button" className="write-story-desktop-wrapper-icon">
               <Link to="/createstory" id="DisabledAutoHideExample" className="link-svg"><GiBlackBook /></Link>
               <Tooltip placement="top" isOpen={tooltipOpen} autohide={false} target="DisabledAutoHideExample" toggle={toggle}>
@@ -33,7 +33,7 @@ const Info = ({ name, avatar, role }) => {
         </div>
       </div>
       <div className="wrapper-button">
-        {role === 'author' && <button type="button" className="button-createstory" variant="warning"><Link to="/createstory" className="button-createstory-text">Ecrire une histoire</Link></button>}
+        {role === 'auteur' && <button type="button" className="button-createstory" variant="warning"><Link to="/createstory" className="button-createstory-text">Ecrire une histoire</Link></button>}
       </div>
     </>
   );

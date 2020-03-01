@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 // == Composant
 const Presentation = ({ isConnected }) => (
   <Col sm={12} md={6} lg={3}>
-    <h4 className="footer-logo">GAMEBook</h4>
+    <h4 className="footer-logo">GameBook</h4>
     <p className="footer-text">Bienvenue chez Gamebook. Fini la lecture avec une seule fin possible. Place à l’interaction ! Faites les bons choix pour faire avancer l'histoire ou votre personnage, en bref devenez le héros.</p>
 
     { isConnected && (

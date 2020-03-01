@@ -12,6 +12,8 @@ import {
   showWroteStories,
   DELETE_PROFILE,
   deleteProfileFromDB,
+  EDIT_PROFILE,
+  editProfileFromDB,
 } from 'src/store/reducer/profile';
 import { CONNECT_USER, saveUser, CREATE_USER, saveNewUser } from 'src/store/reducer/signin';
 
@@ -140,6 +142,25 @@ const profileMiddleware = (store) => (next) => (action) => {
         .finally(() => {
           document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
           document.location.href = '/';
+        });
+      break;
+    }
+    case EDIT_PROFILE: {
+      const state = store.getState();
+      axios.defaults.withCredentials = true;
+      const { user_name, email, password, avatar } = state.profile;
+      axios.post(`${config.API_URI}/profile/edit`, {
+        user_name, email, password, avatar,
+      })
+        .then((response) => {
+          const save = editProfileFromDB(response.data);
+          store.dispatch(save);
+        })
+        .catch((error) => {
+          console.error(error);
+        })
+        .finally(() => {
+          window.location.reload();
         });
       break;
     }

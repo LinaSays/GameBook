@@ -46,7 +46,7 @@ class NavNew extends React.Component {
             isConnected ? (
               <nav className="nav-div  container">
                 <div className="nav-group">
-                  <NavLink to="/" className="nav-logo">GAMEBook</NavLink>
+                  <NavLink to="/" className="nav-logo">GameBook</NavLink>
                   <NavLink to="/profile" className="nav-group-link-cat">Mon compte</NavLink>
                   <span className="nav-group-link-cat__category">Catégories
                     <div className="nav-drop-desk-open">
@@ -84,8 +84,8 @@ class NavNew extends React.Component {
             ) : (
               <nav className="nav-div container">
                 <div className="nav-group">
-                  <NavLink to="/" className={colorLogo}><span className={colorLogo}>GAMEBook</span></NavLink>
-                  <NavLink to="/" className="nav-logo text-white desk"><span>GAMEBook</span></NavLink>
+                  <NavLink to="/" className={colorLogo}><span className={colorLogo}>GameBook</span></NavLink>
+                  <NavLink to="/" className="nav-logo text-white desk"><span>GameBook</span></NavLink>
                   <NavLink to="/" className="nav-group-link">Accueil</NavLink>
                   <NavLink to="/team" className="nav-group-link">La team</NavLink>
                   <NavLink to="/contact" className="nav-group-link">Contact</NavLink>

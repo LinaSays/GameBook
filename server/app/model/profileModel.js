@@ -130,15 +130,45 @@ module.exports = {
         res.status(401).send('Unauthorized: Invalid token');
       }
       else {
+        let query, params;
         const { user_name, email, password, avatar } = req.body;
         const user_id = decoded.user;
-        const query = 'UPDATE user SET name=?, email=?, password=?, avatar=? WHERE id=?';
-        const params = [user_name, email, password, avatar, user_id];
+        // const query = 'UPDATE user SET name=?, email=?, password=?, avatar=? WHERE id=?';
         // execute query
-        db.query(query, params, (err, result) => {
-          if (err) throw err;
-          res.redirect('/profile');
-        });
+        if (user_name !== undefined && user_name !== null && user_name !== '') {
+          query = 'UPDATE user SET name=? WHERE id=?';
+          params = [user_name, user_id];
+          db.query(query, params, (err, result) => {
+            if (err) throw err;
+          });
+        }
+
+        if (email !== undefined && email !== null && email !== '') {
+          query = 'UPDATE user SET email=? WHERE id=?';
+          params = [email, user_id];
+          db.query(query, params, (err, result) => {
+            if (err) throw err;
+          });
+        }
+
+        if (password !== undefined && password !== null && password !== '') {
+          bcrypt.hash(password, saltRounds, (err, hash) => {
+            query = 'UPDATE user SET password=? WHERE id=?';
+            params = [hash, user_id];
+            db.query(query, params, (err, result) => {
+              if (err) throw err;
+            });
+          });
+        }
+
+        if (avatar !== undefined && avatar !== null && avatar !== '') {
+          query = 'UPDATE user SET avatar=? WHERE id=?';
+          params = [avatar, user_id];
+          db.query(query, params, (err, result) => {
+            if (err) throw err;
+          });
+        }
+        res.redirect('/profile');
       }
     });
   },

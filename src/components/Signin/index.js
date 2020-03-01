@@ -26,7 +26,7 @@ const Signin = ({
       <div className="testing">
         <div className="signin-left-desktop">
           <img src={logo} alt="" width="80" height="80" className="signup-right-logo" />
-          <h2 className="signin-left-title text-white">GAMEBook</h2>
+          <h2 className="signin-left-title text-white">GameBook</h2>
           <img
             className="signin-left-img"
             alt=""
@@ -35,7 +35,7 @@ const Signin = ({
           <Link to="/signup" className="signin-right-link">Créer un compte</Link>
         </div>
         <form className="signin-right" onSubmit={handleSubmit}>
-          <h2 className="signin-right-title">GAMEBook</h2>
+          <h2 className="signin-right-title">GameBook</h2>
           <h3 className="signin-right-subtitle">Accéder à votre compte</h3>
           <div className="signin-right-field">
             {/* <i className="fas fa-envelope signin-right-field-img" /> */}

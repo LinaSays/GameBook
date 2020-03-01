@@ -71,7 +71,7 @@ class Couverture extends React.Component {
       if (!error && result && result.event === 'success') {
         const { url } = result.info;
         this.getUrl(url);
-        toast.success('L\'image a été bien chargée');
+        toast.success('L\'image a bien été chargée');
       }
     });
     return (

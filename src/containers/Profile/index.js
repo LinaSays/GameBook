@@ -12,6 +12,7 @@ import {
   getWroteStories,
   changeInput,
   deleteProfile,
+  editProfile,
 } from 'src/store/reducer/profile';
 import { deleteStory } from 'src/store/reducer/createStory';
 
@@ -54,6 +55,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   deleteProfile: (id) => {
     const action = deleteProfile(id);
+    dispatch(action);
+  },
+  editProfile: () => {
+    const action = editProfile();
     dispatch(action);
   },
 });
