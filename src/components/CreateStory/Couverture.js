@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 
 // == Import : local
+import config from '../../../config';
 
 // == Composant
 class Couverture extends React.Component {
@@ -30,7 +31,7 @@ class Couverture extends React.Component {
     createNewStory();
     const titleText = document.getElementById('storyTitle').value;
     const summaryText = document.getElementById('summaryText').value;
-    if (titleText.length > 0 && summaryText.length > 5) {
+    if (titleText.length > 0 && summaryText.length >= 3) {
       toggle('2');
     }
   };
@@ -65,8 +66,8 @@ class Couverture extends React.Component {
   render() {
     const { title, summary, category, customFile } = this.props;
     const widget = window.cloudinary.createUploadWidget({
-      cloudName: 'gamebook',
-      uploadPreset: 'vdwhzsak'}, (error, result) => { 
+      cloudName: config.cloudName,
+      uploadPreset: config.uploadPreset }, (error, result) => { 
       if (!error && result && result.event === 'success') {
         const { url } = result.info;
         this.getUrl(url);

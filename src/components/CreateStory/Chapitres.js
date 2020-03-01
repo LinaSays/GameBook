@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 
 // == Import : local
 import Choix from './Choix';
+import config from '../../../config';
 
 // == Composant
 class Chapitres extends React.Component {
@@ -84,8 +85,8 @@ class Chapitres extends React.Component {
       changeValue, recap, text, title, choice1, choice2, choice3, selectedColor, chapters, sendChoice, customFile,
     } = this.props;
     const widget = window.cloudinary.createUploadWidget({
-      cloudName: 'gamebook',
-      uploadPreset: 'vdwhzsak'}, (error, result) => { 
+      cloudName: config.cloudName,
+      uploadPreset: config.uploadPreset }, (error, result) => { 
       if (!error && result && result.event === 'success') {
         const { url } = result.info;
         this.getUrl(url);

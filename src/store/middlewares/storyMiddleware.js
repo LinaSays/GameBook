@@ -33,12 +33,12 @@ import {
   updateChapter,
 } from 'src/store/reducer/createStory';
 
-const API_URI = 'http://localhost:3000';
+import config from '../../../config';
 
 async function getStartStories(store) {
   try {
     axios.defaults.withCredentials = true;
-    const response = await axios.get(`${API_URI}${window.location.pathname}`);
+    const response = await axios.get(`${config.API_URI}${window.location.pathname}`);
     const save = showStartStories(
       response.data[0].id,
       response.data[0].text,
@@ -60,7 +60,7 @@ async function getNextChapter(store, id) {
   }
   else try {
     axios.defaults.withCredentials = true;
-    const response = await axios.get(`${API_URI}/chapter/${id}`);
+    const response = await axios.get(`${config.API_URI}/chapter/${id}`);
     const save = showNextChapter(
       response.data[0].id,
       response.data[0].text,
@@ -78,7 +78,7 @@ async function getNextChapter(store, id) {
 async function getChoices(store, id) {
   try {
     axios.defaults.withCredentials = true;
-    const response = await axios.get(`${API_URI}/chapter/${id}/choices`);
+    const response = await axios.get(`${config.API_URI}/chapter/${id}/choices`);
     const save = showChoices(response.data);
     store.dispatch(save);
   }
@@ -90,7 +90,7 @@ async function getChoices(store, id) {
 async function sendPublishedStory(store, id) {
   try {
     axios.defaults.withCredentials = true;
-    const response = await axios.patch(`${API_URI}/story/${id}/publish`, { id });
+    const response = await axios.patch(`${config.API_URI}/story/${id}/publish`, { id });
     const save = publishStory(response.data);
     store.dispatch(save);
     sessionStorage.removeItem('story');
@@ -104,12 +104,12 @@ async function newStory(store) {
   try {
     const state = store.getState();
     const { title, summary, select, customFile } = state.createStory;
-    if (title.length <= 0 && summary.length <= 5) {
+    if (title.length <= 0 && summary.length <= 3) {
       toast.error('Veuillez saisir un titre ou un résumé');
     }
     else {
       axios.defaults.withCredentials = true;
-      const response = await axios.post(`${API_URI}/story/add`, {
+      const response = await axios.post(`${config.API_URI}/story/add`, {
         title, summary, select, customFile,
       });
       const save = saveNewStory(response.data);
@@ -125,7 +125,7 @@ async function newStory(store) {
 async function deleteStory(store, id) {
   try {
     axios.defaults.withCredentials = true;
-    const response = await axios.delete(`${API_URI}/story/delete`, { data: { id } });
+    const response = await axios.delete(`${config.API_URI}/story/delete`, { data: { id } });
     const save = deleteStoryFromDB(response.data);
     store.dispatch(save);
     sessionStorage.removeItem('story');
@@ -140,7 +140,7 @@ async function editStory(store, id) {
     const state = store.getState();
     const { title, summary, select } = state.createStory;
     axios.defaults.withCredentials = true;
-    const response = await axios.patch(`${API_URI}/story/edit`, {
+    const response = await axios.patch(`${config.API_URI}/story/edit`, {
       id, title, summary, select,
     });
     const save = updateStory(response.data);
@@ -161,7 +161,7 @@ async function newChapter(store) {
     }
     else {
       axios.defaults.withCredentials = true;
-      const response = await axios.post(`${API_URI}/story/${id}/chapter/add`, {
+      const response = await axios.post(`${config.API_URI}/story/${id}/chapter/add`, {
         recap, text, customFile, selectedColor,
       });
       const save = showChapter(response.data);
@@ -177,7 +177,7 @@ async function getAllChapters(store) {
   try {
     const id = sessionStorage.getItem('story');
     axios.defaults.withCredentials = true;
-    const response = await axios.get(`${API_URI}/story/${id}/chapters`);
+    const response = await axios.get(`${config.API_URI}/story/${id}/chapters`);
     const save = showAllChapters(response.data);
     store.dispatch(save);
   }
@@ -189,7 +189,7 @@ async function getAllChapters(store) {
 async function getSelectedChapter(store, id) {
   try {
     axios.defaults.withCredentials = true;
-    const response = await axios.get(`${API_URI}/chapter/${id}`);
+    const response = await axios.get(`${config.API_URI}/chapter/${id}`);
     const save = showSelectedChapter(
       response.data[0].recap,
       response.data[0].text,
@@ -208,7 +208,7 @@ async function newChoice(store, id) {
     const id_situation_child = document.getElementsByName(`destination${id}`)[0].value;
     const text = document.getElementsByName(`choice${id}`)[0].value;
     axios.defaults.withCredentials = true;
-    const response = await axios.post(`${API_URI}/choice/add`, {
+    const response = await axios.post(`${config.API_URI}/choice/add`, {
       text, id_situation_parent, id_situation_child,
     });
     const save = showChoice(response.data);
@@ -222,7 +222,7 @@ async function newChoice(store, id) {
 async function deleteChapter(store, id) {
   try {
     axios.defaults.withCredentials = true;
-    const response = await axios.delete(`${API_URI}/chapter/delete`, { data: { id } });
+    const response = await axios.delete(`${config.API_URI}/chapter/delete`, { data: { id } });
     const save = deleteChapterFromDB(response.data);
     store.dispatch(save);
   }
@@ -236,7 +236,7 @@ async function editChapter(store, id) {
     const state = store.getState();
     const { recap, text, selectedColor } = state.createStory;
     axios.defaults.withCredentials = true;
-    const response = await axios.patch(`${API_URI}/chapter/edit`, {
+    const response = await axios.patch(`${config.API_URI}/chapter/edit`, {
       recap, text, selectedColor, id,
     });
     const save = updateChapter(response.data);

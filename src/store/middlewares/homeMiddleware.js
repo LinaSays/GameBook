@@ -5,12 +5,12 @@ import {
 } from 'src/store/reducer/home';
 import { GET_HOME, showHome, loading } from 'src/store/reducer/signin';
 
-const API_URI = 'http://localhost:3000';
+import config from '../../../config';
 
 const homeMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_STORIES: {
-      axios.get(API_URI)
+      axios.get(config.API_URI)
         .then((response) => {
           const save = showStories(response.data);
           store.dispatch(save);
@@ -21,7 +21,7 @@ const homeMiddleware = (store) => (next) => (action) => {
       break;
     }
     case GET_CATEGORIES: {
-      axios.get(`${API_URI}/categories`)
+      axios.get(`${config.API_URI}/categories`)
         .then((response) => {
           const save = showCategory(response.data);
           store.dispatch(save);
@@ -33,7 +33,7 @@ const homeMiddleware = (store) => (next) => (action) => {
     }
     case GET_CATEGORY_STORIES: {
       axios.defaults.withCredentials = true;
-      axios.get(`${API_URI}${window.location.pathname}`)
+      axios.get(`${config.API_URI}${window.location.pathname}`)
         .then((response) => {
           const save = showCategoryStories(response.data);
           store.dispatch(save);
@@ -45,7 +45,7 @@ const homeMiddleware = (store) => (next) => (action) => {
     }
     case GET_HOME: {
       axios.defaults.withCredentials = true;
-      axios.get(`${API_URI}/checkToken`)
+      axios.get(`${config.API_URI}/checkToken`)
         .then((res) => {
           const save = showHome(res.data);
           store.dispatch(save);
